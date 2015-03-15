@@ -1,0 +1,16 @@
+[
+{
+  "modid": "creativeconcoctions",
+  "name": "CreativeConcoctions",
+  "description": "A brewing overhaul.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "http://tehnut.info/jenkins/",
+  "authorList": [ "Tombenpotter", "TehNut", "chbachman" ],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
