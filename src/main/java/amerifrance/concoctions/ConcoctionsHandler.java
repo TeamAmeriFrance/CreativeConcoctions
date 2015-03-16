@@ -10,6 +10,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 
+import java.util.Iterator;
+
 public class ConcoctionsHandler {
 
     @SubscribeEvent
@@ -24,12 +26,15 @@ public class ConcoctionsHandler {
         EntityLivingBase entityLivingBase = event.entityLiving;
         if (LivingConcoctions.get(entityLivingBase) != null) {
             if (LivingConcoctions.getActiveConcotions(entityLivingBase) != null && !LivingConcoctions.getActiveConcotions(entityLivingBase).isEmpty()) {
-                for (ConcoctionWrapper wrapper : LivingConcoctions.getActiveConcotions(entityLivingBase)) {
+                Iterator iterator = LivingConcoctions.getActiveConcotions(entityLivingBase).iterator();
+                while (iterator.hasNext()) {
+                    ConcoctionWrapper wrapper = (ConcoctionWrapper) iterator.next();
                     if (wrapper.getTicksLeft() > 0) {
                         wrapper.onUpdate(entityLivingBase);
                         wrapper.decrementTicksLeft();
                     } else {
-                        ConcoctionsHelper.removeConcoction(entityLivingBase, wrapper);
+                        wrapper.onRemoved(entityLivingBase);
+                        iterator.remove();
                     }
                 }
             }

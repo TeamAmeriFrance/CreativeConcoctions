@@ -72,6 +72,10 @@ public class ConcoctionWrapper {
         ticksLeft--;
     }
 
+    public ConcoctionWrapper setTicksLeft(int ticksLeft) {
+        return new ConcoctionWrapper(concoction, concoctionLevel, ticksLeft, initialDuration);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

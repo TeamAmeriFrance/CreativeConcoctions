@@ -9,6 +9,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
 import net.minecraftforge.common.util.Constants;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class LivingConcoctions implements IExtendedEntityProperties {
@@ -36,7 +37,9 @@ public class LivingConcoctions implements IExtendedEntityProperties {
     public void saveNBTData(NBTTagCompound compound) {
         if (!activeConcoctions.isEmpty()) {
             NBTTagList tagList = new NBTTagList();
-            for (ConcoctionWrapper wrapper : activeConcoctions) {
+            Iterator iterator = activeConcoctions.iterator();
+            while (iterator.hasNext()) {
+                ConcoctionWrapper wrapper = (ConcoctionWrapper) iterator.next();
                 if (wrapper != null) {
                     NBTTagCompound tagCompound = new NBTTagCompound();
                     tagList.appendTag(wrapper.writeToNBT(tagCompound));
@@ -65,8 +68,6 @@ public class LivingConcoctions implements IExtendedEntityProperties {
     }
 
     public LinkedList<ConcoctionWrapper> getActiveConcoctions() {
-        synchronized (activeConcoctions) {
-            return activeConcoctions;
-        }
+        return activeConcoctions;
     }
 }

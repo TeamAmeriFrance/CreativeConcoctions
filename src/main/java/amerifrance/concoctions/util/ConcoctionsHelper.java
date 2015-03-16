@@ -4,6 +4,7 @@ import amerifrance.concoctions.objects.Concoction;
 import amerifrance.concoctions.objects.ConcoctionWrapper;
 import net.minecraft.entity.EntityLivingBase;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class ConcoctionsHelper {
@@ -26,21 +27,21 @@ public class ConcoctionsHelper {
     }
 
     public static void removeConcoction(EntityLivingBase entityLivingBase, ConcoctionWrapper wrapper) {
-        wrapper.getConcoction().onEffectRemoved(entityLivingBase, wrapper);
         if (LivingConcoctions.get(entityLivingBase) != null && !LivingConcoctions.getActiveConcotions(entityLivingBase).isEmpty()) {
             if (LivingConcoctions.getActiveConcotions(entityLivingBase).contains(wrapper)) {
-                wrapper.onRemoved(entityLivingBase);
-                LivingConcoctions.getActiveConcotions(entityLivingBase).remove(wrapper);
+                int index = LivingConcoctions.getActiveConcotions(entityLivingBase).indexOf(wrapper);
+                ConcoctionWrapper remove = LivingConcoctions.getActiveConcotions(entityLivingBase).get(index).setTicksLeft(0);
+                LivingConcoctions.getActiveConcotions(entityLivingBase).set(index, remove);
             }
         }
     }
 
     public static ConcoctionWrapper getActiveConcoctionWrapper(EntityLivingBase entityLivingBase, Concoction concoction) {
         if (LivingConcoctions.get(entityLivingBase) != null && !LivingConcoctions.getActiveConcotions(entityLivingBase).isEmpty()) {
-            for (ConcoctionWrapper wrapper : LivingConcoctions.getActiveConcotions(entityLivingBase)) {
-                if (wrapper.getConcoction().equals(concoction)) {
-                    return wrapper;
-                }
+            Iterator iterator = LivingConcoctions.getActiveConcotions(entityLivingBase).iterator();
+            while (iterator.hasNext()) {
+                ConcoctionWrapper wrapper = (ConcoctionWrapper) iterator.next();
+                if (wrapper.getConcoction().equals(concoction)) return wrapper;
             }
         }
         return null;
