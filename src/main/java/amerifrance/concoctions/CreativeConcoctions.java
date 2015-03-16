@@ -1,6 +1,7 @@
 package amerifrance.concoctions;
 
 import amerifrance.concoctions.proxies.CommonProxy;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -10,6 +11,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
 
 import java.io.File;
 
@@ -32,8 +34,12 @@ public class CreativeConcoctions {
     public static CreativeConcoctions instance;
     @SidedProxy(clientSide = ModInformation.CLIENTPROXY, serverSide = ModInformation.COMMONPROXY)
     public static CommonProxy proxy;
-    
+
     private static File configDir;
+
+    public static File getConfigDir() {
+        return configDir;
+    }
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -43,15 +49,12 @@ public class CreativeConcoctions {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-
+        MinecraftForge.EVENT_BUS.register(new ConcoctionsHandler());
+        FMLCommonHandler.instance().bus().register(new ConcoctionsHandler());
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
 
-    }
-
-    public static File getConfigDir() {
-        return configDir;
     }
 }
