@@ -26,9 +26,9 @@ public class ConcoctionsHandler {
         EntityLivingBase entityLivingBase = event.entityLiving;
         if (LivingConcoctions.get(entityLivingBase) != null) {
             if (LivingConcoctions.getActiveConcotions(entityLivingBase) != null && !LivingConcoctions.getActiveConcotions(entityLivingBase).isEmpty()) {
-                Iterator iterator = LivingConcoctions.getActiveConcotions(entityLivingBase).iterator();
+                Iterator<ConcoctionWrapper> iterator = LivingConcoctions.getActiveConcotions(entityLivingBase).iterator();
                 while (iterator.hasNext()) {
-                    ConcoctionWrapper wrapper = (ConcoctionWrapper) iterator.next();
+                    ConcoctionWrapper wrapper = iterator.next();
                     if (wrapper.getTicksLeft() > 0) {
                         wrapper.onUpdate(entityLivingBase);
                         wrapper.decrementTicksLeft();

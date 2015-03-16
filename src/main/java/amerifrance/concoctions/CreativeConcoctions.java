@@ -1,6 +1,8 @@
 package amerifrance.concoctions;
 
 import amerifrance.concoctions.proxies.CommonProxy;
+import amerifrance.concoctions.test.TestConcoction;
+import amerifrance.concoctions.util.ConcoctionsRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -51,6 +53,8 @@ public class CreativeConcoctions {
     public void init(FMLInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(new ConcoctionsHandler());
         FMLCommonHandler.instance().bus().register(new ConcoctionsHandler());
+
+        ConcoctionsRegistry.registerConcoction(TestConcoction.class, "TestConcoction");
     }
 
     @Mod.EventHandler

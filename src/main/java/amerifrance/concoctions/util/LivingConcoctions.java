@@ -37,9 +37,9 @@ public class LivingConcoctions implements IExtendedEntityProperties {
     public void saveNBTData(NBTTagCompound compound) {
         if (!activeConcoctions.isEmpty()) {
             NBTTagList tagList = new NBTTagList();
-            Iterator iterator = activeConcoctions.iterator();
+            Iterator<ConcoctionWrapper> iterator = activeConcoctions.iterator();
             while (iterator.hasNext()) {
-                ConcoctionWrapper wrapper = (ConcoctionWrapper) iterator.next();
+                ConcoctionWrapper wrapper = iterator.next();
                 if (wrapper != null) {
                     NBTTagCompound tagCompound = new NBTTagCompound();
                     tagList.appendTag(wrapper.writeToNBT(tagCompound));

@@ -1,5 +1,6 @@
 package amerifrance.concoctions.objects;
 
+import amerifrance.concoctions.util.ConcoctionsRegistry;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
 
@@ -11,6 +12,9 @@ public class Concoction {
     public int maximumLevel;
     public Color concoctionColor;
     private ConcotionType concotionType;
+
+    private Concoction() {
+    }
 
     public Concoction(String concoctionName, int maximumLevel, Color concoctionColor) {
         this.concoctionName = concoctionName;
@@ -31,6 +35,22 @@ public class Concoction {
         int level = tagCompound.getInteger("maximumLevel");
         Color color = new Color(tagCompound.getInteger("concoctionColor"));
         ConcotionType type = ConcotionType.valueOf(tagCompound.getString("concotionType"));
+        String id = tagCompound.getString("id");
+
+        Concoction concoction = null;
+        Class concoctionClass = ConcoctionsRegistry.getConcoctionForId(id);
+        if (concoctionClass != null) try {
+            concoction = (Concoction) concoctionClass.newInstance();
+            concoction.concoctionName = name;
+            concoction.maximumLevel = level;
+            concoction.concoctionColor = color;
+            concoction.concotionType = type;
+            return concoction;
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
         return new Concoction(name, level, color, type);
     }
 
@@ -48,6 +68,7 @@ public class Concoction {
         tagCompound.setInteger("maximumLevel", maximumLevel);
         tagCompound.setInteger("concoctionColor", concoctionColor.getRGB());
         tagCompound.setString("concotionType", concotionType.name());
+        tagCompound.setString("id", ConcoctionsRegistry.getIdForConcoction(this.getClass()));
     }
 
     public ConcotionType getConcotionType() {
