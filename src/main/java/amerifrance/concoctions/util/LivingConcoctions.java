@@ -9,28 +9,27 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
 import net.minecraftforge.common.util.Constants;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 
-public class PlayerConcoctions implements IExtendedEntityProperties {
+public class LivingConcoctions implements IExtendedEntityProperties {
 
-    public static String ID = "CreativeConcotions:ActiveConcotions";
-    private List<ConcoctionWrapper> activeConcoctions;
+    public static String ID = "activeConcotions";
+    public LinkedList<ConcoctionWrapper> activeConcoctions;
 
-    public PlayerConcoctions() {
-        activeConcoctions = new ArrayList<ConcoctionWrapper>();
+    public LivingConcoctions() {
+        activeConcoctions = new LinkedList<ConcoctionWrapper>();
     }
 
     public static void create(EntityLivingBase entityLivingBase) {
-        entityLivingBase.registerExtendedProperties(ID, new PlayerConcoctions());
+        entityLivingBase.registerExtendedProperties(ID, new LivingConcoctions());
     }
 
-    public static PlayerConcoctions get(EntityLivingBase entityLivingBase) {
-        return (PlayerConcoctions) entityLivingBase.getExtendedProperties(ID);
+    public static LivingConcoctions get(EntityLivingBase entityLivingBase) {
+        return (LivingConcoctions) entityLivingBase.getExtendedProperties(ID);
     }
 
-    public static List<ConcoctionWrapper> getActiveConcotions(EntityLivingBase entityLivingBase) {
-        return get(entityLivingBase).activeConcoctions;
+    public static LinkedList<ConcoctionWrapper> getActiveConcotions(EntityLivingBase entityLivingBase) {
+        return get(entityLivingBase).getActiveConcoctions();
     }
 
     @Override
@@ -51,21 +50,23 @@ public class PlayerConcoctions implements IExtendedEntityProperties {
     public void loadNBTData(NBTTagCompound compound) {
         NBTTagList tagList = compound.getTagList("activeConcoctions", Constants.NBT.TAG_COMPOUND);
         if (tagList != null) {
-            List<ConcoctionWrapper> list = new ArrayList<ConcoctionWrapper>();
+            activeConcoctions.clear();
             for (int i = 0; i < tagList.tagCount(); i++) {
                 NBTTagCompound tagCompound = tagList.getCompoundTagAt(i);
-                list.add(ConcoctionWrapper.readFromNBT(tagCompound));
+                ConcoctionWrapper wrapper = ConcoctionWrapper.readFromNBT(tagCompound);
+                activeConcoctions.add(wrapper);
             }
-            activeConcoctions = list;
         }
     }
 
     @Override
     public void init(Entity entity, World world) {
-        activeConcoctions = new ArrayList<ConcoctionWrapper>();
+        activeConcoctions = new LinkedList<ConcoctionWrapper>();
     }
 
-    public List<ConcoctionWrapper> getActiveConcoctions() {
-        return activeConcoctions;
+    public LinkedList<ConcoctionWrapper> getActiveConcoctions() {
+        synchronized (activeConcoctions) {
+            return activeConcoctions;
+        }
     }
 }

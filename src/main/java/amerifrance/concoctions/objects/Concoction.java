@@ -34,13 +34,13 @@ public class Concoction {
         return new Concoction(name, level, color, type);
     }
 
-    public void applyEffect(EntityLivingBase entityLivingBase, int level) {
+    public void applyEffect(EntityLivingBase entityLivingBase, ConcoctionWrapper wrapper) {
     }
 
-    public void onEffectApplied(EntityLivingBase entityLivingBase, int level) {
+    public void onEffectAdded(EntityLivingBase entityLivingBase, ConcoctionWrapper wrapper) {
     }
 
-    public void onEffectRemoved(EntityLivingBase entityLivingBase, int level) {
+    public void onEffectRemoved(EntityLivingBase entityLivingBase, ConcoctionWrapper wrapper) {
     }
 
     public void writeToNBT(NBTTagCompound tagCompound) {

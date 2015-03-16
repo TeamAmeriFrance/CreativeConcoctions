@@ -33,10 +33,15 @@ public class ConcoctionWrapper {
     }
 
     public void onUpdate(EntityLivingBase entityLivingBase) {
-        if (ticksLeft > 0) {
-            this.concoction.applyEffect(entityLivingBase, concoctionLevel);
-            ticksLeft--;
-        }
+        this.concoction.applyEffect(entityLivingBase, this);
+    }
+
+    public void onAdded(EntityLivingBase entityLivingBase) {
+        this.concoction.onEffectAdded(entityLivingBase, this);
+    }
+
+    public void onRemoved(EntityLivingBase entityLivingBase) {
+        this.concoction.onEffectRemoved(entityLivingBase, this);
     }
 
     public NBTTagCompound writeToNBT(NBTTagCompound tagCompound) {
@@ -61,6 +66,10 @@ public class ConcoctionWrapper {
 
     public int getInitialDuration() {
         return initialDuration;
+    }
+
+    public void decrementTicksLeft() {
+        ticksLeft--;
     }
 
     @Override
