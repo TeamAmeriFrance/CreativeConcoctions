@@ -16,7 +16,7 @@ public class ConcoctionsHandler {
 
     @SubscribeEvent
     public void onCreateEntity(EntityEvent.EntityConstructing event) {
-        if (!event.entity.worldObj.isRemote && event.entity instanceof EntityLivingBase && LivingConcoctions.get((EntityLivingBase) event.entity) == null) {
+        if (event.entity instanceof EntityLivingBase && LivingConcoctions.get((EntityLivingBase) event.entity) == null) {
             LivingConcoctions.create((EntityLivingBase) event.entity);
         }
     }
