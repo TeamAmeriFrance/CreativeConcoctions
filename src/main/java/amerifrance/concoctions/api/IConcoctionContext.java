@@ -25,4 +25,6 @@ public interface IConcoctionContext {
     void setTicksLeft(int ticksLeft);
 
     int getInitialDuration();
+
+    void setLevel(int level);
 }

@@ -1,4 +1,4 @@
-package amerifrance.concoctions.test;
+package amerifrance.concoctions.concoctions;
 
 import amerifrance.concoctions.objects.Concoction;
 import amerifrance.concoctions.objects.ConcoctionContext;

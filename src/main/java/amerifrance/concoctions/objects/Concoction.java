@@ -1,7 +1,7 @@
 package amerifrance.concoctions.objects;
 
 import amerifrance.concoctions.api.ConcoctionType;
-import amerifrance.concoctions.util.ConcoctionsRegistry;
+import amerifrance.concoctions.api.ConcoctionsRegistry;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
 

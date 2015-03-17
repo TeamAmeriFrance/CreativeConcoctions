@@ -81,6 +81,11 @@ public class ConcoctionContext implements IConcoctionContext {
     }
 
     @Override
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o)
             return true;

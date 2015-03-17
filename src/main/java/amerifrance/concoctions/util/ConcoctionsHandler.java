@@ -1,11 +1,9 @@
-package amerifrance.concoctions;
+package amerifrance.concoctions.util;
 
 import amerifrance.concoctions.api.IConcoctionContext;
-import amerifrance.concoctions.util.ConcoctionsHelper;
 import amerifrance.concoctions.util.LivingConcoctions;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 
@@ -22,9 +20,7 @@ public class ConcoctionsHandler {
 
     @SubscribeEvent
     public void onLivingTick(LivingEvent.LivingUpdateEvent event) {
-        if (event.entityLiving.worldObj.isRemote) {
-            return;
-        }
+        if (event.entityLiving.worldObj.isRemote) return;
 
         EntityLivingBase entityLivingBase = event.entityLiving;
         if (LivingConcoctions.get(entityLivingBase) != null) {
@@ -40,13 +36,6 @@ public class ConcoctionsHandler {
                     }
                 }
             }
-        }
-    }
-
-    @SubscribeEvent
-    public void onJump(LivingEvent.LivingJumpEvent event) {
-        if (event.entityLiving instanceof EntityPlayer && !((EntityPlayer) event.entityLiving).worldObj.isRemote) {
-            ConcoctionsHelper.addConcoction(event.entityLiving, "Concoction.Test", 1, 200);
         }
     }
 }
