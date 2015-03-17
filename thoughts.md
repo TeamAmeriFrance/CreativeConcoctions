@@ -29,9 +29,14 @@ Have an effect idea? Fill out [this](http://goo.gl/forms/FiPc7Kkyhs) form. Accep
 
 **Concoction Name** | **Ability** | **Description**
 ------------ | ------------- | -------------
-Fleet Feet | Speed | Increases user's movement speed
-Brawn | Strength | Increases user's attack damage
-Ghastly Draught | Fireballs | Allows the user to shoot fireballs
+Fleet Feet | Speed | Increases user's movement speed.
+Brawn | Strength | Increases user's attack damage.
+Ghastly Draught | Fireballs | Allows the user to shoot fireballs. 
+Luman Liquor | Human Torch | Creates light around the player. Higher potency means higher light level.
+Blazin' Brew | Fire Resistance | Increases user's protection from fire.
+Saiyan Serum | Combat Buff | This expensive brew provides Strength, Speed, Resistance, Regeneration, and Jump boosts, making the user a veritable combat machine.  However, the user is hit with Mining Fatigue, Slowness, Blindness, and Hunger debuffs as soon as it wears off, so the imbiber had better make sure the fight will be over by then.
+Ghastly Draught | Fireballs | Allows the user to shoot fireballs.
+Strong Swimming | Swim Boost | Basically a backport of the 1.8 enchantment.
 
 ##Alchemy
 We'll see later!
