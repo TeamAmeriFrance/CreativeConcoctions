@@ -54,7 +54,7 @@ public class CreativeConcoctions {
         MinecraftForge.EVENT_BUS.register(new ConcoctionsHandler());
         FMLCommonHandler.instance().bus().register(new ConcoctionsHandler());
 
-        ConcoctionsRegistry.registerConcoction(TestConcoction.class, "TestConcoction");
+        ConcoctionsRegistry.registerConcoction(new TestConcoction(), "Concoction.Test");
     }
 
     @Mod.EventHandler

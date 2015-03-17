@@ -2,23 +2,25 @@ package amerifrance.concoctions.util;
 
 import amerifrance.concoctions.objects.Concoction;
 
-import java.util.HashMap;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 
-public class ConcoctionsRegistry {
+public class ConcoctionsRegistry
+{
+    private static BiMap<String, Concoction> registry = HashBiMap.create();
 
-    private static HashMap<String, Class<? extends Concoction>> nameToClass = new HashMap<String, Class<? extends Concoction>>();
-    private static HashMap<Class<? extends Concoction>, String> classToName = new HashMap<Class<? extends Concoction>, String>();
-
-    public static void registerConcoction(Class<? extends Concoction> concoction, String id) {
-        nameToClass.put(id, concoction);
-        classToName.put(concoction, id);
+    public static void registerConcoction(Concoction concoction, String id)
+    {
+        registry.put(id, concoction);
     }
 
-    public static Class getConcoctionForId(String id) {
-        return nameToClass.get(id);
+    public static Concoction getConcoctionForId(String id)
+    {
+        return registry.get(id);
     }
 
-    public static String getIdForConcoction(Class<? extends Concoction> concoction) {
-        return classToName.get(concoction);
+    public static String getIdForConcoction(Concoction concoction)
+    {
+        return registry.inverse().get(concoction);
     }
 }
