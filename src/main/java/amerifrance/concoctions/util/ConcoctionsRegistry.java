@@ -1,26 +1,22 @@
 package amerifrance.concoctions.util;
 
 import amerifrance.concoctions.objects.Concoction;
-
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 
-public class ConcoctionsRegistry
-{
+public class ConcoctionsRegistry {
     private static BiMap<String, Concoction> registry = HashBiMap.create();
 
-    public static void registerConcoction(Concoction concoction, String id)
-    {
-        registry.put(id, concoction);
+    public static void registerConcoction(Concoction concoction, String id) {
+        if (registry.containsKey(id)) throw new IllegalArgumentException("Duplicate concoction id: " + id);
+        else registry.put(id, concoction);
     }
 
-    public static Concoction getConcoctionForId(String id)
-    {
+    public static Concoction getConcoctionForId(String id) {
         return registry.get(id);
     }
 
-    public static String getIdForConcoction(Concoction concoction)
-    {
+    public static String getIdForConcoction(Concoction concoction) {
         return registry.inverse().get(concoction);
     }
 }

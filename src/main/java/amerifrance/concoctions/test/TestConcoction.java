@@ -12,10 +12,10 @@ public class TestConcoction extends Concoction {
         super("TestConcoction", 1, Color.BLUE);
     }
 
-	@Override
-	public void updateEffect(EntityLivingBase entityLivingBase, ConcoctionContext wrapper) {
-		entityLivingBase.worldObj.setBlock((int) entityLivingBase.posX, (int) entityLivingBase.posY + 4, (int) entityLivingBase.posZ, Blocks.diamond_block);
-	}
+    @Override
+    public void updateEffect(EntityLivingBase entityLivingBase, ConcoctionContext wrapper) {
+        entityLivingBase.worldObj.setBlock((int) entityLivingBase.posX, (int) entityLivingBase.posY + 4, (int) entityLivingBase.posZ, Blocks.diamond_block);
+    }
 
     @Override
     public void onEffectAdded(EntityLivingBase entityLivingBase, ConcoctionContext wrapper) {

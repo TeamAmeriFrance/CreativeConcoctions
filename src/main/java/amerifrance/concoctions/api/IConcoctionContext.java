@@ -1,28 +1,28 @@
 package amerifrance.concoctions.api;
 
+import amerifrance.concoctions.objects.Concoction;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
-import amerifrance.concoctions.objects.Concoction;
 
 public interface IConcoctionContext {
 
-	void readFromNBT(NBTTagCompound tagCompound);
+    void readFromNBT(NBTTagCompound tagCompound);
 
-	void writeToNBT(NBTTagCompound tagCompound);
+    void writeToNBT(NBTTagCompound tagCompound);
 
-	void onUpdate(EntityLivingBase entityLivingBase);
+    void onUpdate(EntityLivingBase entityLivingBase);
 
-	void onAdded(EntityLivingBase entityLivingBase);
+    void onAdded(EntityLivingBase entityLivingBase);
 
-	void onRemoved(EntityLivingBase entityLivingBase);
+    void onRemoved(EntityLivingBase entityLivingBase);
 
-	Concoction getConcoction();
+    Concoction getConcoction();
 
-	int getConcoctionLevel();
+    int getConcoctionLevel();
 
-	int getTicksLeft();
+    int getTicksLeft();
 
-	int getInitialDuration();
+    void setTicksLeft(int ticksLeft);
 
-	void setTicksLeft(int ticksLeft);
+    int getInitialDuration();
 }
