@@ -24,6 +24,7 @@ public class ConcoctionSpeed extends Concoction {
         AttributeModifier r = livingBase.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getModifier(uuid);
         if (r != null) livingBase.getEntityAttribute(SharedMonsterAttributes.movementSpeed).removeModifier(r);
 
+        //This is the same modification as the Speed Potion one. We can change it
         AttributeModifier modifier = new AttributeModifier(uuid, name, 0.20000000298023224D * ctx.getConcoctionLevel(), 2);
         livingBase.getEntityAttribute(SharedMonsterAttributes.movementSpeed).applyModifier(modifier);
     }
