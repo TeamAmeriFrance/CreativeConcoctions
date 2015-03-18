@@ -1,7 +1,6 @@
 package amerifrance.concoctions.util;
 
 import amerifrance.concoctions.api.IConcoctionContext;
-import amerifrance.concoctions.util.LivingConcoctions;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraftforge.event.entity.EntityEvent;
@@ -22,16 +21,16 @@ public class ConcoctionsHandler {
     public void onLivingTick(LivingEvent.LivingUpdateEvent event) {
         if (event.entityLiving.worldObj.isRemote) return;
 
-        EntityLivingBase entityLivingBase = event.entityLiving;
-        if (LivingConcoctions.get(entityLivingBase) != null) {
-            if (LivingConcoctions.getActiveConcotions(entityLivingBase) != null && !LivingConcoctions.getActiveConcotions(entityLivingBase).isEmpty()) {
-                Iterator<IConcoctionContext> iterator = LivingConcoctions.getActiveConcotions(entityLivingBase).iterator();
+        EntityLivingBase livingBase = event.entityLiving;
+        if (LivingConcoctions.get(livingBase) != null) {
+            if (LivingConcoctions.getActiveConcotions(livingBase) != null && !LivingConcoctions.getActiveConcotions(livingBase).isEmpty()) {
+                Iterator<IConcoctionContext> iterator = LivingConcoctions.getActiveConcotions(livingBase).iterator();
                 while (iterator.hasNext()) {
                     IConcoctionContext wrapper = iterator.next();
                     if (wrapper.getTicksLeft() > 0) {
-                        wrapper.onUpdate(entityLivingBase);
+                        wrapper.onUpdate(livingBase);
                     } else {
-                        wrapper.onRemoved(entityLivingBase);
+                        wrapper.onRemoved(livingBase);
                         iterator.remove();
                     }
                 }

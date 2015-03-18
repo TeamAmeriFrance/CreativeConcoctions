@@ -5,10 +5,10 @@ import amerifrance.concoctions.objects.Concoction;
 
 public class ModConcoctions {
 
-    public static Concoction test;
+    public static Concoction speed;
 
     public static void registerConcoctions() {
-        test = new TestConcoction();
-        ConcoctionsRegistry.registerConcoction(test, "Concoction.Test");
+        speed = new ConcoctionSpeed();
+        ConcoctionsRegistry.registerConcoction(speed, "ConcoctionSpeed");
     }
 }

@@ -18,11 +18,11 @@ public class Concoction {
     public final Color color;
     public final ConcoctionType type;
 
-    protected Concoction(String name, int maxLevel, Color color) {
+    public Concoction(String name, int maxLevel, Color color) {
         this(name, maxLevel, color, ConcoctionType.NEUTRAL);
     }
 
-    protected Concoction(String name, int maxLevel, Color color, ConcoctionType type) {
+    public Concoction(String name, int maxLevel, Color color, ConcoctionType type) {
         this.name = name;
         this.maxLevel = maxLevel;
         this.color = color;
@@ -41,30 +41,30 @@ public class Concoction {
     /**
      * Called once every tick per entity this concoction is on.
      *
-     * @param entityLivingBase The entity with the concoction.
+     * @param livingBase The entity with the concoction.
      * @param ctx              Context information.
      */
-    public void updateEffect(EntityLivingBase entityLivingBase, ConcoctionContext ctx) {
+    public void updateEffect(EntityLivingBase livingBase, ConcoctionContext ctx) {
         ;
     }
 
     /**
      * Called when this concoction is added to an entity.
      *
-     * @param entityLivingBase The entity with the concoction.
+     * @param livingBase The entity with the concoction.
      * @param ctx              Context information.
      */
-    public void onEffectAdded(EntityLivingBase entityLivingBase, ConcoctionContext ctx) {
+    public void onEffectAdded(EntityLivingBase livingBase, ConcoctionContext ctx) {
         ;
     }
 
     /**
      * Called when this concoction is removed from an entity.
      *
-     * @param entityLivingBase The entity with the concoction.
+     * @param livingBase The entity with the concoction.
      * @param ctx              Context information.
      */
-    public void onEffectRemoved(EntityLivingBase entityLivingBase, ConcoctionContext ctx) {
+    public void onEffectRemoved(EntityLivingBase livingBase, ConcoctionContext ctx) {
         ;
     }
 

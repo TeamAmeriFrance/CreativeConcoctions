@@ -2,6 +2,9 @@
 
 # Items
 
+#Concoction
+concoction.speed=Fleet Feet
+
 # GUI
 itemGroup.creativeconcoctions.creativeTab=Creative Concoctions
 
