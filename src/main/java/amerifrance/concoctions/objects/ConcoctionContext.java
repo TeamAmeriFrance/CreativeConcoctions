@@ -92,13 +92,13 @@ public class ConcoctionContext implements IConcoctionContext {
         if (o == null || getClass() != o.getClass())
             return false;
 
-        ConcoctionContext wrapper = (ConcoctionContext) o;
+        ConcoctionContext ctx = (ConcoctionContext) o;
 
-        if (level != wrapper.level)
+        if (level != ctx.level)
             return false;
-        if (duration != wrapper.duration)
+        if (duration != ctx.duration)
             return false;
-        if (concoction != null ? !concoction.equals(wrapper.concoction) : wrapper.concoction != null)
+        if (concoction != null ? !concoction.equals(ctx.concoction) : ctx.concoction != null)
             return false;
 
         return true;
