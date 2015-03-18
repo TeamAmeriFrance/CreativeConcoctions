@@ -1,6 +1,5 @@
 package amerifrance.concoctions.api;
 
-import amerifrance.concoctions.objects.Concoction;
 import amerifrance.concoctions.objects.ConcoctionContext;
 import amerifrance.concoctions.util.LivingConcoctions;
 import net.minecraft.entity.EntityLivingBase;

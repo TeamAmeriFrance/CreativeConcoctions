@@ -1,6 +1,5 @@
 package amerifrance.concoctions.api;
 
-import amerifrance.concoctions.objects.Concoction;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 

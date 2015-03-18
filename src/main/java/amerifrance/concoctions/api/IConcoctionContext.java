@@ -1,6 +1,5 @@
 package amerifrance.concoctions.api;
 
-import amerifrance.concoctions.objects.Concoction;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
 

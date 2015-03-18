@@ -1,7 +1,6 @@
-package amerifrance.concoctions.objects;
+package amerifrance.concoctions.api;
 
-import amerifrance.concoctions.api.ConcoctionType;
-import amerifrance.concoctions.api.ConcoctionsRegistry;
+import amerifrance.concoctions.objects.ConcoctionContext;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
 
@@ -10,7 +9,7 @@ import java.awt.*;
 /**
  * An immutable representation of a cocoction's effects. This is not used for
  * per-effect data, but rather holds the concoction's initial state, from which
- * a {@link ConcoctionContext} is created to store data.
+ * a {@link amerifrance.concoctions.objects.ConcoctionContext} is created to store data.
  */
 public class Concoction {
     public final String name;

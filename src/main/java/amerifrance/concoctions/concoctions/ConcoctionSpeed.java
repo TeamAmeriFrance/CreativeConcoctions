@@ -1,6 +1,6 @@
 package amerifrance.concoctions.concoctions;
 
-import amerifrance.concoctions.objects.Concoction;
+import amerifrance.concoctions.api.Concoction;
 import amerifrance.concoctions.objects.ConcoctionContext;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
