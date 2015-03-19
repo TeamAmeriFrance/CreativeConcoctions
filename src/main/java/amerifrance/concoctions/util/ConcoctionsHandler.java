@@ -1,12 +1,12 @@
 package amerifrance.concoctions.util;
 
-import java.util.Iterator;
-
+import amerifrance.concoctions.api.IConcoctionContext;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
-import amerifrance.concoctions.api.IConcoctionContext;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+
+import java.util.Iterator;
 
 public class ConcoctionsHandler {
 
@@ -28,7 +28,7 @@ public class ConcoctionsHandler {
                 while (iterator.hasNext()) {
                     IConcoctionContext wrapper = iterator.next();
                     if (wrapper.getTicksLeft() > 0) {
-                        wrapper.onUpdate(livingBase);
+                        if (wrapper.getConcoction().shouldTick()) wrapper.onUpdate(livingBase);
                     } else {
                         wrapper.onRemoved(livingBase);
                         iterator.remove();

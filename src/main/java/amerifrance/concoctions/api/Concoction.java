@@ -1,14 +1,14 @@
 package amerifrance.concoctions.api;
 
-import java.awt.Color;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
+
+import java.awt.*;
 
 /**
  * An immutable representation of a cocoction's effects. This is not used for
  * per-effect data, but rather holds the concoction's initial state, from which
- * a {@link amerifrance.concoctions.IConcoctionContext} is created to store data.
+ * a {@link amerifrance.concoctions.api.IConcoctionContext} is created to store data.
  */
 public class Concoction {
     public final String name;
@@ -40,7 +40,7 @@ public class Concoction {
      * Called once every tick per entity this concoction is on.
      *
      * @param livingBase The entity with the concoction.
-     * @param ctx              Context information.
+     * @param ctx        Context information.
      */
     public void updateEffect(EntityLivingBase livingBase, IConcoctionContext ctx) {
         ;
@@ -50,7 +50,7 @@ public class Concoction {
      * Called when this concoction is added to an entity.
      *
      * @param livingBase The entity with the concoction.
-     * @param ctx              Context information.
+     * @param ctx        Context information.
      */
     public void onEffectAdded(EntityLivingBase livingBase, IConcoctionContext ctx) {
         ;
@@ -60,10 +60,19 @@ public class Concoction {
      * Called when this concoction is removed from an entity.
      *
      * @param livingBase The entity with the concoction.
-     * @param ctx              Context information.
+     * @param ctx        Context information.
      */
     public void onEffectRemoved(EntityLivingBase livingBase, IConcoctionContext ctx) {
         ;
+    }
+
+    /**
+     * Called when this concoction is removed from an entity.
+     *
+     * @return Whether or not the effect should tick every time the player ticks.
+     */
+    public boolean shouldTick() {
+        return true;
     }
 
     public ConcoctionType getConcotionType() {
