@@ -33,7 +33,7 @@ Have an effect idea? Fill out [this](http://goo.gl/forms/FiPc7Kkyhs) form. Accep
 **Yes** | Brew of Brawn | Strength | Increases user's attack damage.
 No | Ghastly Draught | Fireballs | Allows the user to shoot fireballs.
 No | Luman Liquor | Human Torch | Creates light around the player. Higher potency means higher light level.
-No | Blazin' Brew | Fire Resistance | Increases user's protection from fire.
+**Yes** | Blazin' Brew | Fire Resistance | Increases user's protection from fire.
 No | Saiyan Serum | Combat Buff | This expensive brew provides Strength, Speed, Resistance, Regeneration, and Jump boosts, making the user a veritable combat machine.  However, the user is hit with Mining Fatigue, Slowness, Blindness, and Hunger debuffs as soon as it wears off, so the imbiber had better make sure the fight will be over by then.
 No | Strong Swimming | Swim Boost | Basically a backport of the 1.8 enchantment.
 **Yes** | Hell Eyes | Combat | Hurts any mob/entity you're looking at.

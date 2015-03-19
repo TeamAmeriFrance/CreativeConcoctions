@@ -10,6 +10,7 @@ concoction.slowness=Heavy Feet
 concoction.regeneration=Vitality
 concoction.heal=Pick-Me-Up Potion
 concoction.damage=Put-Me-Down Potion
+concoction.fire.protection=Blazin' Brew
 
 # GUI
 itemGroup.creativeconcoctions.creativeTab=Creative Concoctions
