@@ -10,6 +10,8 @@ public class ModConcoctions {
     public static Concoction hellEyes;
     public static Concoction slowness;
     public static Concoction regeneration;
+    public static Concoction heal;
+    public static Concoction damage;
 
     public static void registerConcoctions() {
         speed = new ConcoctionSpeed();
@@ -26,5 +28,11 @@ public class ModConcoctions {
 
         regeneration = new ConcoctionRegeneration();
         ConcoctionsRegistry.registerConcoction(regeneration, "ConcoctionRegeneration");
+
+        heal = new ConcoctionHeal();
+        ConcoctionsRegistry.registerConcoction(heal, "ConcoctionHeal");
+
+        damage = new ConcoctionDamage();
+        ConcoctionsRegistry.registerConcoction(damage, "ConcoctionDamage");
     }
 }

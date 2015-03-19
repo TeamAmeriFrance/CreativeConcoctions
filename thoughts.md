@@ -39,8 +39,8 @@ No | Strong Swimming | Swim Boost | Basically a backport of the 1.8 enchantment.
 **Yes** | Hell Eyes | Combat | Hurts any mob/entity you're looking at.
 No | Ghostwalk Ale | Ethereal Shift | Allows the imbiber to pass through enemies and entities without taking damage. Also makes the user immune to suffocation damage for a short period of time. However when applied, a greyscale filter is given to the player and they cannot interact with most blocks or give damage.
 **Yes** | Vitality | Regeneration | Grants the user health regeneration.
-No | Pick-Me-Up Potion | Instant Health | Instantly heals the user.
-No | Put-Me-Down Potion | Instant Damage | Instantly damages the user.
+**Yes** | Pick-Me-Up Potion | Instant Health | Instantly heals the user.
+**Yes** | Put-Me-Down Potion | Instant Damage | Instantly damages the user.
 No | Concoction (p)| Poison | Poisons the user. As a reference to Runescape, the name has (p) on it. Add a `+` for each level of potency.
 No | Venomous Vigor | Regeneration | Grants the user very strong Regeneration, but slightly poisons the user afterwards. Meant to get you out of a sticky situation, but not as a "go-to" potion.
 

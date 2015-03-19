@@ -12,7 +12,7 @@ import java.awt.*;
 
 public class ConcoctionHellEyes extends Concoction {
 
-    public DamageSource hellEyes = new DamageSource("HellEyes").setDamageBypassesArmor().setMagicDamage();
+    public DamageSource hellEyes = new DamageSource("HellEyes").setDamageBypassesArmor();
 
     public ConcoctionHellEyes() {
         super(StatCollector.translateToLocal("concoction.hell.eyes"), 10, Color.BLACK);

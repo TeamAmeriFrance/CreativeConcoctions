@@ -8,12 +8,15 @@ concoction.strengh=Brew of Brawn
 concoction.hell.eyes=Hell Eyes
 concoction.slowness=Heavy Feet
 concoction.regeneration=Vitality
+concoction.heal=Pick-Me-Up Potion
+concoction.damage=Put-Me-Down Potion
 
 # GUI
 itemGroup.creativeconcoctions.creativeTab=Creative Concoctions
 
 # Chat
 death.attack.HellEyes=%s was stared to death.
+death.attack.PutMeDown=%s was put down.
 
 # Console
 
