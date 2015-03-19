@@ -31,10 +31,11 @@ def gitHash = 'unknown'
 //}
 
 repositories {
-
+	maven { url 'http://tehnut.info/maven/' } 
 }
 
 dependencies {
+  compile "info.amerifrance.guideapi:Guide-API:${mc_version}-${guideapi_version}:deobf"
   compile fileTree(dir: 'libs', include: '*.jar')
 }
 

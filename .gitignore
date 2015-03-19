@@ -19,6 +19,5 @@
 *.project
 
 #Specific files
-MCFPost.txt
+curse.gradle
 Thumbs.db
-/bin/
