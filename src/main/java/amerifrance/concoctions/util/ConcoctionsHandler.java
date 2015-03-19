@@ -28,7 +28,7 @@ public class ConcoctionsHandler {
                 while (iterator.hasNext()) {
                     IConcoctionContext ctx = iterator.next();
                     if (ctx.getTicksLeft() > 0) {
-                        if (ctx.getConcoction().shouldUpdate()) ctx.onUpdate(livingBase);
+                        ctx.onUpdate(livingBase);
                     } else {
                         ctx.onRemoved(livingBase);
                         iterator.remove();

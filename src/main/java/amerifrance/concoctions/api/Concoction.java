@@ -66,15 +66,6 @@ public class Concoction {
         ;
     }
 
-    /**
-     * Called when this concoction is removed from an entity.
-     *
-     * @return Whether or not the effect should tick every time the player ticks.
-     */
-    public boolean shouldUpdate() {
-        return true;
-    }
-
     public ConcoctionType getConcotionType() {
         return type;
     }

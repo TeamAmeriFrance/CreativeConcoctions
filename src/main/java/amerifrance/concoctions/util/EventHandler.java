@@ -12,16 +12,16 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 public class EventHandler {
 
     @SubscribeEvent
-    public void onJump(LivingEvent.LivingJumpEvent event) {
+    public void addConcoction(LivingEvent.LivingJumpEvent event) {
         if (event.entityLiving instanceof EntityPlayer && !((EntityPlayer) event.entityLiving).worldObj.isRemote) {
-            if (ConcoctionsHelper.isConcoctionActive(event.entityLiving, ModConcoctions.fireProtection)) {
-                IConcoctionContext ctx = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.fireProtection);
+            if (ConcoctionsHelper.isConcoctionActive(event.entityLiving, ModConcoctions.jumpBoost)) {
+                IConcoctionContext ctx = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.jumpBoost);
                 if (ctx != null && ctx.getConcoctionLevel() + 1 <= ctx.getConcoction().maxLevel) {
                     ctx.setLevel(ctx.getConcoctionLevel() + 1);
                     ctx.onAdded(event.entityLiving);
                 }
             } else {
-                ConcoctionsHelper.addConcoction(event.entityLiving, ModConcoctions.fireProtection, 1, 500);
+                ConcoctionsHelper.addConcoction(event.entityLiving, ModConcoctions.jumpBoost, 1, 500);
             }
         }
     }
@@ -40,5 +40,12 @@ public class EventHandler {
                 event.setCanceled(true);
             }
         }
+    }
+
+    @SubscribeEvent
+    public void onJump(LivingEvent.LivingJumpEvent event) {
+        if (!ConcoctionsHelper.isConcoctionActive(event.entityLiving, ModConcoctions.jumpBoost)) return;
+        IConcoctionContext ctx = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.jumpBoost);
+        event.entityLiving.motionY += 0.1F * ctx.getConcoctionLevel();
     }
 }

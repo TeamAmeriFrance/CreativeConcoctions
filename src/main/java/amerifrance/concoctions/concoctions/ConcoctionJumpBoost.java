@@ -6,9 +6,9 @@ import net.minecraft.util.StatCollector;
 
 import java.awt.*;
 
-public class ConcoctionFireProtection extends Concoction {
+public class ConcoctionJumpBoost extends Concoction {
 
-    public ConcoctionFireProtection() {
-        super(StatCollector.translateToLocal("concoction.fire.protection"), 3, Color.ORANGE, ConcoctionType.GOOD);
+    public ConcoctionJumpBoost() {
+        super(StatCollector.translateToLocal("concoction.jump.boost"), 30, Color.BLUE, ConcoctionType.GOOD);
     }
 }
