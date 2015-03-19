@@ -1,15 +1,15 @@
 package amerifrance.concoctions.concoctions;
 
-import amerifrance.concoctions.api.Concoction;
-import amerifrance.concoctions.objects.ConcoctionContext;
+import java.awt.Color;
+import java.util.Iterator;
+
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.StatCollector;
 import net.minecraft.util.Vec3;
-
-import java.awt.*;
-import java.util.Iterator;
+import amerifrance.concoctions.api.Concoction;
+import amerifrance.concoctions.api.IConcoctionContext;
 
 public class ConcoctionHellEyes extends Concoction {
 
@@ -19,8 +19,9 @@ public class ConcoctionHellEyes extends Concoction {
         super(StatCollector.translateToLocal("concoction.hell.eyes"), 10, Color.BLACK);
     }
 
-    @Override
-    public void updateEffect(EntityLivingBase livingBase, ConcoctionContext ctx) {
+    @SuppressWarnings("unchecked")
+	@Override
+    public void updateEffect(EntityLivingBase livingBase, IConcoctionContext ctx) {
         AxisAlignedBB bb = AxisAlignedBB.getBoundingBox(livingBase.posX - 10, livingBase.posY - 10, livingBase.posZ - 10, livingBase.posX + 10, livingBase.posY + 10, livingBase.posZ + 10);
         Iterator<EntityLivingBase> iter = livingBase.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, bb).iterator();
         while (iter.hasNext()) {

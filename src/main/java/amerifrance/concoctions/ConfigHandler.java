@@ -1,8 +1,8 @@
 package amerifrance.concoctions;
 
-import net.minecraftforge.common.config.Configuration;
-
 import java.io.File;
+
+import net.minecraftforge.common.config.Configuration;
 
 public class ConfigHandler {
 

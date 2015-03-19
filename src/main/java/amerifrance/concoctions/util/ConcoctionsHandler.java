@@ -1,12 +1,12 @@
 package amerifrance.concoctions.util;
 
-import amerifrance.concoctions.api.IConcoctionContext;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import java.util.Iterator;
+
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
-
-import java.util.Iterator;
+import amerifrance.concoctions.api.IConcoctionContext;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class ConcoctionsHandler {
 

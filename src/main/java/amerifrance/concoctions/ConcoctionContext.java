@@ -1,9 +1,9 @@
-package amerifrance.concoctions.objects;
+package amerifrance.concoctions;
 
-import amerifrance.concoctions.api.Concoction;
-import amerifrance.concoctions.api.IConcoctionContext;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
+import amerifrance.concoctions.api.Concoction;
+import amerifrance.concoctions.api.IConcoctionContext;
 
 public class ConcoctionContext implements IConcoctionContext {
 

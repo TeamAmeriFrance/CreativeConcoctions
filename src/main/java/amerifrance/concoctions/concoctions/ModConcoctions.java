@@ -1,7 +1,7 @@
 package amerifrance.concoctions.concoctions;
 
-import amerifrance.concoctions.api.ConcoctionsRegistry;
 import amerifrance.concoctions.api.Concoction;
+import amerifrance.concoctions.api.ConcoctionsRegistry;
 
 public class ModConcoctions {
 

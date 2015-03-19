@@ -1,15 +1,14 @@
 package amerifrance.concoctions.api;
 
-import amerifrance.concoctions.objects.ConcoctionContext;
+import java.awt.Color;
+
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
-
-import java.awt.*;
 
 /**
  * An immutable representation of a cocoction's effects. This is not used for
  * per-effect data, but rather holds the concoction's initial state, from which
- * a {@link amerifrance.concoctions.objects.ConcoctionContext} is created to store data.
+ * a {@link amerifrance.concoctions.IConcoctionContext} is created to store data.
  */
 public class Concoction {
     public final String name;
@@ -43,7 +42,7 @@ public class Concoction {
      * @param livingBase The entity with the concoction.
      * @param ctx              Context information.
      */
-    public void updateEffect(EntityLivingBase livingBase, ConcoctionContext ctx) {
+    public void updateEffect(EntityLivingBase livingBase, IConcoctionContext ctx) {
         ;
     }
 
@@ -53,7 +52,7 @@ public class Concoction {
      * @param livingBase The entity with the concoction.
      * @param ctx              Context information.
      */
-    public void onEffectAdded(EntityLivingBase livingBase, ConcoctionContext ctx) {
+    public void onEffectAdded(EntityLivingBase livingBase, IConcoctionContext ctx) {
         ;
     }
 
@@ -63,7 +62,7 @@ public class Concoction {
      * @param livingBase The entity with the concoction.
      * @param ctx              Context information.
      */
-    public void onEffectRemoved(EntityLivingBase livingBase, ConcoctionContext ctx) {
+    public void onEffectRemoved(EntityLivingBase livingBase, IConcoctionContext ctx) {
         ;
     }
 
