@@ -12,14 +12,14 @@ public class EventHandler {
     @SubscribeEvent
     public void onJump(LivingEvent.LivingJumpEvent event) {
         if (event.entityLiving instanceof EntityPlayer && !((EntityPlayer) event.entityLiving).worldObj.isRemote) {
-            if (ConcoctionsHelper.isConcoctionActive(event.entityLiving, ModConcoctions.strength)) {
-                IConcoctionContext ctx = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.strength);
+            if (ConcoctionsHelper.isConcoctionActive(event.entityLiving, ModConcoctions.slowness)) {
+                IConcoctionContext ctx = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.slowness);
                 if (ctx != null && ctx.getConcoctionLevel() + 1 <= ctx.getConcoction().maxLevel) {
                     ctx.setLevel(ctx.getConcoctionLevel() + 1);
                     ctx.onAdded(event.entityLiving);
                 }
             } else {
-                ConcoctionsHelper.addConcoction(event.entityLiving, ModConcoctions.strength, 1, 500);
+                ConcoctionsHelper.addConcoction(event.entityLiving, ModConcoctions.slowness, 1, 500);
             }
         }
     }

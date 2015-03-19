@@ -1,6 +1,7 @@
 package amerifrance.concoctions.concoctions;
 
 import amerifrance.concoctions.api.Concoction;
+import amerifrance.concoctions.api.ConcoctionType;
 import amerifrance.concoctions.api.IConcoctionContext;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -15,7 +16,7 @@ public class ConcoctionStrength extends Concoction {
     public UUID uuid;
 
     public ConcoctionStrength() {
-        super(StatCollector.translateToLocal("concoction.strength"), 60, Color.GREEN);
+        super(StatCollector.translateToLocal("concoction.strength"), 60, Color.GREEN, ConcoctionType.GOOD);
         uuid = UUID.randomUUID();
     }
 
