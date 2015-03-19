@@ -12,3 +12,16 @@ itemGroup.creativeconcoctions.creativeTab=Creative Concoctions
 # Chat
 
 # Console
+
+# Guide
+guide.creativeconcoctions.title=Book of Concoctions
+guide.creativeconcoctions.welcome=All your Creative Concoctions needs in one place.
+guide.creativeconcoctions.category.concoctions=Concoctions
+
+guide.creativeconcoctions.fleetfeet.entry=Fleet Feet
+guide.creativeconcoctions.fleetfeet.info.main=Fleet Feet provides a Speed buff while active.
+guide.creativeconcoctions.fleetfeet.info.desc=Fleet Feet provides a Speed buff while active.
+
+guide.creativeconcoctions.helleyes.entry=Hell Eyes
+guide.creativeconcoctions.helleyes.info.main=Hell Eyes damages living things that fall in your gaze.
+guide.creativeconcoctions.helleyes.info.desc=Hell Eyes damages living things that fall in your gaze.

@@ -2,6 +2,7 @@ package amerifrance.concoctions;
 
 import java.io.File;
 
+import amerifrance.concoctions.guide.GuideConcoctions;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -49,6 +50,7 @@ public class CreativeConcoctions {
         instance = this;
         configDir = new File(event.getModConfigurationDirectory() + "/" + ModInformation.NAME);
         ModConcoctions.registerConcoctions();
+        GuideConcoctions.setConcoctionBook();
     }
 
     @Mod.EventHandler
