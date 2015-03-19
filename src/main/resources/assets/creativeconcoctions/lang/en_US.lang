@@ -7,6 +7,7 @@ concoction.speed=Fleet Feet
 concoction.strengh=Brew of Brawn
 concoction.hell.eyes=Hell Eyes
 concoction.slowness=Heavy Feet
+concoction.regeneration=Vitality
 
 # GUI
 itemGroup.creativeconcoctions.creativeTab=Creative Concoctions

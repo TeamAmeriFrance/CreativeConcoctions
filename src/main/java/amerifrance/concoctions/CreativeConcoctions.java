@@ -1,14 +1,7 @@
 package amerifrance.concoctions;
 
-import java.io.File;
-
-import amerifrance.concoctions.guide.GuideConcoctions;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.MinecraftForge;
 import amerifrance.concoctions.concoctions.ModConcoctions;
+import amerifrance.concoctions.guide.GuideConcoctions;
 import amerifrance.concoctions.proxies.CommonProxy;
 import amerifrance.concoctions.util.ConcoctionsHandler;
 import amerifrance.concoctions.util.EventHandler;
@@ -18,6 +11,13 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
+
+import java.io.File;
 
 @Mod(modid = ModInformation.ID, name = ModInformation.NAME, version = ModInformation.VERSION, dependencies = ModInformation.DEPEND)
 public class CreativeConcoctions {

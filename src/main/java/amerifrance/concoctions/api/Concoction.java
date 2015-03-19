@@ -71,7 +71,7 @@ public class Concoction {
      *
      * @return Whether or not the effect should tick every time the player ticks.
      */
-    public boolean shouldTick() {
+    public boolean shouldUpdate() {
         return true;
     }
 

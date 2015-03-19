@@ -1,8 +1,8 @@
 package amerifrance.concoctions.util;
 
-import java.util.Iterator;
-import java.util.LinkedList;
-
+import amerifrance.concoctions.ConcoctionContext;
+import amerifrance.concoctions.api.Concoction;
+import amerifrance.concoctions.api.IConcoctionContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
@@ -10,9 +10,9 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
 import net.minecraftforge.common.util.Constants;
-import amerifrance.concoctions.ConcoctionContext;
-import amerifrance.concoctions.api.Concoction;
-import amerifrance.concoctions.api.IConcoctionContext;
+
+import java.util.Iterator;
+import java.util.LinkedList;
 
 public class LivingConcoctions implements IExtendedEntityProperties {
 
@@ -57,12 +57,12 @@ public class LivingConcoctions implements IExtendedEntityProperties {
         NBTTagList tagList = compound.getTagList("activeConcoctions", Constants.NBT.TAG_COMPOUND);
         if (tagList != null) {
             activeConcoctions.clear();
-			for (int i = 0; i < tagList.tagCount(); i++) {
-				NBTTagCompound tagCompound = tagList.getCompoundTagAt(i);
-				IConcoctionContext wrapper = new ConcoctionContext(Concoction.readFromNBT(tagCompound));
-				wrapper.readFromNBT(tagCompound);
-				activeConcoctions.add(wrapper);
-			}
+            for (int i = 0; i < tagList.tagCount(); i++) {
+                NBTTagCompound tagCompound = tagList.getCompoundTagAt(i);
+                IConcoctionContext wrapper = new ConcoctionContext(Concoction.readFromNBT(tagCompound));
+                wrapper.readFromNBT(tagCompound);
+                activeConcoctions.add(wrapper);
+            }
         }
     }
 

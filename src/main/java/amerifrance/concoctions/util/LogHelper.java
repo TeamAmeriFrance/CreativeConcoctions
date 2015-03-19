@@ -1,10 +1,9 @@
 package amerifrance.concoctions.util;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import amerifrance.concoctions.ConfigHandler;
 import amerifrance.concoctions.ModInformation;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class LogHelper {
 

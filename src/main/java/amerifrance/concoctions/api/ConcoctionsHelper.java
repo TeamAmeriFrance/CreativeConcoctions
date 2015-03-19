@@ -1,11 +1,11 @@
 package amerifrance.concoctions.api;
 
-import java.util.Iterator;
-import java.util.List;
-
-import net.minecraft.entity.EntityLivingBase;
 import amerifrance.concoctions.ConcoctionContext;
 import amerifrance.concoctions.util.LivingConcoctions;
+import net.minecraft.entity.EntityLivingBase;
+
+import java.util.Iterator;
+import java.util.List;
 
 public class ConcoctionsHelper {
 
@@ -69,15 +69,15 @@ public class ConcoctionsHelper {
     }
 
     public static boolean isConcoctionActive(EntityLivingBase livingBase, Concoction concoction) {
-		return getActiveConcoction(livingBase, concoction) != null;
-	}
+        return getActiveConcoction(livingBase, concoction) != null;
+    }
 
-	public static void clearActiveConcoctions(EntityLivingBase livingBase) {
-		LivingConcoctions data = LivingConcoctions.get(livingBase);
-		if (data != null) {
-			data.activeConcoctions.clear();
-		}
-	}
+    public static void clearActiveConcoctions(EntityLivingBase livingBase) {
+        LivingConcoctions data = LivingConcoctions.get(livingBase);
+        if (data != null) {
+            data.activeConcoctions.clear();
+        }
+    }
 
     public static List<IConcoctionContext> getActiveConcotions(EntityLivingBase livingBase) {
         if (LivingConcoctions.get(livingBase) != null && !LivingConcoctions.getActiveConcotions(livingBase).isEmpty()) {

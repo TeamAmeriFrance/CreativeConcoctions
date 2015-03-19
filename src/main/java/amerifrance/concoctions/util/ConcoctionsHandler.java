@@ -26,11 +26,11 @@ public class ConcoctionsHandler {
             if (LivingConcoctions.getActiveConcotions(livingBase) != null && !LivingConcoctions.getActiveConcotions(livingBase).isEmpty()) {
                 Iterator<IConcoctionContext> iterator = LivingConcoctions.getActiveConcotions(livingBase).iterator();
                 while (iterator.hasNext()) {
-                    IConcoctionContext wrapper = iterator.next();
-                    if (wrapper.getTicksLeft() > 0) {
-                        if (wrapper.getConcoction().shouldTick()) wrapper.onUpdate(livingBase);
+                    IConcoctionContext ctx = iterator.next();
+                    if (ctx.getTicksLeft() > 0) {
+                        if (ctx.getConcoction().shouldUpdate()) ctx.onUpdate(livingBase);
                     } else {
-                        wrapper.onRemoved(livingBase);
+                        ctx.onRemoved(livingBase);
                         iterator.remove();
                     }
                 }

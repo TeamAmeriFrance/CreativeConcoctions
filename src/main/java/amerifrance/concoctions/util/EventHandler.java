@@ -1,11 +1,11 @@
 package amerifrance.concoctions.util;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraftforge.event.entity.living.LivingEvent;
 import amerifrance.concoctions.api.ConcoctionsHelper;
 import amerifrance.concoctions.api.IConcoctionContext;
 import amerifrance.concoctions.concoctions.ModConcoctions;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.event.entity.living.LivingEvent;
 
 public class EventHandler {
 
