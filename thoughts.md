@@ -27,22 +27,22 @@
 
 Have an effect idea? Fill out [this](http://goo.gl/forms/FiPc7Kkyhs) form. Accepted responses will be added below.
 
-**Status** | **Concoction Name** | **Ability** | **Description**
+**Done** | **Concoction Name** | **Ability** | **Description**
 ------------ | ------------ | ------------- | -------------
-- [x] | Fleet Feet | Speed | Increases user's movement speed.
-- [x] | Brew of Brawn | Strength | Increases user's attack damage.
-- [ ] | Ghastly Draught | Fireballs | Allows the user to shoot fireballs.
-- [ ] | Luman Liquor | Human Torch | Creates light around the player. Higher potency means higher light level.
-- [ ] | Blazin' Brew | Fire Resistance | Increases user's protection from fire.
-- [ ] | Saiyan Serum | Combat Buff | This expensive brew provides Strength, Speed, Resistance, Regeneration, and Jump boosts, making the user a veritable combat machine.  However, the user is hit with Mining Fatigue, Slowness, Blindness, and Hunger debuffs as soon as it wears off, so the imbiber had better make sure the fight will be over by then.
-- [ ] | Strong Swimming | Swim Boost | Basically a backport of the 1.8 enchantment.
-- [x] | Hell Eyes | Combat | Hurts any mob/entity you're looking at.
-- [ ] | Ghostwalk Ale | Ethereal Shift | Allows the imbiber to pass through enemies and entities without taking damage. Also makes the user immune to suffocation damage for a short period of time. However when applied, a greyscale filter is given to the player and they cannot interact with most blocks or give damage.
-- [x] | Vitality | Regeneration | Grants the user health regeneration.
-- [ ] | Pick-Me-Up Potion | Instant Health | Instantly heals the user.
-- [ ] | Put-Me-Down Potion | Instant Damage | Instantly damages the user.
-- [ ] | Concoction (p)| Poison | Poisons the user. As a reference to Runescape, the name has (p) on it. Add a `+` for each level of potency.
-- [ ] | Venomous Vigor | Regeneration | Grants the user very strong Regeneration, but slightly poisons the user afterwards. Meant to get you out of a sticky situation, but not as a "go-to" potion.
+**Yes** | Fleet Feet | Speed | Increases user's movement speed.
+**Yes** | Brew of Brawn | Strength | Increases user's attack damage.
+No | Ghastly Draught | Fireballs | Allows the user to shoot fireballs.
+No | Luman Liquor | Human Torch | Creates light around the player. Higher potency means higher light level.
+No | Blazin' Brew | Fire Resistance | Increases user's protection from fire.
+No | Saiyan Serum | Combat Buff | This expensive brew provides Strength, Speed, Resistance, Regeneration, and Jump boosts, making the user a veritable combat machine.  However, the user is hit with Mining Fatigue, Slowness, Blindness, and Hunger debuffs as soon as it wears off, so the imbiber had better make sure the fight will be over by then.
+No | Strong Swimming | Swim Boost | Basically a backport of the 1.8 enchantment.
+**Yes** | Hell Eyes | Combat | Hurts any mob/entity you're looking at.
+No | Ghostwalk Ale | Ethereal Shift | Allows the imbiber to pass through enemies and entities without taking damage. Also makes the user immune to suffocation damage for a short period of time. However when applied, a greyscale filter is given to the player and they cannot interact with most blocks or give damage.
+**Yes** | Vitality | Regeneration | Grants the user health regeneration.
+No | Pick-Me-Up Potion | Instant Health | Instantly heals the user.
+No | Put-Me-Down Potion | Instant Damage | Instantly damages the user.
+No | Concoction (p)| Poison | Poisons the user. As a reference to Runescape, the name has (p) on it. Add a `+` for each level of potency.
+No | Venomous Vigor | Regeneration | Grants the user very strong Regeneration, but slightly poisons the user afterwards. Meant to get you out of a sticky situation, but not as a "go-to" potion.
 
 ##Alchemy
 We'll see later!
