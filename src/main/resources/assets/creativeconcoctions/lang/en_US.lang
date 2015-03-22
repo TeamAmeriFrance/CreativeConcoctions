@@ -12,6 +12,7 @@ concoction.heal=Pick-Me-Up Potion
 concoction.damage=Put-Me-Down Potion
 concoction.fire.protection=Blazin' Brew
 concoction.jump.boost=Binky Boing
+concoction.cleanse=Cleansing Serum
 
 # GUI
 itemGroup.creativeconcoctions.creativeTab=Creative Concoctions

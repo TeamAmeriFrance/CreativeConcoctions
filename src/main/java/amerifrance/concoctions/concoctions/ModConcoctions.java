@@ -14,6 +14,7 @@ public class ModConcoctions {
     public static Concoction damage;
     public static Concoction fireProtection;
     public static Concoction jumpBoost;
+    public static Concoction cleanse;
 
     public static void registerConcoctions() {
         speed = new ConcoctionSpeed();
@@ -42,5 +43,8 @@ public class ModConcoctions {
 
         jumpBoost = new ConcoctionJumpBoost();
         ConcoctionsRegistry.registerConcoction(jumpBoost, "ConcoctionJumpBoost");
+
+        cleanse = new ConcoctionCleanse();
+        ConcoctionsRegistry.registerConcoction(cleanse, "ConcoctionCleanse");
     }
 }
