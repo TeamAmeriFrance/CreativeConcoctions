@@ -44,8 +44,5 @@ public class EventHandler {
 
     @SubscribeEvent
     public void onJump(LivingEvent.LivingJumpEvent event) {
-        if (!ConcoctionsHelper.isConcoctionActive(event.entityLiving, ModConcoctions.jumpBoost)) return;
-        IConcoctionContext ctx = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.jumpBoost);
-        event.entityLiving.motionY += 0.1F * ctx.getConcoctionLevel();
     }
 }

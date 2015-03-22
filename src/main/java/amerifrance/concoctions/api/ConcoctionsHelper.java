@@ -57,7 +57,7 @@ public class ConcoctionsHelper {
         if (LivingConcoctions.get(livingBase) != null && !LivingConcoctions.getActiveConcotions(livingBase).isEmpty()) {
             Iterator<IConcoctionContext> iterator = LivingConcoctions.getActiveConcotions(livingBase).iterator();
             while (iterator.hasNext()) {
-                IConcoctionContext ctx = (IConcoctionContext) iterator.next();
+                IConcoctionContext ctx = iterator.next();
                 if (ctx.getConcoction().equals(concoction)) return ctx;
             }
         }
