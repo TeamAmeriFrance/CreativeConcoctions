@@ -13,6 +13,7 @@ concoction.damage=Put-Me-Down Potion
 concoction.fire.protection=Blazin' Brew
 concoction.jump.boost=Binky Boing
 concoction.cleanse=Cleansing Serum
+concoction.fireball=Ghastly Draught
 
 # GUI
 itemGroup.creativeconcoctions.creativeTab=Creative Concoctions
@@ -20,6 +21,9 @@ itemGroup.creativeconcoctions.creativeTab=Creative Concoctions
 # Chat
 death.attack.HellEyes=%s was stared to death.
 death.attack.PutMeDown=%s was put down.
+
+#Keybind
+keybind.fireball=Launch Fireball
 
 # Console
 

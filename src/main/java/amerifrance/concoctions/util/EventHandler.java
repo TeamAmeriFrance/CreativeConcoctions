@@ -13,15 +13,15 @@ public class EventHandler {
 
     @SubscribeEvent
     public void addConcoction(LivingEvent.LivingJumpEvent event) {
-        if (event.entityLiving instanceof EntityPlayer && !((EntityPlayer) event.entityLiving).worldObj.isRemote) {
-            if (ConcoctionsHelper.isConcoctionActive(event.entityLiving, ModConcoctions.jumpBoost)) {
-                IConcoctionContext ctx = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.jumpBoost);
+        if (event.entityLiving instanceof EntityPlayer) {
+            if (ConcoctionsHelper.isConcoctionActive(event.entityLiving, ModConcoctions.fireball)) {
+                IConcoctionContext ctx = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.fireball);
                 if (ctx != null && ctx.getConcoctionLevel() + 1 <= ctx.getConcoction().maxLevel) {
                     ctx.setLevel(ctx.getConcoctionLevel() + 1);
-                    ctx.onAdded(event.entityLiving);
+                    if (!event.entityLiving.worldObj.isRemote) ctx.onAdded(event.entityLiving);
                 }
             } else {
-                ConcoctionsHelper.addConcoction(event.entityLiving, ModConcoctions.jumpBoost, 1, 500);
+                ConcoctionsHelper.addConcoction(event.entityLiving, ModConcoctions.fireball, 1, 500);
             }
         }
     }
@@ -44,5 +44,7 @@ public class EventHandler {
 
     @SubscribeEvent
     public void onJump(LivingEvent.LivingJumpEvent event) {
+        IConcoctionContext ctx = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.jumpBoost);
+        if (ctx != null) event.entityLiving.motionY += 0.1F * ctx.getConcoctionLevel();
     }
 }

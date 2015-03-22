@@ -25,7 +25,7 @@ public class ConcoctionsHelper {
                 ctx.setLevel(ctx.getConcoction().maxLevel);
             }
             LivingConcoctions.getActiveConcotions(livingBase).add(ctx);
-            ctx.onAdded(livingBase);
+            if (!livingBase.worldObj.isRemote) ctx.onAdded(livingBase);
         }
     }
 

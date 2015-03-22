@@ -31,7 +31,7 @@ Have an effect idea? Fill out [this](http://goo.gl/forms/FiPc7Kkyhs) form. Accep
 ------------ | ------------ | ------------- | -------------
 **Yes** | Fleet Feet | Speed | Increases user's movement speed.
 **Yes** | Brew of Brawn | Strength | Increases user's attack damage.
-No | Ghastly Draught | Fireballs | Allows the user to shoot fireballs.
+**Yes** | Ghastly Draught | Fireballs | Allows the user to shoot fireballs.
 No | Luman Liquor | Human Torch | Creates light around the player. Higher potency means higher light level.
 **Yes** | Blazin' Brew | Fire Resistance | Increases user's protection from fire.
 No | Saiyan Serum | Combat Buff | This expensive brew provides Strength, Speed, Resistance, Regeneration, and Jump boosts, making the user a veritable combat machine.  However, the user is hit with Mining Fatigue, Slowness, Blindness, and Hunger debuffs as soon as it wears off, so the imbiber had better make sure the fight will be over by then.
@@ -43,6 +43,7 @@ No | Ghostwalk Ale | Ethereal Shift | Allows the imbiber to pass through enemies
 **Yes** | Put-Me-Down Potion | Instant Damage | Instantly damages the user.
 No | Concoction (p)| Poison | Poisons the user. As a reference to Runescape, the name has (p) on it. Add a `+` for each level of potency.
 No | Venomous Vigor | Regeneration | Grants the user very strong Regeneration, but slightly poisons the user afterwards. Meant to get you out of a sticky situation, but not as a "go-to" potion.
+**Yes** | Binky Boing | Jump Boost | Gives the user a jump boost, more or less powerful depending on the concoction's level
 
 ##Alchemy
 We'll see later!

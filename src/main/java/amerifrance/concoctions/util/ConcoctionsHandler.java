@@ -19,8 +19,6 @@ public class ConcoctionsHandler {
 
     @SubscribeEvent
     public void onLivingTick(LivingEvent.LivingUpdateEvent event) {
-        if (event.entityLiving.worldObj.isRemote) return;
-
         EntityLivingBase livingBase = event.entityLiving;
         if (LivingConcoctions.get(livingBase) != null) {
             if (LivingConcoctions.getActiveConcotions(livingBase) != null && !LivingConcoctions.getActiveConcotions(livingBase).isEmpty()) {
@@ -30,7 +28,7 @@ public class ConcoctionsHandler {
                     if (ctx.getTicksLeft() > 0) {
                         ctx.onUpdate(livingBase);
                     } else {
-                        ctx.onRemoved(livingBase);
+                        if (!event.entityLiving.worldObj.isRemote) ctx.onRemoved(livingBase);
                         iterator.remove();
                     }
                 }

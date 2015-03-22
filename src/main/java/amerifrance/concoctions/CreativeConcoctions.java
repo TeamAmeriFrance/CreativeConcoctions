@@ -2,7 +2,9 @@ package amerifrance.concoctions;
 
 import amerifrance.concoctions.concoctions.ModConcoctions;
 import amerifrance.concoctions.guide.GuideConcoctions;
+import amerifrance.concoctions.network.PacketHandler;
 import amerifrance.concoctions.proxies.CommonProxy;
+import amerifrance.concoctions.util.ClientEventHandler;
 import amerifrance.concoctions.util.ConcoctionsHandler;
 import amerifrance.concoctions.util.EventHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -59,6 +61,8 @@ public class CreativeConcoctions {
         FMLCommonHandler.instance().bus().register(new ConcoctionsHandler());
         MinecraftForge.EVENT_BUS.register(new EventHandler());
         FMLCommonHandler.instance().bus().register(new EventHandler());
+        FMLCommonHandler.instance().bus().register(new ClientEventHandler());
+        PacketHandler.registerPackets();
     }
 
     @Mod.EventHandler
