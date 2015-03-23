@@ -19,6 +19,7 @@ concoction.resistance=Thick Hide
 concoction.mining.slow=Dead Hands
 concoction.mine.fast=Jumpy Hands
 concoction.swim=Strong Swimming
+concoction.poison=Concoction (p)
 
 # GUI
 itemGroup.creativeconcoctions.creativeTab=Creative Concoctions

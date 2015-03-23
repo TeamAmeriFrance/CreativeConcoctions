@@ -17,14 +17,14 @@ public class EventHandler {
     @SubscribeEvent
     public void addConcoction(LivingEvent.LivingJumpEvent event) {
         if (event.entityLiving instanceof EntityPlayer) {
-            if (ConcoctionsHelper.isConcoctionActive(event.entityLiving, ModConcoctions.swim)) {
-                IConcoctionContext ctx = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.swim);
+            if (ConcoctionsHelper.isConcoctionActive(event.entityLiving, ModConcoctions.hellEyes)) {
+                IConcoctionContext ctx = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.hellEyes);
                 if (ctx != null && ctx.getConcoctionLevel() + 1 <= ctx.getConcoction().maxLevel) {
                     ctx.setLevel(ctx.getConcoctionLevel() + 1);
                     if (!event.entityLiving.worldObj.isRemote) ctx.onAdded(event.entityLiving);
                 }
             } else {
-                ConcoctionsHelper.addConcoction(event.entityLiving, ModConcoctions.swim, 1, 500);
+                ConcoctionsHelper.addConcoction(event.entityLiving, ModConcoctions.hellEyes, 1, 500);
             }
         }
     }
