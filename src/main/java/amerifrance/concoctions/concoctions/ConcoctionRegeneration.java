@@ -16,7 +16,8 @@ public class ConcoctionRegeneration extends Concoction {
 
     @Override
     public void updateEffect(EntityLivingBase livingBase, IConcoctionContext ctx) {
-        if (livingBase.getHealth() < livingBase.getMaxHealth()) livingBase.heal(0.5F * ctx.getConcoctionLevel());
+        if (livingBase.getHealth() < livingBase.getMaxHealth() && ctx.getTicksLeft() % 30 == 0)
+            livingBase.heal(0.5F * ctx.getConcoctionLevel());
     }
 }
 
