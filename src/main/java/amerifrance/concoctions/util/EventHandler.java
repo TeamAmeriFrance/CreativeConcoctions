@@ -10,20 +10,21 @@ import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 
 public class EventHandler {
 
     @SubscribeEvent
     public void addConcoction(LivingEvent.LivingJumpEvent event) {
         if (event.entityLiving instanceof EntityPlayer) {
-            if (ConcoctionsHelper.isConcoctionActive(event.entityLiving, ModConcoctions.resistance)) {
-                IConcoctionContext ctx = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.resistance);
+            if (ConcoctionsHelper.isConcoctionActive(event.entityLiving, ModConcoctions.mineFast)) {
+                IConcoctionContext ctx = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.mineFast);
                 if (ctx != null && ctx.getConcoctionLevel() + 1 <= ctx.getConcoction().maxLevel) {
                     ctx.setLevel(ctx.getConcoctionLevel() + 1);
                     if (!event.entityLiving.worldObj.isRemote) ctx.onAdded(event.entityLiving);
                 }
             } else {
-                ConcoctionsHelper.addConcoction(event.entityLiving, ModConcoctions.resistance, 1, 500);
+                ConcoctionsHelper.addConcoction(event.entityLiving, ModConcoctions.mineFast, 1, 500);
             }
         }
     }
@@ -61,5 +62,14 @@ public class EventHandler {
         IConcoctionContext resistance = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.resistance);
         if (resistance != null && !event.source.isFireDamage() && event.source != DamageSource.fall)
             event.ammount -= 0.5F * resistance.getConcoctionLevel();
+    }
+
+    @SubscribeEvent
+    public void onBreakingBlock(PlayerEvent.BreakSpeed event) {
+        IConcoctionContext slow = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.mineSlow);
+        if (slow != null) event.newSpeed = event.originalSpeed - 0.1F * slow.getConcoctionLevel();
+
+        IConcoctionContext fast = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.mineFast);
+        if (fast != null) event.newSpeed = event.originalSpeed + 0.1F * fast.getConcoctionLevel();
     }
 }

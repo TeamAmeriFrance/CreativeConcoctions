@@ -18,6 +18,8 @@ public class ModConcoctions {
     public static Concoction fireball;
     public static Concoction featherFall;
     public static Concoction resistance;
+    public static Concoction mineSlow;
+    public static Concoction mineFast;
 
     public static void registerConcoctions() {
         speed = new ConcoctionSpeed();
@@ -58,5 +60,11 @@ public class ModConcoctions {
 
         resistance = new ConcoctionResistance();
         ConcoctionsRegistry.registerConcoction(resistance, "ConcoctionResistance");
+
+        mineSlow = new ConcoctionMineSlow();
+        ConcoctionsRegistry.registerConcoction(mineSlow, "ConcoctionMineSlow");
+
+        mineFast = new ConcoctionMineFast();
+        ConcoctionsRegistry.registerConcoction(mineFast, "ConcoctionMineFast");
     }
 }

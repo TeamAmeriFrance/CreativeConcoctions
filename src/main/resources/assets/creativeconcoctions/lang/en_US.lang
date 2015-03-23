@@ -16,6 +16,8 @@ concoction.cleanse=Cleansing Serum
 concoction.fireball=Ghastly Draught
 concoction.feather.fall=Graceful Descent
 concoction.resistance=Thick Hide
+concoction.mining.slow=Dead Hands
+concoction.mine.fast=Jumpy Hands
 
 # GUI
 itemGroup.creativeconcoctions.creativeTab=Creative Concoctions
