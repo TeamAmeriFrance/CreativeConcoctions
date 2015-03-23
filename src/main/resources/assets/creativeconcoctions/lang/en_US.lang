@@ -15,6 +15,7 @@ concoction.jump.boost=Binky Boing
 concoction.cleanse=Cleansing Serum
 concoction.fireball=Ghastly Draught
 concoction.feather.fall=Graceful Descent
+concoction.resistance=Thick Hide
 
 # GUI
 itemGroup.creativeconcoctions.creativeTab=Creative Concoctions

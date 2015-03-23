@@ -6,6 +6,7 @@ import amerifrance.concoctions.concoctions.ModConcoctions;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -15,14 +16,14 @@ public class EventHandler {
     @SubscribeEvent
     public void addConcoction(LivingEvent.LivingJumpEvent event) {
         if (event.entityLiving instanceof EntityPlayer) {
-            if (ConcoctionsHelper.isConcoctionActive(event.entityLiving, ModConcoctions.featherFall)) {
-                IConcoctionContext ctx = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.featherFall);
+            if (ConcoctionsHelper.isConcoctionActive(event.entityLiving, ModConcoctions.resistance)) {
+                IConcoctionContext ctx = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.resistance);
                 if (ctx != null && ctx.getConcoctionLevel() + 1 <= ctx.getConcoction().maxLevel) {
                     ctx.setLevel(ctx.getConcoctionLevel() + 1);
                     if (!event.entityLiving.worldObj.isRemote) ctx.onAdded(event.entityLiving);
                 }
             } else {
-                ConcoctionsHelper.addConcoction(event.entityLiving, ModConcoctions.featherFall, 1, 500);
+                ConcoctionsHelper.addConcoction(event.entityLiving, ModConcoctions.resistance, 1, 500);
             }
         }
     }
@@ -53,5 +54,12 @@ public class EventHandler {
     public void onFall(LivingFallEvent event) {
         IConcoctionContext featherFall = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.featherFall);
         if (featherFall != null) event.distance -= 1.0F * featherFall.getConcoctionLevel();
+    }
+
+    @SubscribeEvent
+    public void onHurt(LivingHurtEvent event) {
+        IConcoctionContext resistance = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.resistance);
+        if (resistance != null && !event.source.isFireDamage() && event.source != DamageSource.fall)
+            event.ammount -= 0.5F * resistance.getConcoctionLevel();
     }
 }
