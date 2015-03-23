@@ -7,6 +7,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 public class EventHandler {
@@ -14,14 +15,14 @@ public class EventHandler {
     @SubscribeEvent
     public void addConcoction(LivingEvent.LivingJumpEvent event) {
         if (event.entityLiving instanceof EntityPlayer) {
-            if (ConcoctionsHelper.isConcoctionActive(event.entityLiving, ModConcoctions.fireball)) {
-                IConcoctionContext ctx = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.fireball);
+            if (ConcoctionsHelper.isConcoctionActive(event.entityLiving, ModConcoctions.featherFall)) {
+                IConcoctionContext ctx = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.featherFall);
                 if (ctx != null && ctx.getConcoctionLevel() + 1 <= ctx.getConcoction().maxLevel) {
                     ctx.setLevel(ctx.getConcoctionLevel() + 1);
                     if (!event.entityLiving.worldObj.isRemote) ctx.onAdded(event.entityLiving);
                 }
             } else {
-                ConcoctionsHelper.addConcoction(event.entityLiving, ModConcoctions.fireball, 1, 500);
+                ConcoctionsHelper.addConcoction(event.entityLiving, ModConcoctions.featherFall, 1, 500);
             }
         }
     }
@@ -44,7 +45,13 @@ public class EventHandler {
 
     @SubscribeEvent
     public void onJump(LivingEvent.LivingJumpEvent event) {
-        IConcoctionContext ctx = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.jumpBoost);
-        if (ctx != null) event.entityLiving.motionY += 0.1F * ctx.getConcoctionLevel();
+        IConcoctionContext jumpBoost = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.jumpBoost);
+        if (jumpBoost != null) event.entityLiving.motionY += 0.1F * jumpBoost.getConcoctionLevel();
+    }
+
+    @SubscribeEvent
+    public void onFall(LivingFallEvent event) {
+        IConcoctionContext featherFall = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.featherFall);
+        if (featherFall != null) event.distance -= 1.0F * featherFall.getConcoctionLevel();
     }
 }
