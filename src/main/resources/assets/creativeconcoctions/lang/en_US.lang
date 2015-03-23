@@ -18,6 +18,7 @@ concoction.feather.fall=Graceful Descent
 concoction.resistance=Thick Hide
 concoction.mining.slow=Dead Hands
 concoction.mine.fast=Jumpy Hands
+concoction.swim=Strong Swimming
 
 # GUI
 itemGroup.creativeconcoctions.creativeTab=Creative Concoctions
