@@ -42,7 +42,7 @@ No | Ghostwalk Ale | Ethereal Shift | Allows the imbiber to pass through enemies
 **Yes** | Pick-Me-Up Potion | Instant Health | Instantly heals the user. | 1 heart * level
 **Yes** | Put-Me-Down Potion | Instant Damage | Instantly damages the user. | 1 heart * level
 **Yes** | Concoction (p)| Poison | Poisons the user. As a reference to Runescape, the name has (p) on it. Add a `+` for each level of potency. | 1.0F * level per second
-No | Venomous Vigor | Regeneration | Grants the user very strong Regeneration, but slightly poisons the user afterwards. Meant to get you out of a sticky situation, but not as a "go-to" potion.
+**Yes** | Venomous Vigor | Regeneration | Grants the user very strong Regeneration, but slightly poisons the user afterwards. Meant to get you out of a sticky situation, but not as a "go-to" potion. | Half a heart * level per second, poison effect of the same level and half the duration when it wears off
 **Yes** | Binky Boing | Jump Boost | Gives the user a jump boost, more or less powerful depending on the concoction's level. | Jump + 0.1F * level
 **Yes** | Graceful Descent | Feather Fall | Removes fall damage, depending on the concoction's level | Distance -1.0F * level
 **Yes** | Thick Hide | Resistance | Lowers any type of damage but fire and fall damage, depending on the concoction's level | -0.5F * level

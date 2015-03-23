@@ -1,4 +1,4 @@
-package amerifrance.concoctions.concoctions;
+package amerifrance.concoctions.concoctions.basic;
 
 import amerifrance.concoctions.api.Concoction;
 import amerifrance.concoctions.api.ConcoctionType;
@@ -9,6 +9,8 @@ import net.minecraft.util.StatCollector;
 import java.awt.*;
 
 public class ConcoctionSwim extends Concoction {
+
+    //TODO: Fix this shit. It's not getting loaded back clientside, and so it nu werk
 
     public ConcoctionSwim() {
         super(StatCollector.translateToLocal("concoction.swim"), 10, Color.BLUE, ConcoctionType.GOOD);

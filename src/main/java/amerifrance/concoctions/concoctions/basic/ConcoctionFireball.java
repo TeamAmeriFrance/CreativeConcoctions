@@ -1,4 +1,4 @@
-package amerifrance.concoctions.concoctions;
+package amerifrance.concoctions.concoctions.basic;
 
 import amerifrance.concoctions.api.Concoction;
 import amerifrance.concoctions.api.IConcoctionContext;

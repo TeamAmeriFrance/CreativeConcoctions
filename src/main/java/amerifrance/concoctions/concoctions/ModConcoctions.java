@@ -2,9 +2,12 @@ package amerifrance.concoctions.concoctions;
 
 import amerifrance.concoctions.api.Concoction;
 import amerifrance.concoctions.api.ConcoctionsRegistry;
+import amerifrance.concoctions.concoctions.basic.*;
+import amerifrance.concoctions.concoctions.compound.ConcoctionVenomousVigor;
 
 public class ModConcoctions {
 
+    //Basics
     public static Concoction speed;
     public static Concoction strength;
     public static Concoction hellEyes;
@@ -22,6 +25,9 @@ public class ModConcoctions {
     public static Concoction mineFast;
     public static Concoction swim;
     public static Concoction poison;
+
+    //Compounds
+    public static Concoction venomousVigor;
 
     public static void registerConcoctions() {
         speed = new ConcoctionSpeed();
@@ -74,5 +80,8 @@ public class ModConcoctions {
 
         poison = new ConcoctionPoison();
         ConcoctionsRegistry.registerConcoction(poison, "ConcoctionPoison");
+
+        venomousVigor = new ConcoctionVenomousVigor();
+        ConcoctionsRegistry.registerConcoction(venomousVigor, "ConcoctionVenomousVigor");
     }
 }

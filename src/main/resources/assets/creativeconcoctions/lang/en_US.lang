@@ -3,6 +3,8 @@
 # Items
 
 #Concoction
+
+#Basics
 concoction.speed=Fleet Feet
 concoction.strengh=Brew of Brawn
 concoction.hell.eyes=Hell Eyes
@@ -20,6 +22,9 @@ concoction.mining.slow=Dead Hands
 concoction.mine.fast=Jumpy Hands
 concoction.swim=Strong Swimming
 concoction.poison=Concoction (p)
+
+#Compounds
+concoction.venomous.vigor=Venomous Vigor
 
 # GUI
 itemGroup.creativeconcoctions.creativeTab=Creative Concoctions
