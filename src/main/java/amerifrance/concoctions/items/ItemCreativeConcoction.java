@@ -88,6 +88,16 @@ public class ItemCreativeConcoction extends Item {
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
+    public int getColorFromItemStack(ItemStack stack, int pass) {
+        if (!ConcoctionsRegistry.isMapEmtpy() && ConcoctionsRegistry.getMapSize() > stack.getItemDamage()) {
+            return ConcoctionsRegistry.getConcoctions().get(stack.getItemDamage()).color.getRGB();
+        } else {
+            return super.getColorFromItemStack(stack, pass);
+        }
+    }
+
+    @Override
     public int getMaxItemUseDuration(ItemStack p_77626_1_) {
         return 32;
     }
