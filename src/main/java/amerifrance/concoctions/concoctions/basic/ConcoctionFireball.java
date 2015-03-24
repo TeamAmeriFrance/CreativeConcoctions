@@ -15,7 +15,7 @@ import java.awt.*;
 public class ConcoctionFireball extends Concoction {
 
     public ConcoctionFireball() {
-        super(StatCollector.translateToLocal("concoction.fireball"), 2, Color.MAGENTA);
+        super("concoction.fireball", 2, Color.MAGENTA);
     }
 
     @Override

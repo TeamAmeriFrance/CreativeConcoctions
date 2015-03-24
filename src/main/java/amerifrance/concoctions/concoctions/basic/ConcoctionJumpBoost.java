@@ -9,6 +9,6 @@ import java.awt.*;
 public class ConcoctionJumpBoost extends Concoction {
 
     public ConcoctionJumpBoost() {
-        super(StatCollector.translateToLocal("concoction.jump.boost"), 30, Color.BLUE, ConcoctionType.GOOD);
+        super("concoction.jump.boost", 30, Color.BLUE, ConcoctionType.GOOD);
     }
 }

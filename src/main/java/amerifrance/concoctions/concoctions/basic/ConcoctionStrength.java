@@ -16,7 +16,7 @@ public class ConcoctionStrength extends Concoction {
     public UUID uuid;
 
     public ConcoctionStrength() {
-        super(StatCollector.translateToLocal("concoction.strength"), 60, Color.GREEN, ConcoctionType.GOOD);
+        super("concoction.strength", 60, Color.GREEN, ConcoctionType.GOOD);
         uuid = UUID.randomUUID();
     }
 

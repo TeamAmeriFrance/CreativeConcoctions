@@ -12,7 +12,7 @@ import java.util.Iterator;
 
 public class ConcoctionCleanse extends Concoction {
     public ConcoctionCleanse() {
-        super(StatCollector.translateToLocal("concoction.cleanse"), 20, Color.WHITE, ConcoctionType.NEUTRAL);
+        super("concoction.cleanse", 20, Color.WHITE, ConcoctionType.NEUTRAL);
     }
 
     @Override

@@ -14,7 +14,7 @@ public class ConcoctionDamage extends Concoction {
     public DamageSource putMeDown = new DamageSource("PutMeDown").setDifficultyScaled();
 
     public ConcoctionDamage() {
-        super(StatCollector.translateToLocal("concoction.damage"), 20, Color.BLACK, ConcoctionType.BAD);
+        super("concoction.damage", 20, Color.BLACK, ConcoctionType.BAD);
     }
 
     @Override

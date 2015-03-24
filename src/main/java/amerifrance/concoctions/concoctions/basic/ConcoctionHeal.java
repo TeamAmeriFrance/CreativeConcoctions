@@ -11,7 +11,7 @@ import java.awt.*;
 public class ConcoctionHeal extends Concoction {
 
     public ConcoctionHeal() {
-        super(StatCollector.translateToLocal("concoction.heal"), 20, Color.PINK, ConcoctionType.GOOD);
+        super("concoction.heal", 20, Color.PINK, ConcoctionType.GOOD);
     }
 
     @Override

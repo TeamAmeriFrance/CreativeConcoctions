@@ -9,6 +9,6 @@ import java.awt.*;
 public class ConcoctionFeatherFall extends Concoction {
 
     public ConcoctionFeatherFall() {
-        super(StatCollector.translateToLocal("concoction.feather.fall"), 30, Color.PINK, ConcoctionType.GOOD);
+        super("concoction.feather.fall", 30, Color.PINK, ConcoctionType.GOOD);
     }
 }

@@ -9,6 +9,6 @@ import java.awt.*;
 public class ConcoctionResistance extends Concoction {
 
     public ConcoctionResistance(){
-        super(StatCollector.translateToLocal("concoction.resistance"), 20, Color.DARK_GRAY, ConcoctionType.GOOD);
+        super("concoction.resistance", 20, Color.DARK_GRAY, ConcoctionType.GOOD);
     }
 }

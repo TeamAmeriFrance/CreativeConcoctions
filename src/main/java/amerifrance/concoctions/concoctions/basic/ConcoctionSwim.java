@@ -13,7 +13,7 @@ public class ConcoctionSwim extends Concoction {
     //TODO: Fix this shit. It's not getting loaded back clientside, and so it nu werk
 
     public ConcoctionSwim() {
-        super(StatCollector.translateToLocal("concoction.swim"), 10, Color.BLUE, ConcoctionType.GOOD);
+        super("concoction.swim", 10, Color.BLUE, ConcoctionType.GOOD);
     }
 
     @Override

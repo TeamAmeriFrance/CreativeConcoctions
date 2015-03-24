@@ -1,5 +1,6 @@
 package amerifrance.concoctions.api;
 
+import amerifrance.concoctions.util.TextHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
 
@@ -23,6 +24,7 @@ public class Concoction {
      * @param name - Name of the Concoction.
      * @param maxLevel - Maximum level of the Concoction.
      * @param color - Color to give the Concoction.
+     * @param components - List of Concoctions that are in the Compound.
      */
     public Concoction(String name, int maxLevel, Color color, Concoction ... components) {
         this(name, maxLevel, color, ConcoctionType.NEUTRAL, components);
@@ -38,7 +40,7 @@ public class Concoction {
      * @param components - List of Concoctions that are in the Compound.
      */
     public Concoction(String name, int maxLevel, Color color, ConcoctionType type, Concoction ... components) {
-        this.name = name;
+        this.name = TextHelper.localize(name);
         this.maxLevel = maxLevel;
         this.color = color;
         this.type = type;

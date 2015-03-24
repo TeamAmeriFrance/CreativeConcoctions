@@ -12,7 +12,7 @@ import java.awt.*;
 public class ConcoctionPoison extends Concoction {
 
     public ConcoctionPoison() {
-        super(StatCollector.translateToLocal("concoction.poison"), 10, Color.GREEN, ConcoctionType.BAD);
+        super("concoction.poison", 10, Color.GREEN, ConcoctionType.BAD);
     }
 
     @Override

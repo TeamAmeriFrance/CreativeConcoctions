@@ -16,7 +16,7 @@ public class ConcoctionSpeed extends Concoction {
     public UUID uuid;
 
     public ConcoctionSpeed() {
-        super(StatCollector.translateToLocal("concoction.speed"), 60, Color.CYAN, ConcoctionType.GOOD);
+        super("concoction.speed", 60, Color.CYAN, ConcoctionType.GOOD);
         uuid = UUID.randomUUID();
     }
 

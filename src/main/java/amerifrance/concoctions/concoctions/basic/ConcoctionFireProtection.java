@@ -9,6 +9,6 @@ import java.awt.*;
 public class ConcoctionFireProtection extends Concoction {
 
     public ConcoctionFireProtection() {
-        super(StatCollector.translateToLocal("concoction.fire.protection"), 3, Color.ORANGE, ConcoctionType.GOOD);
+        super("concoction.fire.protection", 3, Color.ORANGE, ConcoctionType.GOOD);
     }
 }

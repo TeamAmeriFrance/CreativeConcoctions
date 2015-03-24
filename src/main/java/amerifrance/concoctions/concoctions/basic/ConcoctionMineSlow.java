@@ -9,6 +9,6 @@ import java.awt.*;
 public class ConcoctionMineSlow extends Concoction {
 
     public ConcoctionMineSlow() {
-        super(StatCollector.translateToLocal("concoction.mining.slow"), 20, Color.DARK_GRAY, ConcoctionType.BAD);
+        super("concoction.mining.slow", 20, Color.DARK_GRAY, ConcoctionType.BAD);
     }
 }
