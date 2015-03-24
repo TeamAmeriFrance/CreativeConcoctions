@@ -53,15 +53,18 @@ No | Ghostwalk Ale | Ethereal Shift | Allows the imbiber to pass through enemies
 - [ ] Aconite / Wolfsbane
 - [ ] Asphodel
 - [ ] Belladona
-- [ ] Beozar
 - [ ] Bubotuber
+- [ ] Daisy
 - [ ] Fluxweed
+- [ ] Gillyweed
 - [ ] Ginger
 - [ ] Hellebore
 - [ ] Knotgrass
 - [ ] Lovage
+- [ ] Mandrake / Mandragora
 - [ ] Nettles
 - [ ] Peppermint
+- [ ] Phytobeozar
 - [ ] Pomegranate
 - [ ] Scurvy-grass
 - [ ] Sneezewort
