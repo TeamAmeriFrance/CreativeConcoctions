@@ -5,6 +5,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
 
 import java.awt.*;
+import java.util.Arrays;
 
 /**
  * An immutable representation of a cocoction's effects. This is not used for
@@ -21,25 +22,25 @@ public class Concoction {
     /**
      * Use if specifying a Concoction that is neither good nor bad.
      *
-     * @param name - Name of the Concoction.
-     * @param maxLevel - Maximum level of the Concoction.
-     * @param color - Color to give the Concoction.
+     * @param name       - Name of the Concoction.
+     * @param maxLevel   - Maximum level of the Concoction.
+     * @param color      - Color to give the Concoction.
      * @param components - List of Concoctions that are in the Compound.
      */
-    public Concoction(String name, int maxLevel, Color color, Concoction ... components) {
+    public Concoction(String name, int maxLevel, Color color, Concoction... components) {
         this(name, maxLevel, color, ConcoctionType.NEUTRAL, components);
     }
 
     /**
      * Use if making a more advanced Concocton.
      *
-     * @param name - Name of the Concoction.
-     * @param maxLevel - Maximum level of the Concoction.
-     * @param color - Color to give the Concoction.
-     * @param type - {@link amerifrance.concoctions.api.ConcoctionType} of the Concoction.
+     * @param name       - Name of the Concoction.
+     * @param maxLevel   - Maximum level of the Concoction.
+     * @param color      - Color to give the Concoction.
+     * @param type       - {@link amerifrance.concoctions.api.ConcoctionType} of the Concoction.
      * @param components - List of Concoctions that are in the Compound.
      */
-    public Concoction(String name, int maxLevel, Color color, ConcoctionType type, Concoction ... components) {
+    public Concoction(String name, int maxLevel, Color color, ConcoctionType type, Concoction... components) {
         this.name = TextHelper.localize(name);
         this.maxLevel = maxLevel;
         this.color = color;
@@ -91,7 +92,7 @@ public class Concoction {
     }
 
     public Concoction[] getComponents() {
-        return components;
+        return Arrays.copyOf(components, components.length);
     }
 
     @Override

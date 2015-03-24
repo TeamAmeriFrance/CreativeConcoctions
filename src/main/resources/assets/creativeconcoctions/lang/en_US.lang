@@ -2,6 +2,7 @@
 
 # Items
 
+
 #Concoctions
 #Basics
 concoction.speed=Fleet Feet
@@ -28,6 +29,7 @@ concoction.venomous.vigor=Venomous Vigor
 
 # GUI
 itemGroup.creativeconcoctions.creativeTab=Creative Concoctions
+tooltip.creative.only=Creative Only
 
 # Chat
 death.attack.HellEyes=%s was stared to death.
