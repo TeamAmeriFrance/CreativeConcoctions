@@ -15,6 +15,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+import org.lwjgl.input.Keyboard;
 
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class ItemCreativeConcoction extends Item {
     public ItemCreativeConcoction() {
         setCreativeTab(CreativeConcoctions.tabConcoction);
         setUnlocalizedName(ModInformation.ID + ".creativeConcoction");
+        setTextureName("minecraft:potion_bottle_empty");
         setMaxDamage(0);
         setMaxStackSize(1);
         setHasSubtypes(true);
@@ -91,7 +93,12 @@ public class ItemCreativeConcoction extends Item {
     }
 
     @Override
-    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean p_77624_4_) {
+    @SuppressWarnings("unchecked")
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean simulate) {
+        if (!Keyboard.isKeyDown(Keyboard.KEY_LSHIFT))
+            return;
+
         list.add(StatCollector.translateToLocal("tooltip.creative.only"));
         list.add("Adds the effect with its max level, for 1000 ticks (50 secs)");
         list.add("Drink to make the concoction level go up");

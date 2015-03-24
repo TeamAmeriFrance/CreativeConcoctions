@@ -87,6 +87,10 @@ public class Concoction {
         ;
     }
 
+    /**
+     *
+     * @return - The {}
+     */
     public ConcoctionType getConcotionType() {
         return type;
     }

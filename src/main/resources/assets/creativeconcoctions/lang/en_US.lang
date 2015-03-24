@@ -2,7 +2,6 @@
 
 # Items
 
-
 #Concoctions
 #Basics
 concoction.speed=Fleet Feet
@@ -11,6 +10,7 @@ concoction.hell.eyes=Hell Eyes
 concoction.slowness=Heavy Feet
 concoction.regeneration=Vitality
 concoction.heal=Pick-Me-Up Potion
+concoction.hunger=Famine
 concoction.damage=Put-Me-Down Potion
 concoction.fire.protection=Blazin' Brew
 concoction.jump.boost=Binky Boing
@@ -22,10 +22,10 @@ concoction.mining.slow=Dead Hands
 concoction.mining.fast=Jumpy Hands
 concoction.swim=Strong Swimming
 concoction.poison=Concoction (p)
-concoction.sayan.serum=Sayan Serum
 
 #Compounds
 concoction.venomous.vigor=Venomous Vigor
+concoction.saiyan.serum=Saiyan Serum
 
 # GUI
 itemGroup.creativeconcoctions.creativeTab=Creative Concoctions
@@ -116,7 +116,15 @@ guide.creativeconcoctions.concoction(p).entry=Concoction (p)
 guide.creativeconcoctions.concoction(p).info.main=Feels like a small spider just gave you a headbutt.
 guide.creativeconcoctions.concoction(p).info.desc=Feels like a small spider just gave you a headbutt.
 
+guide.creativeconcoctions.famine.entry=Famine
+guide.creativeconcoctions.famine.info.main=I think I'll eat it now!
+guide.creativeconcoctions.famine.info.desc=I think I'll eat it now! *crunch*
+
 # Compound
 guide.creativeconcoctions.venomousvigor.entry=Venemous Vigor
 guide.creativeconcoctions.venomousvigor.info.main=With great regeneration comes great sickness... Apparently.
 guide.creativeconcoctions.venomousvigor.info.desc=With great regeneration comes great sickness... Apparently.
+
+guide.creativeconcoctions.saiyanserum.entry=Saiyan Serum
+guide.creativeconcoctions.saiyanserum.info.main=Everybody will be jealous of your rapidly growing golden locks of hair.
+guide.creativeconcoctions.saiyanserum.info.desc=Everybody will be jealous of your rapidly growing golden locks of hair.

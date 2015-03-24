@@ -9,10 +9,10 @@ import net.minecraft.entity.EntityLivingBase;
 
 import java.awt.*;
 
-public class ConcoctionSayanSerum extends Concoction {
+public class ConcoctionSaiyanSerum extends Concoction {
 
-    public ConcoctionSayanSerum() {
-        super("concoction.sayan.serum", 20, Color.YELLOW, ConcoctionType.NEUTRAL, ModConcoctions.strength, ModConcoctions.speed, ModConcoctions.resistance, ModConcoctions.regeneration, ModConcoctions.jumpBoost, ModConcoctions.slowness, ModConcoctions.mineSlow, ModConcoctions.hunger);
+    public ConcoctionSaiyanSerum() {
+        super("concoction.saiyan.serum", 20, Color.YELLOW, ConcoctionType.NEUTRAL, ModConcoctions.strength, ModConcoctions.speed, ModConcoctions.resistance, ModConcoctions.regeneration, ModConcoctions.jumpBoost, ModConcoctions.slowness, ModConcoctions.mineSlow, ModConcoctions.hunger);
     }
 
     @Override

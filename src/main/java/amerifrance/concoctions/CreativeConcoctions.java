@@ -54,6 +54,7 @@ public class CreativeConcoctions {
         ModConcoctions.registerBasicConcoctions();
         ModConcoctions.registerCompoundConcoctions();
         ItemsRegistry.registerItems();
+        proxy.setConcoctionBook();
     }
 
     @Mod.EventHandler
