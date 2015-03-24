@@ -50,38 +50,70 @@ guide.creativeconcoctions.fleetfeet.info.main=Fleet Feet provides a Speed buff w
 guide.creativeconcoctions.fleetfeet.info.desc=Fleet Feet provides a Speed buff while active.
 
 guide.creativeconcoctions.brewofbrawn.entry=Brew of Brawn
+guide.creativeconcoctions.brewofbrawn.info.main=Brew of Brawn gives you the strength to carry on.
+guide.creativeconcoctions.brewofbrawn.info.desc=Brew of Brawn gives you the strength to carry on.
 
 guide.creativeconcoctions.helleyes.entry=Hell Eyes
 guide.creativeconcoctions.helleyes.info.main=Hell Eyes damages living things that fall in your gaze.
 guide.creativeconcoctions.helleyes.info.desc=Hell Eyes damages living things that fall in your gaze.
 
 guide.creativeconcoctions.heavyfeet.entry=Heavy Feet
+guide.creativeconcoctions.heavyfeet.info.main=Heavy Feet makes you move slower.
+guide.creativeconcoctions.heavyfeet.info.desc=Heavy Feet makes you move slower.
 
 guide.creativeconcoctions.vitality.entry=Vitality
+guide.creativeconcoctions.vitality.info.main=Vitality grants you regeneration.
+guide.creativeconcoctions.vitality.info.desc=Vitality grants you regeneration.
 
 guide.creativeconcoctions.pick-me-uppotion.entry=Pick-me-Up Potion
+guide.creativeconcoctions.pick-me-uppotion.info.main=A Pick-me-Up Potion will instantly heal you.
+guide.creativeconcoctions.pick-me-uppotion.info.desc=A Pick-me-Up Potion will instantly heal you.
 
 guide.creativeconcoctions.put-me-downpotion.entry=Put-me-Down Potion
+guide.creativeconcoctions.put-me-downpotion.info.main=A Put-me-Down Potion will instantly damage you.
+guide.creativeconcoctions.put-me-downpotion.info.desc=A Put-me-Down Potion will instantly damage you.
 
 guide.creativeconcoctions.blazin'brew.entry=Blazin' Brew
+guide.creativeconcoctions.blazin'brew.info.main=Blazin' Brew let's you take the heat.
+guide.creativeconcoctions.blazin'brew.info.desc=Blazin' Brew let's you take the heat.
 
 guide.creativeconcoctions.binkyboing.entry=Binky Boing
+guide.creativeconcoctions.binkyboing.info.main=Tom fix your stupid name.
+guide.creativeconcoctions.binkyboing.info.desc=Tom fix your stupid name.
 
 guide.creativeconcoctions.cleansingserum.entry=Cleansing Serum
+guide.creativeconcoctions.cleansingserum.info.main=The Cleansing Serum will remove all positive effects.
+guide.creativeconcoctions.cleansingserum.info.desc=The Cleansing Serum will remove all positive effects.
 
 guide.creativeconcoctions.ghastlydraught.entry=Ghastly Draught
+guide.creativeconcoctions.ghastlydraught.info.main=Ghastly Draught allows you to shoot fire from your face.
+guide.creativeconcoctions.ghastlydraught.info.desc=Ghastly Draught allows you to shoot fire from your face.
 
 guide.creativeconcoctions.gracefuldescent.entry=Graceful Descent
+guide.creativeconcoctions.gracefuldescent.info.main=Graceful Descent gives you the gracefulness of a Jackalope.
+guide.creativeconcoctions.gracefuldescent.info.desc=Graceful Descent gives you the gracefulness of a Jackalope.
 
 guide.creativeconcoctions.thickhide.entry=Thick Hide
+guide.creativeconcoctions.thickhide.info.main=Thick Hide let's you take punches.
+guide.creativeconcoctions.thickhide.info.desc=Thick Hide let's you take punches.
 
 guide.creativeconcoctions.deadhands.entry=Dead Hands
+guide.creativeconcoctions.deadhands.info.main=The fatigue has gotten to you.
+guide.creativeconcoctions.deadhands.info.desc=The fatigue has gotten to you.
 
 guide.creativeconcoctions.jumpyhands.entry=Jumpy Hands
+guide.creativeconcoctions.jumpyhands.info.main=What are you on? Can I have some?
+guide.creativeconcoctions.jumpyhands.info.desc=What are you on? Can I have some?
 
 guide.creativeconcoctions.strongswimming.entry=Strong Swimming
+guide.creativeconcoctions.strongswimming.info.main=Don't screw up after you get the Gold Medal like others do.
+guide.creativeconcoctions.strongswimming.info.desc=Don't screw up after you get the Gold Medal like others do.
 
 guide.creativeconcoctions.concoction(p).entry=Concoction (p)
+guide.creativeconcoctions.concoction(p).info.main=Feels like a small spider just gave you a headbutt.
+guide.creativeconcoctions.concoction(p).info.desc=Feels like a small spider just gave you a headbutt.
 
 # Compound
 guide.creativeconcoctions.venomousvigor.entry=Venemous Vigor
+guide.creativeconcoctions.venomousvigor.info.main=With great regeneration comes great sickness... Apparently.
+guide.creativeconcoctions.venomousvigor.info.desc=With great regeneration comes great sickness... Apparently.
