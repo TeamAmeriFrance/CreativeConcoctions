@@ -24,7 +24,6 @@
 - [ ] Custom NEI Handler
 
 ##Effects
-
 Have an effect idea? Fill out [this](http://goo.gl/forms/FiPc7Kkyhs) form. Accepted responses will be added below.
 
 **Done** | **Concoction Name** | **Ability** | **Description** | **Calculation**
@@ -48,6 +47,27 @@ No | Ghostwalk Ale | Ethereal Shift | Allows the imbiber to pass through enemies
 **Yes** | Thick Hide | Resistance | Lowers any type of damage but fire and fall damage, depending on the concoction's level | -0.5F * level
 **Yes** | Dead Hands | Mining Slowness | Slows down mining | -0.1F * level
 **Yes** | Jumpy Hands | Mining Speedup | Speeds up mining | +0.1F * level
+
+#Plant Ingredients
+**Harry Potter inspired**
+- [ ] Aconite / Wolfsbane
+- [ ] Asphodel
+- [ ] Belladona
+- [ ] Beozar
+- [ ] Bubotuber
+- [ ] Fluxweed
+- [ ] Ginger
+- [ ] Hellebore
+- [ ] Knotgrass
+- [ ] Lovage
+- [ ] Nettles
+- [ ] Peppermint
+- [ ] Pomegranate
+- [ ] Scurvy-grass
+- [ ] Sneezewort
+- [ ] Sophorous Bean
+- [ ] Valerian
+- [ ] Wormwood
 
 ##Alchemy
 We'll see later!
