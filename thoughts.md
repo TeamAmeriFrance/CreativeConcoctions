@@ -64,7 +64,7 @@ No | Ginger |  | Plant
 No | Hellebore | There are several kinds of hellebore. The name comes from the Greek words 'elein' (to injure) and 'bora' (food), indicating that hellebore is poisonous. In some belief systems, it's been believed to be a purgative, sometimes of bad things generally, used for things like protecting livestock from evil spells, and (in powdered form) for invisibility. | Plant
 No | Knotgrass | Knotgrass is an ingredient in Morphing Potions. | Plant
 No | Lovage | A potion ingredient used to make Confusing and Befuddlement Draughts | Plant
-No | Mandrake | Mandragora | The Mandrake root is a powerful restorative. It forms an essential part of most antidotes, including one for Petrification. The Mandrake Restorative Draught returns people who have been Transfigured or cursed to their original state. The cry of the Mandrake is fatal to humans, so special care must be taken when growing them. Even as a baby, the Mandrake's howls can knock a person out for a couple of hours. | Plant
+No | Mandrake / Mandragora | The Mandrake root is a powerful restorative. It forms an essential part of most antidotes, including one for Petrification. The Mandrake Restorative Draught returns people who have been Transfigured or cursed to their original state. The cry of the Mandrake is fatal to humans, so special care must be taken when growing them. Even as a baby, the Mandrake's howls can knock a person out for a couple of hours. | Plant
 No | Nettles | This herb is used as a potion ingredient, used dried for making cure potions. | Plant
 No | Peppermint | It is a plant used in potions to control unwelcome side effects. | Plant
 No | Phytobezoar | It is a stone that can cure most poisons. Commonly found in the stomach of plant eating animals. | ???
