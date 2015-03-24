@@ -5,7 +5,6 @@ import amerifrance.concoctions.api.IConcoctionContext;
 import amerifrance.concoctions.concoctions.ModConcoctions;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
@@ -13,21 +12,6 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 
 public class EventHandler {
-
-    @SubscribeEvent
-    public void addConcoction(LivingEvent.LivingJumpEvent event) {
-        if (event.entityLiving instanceof EntityPlayer) {
-            if (ConcoctionsHelper.isConcoctionActive(event.entityLiving, ModConcoctions.hellEyes)) {
-                IConcoctionContext ctx = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.hellEyes);
-                if (ctx != null && ctx.getConcoctionLevel() + 1 <= ctx.getConcoction().maxLevel) {
-                    ctx.setLevel(ctx.getConcoctionLevel() + 1);
-                    if (!event.entityLiving.worldObj.isRemote) ctx.onAdded(event.entityLiving);
-                }
-            } else {
-                ConcoctionsHelper.addConcoction(event.entityLiving, ModConcoctions.hellEyes, 1, 500);
-            }
-        }
-    }
 
     @SubscribeEvent
     public void onDealFireDamage(LivingHurtEvent event) {

@@ -5,6 +5,7 @@ import amerifrance.concoctions.ModInformation;
 import amerifrance.concoctions.api.Concoction;
 import amerifrance.concoctions.api.ConcoctionsHelper;
 import amerifrance.concoctions.api.ConcoctionsRegistry;
+import amerifrance.concoctions.api.IConcoctionContext;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
@@ -41,7 +42,16 @@ public class ItemCreativeConcoction extends Item {
     public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
         if (!ConcoctionsRegistry.isMapEmtpy() && ConcoctionsRegistry.getMapSize() > stack.getItemDamage()) {
             Concoction concoction = ConcoctionsRegistry.getConcoctions().get(stack.getItemDamage());
-            ConcoctionsHelper.addConcoction(player, concoction, concoction.maxLevel, 1000);
+            if (ConcoctionsHelper.isConcoctionActive(player, concoction)) {
+                IConcoctionContext ctx = ConcoctionsHelper.getActiveConcoction(player, concoction);
+                if (ctx != null && ctx.getConcoctionLevel() + 1 <= ctx.getConcoction().maxLevel) {
+                    ctx.setLevel(ctx.getConcoctionLevel() + 1);
+                    ctx.setTicksLeft(ctx.getInitialDuration());
+                    if (!world.isRemote) ctx.onAdded(player);
+                }
+            } else {
+                ConcoctionsHelper.addConcoction(player, concoction, 1, 1000);
+            }
         }
         return stack;
     }
@@ -84,5 +94,6 @@ public class ItemCreativeConcoction extends Item {
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean p_77624_4_) {
         list.add(StatCollector.translateToLocal("tooltip.creative.only"));
         list.add("Adds the effect with its max level, for 1000 ticks (50 secs)");
+        list.add("Drink to make the concoction level go up");
     }
 }
