@@ -15,16 +15,46 @@ public class Concoction {
     public final int maxLevel;
     public final Color color;
     public final ConcoctionType type;
+    private Concoction[] components;
 
+    /**
+     * Use if specifying a Concoction that is neither good nor bad.
+     *
+     * @param name - Name of the Concoction.
+     * @param maxLevel - Maximum level of the Concoction.
+     * @param color - Color to give the Concoction.
+     */
     public Concoction(String name, int maxLevel, Color color) {
         this(name, maxLevel, color, ConcoctionType.NEUTRAL);
     }
 
+    /**
+     * Use if you need to specify a {@link amerifrance.concoctions.api.ConcoctionType}
+     *
+     * @param name - Name of the Concoction.
+     * @param maxLevel - Maximum level of the Concoction.
+     * @param color - Color to give the Concoction.
+     * @param type - {@link amerifrance.concoctions.api.ConcoctionType} of the Concoction.
+     */
     public Concoction(String name, int maxLevel, Color color, ConcoctionType type) {
+        this(name, maxLevel, color, type, null);
+    }
+
+    /**
+     * Use if you're creating a Compound Concoction (A concoction made up of multiple types)
+     *
+     * @param name - Name of the Concoction.
+     * @param maxLevel - Maximum level of the Concoction.
+     * @param color - Color to give the Concoction.
+     * @param type - {@link amerifrance.concoctions.api.ConcoctionType} of the Concoction.
+     * @param components - List of Concoctions that are in the Compound.
+     */
+    public Concoction(String name, int maxLevel, Color color, ConcoctionType type, Concoction ... components) {
         this.name = name;
         this.maxLevel = maxLevel;
         this.color = color;
         this.type = type;
+        this.components = components;
     }
 
     public static Concoction readFromNBT(NBTTagCompound tagCompound) {
@@ -68,6 +98,10 @@ public class Concoction {
 
     public ConcoctionType getConcotionType() {
         return type;
+    }
+
+    public Concoction[] getComponents() {
+        return components;
     }
 
     @Override

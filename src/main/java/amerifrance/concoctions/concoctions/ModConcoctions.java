@@ -4,6 +4,10 @@ import amerifrance.concoctions.api.Concoction;
 import amerifrance.concoctions.api.ConcoctionsRegistry;
 import amerifrance.concoctions.concoctions.basic.*;
 import amerifrance.concoctions.concoctions.compound.ConcoctionVenomousVigor;
+import amerifrance.concoctions.guide.GuideConcoctionsHelper;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class ModConcoctions {
 
@@ -29,59 +33,79 @@ public class ModConcoctions {
     //Compounds
     public static Concoction venomousVigor;
 
-    public static void registerConcoctions() {
+    public static void registerBasicConcoctions() {
         speed = new ConcoctionSpeed();
         ConcoctionsRegistry.registerConcoction(speed, "ConcoctionSpeed");
+        GuideConcoctionsHelper.addBasicConcoctionEntry(speed, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
 
         strength = new ConcoctionStrength();
         ConcoctionsRegistry.registerConcoction(strength, "ConcoctionStrength");
+        GuideConcoctionsHelper.addBasicConcoctionEntry(strength, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
 
         hellEyes = new ConcoctionHellEyes();
         ConcoctionsRegistry.registerConcoction(hellEyes, "ConcoctionHellEyes");
+        GuideConcoctionsHelper.addBasicConcoctionEntry(hellEyes, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
 
         slowness = new ConcoctionSlowness();
         ConcoctionsRegistry.registerConcoction(slowness, "ConcoctionSlowness");
+        GuideConcoctionsHelper.addBasicConcoctionEntry(slowness, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
 
         regeneration = new ConcoctionRegeneration();
         ConcoctionsRegistry.registerConcoction(regeneration, "ConcoctionRegeneration");
+        GuideConcoctionsHelper.addBasicConcoctionEntry(regeneration, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
 
         heal = new ConcoctionHeal();
         ConcoctionsRegistry.registerConcoction(heal, "ConcoctionHeal");
+        GuideConcoctionsHelper.addBasicConcoctionEntry(heal, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
 
         damage = new ConcoctionDamage();
         ConcoctionsRegistry.registerConcoction(damage, "ConcoctionDamage");
+        GuideConcoctionsHelper.addBasicConcoctionEntry(damage, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
 
         fireProtection = new ConcoctionFireProtection();
         ConcoctionsRegistry.registerConcoction(fireProtection, "ConcoctionFireProtection");
+        GuideConcoctionsHelper.addBasicConcoctionEntry(fireProtection, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
 
         jumpBoost = new ConcoctionJumpBoost();
         ConcoctionsRegistry.registerConcoction(jumpBoost, "ConcoctionJumpBoost");
+        GuideConcoctionsHelper.addBasicConcoctionEntry(jumpBoost, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
 
         cleanse = new ConcoctionCleanse();
         ConcoctionsRegistry.registerConcoction(cleanse, "ConcoctionCleanse");
+        GuideConcoctionsHelper.addBasicConcoctionEntry(cleanse, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
 
         fireball = new ConcoctionFireball();
         ConcoctionsRegistry.registerConcoction(fireball, "ConcoctionFireball");
+        GuideConcoctionsHelper.addBasicConcoctionEntry(fireball, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
 
         featherFall = new ConcoctionFeatherFall();
         ConcoctionsRegistry.registerConcoction(featherFall, "ConcoctionFeatherFall");
+        GuideConcoctionsHelper.addBasicConcoctionEntry(featherFall, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
 
         resistance = new ConcoctionResistance();
         ConcoctionsRegistry.registerConcoction(resistance, "ConcoctionResistance");
+        GuideConcoctionsHelper.addBasicConcoctionEntry(resistance, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
 
         mineSlow = new ConcoctionMineSlow();
         ConcoctionsRegistry.registerConcoction(mineSlow, "ConcoctionMineSlow");
+        GuideConcoctionsHelper.addBasicConcoctionEntry(mineSlow, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
 
         mineFast = new ConcoctionMineFast();
         ConcoctionsRegistry.registerConcoction(mineFast, "ConcoctionMineFast");
+        GuideConcoctionsHelper.addBasicConcoctionEntry(mineFast, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
 
         swim = new ConcoctionSwim();
         ConcoctionsRegistry.registerConcoction(swim, "ConcoctionSwim");
+        GuideConcoctionsHelper.addBasicConcoctionEntry(swim, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
 
         poison = new ConcoctionPoison();
         ConcoctionsRegistry.registerConcoction(poison, "ConcoctionPoison");
+        GuideConcoctionsHelper.addBasicConcoctionEntry(poison, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
+    }
 
+    public static void registerCompoundConcoctions() {
         venomousVigor = new ConcoctionVenomousVigor();
         ConcoctionsRegistry.registerConcoction(venomousVigor, "ConcoctionVenomousVigor");
+        GuideConcoctionsHelper.addCompoundConcoctionEntry(venomousVigor, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
     }
 }

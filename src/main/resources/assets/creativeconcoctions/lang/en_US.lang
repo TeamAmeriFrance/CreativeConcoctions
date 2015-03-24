@@ -2,11 +2,10 @@
 
 # Items
 
-#Concoction
-
+#Concoctions
 #Basics
 concoction.speed=Fleet Feet
-concoction.strengh=Brew of Brawn
+concoction.strength=Brew of Brawn
 concoction.hell.eyes=Hell Eyes
 concoction.slowness=Heavy Feet
 concoction.regeneration=Vitality
@@ -19,7 +18,7 @@ concoction.fireball=Ghastly Draught
 concoction.feather.fall=Graceful Descent
 concoction.resistance=Thick Hide
 concoction.mining.slow=Dead Hands
-concoction.mine.fast=Jumpy Hands
+concoction.mining.fast=Jumpy Hands
 concoction.swim=Strong Swimming
 concoction.poison=Concoction (p)
 
@@ -39,14 +38,50 @@ keybind.fireball=Launch Fireball
 # Console
 
 # Guide
+# Basic
 guide.creativeconcoctions.title=Book of Concoctions
 guide.creativeconcoctions.welcome=All your Creative Concoctions needs in one place.
-guide.creativeconcoctions.category.concoctions=Concoctions
+guide.creativeconcoctions.category.concoctions.intro=Brewing for Beginners
+guide.creativeconcoctions.category.concoctions.basic=Basic Concoctions
+guide.creativeconcoctions.category.concoctions.compound=Compound Concoctions
 
 guide.creativeconcoctions.fleetfeet.entry=Fleet Feet
 guide.creativeconcoctions.fleetfeet.info.main=Fleet Feet provides a Speed buff while active.
 guide.creativeconcoctions.fleetfeet.info.desc=Fleet Feet provides a Speed buff while active.
 
+guide.creativeconcoctions.brewofbrawn.entry=Brew of Brawn
+
 guide.creativeconcoctions.helleyes.entry=Hell Eyes
 guide.creativeconcoctions.helleyes.info.main=Hell Eyes damages living things that fall in your gaze.
 guide.creativeconcoctions.helleyes.info.desc=Hell Eyes damages living things that fall in your gaze.
+
+guide.creativeconcoctions.heavyfeet.entry=Heavy Feet
+
+guide.creativeconcoctions.vitality.entry=Vitality
+
+guide.creativeconcoctions.pick-me-uppotion.entry=Pick-me-Up Potion
+
+guide.creativeconcoctions.put-me-downpotion.entry=Put-me-Down Potion
+
+guide.creativeconcoctions.blazin'brew.entry=Blazin' Brew
+
+guide.creativeconcoctions.binkyboing.entry=Binky Boing
+
+guide.creativeconcoctions.cleansingserum.entry=Cleansing Serum
+
+guide.creativeconcoctions.ghastlydraught.entry=Ghastly Draught
+
+guide.creativeconcoctions.gracefuldescent.entry=Graceful Descent
+
+guide.creativeconcoctions.thickhide.entry=Thick Hide
+
+guide.creativeconcoctions.deadhands.entry=Dead Hands
+
+guide.creativeconcoctions.jumpyhands.entry=Jumpy Hands
+
+guide.creativeconcoctions.strongswimming.entry=Strong Swimming
+
+guide.creativeconcoctions.concoction(p).entry=Concoction (p)
+
+# Compound
+guide.creativeconcoctions.venomousvigor.entry=Venemous Vigor

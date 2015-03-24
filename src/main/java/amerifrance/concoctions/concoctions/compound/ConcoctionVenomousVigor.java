@@ -5,6 +5,9 @@ import amerifrance.concoctions.api.ConcoctionType;
 import amerifrance.concoctions.api.ConcoctionsHelper;
 import amerifrance.concoctions.api.IConcoctionContext;
 import amerifrance.concoctions.concoctions.ModConcoctions;
+import amerifrance.concoctions.concoctions.basic.ConcoctionPoison;
+import amerifrance.concoctions.concoctions.basic.ConcoctionRegeneration;
+import amerifrance.concoctions.guide.GuideConcoctions;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.StatCollector;
 
@@ -13,7 +16,7 @@ import java.awt.*;
 public class ConcoctionVenomousVigor extends Concoction {
 
     public ConcoctionVenomousVigor() {
-        super(StatCollector.translateToLocal("concoction.venomous.vigor"), 15, Color.BLACK, ConcoctionType.NEUTRAL);
+        super(StatCollector.translateToLocal("concoction.venomous.vigor"), 15, Color.BLACK, ConcoctionType.NEUTRAL, new ConcoctionPoison(), new ConcoctionRegeneration());
     }
 
     @Override

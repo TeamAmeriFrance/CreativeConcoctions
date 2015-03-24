@@ -51,7 +51,8 @@ public class CreativeConcoctions {
     public void preInit(FMLPreInitializationEvent event) {
         instance = this;
         configDir = new File(event.getModConfigurationDirectory() + "/" + ModInformation.NAME);
-        ModConcoctions.registerConcoctions();
+        ModConcoctions.registerBasicConcoctions();
+        ModConcoctions.registerCompoundConcoctions();
         GuideConcoctions.setConcoctionBook();
     }
 
