@@ -16,7 +16,7 @@ import java.awt.*;
 public class ConcoctionVenomousVigor extends Concoction {
 
     public ConcoctionVenomousVigor() {
-        super(StatCollector.translateToLocal("concoction.venomous.vigor"), 15, Color.BLACK, ConcoctionType.NEUTRAL, new ConcoctionPoison(), new ConcoctionRegeneration());
+        super(StatCollector.translateToLocal("concoction.venomous.vigor"), 15, Color.BLACK, ConcoctionType.NEUTRAL, ModConcoctions.regeneration, ModConcoctions.poison);
     }
 
     @Override

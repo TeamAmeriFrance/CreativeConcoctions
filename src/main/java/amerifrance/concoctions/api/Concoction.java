@@ -24,24 +24,12 @@ public class Concoction {
      * @param maxLevel - Maximum level of the Concoction.
      * @param color - Color to give the Concoction.
      */
-    public Concoction(String name, int maxLevel, Color color) {
-        this(name, maxLevel, color, ConcoctionType.NEUTRAL);
+    public Concoction(String name, int maxLevel, Color color, Concoction ... components) {
+        this(name, maxLevel, color, ConcoctionType.NEUTRAL, components);
     }
 
     /**
-     * Use if you need to specify a {@link amerifrance.concoctions.api.ConcoctionType}
-     *
-     * @param name - Name of the Concoction.
-     * @param maxLevel - Maximum level of the Concoction.
-     * @param color - Color to give the Concoction.
-     * @param type - {@link amerifrance.concoctions.api.ConcoctionType} of the Concoction.
-     */
-    public Concoction(String name, int maxLevel, Color color, ConcoctionType type) {
-        this(name, maxLevel, color, type, null);
-    }
-
-    /**
-     * Use if you're creating a Compound Concoction (A concoction made up of multiple types)
+     * Use if making a more advanced Concocton.
      *
      * @param name - Name of the Concoction.
      * @param maxLevel - Maximum level of the Concoction.
