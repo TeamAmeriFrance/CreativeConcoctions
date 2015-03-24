@@ -50,6 +50,7 @@ No | Ghostwalk Ale | Ethereal Shift | Allows the imbiber to pass through enemies
 
 #Ingredients
 **Harry Potter inspired**
+
 **Done** | **Ingredient** | **Effect** | **Origin**
 ------------ | ------------ | ------------ | ------------
 No | Aconite / Wolfsbane | In magical lore, aconite combined with belladonna was applied as a magical ointment by witches to make themselves fly. Aconite is an extremely poisonous plant (hence its other name of wolfsbane). | Plant
