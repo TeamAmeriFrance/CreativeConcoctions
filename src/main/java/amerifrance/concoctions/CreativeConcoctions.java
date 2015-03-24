@@ -1,7 +1,6 @@
 package amerifrance.concoctions;
 
 import amerifrance.concoctions.concoctions.ModConcoctions;
-import amerifrance.concoctions.guide.GuideConcoctions;
 import amerifrance.concoctions.network.PacketHandler;
 import amerifrance.concoctions.proxies.CommonProxy;
 import amerifrance.concoctions.util.ClientEventHandler;
@@ -53,7 +52,6 @@ public class CreativeConcoctions {
         configDir = new File(event.getModConfigurationDirectory() + "/" + ModInformation.NAME);
         ModConcoctions.registerBasicConcoctions();
         ModConcoctions.registerCompoundConcoctions();
-        GuideConcoctions.setConcoctionBook();
     }
 
     @Mod.EventHandler

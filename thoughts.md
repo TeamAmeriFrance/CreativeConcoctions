@@ -34,7 +34,7 @@ Have an effect idea? Fill out [this](http://goo.gl/forms/FiPc7Kkyhs) form. Accep
 **Yes** | Ghastly Draught | Fireballs | Allows the user to shoot fireballs. | Level 1: Blaze Fireball - Level 2: Ghast fireballs
 No | Luman Liquor | Human Torch | Creates light around the player. Higher potency means higher light level.
 **Yes** | Blazin' Brew | Fire Resistance | Increases user's protection from fire. | Level 1: Fire - Level 2: Fire + 1/2 damage from lava - Level 3: Lava
-No | Saiyan Serum | Combat Buff | This expensive brew provides Strength, Speed, Resistance, Regeneration, and Jump boosts, making the user a veritable combat machine.  However, the user is hit with Mining Fatigue, Slowness, Blindness, and Hunger debuffs as soon as it wears off, so the imbiber had better make sure the fight will be over by then.
+**Yes** | Saiyan Serum | Combat Buff | This expensive brew provides Strength, Speed, Resistance, Regeneration, and Jump boosts, making the user a veritable combat machine.  However, the user is hit with Mining Fatigue, Slowness, Blindness, and Hunger debuffs as soon as it wears off, so the imbiber had better make sure the fight will be over by then.
 **Yes** | Strong Swimming | Swim Boost | Basically a backport of the 1.8 enchantment. | +0.025F * level while in water (it gets quite fast)
 **Yes** | Hell Eyes | Combat | Hurts any mob/entity you're looking at. | 1.0F * level
 No | Ghostwalk Ale | Ethereal Shift | Allows the imbiber to pass through enemies and entities without taking damage. Also makes the user immune to suffocation damage for a short period of time. However when applied, a greyscale filter is given to the player and they cannot interact with most blocks or give damage.

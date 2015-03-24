@@ -3,6 +3,7 @@ package amerifrance.concoctions.concoctions;
 import amerifrance.concoctions.api.Concoction;
 import amerifrance.concoctions.api.ConcoctionsRegistry;
 import amerifrance.concoctions.concoctions.basic.*;
+import amerifrance.concoctions.concoctions.compound.ConcoctionSayanSerum;
 import amerifrance.concoctions.concoctions.compound.ConcoctionVenomousVigor;
 import amerifrance.concoctions.guide.GuideConcoctionsHelper;
 import net.minecraft.init.Items;
@@ -29,9 +30,11 @@ public class ModConcoctions {
     public static Concoction mineFast;
     public static Concoction swim;
     public static Concoction poison;
+    public static Concoction hunger;
 
     //Compounds
     public static Concoction venomousVigor;
+    public static Concoction sayanSerum;
 
     public static void registerBasicConcoctions() {
         speed = new ConcoctionSpeed();
@@ -101,11 +104,17 @@ public class ModConcoctions {
         poison = new ConcoctionPoison();
         ConcoctionsRegistry.registerConcoction(poison, "ConcoctionPoison");
         GuideConcoctionsHelper.addBasicConcoctionEntry(poison, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
+
+        hunger = new ConcoctionHunger();
+        ConcoctionsRegistry.registerConcoction(hunger, "ConcoctionHunger");
     }
 
     public static void registerCompoundConcoctions() {
         venomousVigor = new ConcoctionVenomousVigor();
         ConcoctionsRegistry.registerConcoction(venomousVigor, "ConcoctionVenomousVigor");
         GuideConcoctionsHelper.addCompoundConcoctionEntry(venomousVigor, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
+
+        sayanSerum = new ConcoctionSayanSerum();
+        ConcoctionsRegistry.registerConcoction(sayanSerum, "ConcoctionSayanSerum");
     }
 }
