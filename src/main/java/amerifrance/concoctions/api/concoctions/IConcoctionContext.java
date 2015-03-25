@@ -1,4 +1,4 @@
-package amerifrance.concoctions.api;
+package amerifrance.concoctions.api.concoctions;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;

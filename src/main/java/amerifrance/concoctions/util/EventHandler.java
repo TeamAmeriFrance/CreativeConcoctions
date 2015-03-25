@@ -1,7 +1,7 @@
 package amerifrance.concoctions.util;
 
-import amerifrance.concoctions.api.ConcoctionsHelper;
-import amerifrance.concoctions.api.IConcoctionContext;
+import amerifrance.concoctions.api.concoctions.ConcoctionsHelper;
+import amerifrance.concoctions.api.concoctions.IConcoctionContext;
 import amerifrance.concoctions.concoctions.ModConcoctions;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.block.material.Material;

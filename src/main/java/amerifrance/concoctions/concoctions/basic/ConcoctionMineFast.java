@@ -1,8 +1,7 @@
 package amerifrance.concoctions.concoctions.basic;
 
-import amerifrance.concoctions.api.Concoction;
-import amerifrance.concoctions.api.ConcoctionType;
-import net.minecraft.util.StatCollector;
+import amerifrance.concoctions.api.concoctions.Concoction;
+import amerifrance.concoctions.api.concoctions.ConcoctionType;
 
 import java.awt.*;
 

@@ -1,15 +1,11 @@
 package amerifrance.concoctions.concoctions.compound;
 
-import amerifrance.concoctions.api.Concoction;
-import amerifrance.concoctions.api.ConcoctionType;
-import amerifrance.concoctions.api.ConcoctionsHelper;
-import amerifrance.concoctions.api.IConcoctionContext;
+import amerifrance.concoctions.api.concoctions.Concoction;
+import amerifrance.concoctions.api.concoctions.ConcoctionType;
+import amerifrance.concoctions.api.concoctions.ConcoctionsHelper;
+import amerifrance.concoctions.api.concoctions.IConcoctionContext;
 import amerifrance.concoctions.concoctions.ModConcoctions;
-import amerifrance.concoctions.concoctions.basic.ConcoctionPoison;
-import amerifrance.concoctions.concoctions.basic.ConcoctionRegeneration;
-import amerifrance.concoctions.guide.GuideConcoctions;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.StatCollector;
 
 import java.awt.*;
 

@@ -1,8 +1,8 @@
 package amerifrance.concoctions.concoctions.basic;
 
-import amerifrance.concoctions.api.Concoction;
-import amerifrance.concoctions.api.ConcoctionType;
-import amerifrance.concoctions.api.IConcoctionContext;
+import amerifrance.concoctions.api.concoctions.Concoction;
+import amerifrance.concoctions.api.concoctions.ConcoctionType;
+import amerifrance.concoctions.api.concoctions.IConcoctionContext;
 import amerifrance.concoctions.util.LivingConcoctions;
 import net.minecraft.entity.EntityLivingBase;
 

@@ -1,5 +1,6 @@
-package amerifrance.concoctions.api;
+package amerifrance.concoctions.api.concoctions;
 
+import amerifrance.concoctions.api.registry.ConcoctionsRegistry;
 import amerifrance.concoctions.util.TextHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
@@ -10,7 +11,7 @@ import java.util.Arrays;
 /**
  * An immutable representation of a cocoction's effects. This is not used for
  * per-effect data, but rather holds the concoction's initial state, from which
- * a {@link amerifrance.concoctions.api.IConcoctionContext} is created to store data.
+ * a {@link IConcoctionContext} is created to store data.
  */
 public class Concoction {
     public final String name;
@@ -37,7 +38,7 @@ public class Concoction {
      * @param name       - Name of the Concoction.
      * @param maxLevel   - Maximum level of the Concoction.
      * @param color      - Color to give the Concoction.
-     * @param type       - {@link amerifrance.concoctions.api.ConcoctionType} of the Concoction.
+     * @param type       - {@link ConcoctionType} of the Concoction.
      * @param components - List of Concoctions that are in the Compound.
      */
     public Concoction(String name, int maxLevel, Color color, ConcoctionType type, Concoction... components) {

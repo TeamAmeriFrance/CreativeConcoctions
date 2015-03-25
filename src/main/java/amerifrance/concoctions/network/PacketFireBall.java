@@ -1,7 +1,7 @@
 package amerifrance.concoctions.network;
 
-import amerifrance.concoctions.api.ConcoctionsHelper;
-import amerifrance.concoctions.api.IConcoctionContext;
+import amerifrance.concoctions.api.concoctions.ConcoctionsHelper;
+import amerifrance.concoctions.api.concoctions.IConcoctionContext;
 import amerifrance.concoctions.concoctions.ModConcoctions;
 import amerifrance.concoctions.util.RayTraceHelper;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;

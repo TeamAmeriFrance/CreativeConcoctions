@@ -1,7 +1,7 @@
 package amerifrance.concoctions.concoctions;
 
-import amerifrance.concoctions.api.Concoction;
-import amerifrance.concoctions.api.ConcoctionsRegistry;
+import amerifrance.concoctions.api.concoctions.Concoction;
+import amerifrance.concoctions.api.registry.ConcoctionsRegistry;
 import amerifrance.concoctions.concoctions.basic.*;
 import amerifrance.concoctions.concoctions.compound.ConcoctionSaiyanSerum;
 import amerifrance.concoctions.concoctions.compound.ConcoctionVenomousVigor;

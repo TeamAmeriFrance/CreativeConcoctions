@@ -1,6 +1,6 @@
 package amerifrance.concoctions.guide;
 
-import amerifrance.concoctions.api.Concoction;
+import amerifrance.concoctions.api.concoctions.Concoction;
 import amerifrance.guideapi.entries.EntryText;
 import amerifrance.guideapi.objects.abstraction.IPage;
 import amerifrance.guideapi.pages.PageIRecipe;
@@ -16,8 +16,8 @@ public class GuideConcoctionsHelper {
     /**
      * Used for basic concoctions.
      *
-     * @param concoction - {@link amerifrance.concoctions.api.Concoction} to add an entry for
-     * @param recipe - {@link net.minecraft.item.crafting.IRecipe} of the {@link amerifrance.concoctions.api.Concoction} to display
+     * @param concoction - {@link amerifrance.concoctions.api.concoctions.Concoction} to add an entry for
+     * @param recipe - {@link net.minecraft.item.crafting.IRecipe} of the {@link amerifrance.concoctions.api.concoctions.Concoction} to display
      */
     public static void addBasicConcoctionEntry(Concoction concoction, IRecipe recipe) {
 
@@ -39,8 +39,8 @@ public class GuideConcoctionsHelper {
     /**
      * Used for Compound Concoctions. Adds extra informational pages.
      *
-     * @param concoction - {@link amerifrance.concoctions.api.Concoction} to add an entry for
-     * @param recipe - {@link net.minecraft.item.crafting.IRecipe} of the {@link amerifrance.concoctions.api.Concoction} to display
+     * @param concoction - {@link amerifrance.concoctions.api.concoctions.Concoction} to add an entry for
+     * @param recipe - {@link net.minecraft.item.crafting.IRecipe} of the {@link amerifrance.concoctions.api.concoctions.Concoction} to display
      */
     public static void addCompoundConcoctionEntry(Concoction concoction, IRecipe recipe) {
 

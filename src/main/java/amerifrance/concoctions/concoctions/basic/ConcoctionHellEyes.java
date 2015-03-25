@@ -1,12 +1,11 @@
 package amerifrance.concoctions.concoctions.basic;
 
-import amerifrance.concoctions.api.Concoction;
-import amerifrance.concoctions.api.IConcoctionContext;
+import amerifrance.concoctions.api.concoctions.Concoction;
+import amerifrance.concoctions.api.concoctions.IConcoctionContext;
 import amerifrance.concoctions.util.RayTraceHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.StatCollector;
 
 import java.awt.*;
 

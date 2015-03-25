@@ -2,10 +2,10 @@ package amerifrance.concoctions.items;
 
 import amerifrance.concoctions.CreativeConcoctions;
 import amerifrance.concoctions.ModInformation;
-import amerifrance.concoctions.api.Concoction;
-import amerifrance.concoctions.api.ConcoctionsHelper;
-import amerifrance.concoctions.api.ConcoctionsRegistry;
-import amerifrance.concoctions.api.IConcoctionContext;
+import amerifrance.concoctions.api.concoctions.Concoction;
+import amerifrance.concoctions.api.concoctions.ConcoctionsHelper;
+import amerifrance.concoctions.api.registry.ConcoctionsRegistry;
+import amerifrance.concoctions.api.concoctions.IConcoctionContext;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
