@@ -51,34 +51,34 @@ No | Ghostwalk Ale | Ethereal Shift | Allows the imbiber to pass through enemies
 #Ingredients
 **Harry Potter inspired**
 
-**Done** | **Ingredient** | **Effect** | **Origin**
------------- | ------------ | ------------ | ------------
-No | Aconite / Wolfsbane | In magical lore, aconite combined with belladonna was applied as a magical ointment by witches to make themselves fly. Aconite is an extremely poisonous plant (hence its other name of wolfsbane). | Plant
-No | Asphodel | In Greek mythology, the asphodel plant was thought to be the favourite food of the dead. Greeks often planted asphodel around graveyards. | Plant
-No | Belladona | In magical lore, aconite combined with belladonna was applied as a magical ointment by witches to make themselves fly. | Plant
-No | Bubotuber | A bubotuber looks like a thick, black, giant slug (it even squirms slightly, although it sticks vertically out of the soil) with many large shiny swellings on it that are filled with a yellow-green pus that smells like petrol. Undiluted, it will raise horribly painful boils on contact. | Plant
-No | Daisy | An old wives’ tale says that daisy roots, boiled in milk and fed to a farm animal, can stop the animal from growing too large. | Plant
-No | Fluxweed | An ingredient in Morphing potions, for which it must be picked at the full moon | Plant
-No | Gillyweed | Native to the Mediterranean, this water plant looks like a bundle of slimy, greyish-green rat tails. When eaten, gives a person gills to breathe underwater and gives them webbed hands and feet for swimming. | Plant
-No | Ginger |  | Plant
-No | Hellebore | There are several kinds of hellebore. The name comes from the Greek words 'elein' (to injure) and 'bora' (food), indicating that hellebore is poisonous. In some belief systems, it's been believed to be a purgative, sometimes of bad things generally, used for things like protecting livestock from evil spells, and (in powdered form) for invisibility. | Plant
-No | Knotgrass | Knotgrass is an ingredient in Morphing Potions. | Plant
-No | Lovage | A potion ingredient used to make Confusing and Befuddlement Draughts | Plant
-No | Mandrake / Mandragora | The Mandrake root is a powerful restorative. It forms an essential part of most antidotes, including one for Petrification. The Mandrake Restorative Draught returns people who have been Transfigured or cursed to their original state. The cry of the Mandrake is fatal to humans, so special care must be taken when growing them. Even as a baby, the Mandrake's howls can knock a person out for a couple of hours. | Plant
-No | Nettles | This herb is used as a potion ingredient, used dried for making cure potions. | Plant
-No | Peppermint | It is a plant used in potions to control unwelcome side effects. | Plant
-No | Phytobezoar | It is a stone that can cure most poisons. Commonly found in the stomach of plant eating animals. | Animal Drop
-No | Pomegranate | The juice may be used in Strengthening Solution. | Plant
-No | Scurvy-grass | A potion ingredient used to make Confusing and Befuddlement Draughts. | Plant
-No | Sneezewort | A potion ingredient used to make Confusing and Befuddlement Draughts. | Plant
-No | Sophorous Bean | An ingredient used in sleeping potions. | Plant
-No | Valerian | In herbal lore, valerian is used as a sedative and a sleep aid. | Plant
-No | Wormwood | A potion ingredient, used in the creation of sleeping potions. | Plant
-No | Arachnid Venom | Almost impossible to collect from a living Arachnid. A special tool is needed to gather this ingredient | Animal Drop
-No | Human Parts | Some Dark Magic requires human flesh, head or bones. | Player drop
-No | Fish Parts | Spines of different fish is a very common ingredient. | Mob product
-No | Spider Parts | These are a commonly used ingredient. | Mob drop
-No | Zombie Parts | They have the same uses as Human Parts, but they are not as potent. | Mob drop
+**Done** | **Ingredient** | **Effect** | **Origin** | **Properties**
+------------ | ------------ | ------------ | ------------ | ------------
+No | Aconite / Wolfsbane | In magical lore, aconite combined with belladonna was applied as a magical ointment by witches to make themselves fly. Aconite is an extremely poisonous plant (hence its other name of wolfsbane). | Plant | Flight/Poison
+No | Asphodel | In Greek mythology, the asphodel plant was thought to be the favourite food of the dead. Greeks often planted asphodel around graveyards. | Plant | 
+No | Belladona | In magical lore, aconite combined with belladonna was applied as a magical ointment by witches to make themselves fly. | Plant | Flight
+No | Bubotuber | A bubotuber looks like a thick, black, giant slug (it even squirms slightly, although it sticks vertically out of the soil) with many large shiny swellings on it that are filled with a yellow-green pus that smells like petrol. Undiluted, it will raise horribly painful boils on contact. | Plant | Damage
+No | Daisy | An old wives’ tale says that daisy roots, boiled in milk and fed to a farm animal, can stop the animal from growing too large. | Plant | Youth
+No | Fluxweed | An ingredient in Morphing potions, for which it must be picked at the full moon | Plant | Morphing
+No | Gillyweed | Native to the Mediterranean, this water plant looks like a bundle of slimy, greyish-green rat tails. When eaten, gives a person gills to breathe underwater and gives them webbed hands and feet for swimming. | Plant | Water Breathing/Faster Swimming
+No | Ginger | The soulless plant. | Plant | Makes Redheads
+No | Hellebore | There are several kinds of hellebore. The name comes from the Greek words 'elein' (to injure) and 'bora' (food), indicating that hellebore is poisonous. In some belief systems, it's been believed to be a purgative, sometimes of bad things generally, used for things like protecting livestock from evil spells, and (in powdered form) for invisibility. | Plant | Poison/Damage/Invisibility
+No | Knotgrass | Knotgrass is an ingredient in Morphing Potions. | Plant | Morphing
+No | Lovage | A potion ingredient used to make Confusing and Befuddlement Draughts | Plant | Confusion
+No | Mandrake / Mandragora | The Mandrake root is a powerful restorative. It forms an essential part of most antidotes, including one for Petrification. The Mandrake Restorative Draught returns people who have been Transfigured or cursed to their original state. The cry of the Mandrake is fatal to humans, so special care must be taken when growing them. Even as a baby, the Mandrake's howls can knock a person out for a couple of hours. | Plant | Regeneration/Healing
+No | Nettles | This herb is used as a potion ingredient, used dried for making cure potions. | Plant | Regeneration/Healing
+No | Peppermint | It is a plant used in potions to control unwelcome side effects. | Plant | Clear Debuffs
+No | Phytobezoar | It is a stone that can cure most poisons. Commonly found in the stomach of plant eating animals. | Animal Drop | Antipoison
+No | Pomegranate | The juice may be used in Strengthening Solution. | Plant | Strength
+No | Scurvy-grass | A potion ingredient used to make Confusing and Befuddlement Draughts. | Plant | Confusion
+No | Sneezewort | A potion ingredient used to make Confusing and Befuddlement Draughts. | Plant | Confusion
+No | Sophorous Bean | An ingredient used in sleeping potions. | Plant | Sleeping
+No | Valerian | In herbal lore, valerian is used as a sedative and a sleep aid. | Plant | Sleeping
+No | Wormwood | A potion ingredient, used in the creation of sleeping potions. | Plant | Sleeping
+No | Arachnid Venom | Almost impossible to collect from a living Arachnid. A special tool is needed to gather this ingredient | Animal Drop | Poison
+No | Human Parts | Some Dark Magic requires human flesh, head or bones. | Player drop | 
+No | Fish Parts | Spines of different fish is a very common ingredient. | Mob product | 
+No | Spider Parts | These are a commonly used ingredient. | Mob drop | 
+No | Zombie Parts | They have the same uses as Human Parts, but they are not as potent. | Mob drop | 
 
 ##Alchemy
 We'll see later!
