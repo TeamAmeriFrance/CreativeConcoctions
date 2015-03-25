@@ -67,13 +67,18 @@ No | Lovage | A potion ingredient used to make Confusing and Befuddlement Draugh
 No | Mandrake / Mandragora | The Mandrake root is a powerful restorative. It forms an essential part of most antidotes, including one for Petrification. The Mandrake Restorative Draught returns people who have been Transfigured or cursed to their original state. The cry of the Mandrake is fatal to humans, so special care must be taken when growing them. Even as a baby, the Mandrake's howls can knock a person out for a couple of hours. | Plant
 No | Nettles | This herb is used as a potion ingredient, used dried for making cure potions. | Plant
 No | Peppermint | It is a plant used in potions to control unwelcome side effects. | Plant
-No | Phytobezoar | It is a stone that can cure most poisons. Commonly found in the stomach of plant eating animals. | ???
+No | Phytobezoar | It is a stone that can cure most poisons. Commonly found in the stomach of plant eating animals. | Animal Drop
 No | Pomegranate | The juice may be used in Strengthening Solution. | Plant
 No | Scurvy-grass | A potion ingredient used to make Confusing and Befuddlement Draughts. | Plant
 No | Sneezewort | A potion ingredient used to make Confusing and Befuddlement Draughts. | Plant
 No | Sophorous Bean | An ingredient used in sleeping potions. | Plant
 No | Valerian | In herbal lore, valerian is used as a sedative and a sleep aid. | Plant
 No | Wormwood | A potion ingredient, used in the creation of sleeping potions. | Plant
+No | Arachnid Venom | Almost impossible to collect from a living Arachnid. A special tool is needed to gather this ingredient | Animal Drop
+No | Human Parts | Some Dark Magic requires human flesh, head or bones. | Player drop
+No | Fish Parts | Spines of different fish is a very common ingredient. | Mob product
+No | Spider Parts | These are a commonly used ingredient. | Mob drop
+No | Zombie Parts | They have the same uses as Human Parts, but they are not as potent. | Mob drop
 
 ##Alchemy
 We'll see later!
