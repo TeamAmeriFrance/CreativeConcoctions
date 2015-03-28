@@ -49,6 +49,13 @@ public class ItemIngredients extends Item {
     }
 
     public void registerIngredients() {
-        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 2, 5, new IngredientProperties[]{IngredientProperties.FLIGHT, IngredientProperties.POISON}), ingredientStacks[0]);
+        //TODO: change the potency and stability values
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, new IngredientProperties[]{IngredientProperties.FLIGHT, IngredientProperties.POISON}), ingredientStacks[0]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, new IngredientProperties[]{IngredientProperties.UNSTABLE, IngredientProperties.INVISIBILITY}), ingredientStacks[1]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, new IngredientProperties[]{IngredientProperties.CATALYST, IngredientProperties.FLIGHT}), ingredientStacks[2]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, new IngredientProperties[]{IngredientProperties.DAMAGE, IngredientProperties.SLOWING_DOWN}), ingredientStacks[3]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, new IngredientProperties[]{IngredientProperties.YOUTH, IngredientProperties.STABILIZER}), ingredientStacks[4]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, new IngredientProperties[]{IngredientProperties.MORPHING}), ingredientStacks[5]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, new IngredientProperties[]{IngredientProperties.WATER_BREATHING, IngredientProperties.SWIMMING, IngredientProperties.MORPHING}), ingredientStacks[6]);
     }
 }

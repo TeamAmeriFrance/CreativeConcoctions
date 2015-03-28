@@ -54,12 +54,12 @@ No | Ghostwalk Ale | Ethereal Shift | Allows the imbiber to pass through enemies
 **Done** | **Ingredient** | **Effect** | **Origin** | **Properties**
 ------------ | ------------ | ------------ | ------------ | ------------
 **Yes** | Aconite / Wolfsbane | In magical lore, aconite combined with belladonna was applied as a magical ointment by witches to make themselves fly. Aconite is an extremely poisonous plant (hence its other name of wolfsbane). | Plant | Flight/Poison
-No | Asphodel | In Greek mythology, the asphodel plant was thought to be the favourite food of the dead. Greeks often planted asphodel around graveyards. | Plant | 
-No | Belladona | In magical lore, aconite combined with belladonna was applied as a magical ointment by witches to make themselves fly. | Plant | Flight
-No | Bubotuber | A bubotuber looks like a thick, black, giant slug (it even squirms slightly, although it sticks vertically out of the soil) with many large shiny swellings on it that are filled with a yellow-green pus that smells like petrol. Undiluted, it will raise horribly painful boils on contact. | Plant | Damage
-No | Daisy | An old wives’ tale says that daisy roots, boiled in milk and fed to a farm animal, can stop the animal from growing too large. | Plant | Youth
-No | Fluxweed | An ingredient in Morphing potions, for which it must be picked at the full moon | Plant | Morphing
-No | Gillyweed | Native to the Mediterranean, this water plant looks like a bundle of slimy, greyish-green rat tails. When eaten, gives a person gills to breathe underwater and gives them webbed hands and feet for swimming. | Plant | Water Breathing/Faster Swimming
+**Yes** | Asphodel | In Greek mythology, the asphodel plant was thought to be the favourite food of the dead. Greeks often planted asphodel around graveyards. | Plant |
+**Yes** | Belladona | In magical lore, aconite combined with belladonna was applied as a magical ointment by witches to make themselves fly. | Plant | Flight
+**Yes** | Bubotuber | A bubotuber looks like a thick, black, giant slug (it even squirms slightly, although it sticks vertically out of the soil) with many large shiny swellings on it that are filled with a yellow-green pus that smells like petrol. Undiluted, it will raise horribly painful boils on contact. | Plant | Damage
+**Yes** | Daisy | An old wives’ tale says that daisy roots, boiled in milk and fed to a farm animal, can stop the animal from growing too large. | Plant | Youth
+**Yes** | Fluxweed | An ingredient in Morphing potions, for which it must be picked at the full moon | Plant | Morphing
+**Yes** | Gillyweed | Native to the Mediterranean, this water plant looks like a bundle of slimy, greyish-green rat tails. When eaten, gives a person gills to breathe underwater and gives them webbed hands and feet for swimming. | Plant | Water Breathing/Faster Swimming
 No | Ginger | The soulless plant. | Plant | Makes Redheads
 No | Hellebore | There are several kinds of hellebore. The name comes from the Greek words 'elein' (to injure) and 'bora' (food), indicating that hellebore is poisonous. In some belief systems, it's been believed to be a purgative, sometimes of bad things generally, used for things like protecting livestock from evil spells, and (in powdered form) for invisibility. | Plant | Poison/Damage/Invisibility
 No | Knotgrass | Knotgrass is an ingredient in Morphing Potions. | Plant | Morphing
