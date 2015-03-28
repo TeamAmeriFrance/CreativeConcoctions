@@ -2,13 +2,19 @@ package amerifrance.concoctions.util;
 
 import amerifrance.concoctions.api.concoctions.ConcoctionsHelper;
 import amerifrance.concoctions.api.concoctions.IConcoctionContext;
+import amerifrance.concoctions.api.ingredients.Ingredient;
+import amerifrance.concoctions.api.ingredients.IngredientProperties;
+import amerifrance.concoctions.api.registry.IngredientsRegistry;
 import amerifrance.concoctions.concoctions.ModConcoctions;
+import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 
 public class EventHandler {
@@ -55,5 +61,18 @@ public class EventHandler {
 
         IConcoctionContext fast = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.mineFast);
         if (fast != null) event.newSpeed = event.originalSpeed + 0.1F * fast.getConcoctionLevel();
+    }
+
+    @SubscribeEvent(priority = EventPriority.HIGH)
+    //TEMPORARY
+    public void onIngredientTooltip(ItemTooltipEvent event) {
+        Ingredient ingredient = IngredientsRegistry.getIngredient(event.itemStack);
+        if (ingredient != null && GuiScreen.isShiftKeyDown()) {
+            for (IngredientProperties properties : ingredient.getProperties()) {
+                event.toolTip.add(properties.name());
+            }
+            event.toolTip.add(String.valueOf(ingredient.potency));
+            event.toolTip.add(String.valueOf(ingredient.stability));
+        }
     }
 }

@@ -18,5 +18,8 @@ public enum IngredientProperties {
     SPEEDING_UP,
     SLOWING_DOWN,
     PROTECTION,
-    FIRE
+    FIRE,
+    STABILIZER,
+    UNSTABLE,
+    CATALYST
 }

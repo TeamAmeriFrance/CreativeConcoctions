@@ -56,7 +56,7 @@ public class IngredientsRegistry {
         return new ArrayList<MapKey>(registry.keySet());
     }
 
-    public static ArrayList<Ingredient> getConcoctions() {
+    public static ArrayList<Ingredient> getIngredients() {
         return new ArrayList<Ingredient>(registry.values());
     }
 }

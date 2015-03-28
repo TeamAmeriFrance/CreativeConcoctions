@@ -10,7 +10,7 @@ public class Ingredient {
     public final int potency;
     private final IngredientProperties[] properties;
 
-    public Ingredient(IngredientType ingredientType, float stability, int potency, IngredientProperties... properties) {
+    public Ingredient(IngredientType ingredientType, float stability, int potency, IngredientProperties[] properties) {
         this.ingredientType = ingredientType;
         this.stability = stability;
         this.potency = potency;
