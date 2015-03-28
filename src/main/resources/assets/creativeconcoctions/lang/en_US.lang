@@ -1,6 +1,36 @@
 # Blocks
 
 # Items
+item.creativeconcoctions.ingredient.aconite.name=Aconite
+item.creativeconcoctions.ingredient.asphodel.name=Asphodel
+item.creativeconcoctions.ingredient.belladona.name=Belladona
+item.creativeconcoctions.ingredient.bubotuber.name=Bubotuber
+item.creativeconcoctions.ingredient.daisy.name=Daisy Root
+item.creativeconcoctions.ingredient.fluxweed.name=Fluxweed
+item.creativeconcoctions.ingredient.gillyweed.name=Gillyweed
+item.creativeconcoctions.ingredient.ginger.name=Ginger
+item.creativeconcoctions.ingredient.hellebore.name=Hellebore
+item.creativeconcoctions.ingredient.knotgrass.name=Knotgrass
+item.creativeconcoctions.ingredient.lovage.name=Lovage
+item.creativeconcoctions.ingredient.mandrake.name=Mandragora
+item.creativeconcoctions.ingredient.nettles.name=Nettles
+item.creativeconcoctions.ingredient.peppermint.name=Peppermint
+item.creativeconcoctions.ingredient.phytobezoar.name=Phytobezoar
+item.creativeconcoctions.ingredient.pomegranate.name=Pomegranate
+item.creativeconcoctions.ingredient.scurvyGrass.name=Scurvy Grass
+item.creativeconcoctions.ingredient.sneezewort.name=Sneezewort
+item.creativeconcoctions.ingredient.sophorousBean.name=Sophorous Bean
+item.creativeconcoctions.ingredient.valerian.name=Valerian
+item.creativeconcoctions.ingredient.wormwood.name=Wormwood
+item.creativeconcoctions.ingredient.arachnidVenom.name=Arachnid Venom
+item.creativeconcoctions.ingredient.humanFlesh.name=Human Flesh
+item.creativeconcoctions.ingredient.humanBones.name=Human Bones
+item.creativeconcoctions.ingredient.humanBlood.name=Human Blood
+item.creativeconcoctions.ingredient.fishSpine.name=Fish Spine
+item.creativeconcoctions.ingredient.fishEye.name=Fish Eye
+item.creativeconcoctions.ingredient.spiderLegs.name=Spider Legs
+item.creativeconcoctions.ingredient.zombieBones.name=Zombie Bones
+item.creativeconcoctions.ingredient.zombieBlood.name=Zombie Blood
 
 #Concoctions
 #Basics

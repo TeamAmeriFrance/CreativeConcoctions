@@ -53,7 +53,7 @@ No | Ghostwalk Ale | Ethereal Shift | Allows the imbiber to pass through enemies
 
 **Done** | **Ingredient** | **Effect** | **Origin** | **Properties**
 ------------ | ------------ | ------------ | ------------ | ------------
-No | Aconite / Wolfsbane | In magical lore, aconite combined with belladonna was applied as a magical ointment by witches to make themselves fly. Aconite is an extremely poisonous plant (hence its other name of wolfsbane). | Plant | Flight/Poison
+**Yes** | Aconite / Wolfsbane | In magical lore, aconite combined with belladonna was applied as a magical ointment by witches to make themselves fly. Aconite is an extremely poisonous plant (hence its other name of wolfsbane). | Plant | Flight/Poison
 No | Asphodel | In Greek mythology, the asphodel plant was thought to be the favourite food of the dead. Greeks often planted asphodel around graveyards. | Plant | 
 No | Belladona | In magical lore, aconite combined with belladonna was applied as a magical ointment by witches to make themselves fly. | Plant | Flight
 No | Bubotuber | A bubotuber looks like a thick, black, giant slug (it even squirms slightly, although it sticks vertically out of the soil) with many large shiny swellings on it that are filled with a yellow-green pus that smells like petrol. Undiluted, it will raise horribly painful boils on contact. | Plant | Damage
