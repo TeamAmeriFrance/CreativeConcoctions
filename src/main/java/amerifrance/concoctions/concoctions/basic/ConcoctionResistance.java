@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class ConcoctionResistance extends Concoction {
 
-    public ConcoctionResistance(){
+    public ConcoctionResistance() {
         super("concoction.resistance", 20, Color.DARK_GRAY, ConcoctionType.GOOD);
     }
 }

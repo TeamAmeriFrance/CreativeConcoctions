@@ -3,12 +3,17 @@ package amerifrance.concoctions.util;
 import net.minecraft.item.ItemStack;
 
 public class MapKey {
-    public int hashcode;
     public final ItemStack stack;
+    public int hashcode;
 
     public MapKey(ItemStack stack) {
         this.hashcode = stack.getItem().hashCode() ^ stack.getItemDamage();
         this.stack = stack;
+    }
+
+    public static MapKey getKey(ItemStack stack) {
+        if (stack == null || stack.getItem() == null) return null;
+        return new MapKey(stack);
     }
 
     @Override
@@ -20,10 +25,5 @@ public class MapKey {
     @Override
     public int hashCode() {
         return hashcode;
-    }
-
-    public static MapKey getKey(ItemStack stack) {
-        if (stack == null || stack.getItem() == null) return null;
-        return new MapKey(stack);
     }
 }

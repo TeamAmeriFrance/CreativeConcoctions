@@ -17,7 +17,7 @@ public class GuideConcoctionsHelper {
      * Used for basic concoctions.
      *
      * @param concoction - {@link amerifrance.concoctions.api.concoctions.Concoction} to add an entry for
-     * @param recipe - {@link net.minecraft.item.crafting.IRecipe} of the {@link amerifrance.concoctions.api.concoctions.Concoction} to display
+     * @param recipe     - {@link net.minecraft.item.crafting.IRecipe} of the {@link amerifrance.concoctions.api.concoctions.Concoction} to display
      */
     public static void addBasicConcoctionEntry(Concoction concoction, IRecipe recipe) {
 
@@ -40,7 +40,7 @@ public class GuideConcoctionsHelper {
      * Used for Compound Concoctions. Adds extra informational pages.
      *
      * @param concoction - {@link amerifrance.concoctions.api.concoctions.Concoction} to add an entry for
-     * @param recipe - {@link net.minecraft.item.crafting.IRecipe} of the {@link amerifrance.concoctions.api.concoctions.Concoction} to display
+     * @param recipe     - {@link net.minecraft.item.crafting.IRecipe} of the {@link amerifrance.concoctions.api.concoctions.Concoction} to display
      */
     public static void addCompoundConcoctionEntry(Concoction concoction, IRecipe recipe) {
 
