@@ -12,7 +12,7 @@ import org.lwjgl.input.Keyboard;
 
 public class ClientEventHandler {
 
-    public static KeyBinding fireball /*PUUN*/ = new KeyBinding(StatCollector.translateToLocal("keybind.fireball"), Keyboard.KEY_F, ModInformation.NAME);
+    public static KeyBinding fireball = new KeyBinding(StatCollector.translateToLocal("keybind.fireball"), Keyboard.KEY_F, ModInformation.NAME);
 
     public ClientEventHandler() {
         ClientRegistry.registerKeyBinding(fireball);
@@ -20,8 +20,6 @@ public class ClientEventHandler {
 
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
-        if (fireball.isPressed()) {
-            PacketHandler.INSTANCE.sendToServer(new PacketFireBall());
-        }
+        if (fireball.isPressed()) PacketHandler.INSTANCE.sendToServer(new PacketFireBall());
     }
 }
