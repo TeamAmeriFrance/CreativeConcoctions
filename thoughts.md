@@ -60,21 +60,21 @@ No | Ghostwalk Ale | Ethereal Shift | Allows the imbiber to pass through enemies
 **Yes** | Daisy | An old wives’ tale says that daisy roots, boiled in milk and fed to a farm animal, can stop the animal from growing too large. | Plant | Youth
 **Yes** | Fluxweed | An ingredient in Morphing potions, for which it must be picked at the full moon | Plant | Morphing
 **Yes** | Gillyweed | Native to the Mediterranean, this water plant looks like a bundle of slimy, greyish-green rat tails. When eaten, gives a person gills to breathe underwater and gives them webbed hands and feet for swimming. | Plant | Water Breathing/Faster Swimming
-No | Ginger | The soulless plant. | Plant | Makes Redheads
-No | Hellebore | There are several kinds of hellebore. The name comes from the Greek words 'elein' (to injure) and 'bora' (food), indicating that hellebore is poisonous. In some belief systems, it's been believed to be a purgative, sometimes of bad things generally, used for things like protecting livestock from evil spells, and (in powdered form) for invisibility. | Plant | Poison/Damage/Invisibility
-No | Knotgrass | Knotgrass is an ingredient in Morphing Potions. | Plant | Morphing
-No | Lovage | A potion ingredient used to make Confusing and Befuddlement Draughts | Plant | Confusion
-No | Mandrake / Mandragora | The Mandrake root is a powerful restorative. It forms an essential part of most antidotes, including one for Petrification. The Mandrake Restorative Draught returns people who have been Transfigured or cursed to their original state. The cry of the Mandrake is fatal to humans, so special care must be taken when growing them. Even as a baby, the Mandrake's howls can knock a person out for a couple of hours. | Plant | Regeneration/Healing
-No | Nettles | This herb is used as a potion ingredient, used dried for making cure potions. | Plant | Regeneration/Healing
-No | Peppermint | It is a plant used in potions to control unwelcome side effects. | Plant | Clear Debuffs
-No | Phytobezoar | It is a stone that can cure most poisons. Commonly found in the stomach of plant eating animals. | Animal Drop | Antipoison
-No | Pomegranate | The juice may be used in Strengthening Solution. | Plant | Strength
-No | Scurvy-grass | A potion ingredient used to make Confusing and Befuddlement Draughts. | Plant | Confusion
-No | Sneezewort | A potion ingredient used to make Confusing and Befuddlement Draughts. | Plant | Confusion
-No | Sophorous Bean | An ingredient used in sleeping potions. | Plant | Sleeping
-No | Valerian | In herbal lore, valerian is used as a sedative and a sleep aid. | Plant | Sleeping
-No | Wormwood | A potion ingredient, used in the creation of sleeping potions. | Plant | Sleeping
-No | Arachnid Venom | Almost impossible to collect from a living Arachnid. A special tool is needed to gather this ingredient | Animal Drop | Poison
+**Yes** | Ginger | The soulless plant. | Plant | Makes Redheads
+**Yes** | Hellebore | There are several kinds of hellebore. The name comes from the Greek words 'elein' (to injure) and 'bora' (food), indicating that hellebore is poisonous. In some belief systems, it's been believed to be a purgative, sometimes of bad things generally, used for things like protecting livestock from evil spells, and (in powdered form) for invisibility. | Plant | Poison/Damage/Invisibility
+**Yes** | Knotgrass | Knotgrass is an ingredient in Morphing Potions. | Plant | Morphing
+**Yes** | Lovage | A potion ingredient used to make Confusing and Befuddlement Draughts | Plant | Confusion
+**Yes** | Mandrake / Mandragora | The Mandrake root is a powerful restorative. It forms an essential part of most antidotes, including one for Petrification. The Mandrake Restorative Draught returns people who have been Transfigured or cursed to their original state. The cry of the Mandrake is fatal to humans, so special care must be taken when growing them. Even as a baby, the Mandrake's howls can knock a person out for a couple of hours. | Plant | Regeneration/Healing
+**Yes** | Nettles | This herb is used as a potion ingredient, used dried for making cure potions. | Plant | Regeneration/Healing
+**Yes** | Peppermint | It is a plant used in potions to control unwelcome side effects. | Plant | Clear Debuffs
+**Yes** | Phytobezoar | It is a stone that can cure most poisons. Commonly found in the stomach of plant eating animals. | Animal Drop | Antipoison
+**Yes** | Pomegranate | The juice may be used in Strengthening Solution. | Plant | Strength
+**Yes** | Scurvy-grass | A potion ingredient used to make Confusing and Befuddlement Draughts. | Plant | Confusion
+**Yes** | Sneezewort | A potion ingredient used to make Confusing and Befuddlement Draughts. | Plant | Confusion
+**Yes** | Sophorous Bean | An ingredient used in sleeping potions. | Plant | Sleeping
+**Yes** | Valerian | In herbal lore, valerian is used as a sedative and a sleep aid. | Plant | Sleeping
+**Yes** | Wormwood | A potion ingredient, used in the creation of sleeping potions. | Plant | Sleeping
+**Yes** | Arachnid Venom | Almost impossible to collect from a living Arachnid. A special tool is needed to gather this ingredient | Animal Drop | Poison
 No | Human Parts | Some Dark Magic requires human flesh, head or bones. | Player drop | 
 No | Fish Parts | Spines of different fish is a very common ingredient. | Mob product | 
 No | Spider Parts | These are a commonly used ingredient. | Mob drop | 

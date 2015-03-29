@@ -2,12 +2,11 @@ package amerifrance.concoctions.concoctions.basic;
 
 import amerifrance.concoctions.api.concoctions.Concoction;
 import amerifrance.concoctions.api.concoctions.ConcoctionType;
+import amerifrance.concoctions.api.concoctions.ConcoctionsHelper;
 import amerifrance.concoctions.api.concoctions.IConcoctionContext;
-import amerifrance.concoctions.util.LivingConcoctions;
 import net.minecraft.entity.EntityLivingBase;
 
 import java.awt.*;
-import java.util.Iterator;
 
 public class ConcoctionCleanse extends Concoction {
     public ConcoctionCleanse() {
@@ -15,15 +14,7 @@ public class ConcoctionCleanse extends Concoction {
     }
 
     @Override
-    public void onEffectAdded(EntityLivingBase livingBase, IConcoctionContext ctx) {
-        if (LivingConcoctions.get(livingBase) != null) {
-            if (LivingConcoctions.getActiveConcotions(livingBase) != null && !LivingConcoctions.getActiveConcotions(livingBase).isEmpty()) {
-                Iterator<IConcoctionContext> iterator = LivingConcoctions.getActiveConcotions(livingBase).iterator();
-                while (iterator.hasNext()) {
-                    IConcoctionContext otherCtx = iterator.next();
-                    if (otherCtx.getConcoction().getConcotionType() == ConcoctionType.GOOD) ctx.setTicksLeft(1);
-                }
-            }
-        }
+    public void updateEffect(EntityLivingBase livingBase, IConcoctionContext ctx) {
+        ConcoctionsHelper.clearActiveConcoctions(livingBase);
     }
 }

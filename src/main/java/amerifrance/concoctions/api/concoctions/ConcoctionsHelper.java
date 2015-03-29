@@ -1,8 +1,6 @@
 package amerifrance.concoctions.api.concoctions;
 
 import amerifrance.concoctions.ConcoctionContext;
-import amerifrance.concoctions.api.concoctions.Concoction;
-import amerifrance.concoctions.api.concoctions.IConcoctionContext;
 import amerifrance.concoctions.api.registry.ConcoctionsRegistry;
 import amerifrance.concoctions.util.LivingConcoctions;
 import net.minecraft.entity.EntityLivingBase;
@@ -46,6 +44,7 @@ public class ConcoctionsHelper {
                 if (LivingConcoctions.getActiveConcotions(livingBase).contains(ctx)) {
                     int index = LivingConcoctions.getActiveConcotions(livingBase).indexOf(ctx);
                     IConcoctionContext remove = LivingConcoctions.getActiveConcotions(livingBase).get(index);
+                    if (!livingBase.worldObj.isRemote) ctx.onRemoved(livingBase);
                     remove.setTicksLeft(0);
                 }
             }
