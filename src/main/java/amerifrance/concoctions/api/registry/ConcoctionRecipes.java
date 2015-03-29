@@ -2,6 +2,7 @@ package amerifrance.concoctions.api.registry;
 
 import amerifrance.concoctions.api.concoctions.Concoction;
 import amerifrance.concoctions.api.ingredients.Ingredient;
+import amerifrance.concoctions.api.ingredients.IngredientProperties;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 
@@ -9,9 +10,9 @@ import java.util.ArrayList;
 
 public class ConcoctionRecipes {
 
-    private static BiMap<Ingredient[], Concoction> registry = HashBiMap.create();
+    private static BiMap<IngredientProperties[], Concoction> registry = HashBiMap.create();
 
-    public static void addRecipe(Ingredient[] ingredients, Concoction concoction) {
+    public static void addRecipe(IngredientProperties[] ingredients, Concoction concoction) {
         if (registry.containsKey(ingredients))
             throw new IllegalArgumentException("Duplicate ingredients: " + ingredients);
         else registry.put(ingredients, concoction);
@@ -21,7 +22,7 @@ public class ConcoctionRecipes {
         return registry.get(ingredients);
     }
 
-    public static Ingredient[] getIngredientsForConcoction(Concoction concoction) {
+    public static IngredientProperties[] getIngredientsForConcoction(Concoction concoction) {
         return registry.inverse().get(concoction);
     }
 
@@ -33,8 +34,8 @@ public class ConcoctionRecipes {
         return registry.size();
     }
 
-    public static ArrayList<Ingredient[]> getKeys() {
-        return new ArrayList<Ingredient[]>(registry.keySet());
+    public static ArrayList<IngredientProperties[]> getKeys() {
+        return new ArrayList<IngredientProperties[]>(registry.keySet());
     }
 
     public static ArrayList<Concoction> getConcoctions() {
