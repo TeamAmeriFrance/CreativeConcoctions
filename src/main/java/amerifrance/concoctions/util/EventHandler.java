@@ -1,5 +1,6 @@
 package amerifrance.concoctions.util;
 
+import amerifrance.concoctions.CreativeConcoctions;
 import amerifrance.concoctions.api.concoctions.ConcoctionsHelper;
 import amerifrance.concoctions.api.concoctions.IConcoctionContext;
 import amerifrance.concoctions.api.ingredients.Ingredient;
@@ -14,6 +15,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiInventory;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
@@ -98,7 +100,8 @@ public class EventHandler {
     public void onButtonClicked(GuiScreenEvent.ActionPerformedEvent.Post event) {
         if (event.gui instanceof GuiInventory) {
             if (event.button.id == 191) {
-                System.out.println("Button hath been clicked");
+                EntityPlayer player = event.gui.mc.thePlayer;
+                player.openGui(CreativeConcoctions.instance, 0, player.worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
             }
         }
     }

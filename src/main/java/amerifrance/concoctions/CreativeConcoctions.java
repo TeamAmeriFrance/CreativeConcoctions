@@ -13,6 +13,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -65,6 +66,7 @@ public class CreativeConcoctions {
         FMLCommonHandler.instance().bus().register(new EventHandler());
         FMLCommonHandler.instance().bus().register(new ClientEventHandler());
         PacketHandler.registerPackets();
+        NetworkRegistry.INSTANCE.registerGuiHandler(this, proxy);
     }
 
     @Mod.EventHandler
