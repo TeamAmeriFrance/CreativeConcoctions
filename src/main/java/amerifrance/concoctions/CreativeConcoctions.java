@@ -56,6 +56,8 @@ public class CreativeConcoctions {
         ModConcoctions.registerCompoundConcoctions();
         ItemsRegistry.registerItems();
         proxy.setConcoctionBook();
+
+        PacketHandler.registerPackets();
     }
 
     @Mod.EventHandler
@@ -65,7 +67,6 @@ public class CreativeConcoctions {
         MinecraftForge.EVENT_BUS.register(new EventHandler());
         FMLCommonHandler.instance().bus().register(new EventHandler());
         FMLCommonHandler.instance().bus().register(new ClientEventHandler());
-        PacketHandler.registerPackets();
         NetworkRegistry.INSTANCE.registerGuiHandler(this, proxy);
     }
 
