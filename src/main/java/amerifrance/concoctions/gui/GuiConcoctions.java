@@ -68,7 +68,7 @@ public class GuiConcoctions extends GuiBase {
                 String s = StatCollector.translateToLocal("gui.text.concoction") + ": ";
                 s += ctx.getConcoction().name + "\n";
                 s += StatCollector.translateToLocal("gui.text.level") + ": " + String.valueOf(ctx.getConcoctionLevel()) + "\n";
-                s += StatCollector.translateToLocal("gui.text.time.left") + ": " +String.valueOf(ctx.getTicksLeft() / 20) + " s" + "\n";
+                s += StatCollector.translateToLocal("gui.text.time.left") + ": " + String.valueOf(ctx.getTicksLeft() / 20) + " s" + "\n";
 
                 drawSplitString(s, guiLeft + 37, guiTop + 12, (4 * xSize / 6) - 4, 0);
             } else {

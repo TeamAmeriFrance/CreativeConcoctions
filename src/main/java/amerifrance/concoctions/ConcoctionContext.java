@@ -8,10 +8,8 @@ import net.minecraft.nbt.NBTTagCompound;
 public class ConcoctionContext implements IConcoctionContext {
 
     private final Concoction concoction;
-
     private int level;
     private int duration;
-
     private int ticksLeft;
 
     public ConcoctionContext(Concoction concoction) {
