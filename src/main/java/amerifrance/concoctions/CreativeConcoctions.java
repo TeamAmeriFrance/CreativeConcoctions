@@ -1,9 +1,10 @@
 package amerifrance.concoctions;
 
-import amerifrance.concoctions.concoctions.ModConcoctions;
-import amerifrance.concoctions.items.ItemsRegistry;
+import amerifrance.concoctions.registry.ModConcoctions;
+import amerifrance.concoctions.registry.ItemsRegistry;
 import amerifrance.concoctions.network.PacketHandler;
 import amerifrance.concoctions.proxies.CommonProxy;
+import amerifrance.concoctions.registry.ModHeatSources;
 import amerifrance.concoctions.util.ClientEventHandler;
 import amerifrance.concoctions.util.ConcoctionsHandler;
 import amerifrance.concoctions.util.EventHandler;
@@ -55,6 +56,7 @@ public class CreativeConcoctions {
         ModConcoctions.registerBasicConcoctions();
         ModConcoctions.registerCompoundConcoctions();
         ItemsRegistry.registerItems();
+        ModHeatSources.registerHeatSources();
         proxy.setConcoctionBook();
 
         PacketHandler.registerPackets();

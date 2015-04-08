@@ -1,4 +1,4 @@
-package amerifrance.concoctions.concoctions;
+package amerifrance.concoctions.registry;
 
 import amerifrance.concoctions.api.concoctions.Concoction;
 import amerifrance.concoctions.api.registry.ConcoctionsRegistry;

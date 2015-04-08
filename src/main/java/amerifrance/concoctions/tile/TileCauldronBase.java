@@ -1,9 +1,13 @@
 package amerifrance.concoctions.tile;
 
 import amerifrance.concoctions.api.CreativeConcoctionsAPI;
+import amerifrance.concoctions.api.MetaBlock;
 import amerifrance.concoctions.api.concoctions.Concoction;
 import amerifrance.concoctions.api.ingredients.Ingredient;
 import amerifrance.concoctions.api.registry.ConcoctionRecipes;
+import amerifrance.concoctions.api.registry.HeatSourceRegistry;
+import amerifrance.concoctions.registry.ItemsRegistry;
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -59,11 +63,11 @@ public abstract class TileCauldronBase extends TileEntity {
         return maxUnstability;
     }
 
-    public boolean checkRecipe() {
+    private boolean checkRecipe() {
         return ConcoctionRecipes.getConcoctionForIngredients(cauldronContent) != null;
     }
 
-    public boolean canCraft() {
+    private boolean canCraft() {
         return ticksLeft == 0 && heat >= getHeatCapacity() / 2;
     }
 
@@ -74,25 +78,40 @@ public abstract class TileCauldronBase extends TileEntity {
         if (heat > getHeatCapacity()) meltCauldron();
         if (cauldronContent.size() > getIngredientCapacity()) cauldronOverflow();
         if (stability < getMaxUnstability()) cauldronUnstable();
-
         if (ticksLeft > 0) ticksLeft--;
         if (ticksLeft < 0) ticksLeft = 0;
+
+        if (!worldObj.isRemote) handleHeat();
     }
 
-    public void checkAndCraft(ItemStack stack) {
-        if (canCraft()) {
+    public void handleHeat() {
+        if (!worldObj.isAirBlock(xCoord, yCoord - 1, zCoord)) {
+            Block block = worldObj.getBlock(xCoord, yCoord - 1, zCoord);
+            int metadata = worldObj.getBlockMetadata(xCoord, yCoord - 1, zCoord);
+            MetaBlock metaBlock = new MetaBlock(block, metadata);
+
+            if (HeatSourceRegistry.contains(metaBlock) && worldObj.getTotalWorldTime() % HeatSourceRegistry.getTimeToWait(metaBlock) == 0) {
+                heat++;
+            }
+        }
+    }
+
+    public boolean checkAndCraft(ItemStack stack) {
+        if (stack != null && stack.getItem() == ItemsRegistry.concoctionItem && canCraft()) {
             if (checkRecipe()) {
                 Concoction concoction = ConcoctionRecipes.getConcoctionForIngredients(cauldronContent);
                 int level = (int) (potency * Math.abs(heat));
                 int duration = (int) (potency * Math.abs(stability));
-
                 if (level > concoction.maxLevel) level = concoction.maxLevel;
 
                 CreativeConcoctionsAPI.setConcoctionContext(stack, concoction, level, duration);
+                return true;
             } else {
                 invalidRecipe(stack);
+                return false;
             }
         }
+        return false;
     }
 
     @Override

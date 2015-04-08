@@ -1,9 +1,11 @@
 package amerifrance.concoctions.items;
 
+import amerifrance.concoctions.util.ConcoctionContext;
 import amerifrance.concoctions.CreativeConcoctions;
 import amerifrance.concoctions.ModInformation;
 import amerifrance.concoctions.api.CreativeConcoctionsAPI;
 import amerifrance.concoctions.api.concoctions.ConcoctionsHelper;
+import amerifrance.concoctions.api.concoctions.IConcoctionContext;
 import amerifrance.concoctions.api.ingredients.IPropertiesContainer;
 import amerifrance.concoctions.api.ingredients.IngredientProperties;
 import amerifrance.concoctions.api.registry.ConcoctionRecipes;
@@ -24,7 +26,7 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
         setHasSubtypes(true);
     }
 
-    public EnumAction getItemUseAction(ItemStack p_77661_1_) {
+    public EnumAction getItemUseAction(ItemStack stack) {
         return EnumAction.drink;
     }
 
@@ -41,8 +43,8 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
 
     @Override
     public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
-        if (CreativeConcoctionsAPI.getConcoctionContext(stack) != null) {
-            ConcoctionsHelper.addConcoction(player, CreativeConcoctionsAPI.getConcoctionContext(stack));
+        if (getConcoctionContext(stack) != null) {
+            ConcoctionsHelper.addConcoction(player, getConcoctionContext(stack));
             if (!player.capabilities.isCreativeMode) --stack.stackSize;
             if (stack.stackSize <= 0) return new ItemStack(this);
             player.inventory.addItemStackToInventory(new ItemStack(this));
@@ -70,5 +72,12 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
     @Override
     public int getPotency(ItemStack stack) {
         return CreativeConcoctionsAPI.getLevel(stack);
+    }
+
+    public static IConcoctionContext getConcoctionContext(ItemStack stack) {
+        if (CreativeConcoctionsAPI.getConcoction(stack) != null)
+            return new ConcoctionContext(CreativeConcoctionsAPI.getConcoction(stack), CreativeConcoctionsAPI.getLevel(stack), CreativeConcoctionsAPI.getDuration(stack));
+        else
+            return null;
     }
 }

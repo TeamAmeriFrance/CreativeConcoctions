@@ -1,8 +1,6 @@
 package amerifrance.concoctions.api;
 
-import amerifrance.concoctions.ConcoctionContext;
 import amerifrance.concoctions.api.concoctions.Concoction;
-import amerifrance.concoctions.api.concoctions.IConcoctionContext;
 import amerifrance.concoctions.api.registry.ConcoctionsRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -20,13 +18,6 @@ public class CreativeConcoctionsAPI {
             return tag;
         }
         return null;
-    }
-
-    public static IConcoctionContext getConcoctionContext(ItemStack stack) {
-        if (getConcoction(stack) != null)
-            return new ConcoctionContext(getConcoction(stack), getLevel(stack), getDuration(stack));
-        else
-            return null;
     }
 
     public static Concoction getConcoction(ItemStack stack) {

@@ -4,7 +4,7 @@ import amerifrance.concoctions.api.concoctions.Concoction;
 import amerifrance.concoctions.api.concoctions.ConcoctionType;
 import amerifrance.concoctions.api.concoctions.ConcoctionsHelper;
 import amerifrance.concoctions.api.concoctions.IConcoctionContext;
-import amerifrance.concoctions.concoctions.ModConcoctions;
+import amerifrance.concoctions.registry.ModConcoctions;
 import net.minecraft.entity.EntityLivingBase;
 
 import java.awt.*;

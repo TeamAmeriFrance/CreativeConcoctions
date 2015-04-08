@@ -1,5 +1,8 @@
-package amerifrance.concoctions.items;
+package amerifrance.concoctions.registry;
 
+import amerifrance.concoctions.items.ItemConcoction;
+import amerifrance.concoctions.items.ItemCreativeConcoction;
+import amerifrance.concoctions.items.ItemIngredients;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 
