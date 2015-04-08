@@ -57,8 +57,12 @@ public class Ingredient {
         tagCompound.setTag("properties", tagList);
     }
 
-    public List<IngredientProperties> getProperties() {
+    public List<IngredientProperties> getPropertiesList() {
         return Arrays.asList(properties);
+    }
+
+    public IngredientProperties[] getProperties() {
+        return Arrays.copyOf(properties, properties.length);
     }
 
     @Override

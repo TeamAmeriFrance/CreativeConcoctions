@@ -32,6 +32,8 @@ item.creativeconcoctions.ingredient.spiderLegs.name=Spider Legs
 item.creativeconcoctions.ingredient.zombieBones.name=Zombie Bones
 item.creativeconcoctions.ingredient.zombieBlood.name=Zombie Blood
 
+item.creativeconcoctions.concoction=Concoction
+
 #Concoctions
 #Basics
 concoction.speed=Fleet Feet

@@ -1,7 +1,10 @@
 package amerifrance.concoctions.tile;
 
+import amerifrance.concoctions.api.CreativeConcoctionsAPI;
+import amerifrance.concoctions.api.concoctions.Concoction;
 import amerifrance.concoctions.api.ingredients.Ingredient;
 import amerifrance.concoctions.api.registry.ConcoctionRecipes;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.network.NetworkManager;
@@ -33,16 +36,16 @@ public abstract class TileCauldronBase extends TileEntity {
         this.stability = 0F;
         this.heat = 0F;
         this.potency = 0;
-        this.ticksLeft = -1;
+        this.ticksLeft = 0;
     }
 
     public abstract void meltCauldron();
 
     public abstract void cauldronUnstable();
 
-    public abstract void invalidRecipe();
-
     public abstract void cauldronOverflow();
+
+    public abstract void invalidRecipe(ItemStack stack);
 
     public int getIngredientCapacity() {
         return ingredientCapacity;
@@ -52,23 +55,43 @@ public abstract class TileCauldronBase extends TileEntity {
         return heatCapacity;
     }
 
+    public float getMaxUnstability() {
+        return maxUnstability;
+    }
+
+    public boolean checkRecipe() {
+        return ConcoctionRecipes.getConcoctionForIngredients(cauldronContent) != null;
+    }
+
+    public boolean canCraft() {
+        return ticksLeft == 0 && heat >= getHeatCapacity() / 2;
+    }
+
     @Override
     public void updateEntity() {
         super.updateEntity();
 
         if (heat > getHeatCapacity()) meltCauldron();
-        if (cauldronContent.size() > ingredientCapacity) cauldronOverflow();
-        if (stability < maxUnstability) cauldronUnstable();
+        if (cauldronContent.size() > getIngredientCapacity()) cauldronOverflow();
+        if (stability < getMaxUnstability()) cauldronUnstable();
 
         if (ticksLeft > 0) ticksLeft--;
-        else checkRecipe();
+        if (ticksLeft < 0) ticksLeft = 0;
     }
 
-    public void checkRecipe() {
-        if (ConcoctionRecipes.getConcoctionForIngredients(cauldronContent.toArray(new Ingredient[cauldronContent.size()])) != null) {
-            //DO STUFF
-        } else {
-            invalidRecipe();
+    public void checkAndCraft(ItemStack stack) {
+        if (canCraft()) {
+            if (checkRecipe()) {
+                Concoction concoction = ConcoctionRecipes.getConcoctionForIngredients(cauldronContent);
+                int level = (int) (potency * Math.abs(heat));
+                int duration = (int) (potency * Math.abs(stability));
+
+                if (level > concoction.maxLevel) level = concoction.maxLevel;
+
+                CreativeConcoctionsAPI.setConcoctionContext(stack, concoction, level, duration);
+            } else {
+                invalidRecipe(stack);
+            }
         }
     }
 

@@ -7,6 +7,7 @@ public class ItemsRegistry {
 
     public static Item creativeConcoction;
     public static Item ingredients;
+    public static Item concoctionItem;
 
     public static void registerItems() {
         creativeConcoction = new ItemCreativeConcoction();
@@ -14,5 +15,8 @@ public class ItemsRegistry {
 
         ingredients = new ItemIngredients();
         GameRegistry.registerItem(ingredients, "ItemIngredients");
+
+        concoctionItem = new ItemConcoction();
+        GameRegistry.registerItem(concoctionItem, "ItemConcoction");
     }
 }
