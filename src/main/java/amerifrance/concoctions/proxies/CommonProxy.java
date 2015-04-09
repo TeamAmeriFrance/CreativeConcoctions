@@ -14,6 +14,9 @@ public class CommonProxy implements IGuiHandler {
     public void setConcoctionBook() {
     }
 
+    public void registerRenders(){
+    }
+
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
         return null;

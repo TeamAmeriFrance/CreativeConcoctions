@@ -7,21 +7,44 @@ import amerifrance.concoctions.api.ingredients.IngredientProperties;
 import amerifrance.concoctions.api.ingredients.IngredientType;
 import amerifrance.concoctions.api.registry.IngredientsRegistry;
 import amerifrance.concoctions.tile.TileCauldronBase;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 import java.util.List;
 
 public abstract class BlockCauldronBase extends BlockContainer {
 
+    public static int renderID = 1912;
+    public IIcon innerSide;
+    public IIcon topSide;
+    public IIcon bottomSide;
+
     public BlockCauldronBase(Material material) {
         super(material);
+        setBlockTextureName("cauldron");
+    }
+
+    @SideOnly(Side.CLIENT)
+    public IIcon getIcon(int side, int metadata) {
+        return side == 1 ? this.topSide : (side == 0 ? this.bottomSide : this.blockIcon);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister ir) {
+        this.innerSide = ir.registerIcon(getTextureName() + "_" + "inner");
+        this.topSide = ir.registerIcon(getTextureName() + "_top");
+        this.bottomSide = ir.registerIcon(getTextureName() + "_" + "bottom");
+        this.blockIcon = ir.registerIcon(getTextureName() + "_side");
     }
 
     @Override
@@ -30,6 +53,9 @@ public abstract class BlockCauldronBase extends BlockContainer {
         if (cauldronBase.checkAndCraft(player, player.getHeldItem())) {
             return true;
         }
+        System.out.println(cauldronBase.potency);
+        System.out.println(cauldronBase.getHeat());
+        System.out.println(cauldronBase.getUnstability());
         return false;
     }
 
@@ -75,16 +101,18 @@ public abstract class BlockCauldronBase extends BlockContainer {
         this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
     }
 
+    @Override
+    public boolean renderAsNormalBlock() {
+        return false;
+    }
+
+    @Override
     public boolean isOpaqueCube() {
         return false;
     }
 
-    //public int getRenderType()
-    //{
-    //    return 24;
-    // }
-
-    public boolean renderAsNormalBlock() {
-        return false;
+    @Override
+    public int getRenderType() {
+        return renderID;
     }
 }

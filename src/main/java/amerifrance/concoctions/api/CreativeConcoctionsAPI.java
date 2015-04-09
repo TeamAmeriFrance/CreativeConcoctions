@@ -39,12 +39,6 @@ public class CreativeConcoctionsAPI {
         return stack.stackTagCompound.getInteger(CONCOCTION_DURATION_TAG);
     }
 
-    public static void setConcoctionContext(ItemStack stack, Concoction concoction, int level, int duration) {
-        setConcoction(stack, concoction);
-        setLevel(stack, level);
-        setDuration(stack, duration);
-    }
-
     public static void setConcoction(ItemStack stack, Concoction concoction) {
         checkAndSetCompound(stack);
         stack.stackTagCompound.setString(CONCOCTION_ID_TAG, ConcoctionsRegistry.getIdForConcoction(concoction));

@@ -72,6 +72,8 @@ public class CreativeConcoctions {
         FMLCommonHandler.instance().bus().register(new EventHandler());
         FMLCommonHandler.instance().bus().register(new ClientEventHandler());
         NetworkRegistry.INSTANCE.registerGuiHandler(this, proxy);
+
+        proxy.registerRenders();
     }
 
     @Mod.EventHandler

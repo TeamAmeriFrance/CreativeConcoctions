@@ -6,7 +6,9 @@ import net.minecraft.block.material.Material;
 
 public class BlocksRegistry {
 
+    public static BlockCauldronTest cauldronTest = new BlockCauldronTest(Material.iron);
+
     public static void registerBlocks() {
-        GameRegistry.registerBlock(new BlockCauldronTest(Material.iron), "TestCauldron").setBlockName("CauldronTest");
+        GameRegistry.registerBlock(cauldronTest, "TestCauldron").setBlockName("CauldronTest");
     }
 }

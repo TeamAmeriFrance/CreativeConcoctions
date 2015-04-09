@@ -87,6 +87,7 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
     public void addIngredient(Ingredient ingredient) {
         ticksLeft += ingredient.ticksToBoil;
         unstability += ingredient.unstability;
+        potency += ingredient.potency;
         cauldronContent.addAll(ingredient.getPropertiesList());
     }
 
@@ -111,7 +112,7 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
             MetaBlock metaBlock = new MetaBlock(block, metadata);
 
             if (HeatSourceRegistry.contains(metaBlock) && worldObj.getTotalWorldTime() % HeatSourceRegistry.getTimeToWait(metaBlock) == 0) {
-                heat++;
+                heat += 0.1;
             }
 
             /*
@@ -125,21 +126,24 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
         }
     }
 
-    public boolean checkAndCraft(EntityPlayer player, ItemStack stack) {
-        if (stack != null && stack.getItem() == Items.glass_bottle && canCraft()) {
+    public boolean checkAndCraft(EntityPlayer player, ItemStack heldItem) {
+        if (!worldObj.isRemote && heldItem != null && heldItem.getItem() == Items.glass_bottle && canCraft()) {
             ItemStack concoctionStack = new ItemStack(ItemsRegistry.concoctionItem);
             System.out.println(cauldronContent);
             if (checkRecipe()) {
                 Concoction concoction = ConcoctionRecipes.getConcoctionForIngredients(cauldronContent);
-                int level = (int) (potency * Math.abs(heat));
-                int duration = (int) (potency * Math.abs(getUnstability()) / CreativeConcoctionsAPI.dividingSafeInt((int) getHeat()));
+                int level = (int) (potency * Math.abs(heat) / CreativeConcoctionsAPI.dividingSafeInt((int) Math.abs(getUnstability())));
+                int duration = potency / CreativeConcoctionsAPI.dividingSafeInt((int) Math.abs(getUnstability())) * 100;
 
                 if (level > concoction.maxLevel) level = concoction.maxLevel;
-                CreativeConcoctionsAPI.setConcoctionContext(concoctionStack, concoction, level, duration);
+                CreativeConcoctionsAPI.setConcoction(concoctionStack, concoction);
+                CreativeConcoctionsAPI.setLevel(concoctionStack, level);
+                CreativeConcoctionsAPI.setDuration(concoctionStack, duration);
                 player.inventory.addItemStackToInventory(concoctionStack.copy());
+                player.inventoryContainer.detectAndSendChanges();
                 return true;
             } else {
-                invalidRecipe(concoctionStack);
+                invalidRecipe();
                 return false;
             }
         }

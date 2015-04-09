@@ -1,7 +1,6 @@
 package amerifrance.concoctions.api.cauldron;
 
 import amerifrance.concoctions.api.ingredients.Ingredient;
-import net.minecraft.item.ItemStack;
 
 public interface ICauldron {
 
@@ -11,7 +10,7 @@ public interface ICauldron {
 
     public void cauldronOverflow();
 
-    public void invalidRecipe(ItemStack stack);
+    public void invalidRecipe();
 
     public int getIngredientCapacity();
 

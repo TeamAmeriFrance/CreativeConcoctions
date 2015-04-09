@@ -1,8 +1,6 @@
 package amerifrance.concoctions.tile;
 
-import net.minecraft.item.ItemStack;
-
-public class TileCauldronTest extends TileCauldronBase{
+public class TileCauldronTest extends TileCauldronBase {
 
     public TileCauldronTest() {
         super(50, 50, 50);
@@ -24,7 +22,7 @@ public class TileCauldronTest extends TileCauldronBase{
     }
 
     @Override
-    public void invalidRecipe(ItemStack stack) {
+    public void invalidRecipe() {
         System.out.println("Invalid Recipe");
     }
 }

@@ -8,6 +8,7 @@ import amerifrance.concoctions.api.concoctions.IConcoctionContext;
 import amerifrance.concoctions.api.registry.ConcoctionsRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
@@ -15,7 +16,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
-import org.lwjgl.input.Keyboard;
 
 import java.util.List;
 
@@ -106,8 +106,7 @@ public class ItemCreativeConcoction extends Item {
     @SuppressWarnings("unchecked")
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean simulate) {
-        if (!Keyboard.isKeyDown(Keyboard.KEY_LSHIFT))
-            return;
+        if (!GuiScreen.isShiftKeyDown()) return;
 
         list.add(StatCollector.translateToLocal("tooltip.creative.only"));
         list.add("Adds the effect with its max level, for 1000 ticks (50 secs)");
