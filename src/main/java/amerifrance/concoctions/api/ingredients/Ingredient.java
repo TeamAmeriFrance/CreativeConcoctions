@@ -12,8 +12,8 @@ public class Ingredient {
     public final IngredientType ingredientType;
     public final float stability;
     public final int potency;
-    private final IngredientProperties[] properties;
     public final int ticksToBoil;
+    private final IngredientProperties[] properties;
 
     public Ingredient(IngredientType ingredientType, float stability, int potency, IngredientProperties[] properties, int ticksToBoil) {
         this.ingredientType = ingredientType;

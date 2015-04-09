@@ -119,4 +119,7 @@ public class ModConcoctions {
         ConcoctionsRegistry.registerConcoction(saiyanSerum, "ConcoctionSaiyanSerum");
         GuideConcoctionsHelper.addCompoundConcoctionEntry(saiyanSerum, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
     }
+
+    public static void registerConcoctionRecipes() {
+    }
 }

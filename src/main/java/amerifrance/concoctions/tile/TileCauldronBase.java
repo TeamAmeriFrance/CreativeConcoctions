@@ -2,6 +2,7 @@ package amerifrance.concoctions.tile;
 
 import amerifrance.concoctions.api.CreativeConcoctionsAPI;
 import amerifrance.concoctions.api.MetaBlock;
+import amerifrance.concoctions.api.cauldron.ICauldron;
 import amerifrance.concoctions.api.concoctions.Concoction;
 import amerifrance.concoctions.api.ingredients.Ingredient;
 import amerifrance.concoctions.api.registry.ConcoctionRecipes;
@@ -19,7 +20,7 @@ import net.minecraftforge.common.util.Constants;
 
 import java.util.ArrayList;
 
-public abstract class TileCauldronBase extends TileEntity {
+public abstract class TileCauldronBase extends TileEntity implements ICauldron {
 
     private final int ingredientCapacity;
     private final float heatCapacity;
@@ -43,47 +44,55 @@ public abstract class TileCauldronBase extends TileEntity {
         this.ticksLeft = 0;
     }
 
-    public abstract void meltCauldron();
-
-    public abstract void cauldronUnstable();
-
-    public abstract void cauldronOverflow();
-
-    public abstract void invalidRecipe(ItemStack stack);
-
+    @Override
     public int getIngredientCapacity() {
         return ingredientCapacity;
     }
 
+    @Override
     public float getHeatCapacity() {
         return heatCapacity;
     }
 
+    @Override
     public float getMaxUnstability() {
         return maxUnstability;
     }
 
-    private boolean checkRecipe() {
+    @Override
+    public float getHeat() {
+        return heat;
+    }
+
+    @Override
+    public float getStability() {
+        return stability;
+    }
+
+    @Override
+    public boolean checkRecipe() {
         return ConcoctionRecipes.getConcoctionForIngredients(cauldronContent) != null;
     }
 
-    private boolean canCraft() {
-        return ticksLeft == 0 && heat >= getHeatCapacity() / 2;
+    @Override
+    public boolean canCraft() {
+        return ticksLeft == 0;
     }
 
     @Override
     public void updateEntity() {
         super.updateEntity();
 
-        if (heat > getHeatCapacity()) meltCauldron();
+        if (getHeat() > getHeatCapacity()) meltCauldron();
         if (cauldronContent.size() > getIngredientCapacity()) cauldronOverflow();
-        if (stability < getMaxUnstability()) cauldronUnstable();
+        if (getStability() < getMaxUnstability()) cauldronUnstable();
         if (ticksLeft > 0) ticksLeft--;
         if (ticksLeft < 0) ticksLeft = 0;
 
         if (!worldObj.isRemote) handleHeat();
     }
 
+    @Override
     public void handleHeat() {
         if (!worldObj.isAirBlock(xCoord, yCoord - 1, zCoord)) {
             Block block = worldObj.getBlock(xCoord, yCoord - 1, zCoord);
@@ -93,6 +102,15 @@ public abstract class TileCauldronBase extends TileEntity {
             if (HeatSourceRegistry.contains(metaBlock) && worldObj.getTotalWorldTime() % HeatSourceRegistry.getTimeToWait(metaBlock) == 0) {
                 heat++;
             }
+
+            /*
+            TODO For more advanced cauldrons.
+            TileEntity tile = worldObj.getTileEntity(xCoord, yCoord - 1, zCoord);
+            if (tile != null && tile instanceof IHeatController) {
+                IHeatController heatController = (IHeatController) tile;
+                heatController.handleCauldronHeat(this);
+            }
+            */
         }
     }
 
@@ -100,10 +118,10 @@ public abstract class TileCauldronBase extends TileEntity {
         if (stack != null && stack.getItem() == ItemsRegistry.concoctionItem && canCraft()) {
             if (checkRecipe()) {
                 Concoction concoction = ConcoctionRecipes.getConcoctionForIngredients(cauldronContent);
-                int level = (int) (potency * Math.abs(heat));
-                int duration = (int) (potency * Math.abs(stability));
-                if (level > concoction.maxLevel) level = concoction.maxLevel;
+                int level = (int) (potency * Math.abs(getStability()));
+                int duration = (int) (potency * Math.abs(getStability()) / CreativeConcoctionsAPI.dividingSafeInt((int) getHeat()));
 
+                if (level > concoction.maxLevel) level = concoction.maxLevel;
                 CreativeConcoctionsAPI.setConcoctionContext(stack, concoction, level, duration);
                 return true;
             } else {

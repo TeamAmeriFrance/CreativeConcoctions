@@ -1,10 +1,8 @@
 package amerifrance.concoctions;
 
-import amerifrance.concoctions.registry.ModConcoctions;
-import amerifrance.concoctions.registry.ItemsRegistry;
 import amerifrance.concoctions.network.PacketHandler;
 import amerifrance.concoctions.proxies.CommonProxy;
-import amerifrance.concoctions.registry.ModHeatSources;
+import amerifrance.concoctions.registry.*;
 import amerifrance.concoctions.util.ClientEventHandler;
 import amerifrance.concoctions.util.ConcoctionsHandler;
 import amerifrance.concoctions.util.EventHandler;
@@ -53,12 +51,16 @@ public class CreativeConcoctions {
     public void preInit(FMLPreInitializationEvent event) {
         instance = this;
         configDir = new File(event.getModConfigurationDirectory() + "/" + ModInformation.NAME);
+
+        ItemsRegistry.registerItems();
+        BlocksRegistry.registerBlocks();
+        TilesRegistry.registerTiles();;
         ModConcoctions.registerBasicConcoctions();
         ModConcoctions.registerCompoundConcoctions();
-        ItemsRegistry.registerItems();
+        ModConcoctions.registerConcoctionRecipes();
         ModHeatSources.registerHeatSources();
-        proxy.setConcoctionBook();
 
+        proxy.setConcoctionBook();
         PacketHandler.registerPackets();
     }
 

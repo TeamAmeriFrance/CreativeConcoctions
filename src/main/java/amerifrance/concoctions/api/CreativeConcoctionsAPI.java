@@ -55,4 +55,9 @@ public class CreativeConcoctionsAPI {
         checkAndSetCompound(stack);
         stack.stackTagCompound.setInteger(CONCOCTION_DURATION_TAG, duration);
     }
+
+    public static int dividingSafeInt(int n) {
+        if (n == 0) return n + 1;
+        else return n;
+    }
 }
