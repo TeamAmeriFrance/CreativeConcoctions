@@ -42,7 +42,7 @@ public abstract class BlockCauldronBase extends BlockContainer {
                 if (ingredient != null && cauldronBase.canCraft()) {
                     cauldronBase.addIngredient(ingredient);
                     entityItem.getEntityItem().stackSize--;
-                } else if (stack.getItem() instanceof IPropertiesContainer) {
+                } else if (stack.getItem() instanceof IPropertiesContainer && cauldronBase.canCraft()) {
                     cauldronBase.addIngredient(new Ingredient(IngredientType.NEUTRAL, 0F, CreativeConcoctionsAPI.getLevel(stack), CreativeConcoctionsAPI.getIngredientProperties(stack), 200));
                     entityItem.getEntityItem().stackSize--;
                 }
