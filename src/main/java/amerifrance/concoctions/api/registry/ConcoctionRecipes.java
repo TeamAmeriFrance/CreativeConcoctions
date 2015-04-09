@@ -1,31 +1,28 @@
 package amerifrance.concoctions.api.registry;
 
 import amerifrance.concoctions.api.concoctions.Concoction;
-import amerifrance.concoctions.api.ingredients.Ingredient;
 import amerifrance.concoctions.api.ingredients.IngredientProperties;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ConcoctionRecipes {
 
-    private static BiMap<IngredientProperties[], Concoction> registry = HashBiMap.create();
+    private static BiMap<List<IngredientProperties>, Concoction> registry = HashBiMap.create();
 
-    public static void addRecipe(IngredientProperties[] properties, Concoction concoction) {
+    public static void addRecipe(List<IngredientProperties> properties, Concoction concoction) {
         if (registry.containsKey(properties))
             throw new IllegalArgumentException("Duplicate ingredients: " + properties);
         else registry.put(properties, concoction);
     }
 
-    public static Concoction getConcoctionForIngredients(ArrayList<Ingredient> ingredients) {
-        ArrayList<IngredientProperties> properties = new ArrayList<IngredientProperties>();
-        for (Ingredient ingredient : ingredients) properties.addAll(ingredient.getPropertiesList());
-
-        return registry.get(properties.toArray(new IngredientProperties[properties.size()]));
+    public static Concoction getConcoctionForIngredients(List<IngredientProperties> properties) {
+        return registry.get(properties);
     }
 
-    public static IngredientProperties[] getIngredientsForConcoction(Concoction concoction) {
+    public static List<IngredientProperties> getIngredientsForConcoction(Concoction concoction) {
         return registry.inverse().get(concoction);
     }
 
@@ -37,11 +34,11 @@ public class ConcoctionRecipes {
         return registry.size();
     }
 
-    public static ArrayList<IngredientProperties[]> getKeys() {
-        return new ArrayList<IngredientProperties[]>(registry.keySet());
+    public static List<List<IngredientProperties>> getKeys() {
+        return new ArrayList<List<IngredientProperties>>(registry.keySet());
     }
 
-    public static ArrayList<Concoction> getConcoctions() {
+    public static List<Concoction> getConcoctions() {
         return new ArrayList<Concoction>(registry.values());
     }
 }

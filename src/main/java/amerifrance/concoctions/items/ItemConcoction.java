@@ -8,6 +8,7 @@ import amerifrance.concoctions.api.concoctions.IConcoctionContext;
 import amerifrance.concoctions.api.ingredients.IPropertiesContainer;
 import amerifrance.concoctions.util.ConcoctionContext;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -44,8 +45,8 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
         if (getConcoctionContext(stack) != null) {
             ConcoctionsHelper.addConcoction(player, getConcoctionContext(stack));
             if (!player.capabilities.isCreativeMode) --stack.stackSize;
-            if (stack.stackSize <= 0) return new ItemStack(this);
-            player.inventory.addItemStackToInventory(new ItemStack(this));
+            if (stack.stackSize <= 0) return new ItemStack(Items.glass_bottle);
+            player.inventory.addItemStackToInventory(new ItemStack(Items.glass_bottle));
         }
         return stack;
     }

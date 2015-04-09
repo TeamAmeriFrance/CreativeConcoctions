@@ -5,13 +5,17 @@ import amerifrance.concoctions.api.MetaBlock;
 import amerifrance.concoctions.api.cauldron.ICauldron;
 import amerifrance.concoctions.api.concoctions.Concoction;
 import amerifrance.concoctions.api.ingredients.Ingredient;
+import amerifrance.concoctions.api.ingredients.IngredientProperties;
 import amerifrance.concoctions.api.registry.ConcoctionRecipes;
 import amerifrance.concoctions.api.registry.HeatSourceRegistry;
 import amerifrance.concoctions.registry.ItemsRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.nbt.NBTTagString;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
@@ -26,8 +30,8 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
     private final float heatCapacity;
     private final float maxUnstability;
 
-    public ArrayList<Ingredient> cauldronContent;
-    public float stability;
+    public ArrayList<IngredientProperties> cauldronContent;
+    public float unstability;
     public int potency;
     public float heat;
     public int ticksLeft;
@@ -37,8 +41,8 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
         this.heatCapacity = heatCapacity;
         this.maxUnstability = maxUnstability;
 
-        this.cauldronContent = new ArrayList<Ingredient>();
-        this.stability = 0F;
+        this.cauldronContent = new ArrayList<IngredientProperties>();
+        this.unstability = 0F;
         this.heat = 0F;
         this.potency = 0;
         this.ticksLeft = 0;
@@ -65,8 +69,8 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
     }
 
     @Override
-    public float getStability() {
-        return stability;
+    public float getUnstability() {
+        return unstability;
     }
 
     @Override
@@ -81,9 +85,9 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
 
     @Override
     public void addIngredient(Ingredient ingredient) {
-        ticksLeft += ingredient.ticksToBoil * (getHeatCapacity() / CreativeConcoctionsAPI.dividingSafeInt((int) heat));
-        stability += ingredient.stability * (getHeatCapacity() / CreativeConcoctionsAPI.dividingSafeInt((int) heat));
-        cauldronContent.add(ingredient);
+        ticksLeft += ingredient.ticksToBoil;
+        unstability += ingredient.unstability;
+        cauldronContent.addAll(ingredient.getPropertiesList());
     }
 
     @Override
@@ -92,7 +96,7 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
 
         if (getHeat() > getHeatCapacity()) meltCauldron();
         if (cauldronContent.size() > getIngredientCapacity()) cauldronOverflow();
-        if (getStability() < getMaxUnstability()) cauldronUnstable();
+        if (getUnstability() > getMaxUnstability()) cauldronUnstable();
         if (ticksLeft > 0) ticksLeft--;
         if (ticksLeft < 0) ticksLeft = 0;
 
@@ -121,18 +125,21 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
         }
     }
 
-    public boolean checkAndCraft(ItemStack stack) {
-        if (stack != null && stack.getItem() == ItemsRegistry.concoctionItem && canCraft()) {
+    public boolean checkAndCraft(EntityPlayer player, ItemStack stack) {
+        if (stack != null && stack.getItem() == Items.glass_bottle && canCraft()) {
+            ItemStack concoctionStack = new ItemStack(ItemsRegistry.concoctionItem);
+            System.out.println(cauldronContent);
             if (checkRecipe()) {
                 Concoction concoction = ConcoctionRecipes.getConcoctionForIngredients(cauldronContent);
-                int level = (int) (potency * Math.abs(getStability()));
-                int duration = (int) (potency * Math.abs(getStability()) / CreativeConcoctionsAPI.dividingSafeInt((int) getHeat()));
+                int level = (int) (potency * Math.abs(heat));
+                int duration = (int) (potency * Math.abs(getUnstability()) / CreativeConcoctionsAPI.dividingSafeInt((int) getHeat()));
 
                 if (level > concoction.maxLevel) level = concoction.maxLevel;
-                CreativeConcoctionsAPI.setConcoctionContext(stack, concoction, level, duration);
+                CreativeConcoctionsAPI.setConcoctionContext(concoctionStack, concoction, level, duration);
+                player.inventory.addItemStackToInventory(concoctionStack.copy());
                 return true;
             } else {
-                invalidRecipe(stack);
+                invalidRecipe(concoctionStack);
                 return false;
             }
         }
@@ -142,16 +149,16 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
     @Override
     public void readFromNBT(NBTTagCompound tagCompound) {
         super.readFromNBT(tagCompound);
-        this.stability = tagCompound.getFloat("stability");
+        this.unstability = tagCompound.getFloat("unstability");
         this.potency = tagCompound.getInteger("potency");
         this.heat = tagCompound.getFloat("heat");
         this.ticksLeft = tagCompound.getInteger("ticksLeft");
 
-        NBTTagList tagList = tagCompound.getTagList("ingredients", Constants.NBT.TAG_COMPOUND);
+        NBTTagList tagList = tagCompound.getTagList("ingredients", Constants.NBT.TAG_STRING);
         if (tagList != null) {
             for (int i = 0; i < tagList.tagCount(); i++) {
-                NBTTagCompound tag = tagList.getCompoundTagAt(i);
-                cauldronContent.add(Ingredient.readFromNBT(tag));
+                String value = tagList.getStringTagAt(i);
+                cauldronContent.add(IngredientProperties.valueOf(value));
             }
         }
     }
@@ -159,15 +166,14 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
     @Override
     public void writeToNBT(NBTTagCompound tagCompound) {
         super.writeToNBT(tagCompound);
-        tagCompound.setFloat("stability", stability);
+        tagCompound.setFloat("unstability", unstability);
         tagCompound.setInteger("potency", potency);
         tagCompound.setFloat("heat", heat);
         tagCompound.setInteger("ticksLeft", ticksLeft);
 
         NBTTagList tagList = new NBTTagList();
-        for (Ingredient ingredient : cauldronContent) {
-            NBTTagCompound tag = new NBTTagCompound();
-            ingredient.writeToNBT(tag);
+        for (IngredientProperties properties : cauldronContent) {
+            NBTTagString tag = new NBTTagString(properties.name());
             tagList.appendTag(tag);
         }
         tagCompound.setTag("ingredients", tagList);

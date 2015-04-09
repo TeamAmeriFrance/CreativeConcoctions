@@ -1,6 +1,8 @@
 package amerifrance.concoctions.registry;
 
 import amerifrance.concoctions.api.concoctions.Concoction;
+import amerifrance.concoctions.api.ingredients.IngredientProperties;
+import amerifrance.concoctions.api.registry.ConcoctionRecipes;
 import amerifrance.concoctions.api.registry.ConcoctionsRegistry;
 import amerifrance.concoctions.concoctions.basic.*;
 import amerifrance.concoctions.concoctions.compound.ConcoctionSaiyanSerum;
@@ -9,6 +11,8 @@ import amerifrance.concoctions.guide.GuideConcoctionsHelper;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
+
+import java.util.Arrays;
 
 public class ModConcoctions {
 
@@ -121,5 +125,6 @@ public class ModConcoctions {
     }
 
     public static void registerConcoctionRecipes() {
+        ConcoctionRecipes.addRecipe(Arrays.asList(new IngredientProperties[]{IngredientProperties.POISON}), speed);
     }
 }

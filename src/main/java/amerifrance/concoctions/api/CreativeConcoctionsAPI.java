@@ -7,6 +7,8 @@ import amerifrance.concoctions.api.registry.ConcoctionsRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
+import java.util.List;
+
 public class CreativeConcoctionsAPI {
 
     public static String CONCOCTION_ID_TAG = "ConcoctionID";
@@ -63,7 +65,7 @@ public class CreativeConcoctionsAPI {
         else return n;
     }
 
-    public static IngredientProperties[] getIngredientProperties(ItemStack stack) {
+    public static List<IngredientProperties> getIngredientProperties(ItemStack stack) {
         if (CreativeConcoctionsAPI.getConcoction(stack) != null)
             return ConcoctionRecipes.getIngredientsForConcoction(getConcoction(stack));
         else

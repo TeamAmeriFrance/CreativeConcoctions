@@ -32,7 +32,7 @@ item.creativeconcoctions.ingredient.spiderLegs.name=Spider Legs
 item.creativeconcoctions.ingredient.zombieBones.name=Zombie Bones
 item.creativeconcoctions.ingredient.zombieBlood.name=Zombie Blood
 
-item.creativeconcoctions.concoction=Concoction
+item.creativeconcoctions.concoction.name=Concoction
 
 #Concoctions
 #Basics

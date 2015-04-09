@@ -21,7 +21,7 @@ public interface ICauldron {
 
     public float getHeat();
 
-    public float getStability();
+    public float getUnstability();
 
     public boolean checkRecipe();
 
