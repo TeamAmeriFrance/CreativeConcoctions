@@ -80,6 +80,13 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
     }
 
     @Override
+    public void addIngredient(Ingredient ingredient) {
+        ticksLeft += ingredient.ticksToBoil * (getHeatCapacity() / CreativeConcoctionsAPI.dividingSafeInt((int) heat));
+        stability += ingredient.stability * (getHeatCapacity() / CreativeConcoctionsAPI.dividingSafeInt((int) heat));
+        cauldronContent.add(ingredient);
+    }
+
+    @Override
     public void updateEntity() {
         super.updateEntity();
 

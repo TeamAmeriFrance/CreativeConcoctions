@@ -40,13 +40,10 @@ public abstract class BlockCauldronBase extends BlockContainer {
 
             for (int i = 0; i < stacksize; i++) {
                 if (ingredient != null && cauldronBase.canCraft()) {
-                    cauldronBase.ticksLeft += ingredient.ticksToBoil * (cauldronBase.getHeatCapacity() / cauldronBase.heat);
-                    cauldronBase.stability += ingredient.stability * (cauldronBase.getHeatCapacity() / cauldronBase.heat);
-                    cauldronBase.cauldronContent.add(ingredient);
+                    cauldronBase.addIngredient(ingredient);
                     entityItem.getEntityItem().stackSize--;
                 } else if (stack.getItem() instanceof IPropertiesContainer) {
-                    cauldronBase.ticksLeft += 200;
-                    cauldronBase.cauldronContent.add(new Ingredient(IngredientType.NEUTRAL, 0F, CreativeConcoctionsAPI.getLevel(stack), CreativeConcoctionsAPI.getIngredientProperties(stack), 0));
+                    cauldronBase.addIngredient(new Ingredient(IngredientType.NEUTRAL, 0F, CreativeConcoctionsAPI.getLevel(stack), CreativeConcoctionsAPI.getIngredientProperties(stack), 200));
                     entityItem.getEntityItem().stackSize--;
                 }
             }
