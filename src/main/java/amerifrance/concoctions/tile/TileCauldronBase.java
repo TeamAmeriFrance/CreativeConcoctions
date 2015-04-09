@@ -108,7 +108,7 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
             TileEntity tile = worldObj.getTileEntity(xCoord, yCoord - 1, zCoord);
             if (tile != null && tile instanceof IHeatController) {
                 IHeatController heatController = (IHeatController) tile;
-                heatController.handleCauldronHeat(this);
+                heatController.handleCauldronHeat(this, worldObj, xCoord, yCoord, zCoord);
             }
             */
         }

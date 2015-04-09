@@ -1,8 +1,8 @@
 package amerifrance.concoctions.api.cauldron;
 
-import amerifrance.concoctions.tile.TileCauldronBase;
+import net.minecraft.world.World;
 
 public interface IHeatController {
 
-    public void handleCauldronHeat(TileCauldronBase cauldronBase);
+    public void handleCauldronHeat(ICauldron iCauldron, World world, int cauldronX, int cauldronY, int cauldronZ);
 }
