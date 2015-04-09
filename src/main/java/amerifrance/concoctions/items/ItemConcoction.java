@@ -1,14 +1,12 @@
 package amerifrance.concoctions.items;
 
-import amerifrance.concoctions.util.ConcoctionContext;
 import amerifrance.concoctions.CreativeConcoctions;
 import amerifrance.concoctions.ModInformation;
 import amerifrance.concoctions.api.CreativeConcoctionsAPI;
 import amerifrance.concoctions.api.concoctions.ConcoctionsHelper;
 import amerifrance.concoctions.api.concoctions.IConcoctionContext;
 import amerifrance.concoctions.api.ingredients.IPropertiesContainer;
-import amerifrance.concoctions.api.ingredients.IngredientProperties;
-import amerifrance.concoctions.api.registry.ConcoctionRecipes;
+import amerifrance.concoctions.util.ConcoctionContext;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
@@ -59,19 +57,6 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
         } else {
             return super.getItemStackDisplayName(stack);
         }
-    }
-
-    @Override
-    public IngredientProperties[] getIngredientProperties(ItemStack stack) {
-        if (CreativeConcoctionsAPI.getConcoction(stack) != null)
-            return ConcoctionRecipes.getIngredientsForConcoction(CreativeConcoctionsAPI.getConcoction(stack));
-        else
-            return null;
-    }
-
-    @Override
-    public int getPotency(ItemStack stack) {
-        return CreativeConcoctionsAPI.getLevel(stack);
     }
 
     public static IConcoctionContext getConcoctionContext(ItemStack stack) {

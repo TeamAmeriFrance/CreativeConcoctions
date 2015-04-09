@@ -1,6 +1,9 @@
 package amerifrance.concoctions.blocks;
 
+import amerifrance.concoctions.api.CreativeConcoctionsAPI;
+import amerifrance.concoctions.api.ingredients.IPropertiesContainer;
 import amerifrance.concoctions.api.ingredients.Ingredient;
+import amerifrance.concoctions.api.ingredients.IngredientType;
 import amerifrance.concoctions.api.registry.IngredientsRegistry;
 import amerifrance.concoctions.tile.TileCauldronBase;
 import net.minecraft.block.BlockContainer;
@@ -38,7 +41,12 @@ public abstract class BlockCauldronBase extends BlockContainer {
             for (int i = 0; i < stacksize; i++) {
                 if (ingredient != null && cauldronBase.canCraft()) {
                     cauldronBase.ticksLeft += ingredient.ticksToBoil * (cauldronBase.getHeatCapacity() / cauldronBase.heat);
+                    cauldronBase.stability += ingredient.stability * (cauldronBase.getHeatCapacity() / cauldronBase.heat);
                     cauldronBase.cauldronContent.add(ingredient);
+                    entityItem.getEntityItem().stackSize--;
+                } else if (stack.getItem() instanceof IPropertiesContainer) {
+                    cauldronBase.ticksLeft += 200;
+                    cauldronBase.cauldronContent.add(new Ingredient(IngredientType.NEUTRAL, 0F, CreativeConcoctionsAPI.getLevel(stack), CreativeConcoctionsAPI.getIngredientProperties(stack), 0));
                     entityItem.getEntityItem().stackSize--;
                 }
             }
