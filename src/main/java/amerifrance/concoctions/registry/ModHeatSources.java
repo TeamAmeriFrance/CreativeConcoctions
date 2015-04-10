@@ -1,6 +1,7 @@
 package amerifrance.concoctions.registry;
 
 import amerifrance.concoctions.api.MetaBlock;
+import amerifrance.concoctions.api.cauldron.HeatSource;
 import amerifrance.concoctions.api.registry.HeatSourceRegistry;
 import net.minecraft.init.Blocks;
 
@@ -13,10 +14,10 @@ public class ModHeatSources {
     public static MetaBlock lava = new MetaBlock(Blocks.lava);
 
     public static void registerHeatSources() {
-        HeatSourceRegistry.registerHeatSource(redstoneTorch, 2400);
-        HeatSourceRegistry.registerHeatSource(torch, 1200);
-        HeatSourceRegistry.registerHeatSource(fire, 600);
-        HeatSourceRegistry.registerHeatSource(flowingLava, 300);
-        HeatSourceRegistry.registerHeatSource(lava, 150);
+        HeatSourceRegistry.registerHeatSource(redstoneTorch, new HeatSource(2400, 15));
+        HeatSourceRegistry.registerHeatSource(torch, new HeatSource(1200, 30));
+        HeatSourceRegistry.registerHeatSource(fire, new HeatSource(600, 60));
+        HeatSourceRegistry.registerHeatSource(flowingLava, new HeatSource(300, 120));
+        HeatSourceRegistry.registerHeatSource(lava, new HeatSource(150, 240));
     }
 }

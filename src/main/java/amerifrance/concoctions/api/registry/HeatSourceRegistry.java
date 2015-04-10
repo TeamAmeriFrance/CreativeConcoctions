@@ -12,10 +12,6 @@ public class HeatSourceRegistry {
 
     private static BiMap<MetaBlock, HeatSource> registry = HashBiMap.create();
 
-    public static void registerHeatSource(MetaBlock metaBlock, int ticksToWait) {
-        registerHeatSource(metaBlock, new HeatSource(ticksToWait));
-    }
-
     public static void registerHeatSource(MetaBlock metaBlock, HeatSource heatSource) {
         if (registry.containsKey(metaBlock)) {
             throw new IllegalArgumentException("Duplicate heat source: " + metaBlock);
@@ -28,8 +24,8 @@ public class HeatSourceRegistry {
         return registry.containsKey(metaBlock);
     }
 
-    public static int getTimeToWait(MetaBlock metaBlock) {
-        return registry.get(metaBlock).ticksToWait;
+    public static HeatSource getHeatSource(MetaBlock metaBlock) {
+        return registry.get(metaBlock);
     }
 
     public static int getSize() {

@@ -2,6 +2,7 @@ package amerifrance.concoctions.tile;
 
 import amerifrance.concoctions.api.CreativeConcoctionsAPI;
 import amerifrance.concoctions.api.MetaBlock;
+import amerifrance.concoctions.api.cauldron.HeatSource;
 import amerifrance.concoctions.api.cauldron.ICauldron;
 import amerifrance.concoctions.api.concoctions.Concoction;
 import amerifrance.concoctions.api.ingredients.Ingredient;
@@ -26,9 +27,9 @@ import java.util.ArrayList;
 
 public abstract class TileCauldronBase extends TileEntity implements ICauldron {
 
-    private final int ingredientCapacity;
-    private final float heatCapacity;
-    private final float maxUnstability;
+    private int ingredientCapacity;
+    private float heatCapacity;
+    private float maxUnstability;
 
     public ArrayList<IngredientProperties> cauldronContent;
     public float unstability;
@@ -84,11 +85,11 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
     }
 
     @Override
-    public void addIngredient(Ingredient ingredient) {
-        ticksLeft += ingredient.ticksToBoil;
-        unstability += ingredient.unstability;
-        potency += ingredient.potency;
-        cauldronContent.addAll(ingredient.getPropertiesList());
+    public void addIngredient(Ingredient ingredient, int stacksize) {
+        ticksLeft += ingredient.ticksToBoil * stacksize;
+        unstability += ingredient.unstability * stacksize;
+        potency += ingredient.potency * stacksize;
+        for (int i = 0; i < stacksize; i++) cauldronContent.addAll(ingredient.getPropertiesList());
     }
 
     @Override
@@ -102,6 +103,8 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
         if (ticksLeft < 0) ticksLeft = 0;
 
         if (!worldObj.isRemote) handleHeat();
+
+        if (worldObj.getTotalWorldTime() % 40 == 0) markForUpdate();
     }
 
     @Override
@@ -111,8 +114,11 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
             int metadata = worldObj.getBlockMetadata(xCoord, yCoord - 1, zCoord);
             MetaBlock metaBlock = new MetaBlock(block, metadata);
 
-            if (HeatSourceRegistry.contains(metaBlock) && worldObj.getTotalWorldTime() % HeatSourceRegistry.getTimeToWait(metaBlock) == 0) {
-                heat += 0.1;
+            if (HeatSourceRegistry.contains(metaBlock)) {
+                HeatSource heatSource = HeatSourceRegistry.getHeatSource(metaBlock);
+                if (worldObj.getTotalWorldTime() % heatSource.ticksToWait == 0 && getHeat() < heatSource.maxHeat) {
+                    heat += 0.1;
+                }
             }
 
             /*
@@ -127,9 +133,8 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
     }
 
     public boolean checkAndCraft(EntityPlayer player, ItemStack heldItem) {
-        if (!worldObj.isRemote && heldItem != null && heldItem.getItem() == Items.glass_bottle && canCraft()) {
+        if (!worldObj.isRemote && heldItem != null && heldItem.getItem() == Items.glass_bottle && heldItem.stackSize > 0 && canCraft()) {
             ItemStack concoctionStack = new ItemStack(ItemsRegistry.concoctionItem);
-            System.out.println(cauldronContent);
             if (checkRecipe()) {
                 Concoction concoction = ConcoctionRecipes.getConcoctionForIngredients(cauldronContent);
                 int level = (int) (potency * Math.abs(heat) / CreativeConcoctionsAPI.dividingSafeInt((int) Math.abs(getUnstability())));
@@ -139,6 +144,9 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
                 CreativeConcoctionsAPI.setConcoction(concoctionStack, concoction);
                 CreativeConcoctionsAPI.setLevel(concoctionStack, level);
                 CreativeConcoctionsAPI.setDuration(concoctionStack, duration);
+
+                cauldronContent.clear();
+                heldItem.stackSize--;
                 player.inventory.addItemStackToInventory(concoctionStack.copy());
                 player.inventoryContainer.detectAndSendChanges();
                 return true;
@@ -150,6 +158,16 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
         return false;
     }
 
+    public void markForUpdate() {
+        worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+    }
+
+    public float getLiquidHeightForRender() {
+        float height = 0.25F + 0.9F * ((float) cauldronContent.size() / getIngredientCapacity());
+        if (height > 1.0F) height = 1.0F;
+        return height;
+    }
+
     @Override
     public void readFromNBT(NBTTagCompound tagCompound) {
         super.readFromNBT(tagCompound);
@@ -158,8 +176,13 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
         this.heat = tagCompound.getFloat("heat");
         this.ticksLeft = tagCompound.getInteger("ticksLeft");
 
+        heatCapacity = tagCompound.getFloat("heatCapacity");
+        ingredientCapacity = tagCompound.getInteger("ingredientCapacity");
+        maxUnstability = tagCompound.getFloat("maxUnstability");
+
         NBTTagList tagList = tagCompound.getTagList("ingredients", Constants.NBT.TAG_STRING);
         if (tagList != null) {
+            cauldronContent.clear();
             for (int i = 0; i < tagList.tagCount(); i++) {
                 String value = tagList.getStringTagAt(i);
                 cauldronContent.add(IngredientProperties.valueOf(value));
@@ -174,6 +197,10 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
         tagCompound.setInteger("potency", potency);
         tagCompound.setFloat("heat", heat);
         tagCompound.setInteger("ticksLeft", ticksLeft);
+
+        tagCompound.setFloat("heatCapacity", heatCapacity);
+        tagCompound.setInteger("ingredientCapacity", ingredientCapacity);
+        tagCompound.setFloat("maxUnstability", maxUnstability);
 
         NBTTagList tagList = new NBTTagList();
         for (IngredientProperties properties : cauldronContent) {

@@ -11,7 +11,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -28,6 +27,7 @@ public abstract class BlockCauldronBase extends BlockContainer {
     public IIcon innerSide;
     public IIcon topSide;
     public IIcon bottomSide;
+    public IIcon itemTopSide;
 
     public BlockCauldronBase(Material material) {
         super(material);
@@ -36,26 +36,19 @@ public abstract class BlockCauldronBase extends BlockContainer {
 
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int metadata) {
-        return side == 1 ? this.topSide : (side == 0 ? this.bottomSide : this.blockIcon);
-    }
-
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister ir) {
-        this.innerSide = ir.registerIcon(getTextureName() + "_" + "inner");
-        this.topSide = ir.registerIcon(getTextureName() + "_top");
-        this.bottomSide = ir.registerIcon(getTextureName() + "_" + "bottom");
-        this.blockIcon = ir.registerIcon(getTextureName() + "_side");
+        if (side == 1) return topSide;
+        else if (side == 0) return bottomSide;
+        else if (side == 7) return itemTopSide;
+        else return blockIcon;
     }
 
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
         TileCauldronBase cauldronBase = (TileCauldronBase) world.getTileEntity(x, y, z);
         if (cauldronBase.checkAndCraft(player, player.getHeldItem())) {
+            cauldronBase.markForUpdate();
             return true;
         }
-        System.out.println(cauldronBase.potency);
-        System.out.println(cauldronBase.getHeat());
-        System.out.println(cauldronBase.getUnstability());
         return false;
     }
 
@@ -68,17 +61,16 @@ public abstract class BlockCauldronBase extends BlockContainer {
             int stacksize = stack.stackSize;
             Ingredient ingredient = IngredientsRegistry.getIngredient(new ItemStack(stack.getItem(), 1, stack.getItemDamage()));
 
-            for (int i = 0; i < stacksize; i++) {
-                if (ingredient != null && cauldronBase.canCraft()) {
-                    cauldronBase.addIngredient(ingredient);
-                    entityItem.getEntityItem().stackSize--;
-                } else if (stack.getItem() instanceof IPropertiesContainer && cauldronBase.canCraft()) {
-                    List<IngredientProperties> list = CreativeConcoctionsAPI.getIngredientProperties(stack);
-                    cauldronBase.addIngredient(new Ingredient(IngredientType.NEUTRAL, 0F, CreativeConcoctionsAPI.getLevel(stack), list.toArray(new IngredientProperties[list.size()]), 200));
-                    entityItem.getEntityItem().stackSize--;
-                }
+            if (ingredient != null && cauldronBase.canCraft()) {
+                cauldronBase.addIngredient(ingredient, stacksize);
+                entityItem.setDead();
+            } else if (stack.getItem() instanceof IPropertiesContainer && cauldronBase.canCraft()) {
+                List<IngredientProperties> list = CreativeConcoctionsAPI.getIngredientProperties(stack);
+                cauldronBase.addIngredient(new Ingredient(IngredientType.NEUTRAL, 0F, CreativeConcoctionsAPI.getLevel(stack), list.toArray(new IngredientProperties[list.size()]), 200), stacksize);
+                entityItem.setDead();
             }
         }
+        cauldronBase.markForUpdate();
     }
 
     @Override
