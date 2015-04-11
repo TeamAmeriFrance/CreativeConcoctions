@@ -17,7 +17,7 @@ public class CommonProxy implements IGuiHandler {
     public void registerRenders() {
     }
 
-    public void cauldronSplash(World world, double x, double y, double z, double movX, double movY, double movZ) {
+    public void cauldronSplash(World world, double x, double y, double z) {
     }
 
     @Override

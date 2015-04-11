@@ -5,6 +5,7 @@ import amerifrance.concoctions.api.CreativeConcoctionsAPI;
 import amerifrance.concoctions.api.MetaBlock;
 import amerifrance.concoctions.api.cauldron.HeatSource;
 import amerifrance.concoctions.api.cauldron.ICauldron;
+import amerifrance.concoctions.api.cauldron.IHeatController;
 import amerifrance.concoctions.api.concoctions.Concoction;
 import amerifrance.concoctions.api.ingredients.Ingredient;
 import amerifrance.concoctions.api.ingredients.IngredientProperties;
@@ -91,7 +92,7 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
         unstability += ingredient.unstability * stacksize;
         potency += ingredient.potency * stacksize;
         for (int i = 0; i < stacksize; i++) cauldronContent.addAll(ingredient.getPropertiesList());
-        CreativeConcoctions.proxy.cauldronSplash(worldObj, xCoord, yCoord + 1.0, zCoord, 0, 1, 0);
+        CreativeConcoctions.proxy.cauldronSplash(worldObj, xCoord, yCoord + 1.0, zCoord);
     }
 
     @Override
@@ -123,14 +124,11 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
                 }
             }
 
-            /*
-            TODO For more advanced cauldrons.
             TileEntity tile = worldObj.getTileEntity(xCoord, yCoord - 1, zCoord);
             if (tile != null && tile instanceof IHeatController) {
                 IHeatController heatController = (IHeatController) tile;
                 heatController.handleCauldronHeat(this, worldObj, xCoord, yCoord, zCoord);
             }
-            */
         }
     }
 

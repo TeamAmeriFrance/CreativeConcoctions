@@ -25,7 +25,7 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void cauldronSplash(World world, double x, double y, double z, double movX, double movY, double movZ) {
+    public void cauldronSplash(World world, double x, double y, double z) {
         world.playSound(x + 0.5, y + 0.5, z + 0.5, "game.neutral.swim.splash", world.rand.nextFloat() * 0.25F + 0.75F, world.rand.nextFloat() * 1.0F + 0.5F, false);
     }
 }
