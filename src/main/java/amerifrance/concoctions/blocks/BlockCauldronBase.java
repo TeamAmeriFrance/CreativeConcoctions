@@ -55,7 +55,7 @@ public abstract class BlockCauldronBase extends BlockContainer {
     @Override
     public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
         TileCauldronBase cauldronBase = (TileCauldronBase) world.getTileEntity(x, y, z);
-        if (!world.isRemote && entity instanceof EntityItem) {
+        if (entity instanceof EntityItem) {
             EntityItem entityItem = (EntityItem) entity;
             ItemStack stack = entityItem.getEntityItem();
             int stacksize = stack.stackSize;

@@ -1,5 +1,6 @@
 package amerifrance.concoctions.tile;
 
+import amerifrance.concoctions.CreativeConcoctions;
 import amerifrance.concoctions.api.CreativeConcoctionsAPI;
 import amerifrance.concoctions.api.MetaBlock;
 import amerifrance.concoctions.api.cauldron.HeatSource;
@@ -90,6 +91,7 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
         unstability += ingredient.unstability * stacksize;
         potency += ingredient.potency * stacksize;
         for (int i = 0; i < stacksize; i++) cauldronContent.addAll(ingredient.getPropertiesList());
+        CreativeConcoctions.proxy.cauldronSplash(worldObj, xCoord, yCoord + 1.0, zCoord, 0, 1, 0);
     }
 
     @Override
@@ -163,7 +165,7 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
     }
 
     public float getLiquidHeightForRender() {
-        float height = 0.25F + 0.9F * ((float) cauldronContent.size() / getIngredientCapacity());
+        float height = 0.25F + 0.75F * ((float) cauldronContent.size() / getIngredientCapacity());
         if (height > 1.0F) height = 1.0F;
         return height;
     }

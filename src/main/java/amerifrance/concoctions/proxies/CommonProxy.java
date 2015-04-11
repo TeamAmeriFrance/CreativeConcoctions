@@ -14,7 +14,10 @@ public class CommonProxy implements IGuiHandler {
     public void setConcoctionBook() {
     }
 
-    public void registerRenders(){
+    public void registerRenders() {
+    }
+
+    public void cauldronSplash(World world, double x, double y, double z, double movX, double movY, double movZ) {
     }
 
     @Override
