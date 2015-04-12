@@ -1,7 +1,6 @@
-package amerifrance.concoctions.util;
+package amerifrance.concoctions.api.concoctions;
 
-import amerifrance.concoctions.api.concoctions.Concoction;
-import amerifrance.concoctions.api.concoctions.IConcoctionContext;
+import amerifrance.concoctions.util.ConcoctionContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;

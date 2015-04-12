@@ -12,5 +12,6 @@ public class PacketHandler {
     public static void registerPackets() {
         INSTANCE.registerMessage(PacketFireBall.class, PacketFireBall.class, 0, Side.SERVER);
         INSTANCE.registerMessage(PacketOpenInventory.class, PacketOpenInventory.class, 1, Side.SERVER);
+        INSTANCE.registerMessage(PacketConcoctions.class, PacketConcoctions.class, 2, Side.CLIENT);
     }
 }

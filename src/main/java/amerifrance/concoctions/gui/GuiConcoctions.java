@@ -3,7 +3,7 @@ package amerifrance.concoctions.gui;
 import amerifrance.concoctions.api.concoctions.IConcoctionContext;
 import amerifrance.concoctions.network.PacketHandler;
 import amerifrance.concoctions.network.PacketOpenInventory;
-import amerifrance.concoctions.util.LivingConcoctions;
+import amerifrance.concoctions.api.concoctions.LivingConcoctions;
 import amerifrance.guideapi.ModInformation;
 import amerifrance.guideapi.buttons.ButtonBack;
 import amerifrance.guideapi.buttons.ButtonNext;
