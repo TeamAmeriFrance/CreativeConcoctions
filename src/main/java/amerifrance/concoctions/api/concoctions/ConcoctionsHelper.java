@@ -22,11 +22,9 @@ public class ConcoctionsHelper {
 
     public static void addConcoction(EntityLivingBase livingBase, IConcoctionContext ctx) {
         if (LivingConcoctions.get(livingBase) != null) {
-            if (ctx.getConcoctionLevel() > ctx.getConcoction().maxLevel) {
-                ctx.setLevel(ctx.getConcoction().maxLevel);
-            }
+            if (ctx.getConcoctionLevel() > ctx.getConcoction().maxLevel) ctx.setLevel(ctx.getConcoction().maxLevel);
             LivingConcoctions.getActiveConcotions(livingBase).add(ctx);
-            if (!livingBase.worldObj.isRemote) ctx.onAdded(livingBase);
+            ctx.onAdded(livingBase);
         }
     }
 
@@ -75,13 +73,14 @@ public class ConcoctionsHelper {
     }
 
     public static void clearActiveConcoctions(EntityLivingBase livingBase) {
-        LinkedList<IConcoctionContext> list = LivingConcoctions.getActiveConcotions(livingBase);
-        if (list != null) {
-            for (IConcoctionContext ctx : list) {
-                ctx.onRemoved(livingBase);
-            }
-            list.clear();
+        LinkedList<IConcoctionContext> toRemove = new LinkedList<IConcoctionContext>();
+        Iterator<IConcoctionContext> iterator = LivingConcoctions.getActiveConcotions(livingBase).iterator();
+        while (iterator.hasNext()) {
+            IConcoctionContext ctx = iterator.next();
+            ctx.setTicksLeft(0);
+            toRemove.add(ctx);
         }
+        for (IConcoctionContext ctx : toRemove) ctx.onRemoved(livingBase);
     }
 
     public static List<IConcoctionContext> getActiveConcotions(EntityLivingBase livingBase) {

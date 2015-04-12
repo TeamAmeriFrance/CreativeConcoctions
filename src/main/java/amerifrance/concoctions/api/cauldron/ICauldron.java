@@ -29,4 +29,6 @@ public interface ICauldron {
     public void handleHeat();
 
     public void addIngredient(Ingredient ingredient, int stacksize);
+
+    public float getLiquidHeightForRender();
 }

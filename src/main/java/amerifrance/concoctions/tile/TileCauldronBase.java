@@ -132,6 +132,13 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
         }
     }
 
+    @Override
+    public float getLiquidHeightForRender() {
+        float height = 0.25F + 0.75F * ((float) cauldronContent.size() / getIngredientCapacity());
+        if (height > 1.0F) height = 1.0F;
+        return height;
+    }
+
     public boolean checkAndCraft(EntityPlayer player, ItemStack heldItem) {
         if (!worldObj.isRemote && heldItem != null && heldItem.getItem() == Items.glass_bottle && heldItem.stackSize > 0 && canCraft()) {
             ItemStack concoctionStack = new ItemStack(ItemsRegistry.concoctionItem);
@@ -160,12 +167,6 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
 
     public void markForUpdate() {
         worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-    }
-
-    public float getLiquidHeightForRender() {
-        float height = 0.25F + 0.75F * ((float) cauldronContent.size() / getIngredientCapacity());
-        if (height > 1.0F) height = 1.0F;
-        return height;
     }
 
     @Override

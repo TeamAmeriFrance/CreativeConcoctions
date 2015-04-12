@@ -72,8 +72,10 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean simulate) {
         if (!GuiScreen.isShiftKeyDown()) return;
 
-        list.add(CreativeConcoctionsAPI.getConcoction(stack).name);
-        list.add(String.valueOf(StatCollector.translateToLocal("gui.text.level") + ": " + CreativeConcoctionsAPI.getLevel(stack)));
-        list.add(String.valueOf(StatCollector.translateToLocal("gui.text.time.left") + ": " + CreativeConcoctionsAPI.getDuration(stack)));
+        if (CreativeConcoctionsAPI.getConcoction(stack) != null) {
+            list.add(CreativeConcoctionsAPI.getConcoction(stack).name);
+            list.add(String.valueOf(StatCollector.translateToLocal("gui.text.level") + ": " + CreativeConcoctionsAPI.getLevel(stack)));
+            list.add(String.valueOf(StatCollector.translateToLocal("gui.text.time.left") + ": " + CreativeConcoctionsAPI.getDuration(stack)));
+        }
     }
 }

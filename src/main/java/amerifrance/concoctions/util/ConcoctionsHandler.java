@@ -14,6 +14,7 @@ import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 
 import java.util.Iterator;
+import java.util.LinkedList;
 
 public class ConcoctionsHandler {
 
@@ -29,16 +30,18 @@ public class ConcoctionsHandler {
         EntityLivingBase livingBase = event.entityLiving;
         if (LivingConcoctions.get(livingBase) != null) {
             if (LivingConcoctions.getActiveConcotions(livingBase) != null && !LivingConcoctions.getActiveConcotions(livingBase).isEmpty()) {
+                LinkedList<IConcoctionContext> toRemove = new LinkedList<IConcoctionContext>();
                 Iterator<IConcoctionContext> iterator = LivingConcoctions.getActiveConcotions(livingBase).iterator();
                 while (iterator.hasNext()) {
                     IConcoctionContext ctx = iterator.next();
                     if (ctx.getTicksLeft() > 0) {
                         ctx.onUpdate(livingBase);
                     } else {
-                        if (!event.entityLiving.worldObj.isRemote) ctx.onRemoved(livingBase);
+                        toRemove.add(ctx);
                         iterator.remove();
                     }
                 }
+                for (IConcoctionContext ctx : toRemove) ctx.onRemoved(livingBase);
             }
         }
     }

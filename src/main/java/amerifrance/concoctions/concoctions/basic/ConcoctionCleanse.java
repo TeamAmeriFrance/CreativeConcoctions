@@ -14,7 +14,7 @@ public class ConcoctionCleanse extends Concoction {
     }
 
     @Override
-    public void updateEffect(EntityLivingBase livingBase, IConcoctionContext ctx) {
+    public void onEffectAdded(EntityLivingBase livingBase, IConcoctionContext ctx) {
         ConcoctionsHelper.clearActiveConcoctions(livingBase);
     }
 }
