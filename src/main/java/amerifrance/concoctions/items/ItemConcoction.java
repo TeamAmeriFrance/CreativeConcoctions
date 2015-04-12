@@ -13,6 +13,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -72,7 +73,7 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
         if (!GuiScreen.isShiftKeyDown()) return;
 
         list.add(CreativeConcoctionsAPI.getConcoction(stack).name);
-        list.add(String.valueOf(CreativeConcoctionsAPI.getLevel(stack)));
-        list.add(String.valueOf(CreativeConcoctionsAPI.getDuration(stack)));
+        list.add(String.valueOf(StatCollector.translateToLocal("gui.text.level") + ": " + CreativeConcoctionsAPI.getLevel(stack)));
+        list.add(String.valueOf(StatCollector.translateToLocal("gui.text.time.left") + ": " + CreativeConcoctionsAPI.getDuration(stack)));
     }
 }

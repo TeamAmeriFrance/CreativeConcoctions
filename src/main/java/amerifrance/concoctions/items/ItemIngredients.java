@@ -19,7 +19,7 @@ import java.util.List;
 public class ItemIngredients extends Item {
 
     public String[] names = {"aconite", "asphodel", "belladona", "bubotuber", "fluxweed", "gillyweed",
-            "ginger", "hellebore", "knotgrass", "lovage", "mandrake", "nettles", "peppermint", "phytobeozar",
+            "ginger", "hellebore", "knotgrass", "lovage", "mandrake", "nettles", "peppermint", "phytobezoar",
             "pomegranate", "scurvyGrass", "sneezewort", "sophorousBean", "valerian", "wormwood", "arachnidVenom",
             "humanFlesh", "humanBones", "humanBlood", "fishSpine", "fishEyes", "spiderLegs", "zombieBones", "zombieBlood"};
 
