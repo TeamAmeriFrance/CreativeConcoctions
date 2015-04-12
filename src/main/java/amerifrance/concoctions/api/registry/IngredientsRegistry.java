@@ -2,17 +2,16 @@ package amerifrance.concoctions.api.registry;
 
 import amerifrance.concoctions.api.ingredients.Ingredient;
 import amerifrance.concoctions.util.MapKey;
-import com.google.common.collect.BiMap;
-import com.google.common.collect.HashBiMap;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class IngredientsRegistry {
 
-    private static BiMap<MapKey, Ingredient> registry = HashBiMap.create();
+    private static HashMap<MapKey, Ingredient> registry = new HashMap<MapKey, Ingredient>();
 
     public static void registerIngredient(Ingredient ingredient, ItemStack stack) {
         MapKey key = MapKey.getKey(stack);
@@ -38,10 +37,6 @@ public class IngredientsRegistry {
 
     public static Ingredient getIngredient(Block block) {
         return getIngredient(new ItemStack(block));
-    }
-
-    public static ItemStack getItemStack(Ingredient ingredient) {
-        return registry.inverse().get(ingredient).stack;
     }
 
     public static boolean isMapEmtpy() {

@@ -12,10 +12,13 @@ public class ConcoctionRecipes {
 
     private static BiMap<List<IngredientProperties>, Concoction> registry = HashBiMap.create();
 
-    public static void addRecipe(List<IngredientProperties> properties, Concoction concoction) {
-        if (registry.containsKey(properties))
+    public static void addRecipe(ArrayList<IngredientProperties> properties, Concoction concoction) {
+        if (registry.containsKey(properties)) {
             throw new IllegalArgumentException("Duplicate ingredients: " + properties);
-        else registry.put(properties, concoction);
+        } else {
+            properties.add(0, IngredientProperties.WATER);
+            registry.put(properties, concoction);
+        }
     }
 
     public static Concoction getConcoctionForIngredients(List<IngredientProperties> properties) {

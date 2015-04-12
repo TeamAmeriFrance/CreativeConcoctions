@@ -19,6 +19,9 @@ public enum IngredientProperties {
     SLOWING_DOWN,
     PROTECTION,
     FIRE,
+    //This one is a part of every single recipe
+    WATER,
+    //These can never be part of a recipe
     STABILIZER,
     UNSTABLE,
     CATALYST

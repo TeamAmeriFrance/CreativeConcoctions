@@ -49,7 +49,6 @@ public abstract class BlockCauldronBase extends BlockContainer {
             cauldronBase.markForUpdate();
             return true;
         }
-        System.out.println(cauldronBase.cauldronContent);
         return false;
     }
 

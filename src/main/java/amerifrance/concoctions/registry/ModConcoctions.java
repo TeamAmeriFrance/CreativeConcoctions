@@ -8,11 +8,10 @@ import amerifrance.concoctions.concoctions.basic.*;
 import amerifrance.concoctions.concoctions.compound.ConcoctionSaiyanSerum;
 import amerifrance.concoctions.concoctions.compound.ConcoctionVenomousVigor;
 import amerifrance.concoctions.guide.GuideConcoctionsHelper;
+import com.google.common.collect.Lists;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-
-import java.util.Arrays;
 
 public class ModConcoctions {
 
@@ -125,6 +124,6 @@ public class ModConcoctions {
     }
 
     public static void registerConcoctionRecipes() {
-        ConcoctionRecipes.addRecipe(Arrays.asList(new IngredientProperties[]{IngredientProperties.POISON}), speed);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.POISON), speed);
     }
 }
