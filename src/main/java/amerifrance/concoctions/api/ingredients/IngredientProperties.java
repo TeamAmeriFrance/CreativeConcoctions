@@ -15,10 +15,11 @@ public enum IngredientProperties {
     CURATIVE,
     CLEANSING,
     STRENGTH,
-    SPEEDING_UP,
+    SPEED,
     SLOWING_DOWN,
     PROTECTION,
     FIRE,
+    EXPLOSIVE,
     //This one is a part of every single recipe
     WATER,
     //These can never be part of a recipe

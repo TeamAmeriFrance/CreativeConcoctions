@@ -124,6 +124,6 @@ public class ModConcoctions {
     }
 
     public static void registerConcoctionRecipes() {
-        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.POISON), speed);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.SPEED, IngredientProperties.STRENGTH), speed);
     }
 }

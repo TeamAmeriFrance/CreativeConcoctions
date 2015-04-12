@@ -14,6 +14,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
@@ -63,7 +64,11 @@ public abstract class BlockCauldronBase extends BlockContainer {
 
             if (ingredient != null && cauldronBase.canCraft()) {
                 cauldronBase.addIngredient(ingredient, stacksize);
-                entityItem.setDead();
+                if (entityItem.getEntityItem().getItem() == Items.water_bucket) {
+                    entityItem.setEntityItemStack(new ItemStack(Items.bucket));
+                } else {
+                    entityItem.setDead();
+                }
             } else if (stack.getItem() instanceof IPropertiesContainer && cauldronBase.canCraft()) {
                 IPropertiesContainer propertiesContainer = (IPropertiesContainer) stack.getItem();
                 List<IngredientProperties> list = propertiesContainer.getIngredientProperties(stack);

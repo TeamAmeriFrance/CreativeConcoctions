@@ -99,7 +99,7 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
             propertiesList.remove(IngredientProperties.CATALYST);
         }
         if (propertiesList.contains(IngredientProperties.UNSTABLE)) {
-            unstability += 5 * ingredient.potency* ingredient.unstability / 100;
+            unstability += 5 * ingredient.potency * ingredient.unstability / 100;
             propertiesList.remove(IngredientProperties.UNSTABLE);
         }
         if (propertiesList.contains(IngredientProperties.STABILIZER)) {
@@ -160,9 +160,11 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
             ItemStack concoctionStack = new ItemStack(ItemsRegistry.concoctionItem);
             if (checkRecipe()) {
                 Concoction concoction = ConcoctionRecipes.getConcoctionForIngredients(cauldronContent);
-                int level = (int) (potency * Math.abs(heat) / CreativeConcoctionsAPI.dividingSafeInt((int) Math.abs(getUnstability())));
-                int duration = potency / CreativeConcoctionsAPI.dividingSafeInt((int) Math.abs(getUnstability())) * 100;
+                //TODO: Change that math to give sensible stuff -_-
+                int level = potency / (CreativeConcoctionsAPI.dividingSafeInt((int) getUnstability())) * cauldronContent.size();
+                int duration = (int) (potency * getHeat());
 
+                if (level < 1) level = 1;
                 if (level > concoction.maxLevel) level = concoction.maxLevel;
                 CreativeConcoctionsAPI.setConcoction(concoctionStack, concoction);
                 CreativeConcoctionsAPI.setLevel(concoctionStack, level);
