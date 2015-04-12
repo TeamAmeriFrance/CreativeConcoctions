@@ -24,12 +24,12 @@ item.creativeconcoctions.ingredient.valerian.name=Valerian
 item.creativeconcoctions.ingredient.wormwood.name=Wormwood
 item.creativeconcoctions.ingredient.arachnidVenom.name=Arachnid Venom
 item.creativeconcoctions.ingredient.humanFlesh.name=Human Flesh
-item.creativeconcoctions.ingredient.humanBones.name=Human Bones
+item.creativeconcoctions.ingredient.humanBone.name=Human Bone
 item.creativeconcoctions.ingredient.humanBlood.name=Human Blood
 item.creativeconcoctions.ingredient.fishSpine.name=Fish Spine
 item.creativeconcoctions.ingredient.fishEye.name=Fish Eye
-item.creativeconcoctions.ingredient.spiderLegs.name=Spider Legs
-item.creativeconcoctions.ingredient.zombieBones.name=Zombie Bones
+item.creativeconcoctions.ingredient.spiderLeg.name=Spider Leg
+item.creativeconcoctions.ingredient.zombieBone.name=Zombie Bone
 item.creativeconcoctions.ingredient.zombieBlood.name=Zombie Blood
 
 item.creativeconcoctions.concoction.name=Concoction

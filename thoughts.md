@@ -75,10 +75,10 @@ No | Ghostwalk Ale | Ethereal Shift | Allows the imbiber to pass through enemies
 **Yes** | Valerian | In herbal lore, valerian is used as a sedative and a sleep aid. | Plant | Sleeping
 **Yes** | Wormwood | A potion ingredient, used in the creation of sleeping potions. | Plant | Sleeping
 **Yes** | Arachnid Venom | Almost impossible to collect from a living Arachnid. A special tool is needed to gather this ingredient | Animal Drop | Poison
-No | Human Parts | Some Dark Magic requires human flesh, head or bones. | Player drop | 
-No | Fish Parts | Spines of different fish is a very common ingredient. | Mob product | 
-No | Spider Parts | These are a commonly used ingredient. | Mob drop | 
-No | Zombie Parts | They have the same uses as Human Parts, but they are not as potent. | Mob drop | 
+**Yes** | Human Parts | Some Dark Magic requires human flesh, head or bones. | Player drop |
+**Yes** | Fish Parts | Spines of different fish is a very common ingredient. | Mob product |
+**Yes** | Spider Parts | These are a commonly used ingredient. | Mob drop |
+**Yes** | Zombie Parts | They have the same uses as Human Parts, but they are not as potent. | Mob drop |
 
 ##Alchemy
 We'll see later!

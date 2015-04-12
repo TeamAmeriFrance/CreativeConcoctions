@@ -21,7 +21,7 @@ public class ItemIngredients extends Item {
     public String[] names = {"aconite", "asphodel", "belladona", "bubotuber", "fluxweed", "gillyweed",
             "ginger", "hellebore", "knotgrass", "lovage", "mandrake", "nettles", "peppermint", "phytobezoar",
             "pomegranate", "scurvyGrass", "sneezewort", "sophorousBean", "valerian", "wormwood", "arachnidVenom",
-            "humanFlesh", "humanBones", "humanBlood", "fishSpine", "fishEyes", "spiderLegs", "zombieBones", "zombieBlood"};
+            "humanFlesh", "humanBone", "humanBlood", "fishSpine", "fishEye", "spiderLeg", "zombieBone", "zombieBlood"};
 
     public IIcon[] icons = new IIcon[names.length];
     public ItemStack[] ingredientStacks = new ItemStack[names.length];
