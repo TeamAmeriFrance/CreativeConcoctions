@@ -1,6 +1,6 @@
 package amerifrance.concoctions.proxies;
 
-import amerifrance.concoctions.gui.GuiConcoctions;
+import amerifrance.concoctions.client.gui.GuiConcoctions;
 import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -17,7 +17,7 @@ public class CommonProxy implements IGuiHandler {
     public void registerRenders() {
     }
 
-    public void cauldronSplash(World world, double x, double y, double z) {
+    public void cauldronSplash(World world, double x, double y, double z, int stacksize) {
     }
 
     @Override

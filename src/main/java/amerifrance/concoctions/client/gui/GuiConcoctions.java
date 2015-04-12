@@ -1,4 +1,4 @@
-package amerifrance.concoctions.gui;
+package amerifrance.concoctions.client.gui;
 
 import amerifrance.concoctions.api.concoctions.IConcoctionContext;
 import amerifrance.concoctions.network.PacketHandler;

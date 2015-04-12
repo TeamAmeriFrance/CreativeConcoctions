@@ -92,7 +92,7 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
         unstability += ingredient.unstability * stacksize;
         potency += ingredient.potency * stacksize;
         for (int i = 0; i < stacksize; i++) cauldronContent.addAll(ingredient.getPropertiesList());
-        CreativeConcoctions.proxy.cauldronSplash(worldObj, xCoord, yCoord + 1.0, zCoord);
+        CreativeConcoctions.proxy.cauldronSplash(worldObj, xCoord, yCoord + 0.8, zCoord, stacksize);
     }
 
     @Override

@@ -1,7 +1,7 @@
 package amerifrance.concoctions.util;
 
 import amerifrance.concoctions.ModInformation;
-import amerifrance.concoctions.gui.GuiConcoctions;
+import amerifrance.concoctions.client.gui.GuiConcoctions;
 import amerifrance.concoctions.network.PacketFireBall;
 import amerifrance.concoctions.network.PacketHandler;
 import cpw.mods.fml.client.registry.ClientRegistry;
