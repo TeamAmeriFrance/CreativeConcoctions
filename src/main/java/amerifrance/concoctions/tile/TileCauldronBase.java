@@ -26,6 +26,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.Constants;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class TileCauldronBase extends TileEntity implements ICauldron {
 
@@ -91,7 +92,22 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
         ticksLeft += ingredient.ticksToBoil * stacksize;
         unstability += ingredient.unstability * stacksize;
         potency += ingredient.potency * stacksize;
-        for (int i = 0; i < stacksize; i++) cauldronContent.addAll(ingredient.getPropertiesList());
+        List<IngredientProperties> propertiesList = new ArrayList<IngredientProperties>(ingredient.getPropertiesList());
+
+        if (propertiesList.contains(IngredientProperties.CATALYST)) {
+            ticksLeft -= 5 * ingredient.potency * ingredient.ticksToBoil / 100;
+            propertiesList.remove(IngredientProperties.CATALYST);
+        }
+        if (propertiesList.contains(IngredientProperties.UNSTABLE)) {
+            unstability += 5 * ingredient.potency* ingredient.unstability / 100;
+            propertiesList.remove(IngredientProperties.UNSTABLE);
+        }
+        if (propertiesList.contains(IngredientProperties.STABILIZER)) {
+            unstability -= 5 * ingredient.potency * ingredient.unstability / 100;
+            propertiesList.remove(IngredientProperties.STABILIZER);
+        }
+
+        for (int i = 0; i < stacksize; i++) cauldronContent.addAll(propertiesList);
         CreativeConcoctions.proxy.cauldronSplash(worldObj, xCoord, yCoord + 0.8, zCoord, stacksize);
     }
 
@@ -153,6 +169,9 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
                 CreativeConcoctionsAPI.setDuration(concoctionStack, duration);
 
                 cauldronContent.clear();
+                potency = 0;
+                unstability = 0;
+
                 heldItem.stackSize--;
                 player.inventory.addItemStackToInventory(concoctionStack.copy());
                 player.inventoryContainer.detectAndSendChanges();

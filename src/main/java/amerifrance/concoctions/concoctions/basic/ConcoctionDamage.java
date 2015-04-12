@@ -10,7 +10,7 @@ import java.awt.*;
 
 public class ConcoctionDamage extends Concoction {
 
-    public DamageSource putMeDown = new DamageSource("PutMeDown").setDifficultyScaled();
+    public DamageSource putMeDown = new DamageSource("PutMeDown");
 
     public ConcoctionDamage() {
         super("concoction.damage", 20, Color.BLACK, ConcoctionType.BAD);

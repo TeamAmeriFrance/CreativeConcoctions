@@ -1,13 +1,9 @@
 package amerifrance.concoctions.api;
 
 import amerifrance.concoctions.api.concoctions.Concoction;
-import amerifrance.concoctions.api.ingredients.IngredientProperties;
-import amerifrance.concoctions.api.registry.ConcoctionRecipes;
 import amerifrance.concoctions.api.registry.ConcoctionsRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-
-import java.util.List;
 
 public class CreativeConcoctionsAPI {
 
@@ -57,12 +53,5 @@ public class CreativeConcoctionsAPI {
     public static int dividingSafeInt(int n) {
         if (n == 0) return n + 1;
         else return n;
-    }
-
-    public static List<IngredientProperties> getIngredientProperties(ItemStack stack) {
-        if (CreativeConcoctionsAPI.getConcoction(stack) != null)
-            return ConcoctionRecipes.getIngredientsForConcoction(getConcoction(stack));
-        else
-            return null;
     }
 }

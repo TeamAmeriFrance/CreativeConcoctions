@@ -5,6 +5,8 @@ import amerifrance.concoctions.ModInformation;
 import amerifrance.concoctions.api.CreativeConcoctionsAPI;
 import amerifrance.concoctions.api.concoctions.ConcoctionsHelper;
 import amerifrance.concoctions.api.ingredients.IPropertiesContainer;
+import amerifrance.concoctions.api.ingredients.IngredientProperties;
+import amerifrance.concoctions.api.registry.ConcoctionRecipes;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.gui.GuiScreen;
@@ -77,5 +79,13 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
             list.add(String.valueOf(StatCollector.translateToLocal("gui.text.level") + ": " + CreativeConcoctionsAPI.getLevel(stack)));
             list.add(String.valueOf(StatCollector.translateToLocal("gui.text.time.left") + ": " + CreativeConcoctionsAPI.getDuration(stack)));
         }
+    }
+
+    @Override
+    public List<IngredientProperties> getIngredientProperties(ItemStack stack) {
+        if (CreativeConcoctionsAPI.getConcoction(stack) != null)
+            return ConcoctionRecipes.getIngredientsForConcoction(CreativeConcoctionsAPI.getConcoction(stack));
+        else
+            return null;
     }
 }

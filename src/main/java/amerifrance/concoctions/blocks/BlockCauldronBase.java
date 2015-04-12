@@ -49,6 +49,7 @@ public abstract class BlockCauldronBase extends BlockContainer {
             cauldronBase.markForUpdate();
             return true;
         }
+        System.out.println(cauldronBase.cauldronContent);
         return false;
     }
 
@@ -65,9 +66,12 @@ public abstract class BlockCauldronBase extends BlockContainer {
                 cauldronBase.addIngredient(ingredient, stacksize);
                 entityItem.setDead();
             } else if (stack.getItem() instanceof IPropertiesContainer && cauldronBase.canCraft()) {
-                List<IngredientProperties> list = CreativeConcoctionsAPI.getIngredientProperties(stack);
-                cauldronBase.addIngredient(new Ingredient(IngredientType.NEUTRAL, 0F, CreativeConcoctionsAPI.getLevel(stack), list.toArray(new IngredientProperties[list.size()]), 200), stacksize);
-                entityItem.setDead();
+                IPropertiesContainer propertiesContainer = (IPropertiesContainer) stack.getItem();
+                List<IngredientProperties> list = propertiesContainer.getIngredientProperties(stack);
+                if (list != null) {
+                    cauldronBase.addIngredient(new Ingredient(IngredientType.NEUTRAL, 0F, CreativeConcoctionsAPI.getLevel(stack), list.toArray(new IngredientProperties[list.size()]), 200), stacksize);
+                    entityItem.setDead();
+                }
             }
         }
         cauldronBase.markForUpdate();

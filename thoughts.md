@@ -13,10 +13,10 @@
 - [x] `method` to add the effect to an entity with a level and a duration (which is a fancy way to say that we're adding something to the entity's NBT and that the `TickHandler` is reacting accordingly
 
 ##The Actual Brewing of Potions:
-- [ ] A map with items/blocks and their properties
-- [ ] Mixing these different items/blocks gives a potion due to their properties
-- [ ] Cauldrons can and will blow up
-- [ ] Random discoveries are important, and some brews can have less potency than others due to the ingredients used
+- [x] A map with items/blocks and their properties
+- [x] Mixing these different items/blocks gives a potion due to their properties
+- [x] Cauldrons can and will blow up
+- [x] Random discoveries are important, and some brews can have less potency than others due to the ingredients used
 - [ ] Potions journal using [Guide-API](https://github.com/TeamAmeriFrance/Guide-API), recording the discoveries and the item/block effects
 
 ##Other things to do:
