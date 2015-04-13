@@ -20,6 +20,7 @@ public enum IngredientProperties {
     PROTECTION,
     FIRE,
     EXPLOSIVE,
+    GRAVITY,
     //This one is a part of every single recipe
     WATER,
     //These can never be part of a recipe

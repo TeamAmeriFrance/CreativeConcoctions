@@ -161,8 +161,8 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
             if (checkRecipe()) {
                 Concoction concoction = ConcoctionRecipes.getConcoctionForIngredients(cauldronContent);
                 //TODO: Change that math to give sensible stuff -_-
-                int level = potency / (CreativeConcoctionsAPI.dividingSafeInt((int) getUnstability())) * cauldronContent.size();
-                int duration = (int) (potency * getHeat());
+                int level = potency / cauldronContent.size();
+                int duration = (int) (potency * getHeat() / CreativeConcoctionsAPI.dividingSafeInt((int) getUnstability())) * 100;
 
                 if (level < 1) level = 1;
                 if (level > concoction.maxLevel) level = concoction.maxLevel;

@@ -16,6 +16,7 @@ public class ModIngredients {
 
     public static void registerIngredients() {
         registerWaters();
+        registerArmors();
         ir(new Ingredient(IngredientType.PROCESSING_PRODUCT, 1, 2, new IngredientProperties[]{IngredientProperties.CATALYST, IngredientProperties.SPEED}, 50), Items.sugar);
         ir(new Ingredient(IngredientType.PROCESSING_PRODUCT, 8, 4, new IngredientProperties[]{IngredientProperties.CATALYST, IngredientProperties.SPEED, IngredientProperties.UNSTABLE}, 200), Items.firework_charge);
         ir(new Ingredient(IngredientType.PROCESSING_PRODUCT, 12, 8, new IngredientProperties[]{IngredientProperties.CATALYST, IngredientProperties.SPEED, IngredientProperties.UNSTABLE, IngredientProperties.EXPLOSIVE}, 300), Items.fireworks);
@@ -26,6 +27,11 @@ public class ModIngredients {
         ir(water, Blocks.water);
         ir(water, Blocks.flowing_water);
         ir(water, Items.potionitem);
+    }
+
+    public static void registerArmors() {
+        Ingredient protection = new Ingredient(IngredientType.NEUTRAL, 5, 2, new IngredientProperties[]{IngredientProperties.PROTECTION}, 500);
+        ir(protection, Items.diamond_chestplate);
     }
 
     private static void ir(Ingredient ingredient, Object o) {
