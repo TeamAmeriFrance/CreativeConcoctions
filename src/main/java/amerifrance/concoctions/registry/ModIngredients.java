@@ -4,10 +4,12 @@ import amerifrance.concoctions.api.ingredients.Ingredient;
 import amerifrance.concoctions.api.ingredients.IngredientProperties;
 import amerifrance.concoctions.api.ingredients.IngredientType;
 import amerifrance.concoctions.api.registry.IngredientsRegistry;
+import cpw.mods.fml.common.registry.GameData;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 
 public class ModIngredients {
@@ -30,8 +32,13 @@ public class ModIngredients {
     }
 
     public static void registerArmors() {
-        Ingredient protection = new Ingredient(IngredientType.NEUTRAL, 5, 2, new IngredientProperties[]{IngredientProperties.PROTECTION}, 500);
-        ir(protection, Items.diamond_chestplate);
+        for (Item item : GameData.getItemRegistry().typeSafeIterable()) {
+            if (item instanceof ItemArmor) {
+                ItemArmor armor = (ItemArmor) item;
+                Ingredient protection = new Ingredient(IngredientType.NEUTRAL, 10, armor.getArmorMaterial().getDamageReductionAmount(armor.armorType), new IngredientProperties[]{IngredientProperties.PROTECTION}, 500);
+                ir(protection, armor);
+            }
+        }
     }
 
     private static void ir(Ingredient ingredient, Object o) {
