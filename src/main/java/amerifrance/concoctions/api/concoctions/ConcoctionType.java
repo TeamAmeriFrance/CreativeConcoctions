@@ -1,8 +1,15 @@
 package amerifrance.concoctions.api.concoctions;
 
+import net.minecraft.util.EnumChatFormatting;
+
 public enum ConcoctionType {
-    //These are temporary. They will eventually be the types seen in thoughts.md
-    GOOD,
-    BAD,
-    NEUTRAL
+    GOOD(EnumChatFormatting.GREEN),
+    BAD(EnumChatFormatting.RED),
+    NEUTRAL(EnumChatFormatting.GRAY);
+
+    public final EnumChatFormatting prefix;
+
+    private ConcoctionType(EnumChatFormatting prefix) {
+        this.prefix = prefix;
+    }
 }

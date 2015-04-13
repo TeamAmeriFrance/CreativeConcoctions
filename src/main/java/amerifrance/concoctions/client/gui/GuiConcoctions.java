@@ -1,5 +1,6 @@
 package amerifrance.concoctions.client.gui;
 
+import amerifrance.concoctions.api.CreativeConcoctionsAPI;
 import amerifrance.concoctions.api.concoctions.IConcoctionContext;
 import amerifrance.concoctions.network.PacketHandler;
 import amerifrance.concoctions.network.PacketOpenInventory;
@@ -13,6 +14,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import org.lwjgl.input.Keyboard;
@@ -37,6 +39,7 @@ public class GuiConcoctions extends GuiBase {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public void initGui() {
         super.initGui();
         this.buttonList.clear();
@@ -65,10 +68,10 @@ public class GuiConcoctions extends GuiBase {
             maxPage = list.size();
             if (pageNumber < maxPage) {
                 IConcoctionContext ctx = list.get(pageNumber);
-                String s = StatCollector.translateToLocal("gui.text.concoction") + ": ";
+                String s = StatCollector.translateToLocal("gui.text.concoction") + ":\n";
                 s += ctx.getConcoction().name + "\n";
-                s += StatCollector.translateToLocal("gui.text.level") + ": " + String.valueOf(ctx.getConcoctionLevel()) + "\n";
-                s += StatCollector.translateToLocal("gui.text.time.left") + ": " + String.valueOf(ctx.getTicksLeft() / 20) + " s" + "\n";
+                s += String.format(StatCollector.translateToLocal("gui.text.level"), String.valueOf(ctx.getConcoctionLevel()) + "\n");
+                s += String.format(StatCollector.translateToLocal("gui.text.time.left"), String.valueOf(ctx.getTicksLeft() / 20) + "s" + "\n");
 
                 drawSplitString(s, guiLeft + 37, guiTop + 12, (4 * xSize / 6) - 4, 0);
             } else {

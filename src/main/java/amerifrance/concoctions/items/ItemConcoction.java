@@ -37,9 +37,9 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
 
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-        if (CreativeConcoctionsAPI.getConcoction(stack) != null) {
+        if (CreativeConcoctionsAPI.getConcoction(stack) != null)
             player.setItemInUse(stack, getMaxItemUseDuration(stack));
-        }
+
         return stack;
     }
 
@@ -61,11 +61,10 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
 
     @Override
     public String getItemStackDisplayName(ItemStack stack) {
-        if (CreativeConcoctionsAPI.getConcoction(stack) != null) {
+        if (CreativeConcoctionsAPI.getConcoction(stack) != null)
             return super.getItemStackDisplayName(stack) + " (" + CreativeConcoctionsAPI.getConcoction(stack).name + ")";
-        } else {
+        else
             return super.getItemStackDisplayName(stack);
-        }
     }
 
     @Override
@@ -75,9 +74,9 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
         if (!GuiScreen.isShiftKeyDown()) return;
 
         if (CreativeConcoctionsAPI.getConcoction(stack) != null) {
-            list.add(CreativeConcoctionsAPI.getConcoction(stack).name);
-            list.add(String.valueOf(StatCollector.translateToLocal("gui.text.level") + ": " + CreativeConcoctionsAPI.getLevel(stack)));
-            list.add(String.valueOf(StatCollector.translateToLocal("gui.text.time.left") + ": " + CreativeConcoctionsAPI.getDuration(stack)));
+            list.add(CreativeConcoctionsAPI.getConcoction(stack).getConcotionType().prefix + CreativeConcoctionsAPI.getConcoction(stack).name);
+            list.add(String.format(StatCollector.translateToLocal("gui.text.level"), CreativeConcoctionsAPI.getLevel(stack)));
+            list.add(String.format(StatCollector.translateToLocal("gui.text.duration"), (double) CreativeConcoctionsAPI.getDuration(stack) / 20 + "s"));
         }
     }
 

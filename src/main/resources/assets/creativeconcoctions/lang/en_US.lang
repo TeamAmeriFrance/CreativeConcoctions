@@ -63,8 +63,9 @@ concoction.saiyan.serum=Saiyan Serum
 itemGroup.creativeconcoctions.creativeTab=Creative Concoctions
 tooltip.creative.only=Creative Only
 gui.text.concoction=Concoction
-gui.text.level=Level
-gui.text.time.left=Time Left
+gui.text.level=Level: %s
+gui.text.duration=Duration: %s
+gui.text.time.left=Time Left: %s
 
 # Chat
 death.attack.HellEyes=%s was stared to death.
