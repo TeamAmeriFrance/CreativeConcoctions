@@ -22,7 +22,7 @@ public class ItemCreativeIngredient extends Item implements IPropertiesContainer
     public ItemCreativeIngredient() {
         setCreativeTab(CreativeConcoctions.tabConcoction);
         setUnlocalizedName(ModInformation.ID + ".creative.ingredient");
-        setTextureName(ModInformation.TEXLOC + "creative_ingredient");
+        setTextureName(ModInformation.TEXLOC + "ingredient_creative");
         setMaxDamage(0);
         setHasSubtypes(true);
     }
@@ -60,7 +60,15 @@ public class ItemCreativeIngredient extends Item implements IPropertiesContainer
     }
 
     @Override
+    public void setIngredientProperties(ItemStack stack, IngredientProperties... properties) {
+    }
+
+    @Override
     public int getIngredientPotency(ItemStack stack) {
         return 5;
+    }
+
+    @Override
+    public void setIngredientPotency(ItemStack stack, int potency) {
     }
 }

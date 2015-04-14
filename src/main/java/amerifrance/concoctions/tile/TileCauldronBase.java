@@ -11,7 +11,6 @@ import amerifrance.concoctions.api.ingredients.Ingredient;
 import amerifrance.concoctions.api.ingredients.IngredientProperties;
 import amerifrance.concoctions.api.registry.ConcoctionRecipes;
 import amerifrance.concoctions.api.registry.HeatSourceRegistry;
-import amerifrance.concoctions.items.ItemConcoction;
 import amerifrance.concoctions.registry.ItemsRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -173,13 +172,13 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
             if (checkRecipe()) {
                 Concoction concoction = ConcoctionRecipes.getConcoctionForIngredients(cauldronContent);
                 int level = potency / cauldronContent.size();
-                int duration = (int) (potency * getHeat() / CreativeConcoctionsAPI.dividingSafeInt((int) getUnstability())) * 100;
+                int duration = (int) (level * getHeat() / CreativeConcoctionsAPI.dividingSafeInt((int) getUnstability())) * 100;
 
                 if (level < 1) level = 1;
                 if (level > concoction.maxLevel) level = concoction.maxLevel;
-                ItemConcoction.setConcoction(concoctionStack, concoction);
-                ItemConcoction.setLevel(concoctionStack, level);
-                ItemConcoction.setDuration(concoctionStack, duration);
+                ItemsRegistry.concoctionItem.setConcoction(concoctionStack, concoction);
+                ItemsRegistry.concoctionItem.setIngredientPotency(concoctionStack, level);
+                ItemsRegistry.concoctionItem.setDuration(concoctionStack, duration);
 
                 cauldronContent.clear();
                 potency = 0;
@@ -222,8 +221,7 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
         if (tagList != null) {
             cauldronContent.clear();
             for (int i = 0; i < tagList.tagCount(); i++) {
-                String value = tagList.getStringTagAt(i);
-                cauldronContent.add(IngredientProperties.valueOf(value));
+                cauldronContent.add(IngredientProperties.valueOf(tagList.getStringTagAt(i)));
             }
         }
     }

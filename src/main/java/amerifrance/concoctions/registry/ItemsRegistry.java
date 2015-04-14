@@ -1,9 +1,6 @@
 package amerifrance.concoctions.registry;
 
-import amerifrance.concoctions.items.ItemConcoction;
-import amerifrance.concoctions.items.ItemCreativeConcoction;
-import amerifrance.concoctions.items.ItemCreativeIngredient;
-import amerifrance.concoctions.items.ItemIngredients;
+import amerifrance.concoctions.items.*;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemsRegistry {
@@ -12,6 +9,7 @@ public class ItemsRegistry {
     public static ItemIngredients ingredients;
     public static ItemConcoction concoctionItem;
     public static ItemCreativeIngredient creativeIngredient;
+    public static ItemBottledIngredient bottledIngredient;
 
     public static void registerItems() {
         creativeConcoction = new ItemCreativeConcoction();
@@ -25,5 +23,8 @@ public class ItemsRegistry {
 
         creativeIngredient = new ItemCreativeIngredient();
         GameRegistry.registerItem(creativeIngredient, "ItemCreativeIngredient");
+
+        bottledIngredient = new ItemBottledIngredient();
+        GameRegistry.registerItem(bottledIngredient, "ItemBottledIngredient");
     }
 }
