@@ -106,6 +106,10 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
             unstability -= 5 * ingredient.potency * ingredient.unstability / 100;
             propertiesList.remove(IngredientProperties.STABILIZER);
         }
+        if (propertiesList.contains(IngredientProperties.COOLANT)) {
+            heat -= ingredient.potency / 100;
+            propertiesList.remove(IngredientProperties.COOLANT);
+        }
 
         for (int i = 0; i < stacksize; i++) cauldronContent.addAll(propertiesList);
         CreativeConcoctions.proxy.cauldronSplash(worldObj, xCoord, yCoord + 0.8, zCoord, stacksize);
@@ -121,8 +125,11 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
         if (ticksLeft > 0) ticksLeft--;
         if (ticksLeft < 0) ticksLeft = 0;
 
-        if (!worldObj.isRemote) handleHeat();
+        if (ticksLeft == 0 && !cauldronContent.isEmpty()) {
+            CreativeConcoctions.proxy.cauldronFumes(worldObj, xCoord, yCoord + getLiquidHeightForRender(), zCoord);
+        }
 
+        if (!worldObj.isRemote) handleHeat();
         if (worldObj.getTotalWorldTime() % 40 == 0) markForUpdate();
     }
 
@@ -156,11 +163,10 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
     }
 
     public boolean checkAndCraft(EntityPlayer player, ItemStack heldItem) {
-        if (!worldObj.isRemote && heldItem != null && heldItem.getItem() == Items.glass_bottle && heldItem.stackSize > 0 && canCraft()) {
+        if (heldItem != null && heldItem.getItem() == Items.glass_bottle && heldItem.stackSize > 0 && canCraft()) {
             ItemStack concoctionStack = new ItemStack(ItemsRegistry.concoctionItem);
             if (checkRecipe()) {
                 Concoction concoction = ConcoctionRecipes.getConcoctionForIngredients(cauldronContent);
-                //TODO: Change that math to give sensible stuff -_-
                 int level = potency / cauldronContent.size();
                 int duration = (int) (potency * getHeat() / CreativeConcoctionsAPI.dividingSafeInt((int) getUnstability())) * 100;
 

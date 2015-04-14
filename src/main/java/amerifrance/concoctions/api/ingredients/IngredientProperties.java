@@ -24,6 +24,7 @@ public enum IngredientProperties {
     //This one is a part of every single recipe
     WATER,
     //These can never be part of a recipe
+    COOLANT,
     STABILIZER,
     UNSTABLE,
     CATALYST

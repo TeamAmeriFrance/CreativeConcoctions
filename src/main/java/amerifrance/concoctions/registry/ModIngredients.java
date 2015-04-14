@@ -35,10 +35,16 @@ public class ModIngredients {
         for (Item item : GameData.getItemRegistry().typeSafeIterable()) {
             if (item instanceof ItemArmor) {
                 ItemArmor armor = (ItemArmor) item;
-                Ingredient protection = new Ingredient(IngredientType.NEUTRAL, 10, armor.getArmorMaterial().getDamageReductionAmount(armor.armorType), new IngredientProperties[]{IngredientProperties.PROTECTION}, 500);
+                Ingredient protection = new Ingredient(IngredientType.NEUTRAL, 10, armor.getArmorMaterial().getDamageReductionAmount(armor.armorType), new IngredientProperties[]{IngredientProperties.PROTECTION, IngredientProperties.COOLANT}, 500);
                 ir(protection, armor);
             }
         }
+        Ingredient ironHorse = new Ingredient(IngredientType.NEUTRAL, 10, Items.iron_chestplate.getArmorMaterial().getDamageReductionAmount(Items.iron_chestplate.armorType) * 2, new IngredientProperties[]{IngredientProperties.PROTECTION, IngredientProperties.COOLANT}, 500);
+        ir(ironHorse, Items.iron_horse_armor);
+        Ingredient goldenHorse = new Ingredient(IngredientType.NEUTRAL, 10, Items.golden_chestplate.getArmorMaterial().getDamageReductionAmount(Items.golden_chestplate.armorType) * 2, new IngredientProperties[]{IngredientProperties.PROTECTION, IngredientProperties.COOLANT}, 500);
+        ir(goldenHorse, Items.golden_horse_armor);
+        Ingredient diamondHorse = new Ingredient(IngredientType.NEUTRAL, 10, Items.diamond_chestplate.getArmorMaterial().getDamageReductionAmount(Items.diamond_chestplate.armorType) * 2, new IngredientProperties[]{IngredientProperties.PROTECTION, IngredientProperties.COOLANT}, 500);
+        ir(diamondHorse, Items.diamond_horse_armor);
     }
 
     private static void ir(Ingredient ingredient, Object o) {
