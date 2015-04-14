@@ -20,7 +20,7 @@ public enum IngredientProperties {
     INVISIBILITY,
     MAGIC,
     MORPHING,
-    NUTRIMENT,
+    NOURISHMENT,
     POISON,
     PROTECTION,
     REGENERATION,

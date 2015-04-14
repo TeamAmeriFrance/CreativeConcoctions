@@ -140,6 +140,6 @@ public class ModConcoctions {
         ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.SPEED, IngredientProperties.MAGIC, IngredientProperties.STRENGTH, IngredientProperties.ENERGY), mineFast);
         ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.SPEED, IngredientProperties.MAGIC, IngredientProperties.ENERGY, IngredientProperties.MAGIC, IngredientProperties.SWIMMING), swim);
         ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.MAGIC, IngredientProperties.POISON, IngredientProperties.DAMAGE, IngredientProperties.POISON, IngredientProperties.DAMAGE), poison);
-        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.NUTRIMENT, IngredientProperties.DAMAGE, IngredientProperties.NUTRIMENT, IngredientProperties.POISON), hunger);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.NOURISHMENT, IngredientProperties.DAMAGE, IngredientProperties.NOURISHMENT, IngredientProperties.POISON), hunger);
     }
 }
