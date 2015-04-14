@@ -19,17 +19,17 @@ public class ModIngredients {
     public static void registerIngredients() {
         registerWaters();
         registerArmors();
-        ir(new Ingredient(IngredientType.PROCESSING_PRODUCT, 1, 2, new IngredientProperties[]{IngredientProperties.CATALYST, IngredientProperties.SPEED}, 50), Items.sugar);
-        ir(new Ingredient(IngredientType.PROCESSING_PRODUCT, 8, 4, new IngredientProperties[]{IngredientProperties.CATALYST, IngredientProperties.SPEED, IngredientProperties.UNSTABLE}, 200), Items.firework_charge);
-        ir(new Ingredient(IngredientType.PROCESSING_PRODUCT, 12, 8, new IngredientProperties[]{IngredientProperties.CATALYST, IngredientProperties.SPEED, IngredientProperties.UNSTABLE, IngredientProperties.EXPLOSIVE}, 300), Items.fireworks);
-        ir(new Ingredient(IngredientType.MOB_DROP, 20, 8, new IngredientProperties[]{IngredientProperties.EVIL, IngredientProperties.DEMONIC}, 280), new ItemStack(Items.skull, 1, 1));
+        ir(Items.sugar, new Ingredient(IngredientType.PROCESSING_PRODUCT, 1, 2, new IngredientProperties[]{IngredientProperties.CATALYST, IngredientProperties.SPEED}, 50));
+        ir(Items.firework_charge, new Ingredient(IngredientType.PROCESSING_PRODUCT, 8, 4, new IngredientProperties[]{IngredientProperties.CATALYST, IngredientProperties.SPEED, IngredientProperties.UNSTABLE}, 200));
+        ir(Items.fireworks, new Ingredient(IngredientType.PROCESSING_PRODUCT, 12, 8, new IngredientProperties[]{IngredientProperties.CATALYST, IngredientProperties.SPEED, IngredientProperties.UNSTABLE, IngredientProperties.EXPLOSIVE}, 300));
+        ir(new ItemStack(Items.skull, 1, 1), new Ingredient(IngredientType.MOB_DROP, 20, 8, new IngredientProperties[]{IngredientProperties.EVIL, IngredientProperties.DEMONIC}, 280));
     }
 
     public static void registerWaters() {
-        ir(water, Items.water_bucket);
-        ir(water, Blocks.water);
-        ir(water, Blocks.flowing_water);
-        ir(water, Items.potionitem);
+        ir(Items.water_bucket, water);
+        ir(Blocks.water, water);
+        ir(Blocks.flowing_water, water);
+        ir(Items.potionitem, water);
     }
 
     public static void registerArmors() {
@@ -37,21 +37,21 @@ public class ModIngredients {
             if (item instanceof ItemArmor) {
                 ItemArmor armor = (ItemArmor) item;
                 Ingredient protection = new Ingredient(IngredientType.NEUTRAL, 10, armor.getArmorMaterial().getDamageReductionAmount(armor.armorType), new IngredientProperties[]{IngredientProperties.PROTECTION, IngredientProperties.COOLANT}, 500);
-                ir(protection, armor);
+                ir(armor, protection);
             }
         }
         Ingredient ironHorse = new Ingredient(IngredientType.NEUTRAL, 10, Items.iron_chestplate.getArmorMaterial().getDamageReductionAmount(Items.iron_chestplate.armorType) * 2, new IngredientProperties[]{IngredientProperties.PROTECTION, IngredientProperties.COOLANT}, 500);
-        ir(ironHorse, Items.iron_horse_armor);
+        ir(Items.iron_horse_armor, ironHorse);
         Ingredient goldenHorse = new Ingredient(IngredientType.NEUTRAL, 10, Items.golden_chestplate.getArmorMaterial().getDamageReductionAmount(Items.golden_chestplate.armorType) * 2, new IngredientProperties[]{IngredientProperties.PROTECTION, IngredientProperties.COOLANT}, 500);
-        ir(goldenHorse, Items.golden_horse_armor);
+        ir(Items.golden_horse_armor, goldenHorse);
         Ingredient diamondHorse = new Ingredient(IngredientType.NEUTRAL, 10, Items.diamond_chestplate.getArmorMaterial().getDamageReductionAmount(Items.diamond_chestplate.armorType) * 2, new IngredientProperties[]{IngredientProperties.PROTECTION, IngredientProperties.COOLANT}, 500);
-        ir(diamondHorse, Items.diamond_horse_armor);
+        ir(Items.diamond_horse_armor, diamondHorse);
     }
 
-    private static void ir(Ingredient ingredient, Object o) {
+    private static void ir(Object o, Ingredient ingredient) {
         if (o instanceof ItemStack) IngredientsRegistry.registerIngredient(ingredient, (ItemStack) o);
         else if (o instanceof Item) IngredientsRegistry.registerIngredient(ingredient, (Item) o);
         else if (o instanceof Block) IngredientsRegistry.registerIngredient(ingredient, (Block) o);
-        else throw new IllegalArgumentException("Not a itemstack/item/block");
+        else throw new IllegalArgumentException("Not an ItemStack / Item / Block");
     }
 }
