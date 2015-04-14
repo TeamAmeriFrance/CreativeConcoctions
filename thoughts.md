@@ -45,7 +45,7 @@ Have an effect idea? Fill out [this](http://goo.gl/forms/FiPc7Kkyhs) form. Accep
 **Yes** | Thick Hide | Resistance | Lowers any type of damage but fire and fall damage, depending on the concoction's level | -0.5F * level
 **Yes** | Dead Hands | Mining Slowness | Slows down mining | -0.1F * level
 **Yes** | Jumpy Hands | Mining Speedup | Speeds up mining | +0.1F * level
-No | Luman Liquor | Human Torch | Creates light around the player. Higher potency means higher light level.
+**Yes** | Luman Liquor | Human Torch | Creates light around the player.
 No | Ghostwalk Ale | Ethereal Shift | Allows the imbiber to pass through enemies and entities without taking damage. Also makes the user immune to suffocation damage for a short period of time. However when applied, a greyscale filter is given to the player and they cannot interact with most blocks or give damage.
 No | Gravity Guy | Anti Gravity | Makes the player affected by this fly in all kinds of random directions
 No | Lucky Strike | Luck | Makes you drop more stuff when killing mobs

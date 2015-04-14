@@ -34,6 +34,7 @@ public class ModConcoctions {
     public static Concoction swim;
     public static Concoction poison;
     public static Concoction hunger;
+    public static Concoction luman;
 
     //Compounds
     public static Concoction venomousVigor;
@@ -111,6 +112,10 @@ public class ModConcoctions {
         hunger = new ConcoctionHunger();
         ConcoctionsRegistry.registerConcoction(hunger, "ConcoctionHunger");
         GuideConcoctionsHelper.addBasicConcoctionEntry(hunger, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
+
+        luman = new ConcoctionLight();
+        ConcoctionsRegistry.registerConcoction(luman, "ConcoctionLumanLiquor");
+        GuideConcoctionsHelper.addBasicConcoctionEntry(luman, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
     }
 
     public static void registerCompoundConcoctions() {

@@ -56,6 +56,7 @@ concoction.mining.slow=Dead Hands
 concoction.mining.fast=Jumpy Hands
 concoction.swim=Strong Swimming
 concoction.poison=Concoction (p)
+concoction.luman.liquor=Luman Liquor
 
 #Compounds
 concoction.venomous.vigor=Venomous Vigor
@@ -157,6 +158,10 @@ guide.creativeconcoctions.concoction(p).info.desc=Feels like a small spider just
 guide.creativeconcoctions.famine.entry=Famine
 guide.creativeconcoctions.famine.info.main=I think I'll eat it now!
 guide.creativeconcoctions.famine.info.desc=I think I'll eat it now! *crunch*
+
+guide.creativeconcoctions.lumanliquor.entry=Luman Liquor
+guide.creativeconcoctions.lumanliquor.info.main=Almost like being a human torch.
+guide.creativeconcoctions.lumanliquor.info.desc=Almost like being a human torch.
 
 # Compound
 guide.creativeconcoctions.venomousvigor.entry=Venemous Vigor
