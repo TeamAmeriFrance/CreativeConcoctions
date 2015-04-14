@@ -20,6 +20,7 @@ public enum IngredientProperties {
     INVISIBILITY,
     MAGIC,
     MORPHING,
+    NUTRIMENT,
     POISON,
     PROTECTION,
     REGENERATION,
@@ -30,12 +31,12 @@ public enum IngredientProperties {
     WATER_BREATHING,
     YOUTH,
 
-    //This one is a part of every single recipe
-    WATER,
-
     //These can never be part of any recipe
     CATALYST,
     COOLANT,
     STABILIZER,
-    UNSTABLE
+    UNSTABLE,
+
+    //This one is a part of every single recipe
+    WATER
 }

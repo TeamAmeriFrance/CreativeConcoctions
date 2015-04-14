@@ -2,15 +2,16 @@ package amerifrance.concoctions.registry;
 
 import amerifrance.concoctions.items.ItemConcoction;
 import amerifrance.concoctions.items.ItemCreativeConcoction;
+import amerifrance.concoctions.items.ItemCreativeIngredient;
 import amerifrance.concoctions.items.ItemIngredients;
 import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.item.Item;
 
 public class ItemsRegistry {
 
-    public static Item creativeConcoction;
-    public static Item ingredients;
-    public static Item concoctionItem;
+    public static ItemCreativeConcoction creativeConcoction;
+    public static ItemIngredients ingredients;
+    public static ItemConcoction concoctionItem;
+    public static ItemCreativeIngredient creativeIngredient;
 
     public static void registerItems() {
         creativeConcoction = new ItemCreativeConcoction();
@@ -21,5 +22,8 @@ public class ItemsRegistry {
 
         concoctionItem = new ItemConcoction();
         GameRegistry.registerItem(concoctionItem, "ItemConcoction");
+
+        creativeIngredient = new ItemCreativeIngredient();
+        GameRegistry.registerItem(creativeIngredient, "ItemCreativeIngredient");
     }
 }

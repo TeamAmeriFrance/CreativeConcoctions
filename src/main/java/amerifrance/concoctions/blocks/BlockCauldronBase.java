@@ -1,6 +1,5 @@
 package amerifrance.concoctions.blocks;
 
-import amerifrance.concoctions.api.CreativeConcoctionsAPI;
 import amerifrance.concoctions.api.ingredients.IPropertiesContainer;
 import amerifrance.concoctions.api.ingredients.Ingredient;
 import amerifrance.concoctions.api.ingredients.IngredientProperties;
@@ -73,7 +72,7 @@ public abstract class BlockCauldronBase extends BlockContainer {
                 IPropertiesContainer propertiesContainer = (IPropertiesContainer) stack.getItem();
                 List<IngredientProperties> list = propertiesContainer.getIngredientProperties(stack);
                 if (list != null) {
-                    cauldronBase.addIngredient(new Ingredient(IngredientType.NEUTRAL, 0F, CreativeConcoctionsAPI.getLevel(stack), list.toArray(new IngredientProperties[list.size()]), 200), stacksize);
+                    cauldronBase.addIngredient(new Ingredient(IngredientType.NEUTRAL, 0F, propertiesContainer.getIngredientPotency(stack), list.toArray(new IngredientProperties[list.size()]), 200), stacksize);
                     entityItem.setDead();
                 }
             }

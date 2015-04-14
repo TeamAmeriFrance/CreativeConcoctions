@@ -114,7 +114,8 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
         }
 
         for (int i = 0; i < stacksize; i++) cauldronContent.addAll(propertiesList);
-        CreativeConcoctions.proxy.cauldronSplash(worldObj, xCoord, yCoord + 0.8, zCoord, stacksize);
+        if (worldObj.isRemote)
+            CreativeConcoctions.proxy.cauldronSplash(worldObj, xCoord, yCoord + 0.8, zCoord, stacksize);
     }
 
     @Override
@@ -128,7 +129,8 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
         setToZero();
 
         if (ticksLeft == 0 && !cauldronContent.isEmpty()) {
-            CreativeConcoctions.proxy.cauldronFumes(worldObj, xCoord, yCoord + getLiquidHeightForRender(), zCoord);
+            if (worldObj.isRemote)
+                CreativeConcoctions.proxy.cauldronFumes(worldObj, xCoord, yCoord + getLiquidHeightForRender(), zCoord);
         }
 
         if (!worldObj.isRemote) handleHeat();

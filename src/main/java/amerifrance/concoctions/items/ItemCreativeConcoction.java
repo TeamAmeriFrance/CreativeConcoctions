@@ -98,7 +98,7 @@ public class ItemCreativeConcoction extends Item {
     }
 
     @Override
-    public int getMaxItemUseDuration(ItemStack p_77626_1_) {
+    public int getMaxItemUseDuration(ItemStack stack) {
         return 32;
     }
 

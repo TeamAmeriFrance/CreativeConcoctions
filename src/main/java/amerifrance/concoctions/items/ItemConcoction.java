@@ -87,4 +87,10 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
         else
             return null;
     }
+
+    @Override
+    public int getIngredientPotency(ItemStack stack) {
+        CreativeConcoctionsAPI.checkAndSetCompound(stack);
+        return stack.stackTagCompound.getInteger(CreativeConcoctionsAPI.CONCOCTION_LEVEL_TAG);
+    }
 }

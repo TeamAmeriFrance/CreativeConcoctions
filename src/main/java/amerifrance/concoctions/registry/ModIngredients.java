@@ -22,6 +22,7 @@ public class ModIngredients {
         ir(new Ingredient(IngredientType.PROCESSING_PRODUCT, 1, 2, new IngredientProperties[]{IngredientProperties.CATALYST, IngredientProperties.SPEED}, 50), Items.sugar);
         ir(new Ingredient(IngredientType.PROCESSING_PRODUCT, 8, 4, new IngredientProperties[]{IngredientProperties.CATALYST, IngredientProperties.SPEED, IngredientProperties.UNSTABLE}, 200), Items.firework_charge);
         ir(new Ingredient(IngredientType.PROCESSING_PRODUCT, 12, 8, new IngredientProperties[]{IngredientProperties.CATALYST, IngredientProperties.SPEED, IngredientProperties.UNSTABLE, IngredientProperties.EXPLOSIVE}, 300), Items.fireworks);
+        ir(new Ingredient(IngredientType.MOB_DROP, 20, 8, new IngredientProperties[]{IngredientProperties.EVIL, IngredientProperties.DEMONIC}, 280), new ItemStack(Items.skull, 1, 1));
     }
 
     public static void registerWaters() {
