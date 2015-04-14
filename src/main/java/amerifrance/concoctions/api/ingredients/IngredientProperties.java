@@ -8,6 +8,7 @@ public enum IngredientProperties {
     CONFUSION,
     CURATIVE,
     DAMAGE,
+    DEMONIC,
     EARTH,
     ENERGY,
     EVIL,
