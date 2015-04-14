@@ -12,8 +12,8 @@ import net.minecraft.world.World;
 
 public class BlockCauldronTest extends BlockCauldronBase {
 
-    public BlockCauldronTest(Material material) {
-        super(material);
+    public BlockCauldronTest() {
+        super(Material.iron);
         setHardness(5.0F);
         setCreativeTab(CreativeConcoctions.tabConcoction);
     }
