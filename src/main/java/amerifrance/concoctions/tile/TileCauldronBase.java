@@ -11,6 +11,7 @@ import amerifrance.concoctions.api.ingredients.Ingredient;
 import amerifrance.concoctions.api.ingredients.IngredientProperties;
 import amerifrance.concoctions.api.registry.ConcoctionRecipes;
 import amerifrance.concoctions.api.registry.HeatSourceRegistry;
+import amerifrance.concoctions.items.ItemConcoction;
 import amerifrance.concoctions.registry.ItemsRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -176,9 +177,9 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
 
                 if (level < 1) level = 1;
                 if (level > concoction.maxLevel) level = concoction.maxLevel;
-                CreativeConcoctionsAPI.setConcoction(concoctionStack, concoction);
-                CreativeConcoctionsAPI.setLevel(concoctionStack, level);
-                CreativeConcoctionsAPI.setDuration(concoctionStack, duration);
+                ItemConcoction.setConcoction(concoctionStack, concoction);
+                ItemConcoction.setLevel(concoctionStack, level);
+                ItemConcoction.setDuration(concoctionStack, duration);
 
                 cauldronContent.clear();
                 potency = 0;

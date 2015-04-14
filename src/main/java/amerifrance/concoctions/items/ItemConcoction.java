@@ -3,10 +3,12 @@ package amerifrance.concoctions.items;
 import amerifrance.concoctions.CreativeConcoctions;
 import amerifrance.concoctions.ModInformation;
 import amerifrance.concoctions.api.CreativeConcoctionsAPI;
+import amerifrance.concoctions.api.concoctions.Concoction;
 import amerifrance.concoctions.api.concoctions.ConcoctionsHelper;
 import amerifrance.concoctions.api.ingredients.IPropertiesContainer;
 import amerifrance.concoctions.api.ingredients.IngredientProperties;
 import amerifrance.concoctions.api.registry.ConcoctionRecipes;
+import amerifrance.concoctions.api.registry.ConcoctionsRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.gui.GuiScreen;
@@ -15,12 +17,17 @@ import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 import java.util.List;
 
 public class ItemConcoction extends Item implements IPropertiesContainer {
+
+    public static String CONCOCTION_ID_TAG = "ConcoctionID";
+    public static String CONCOCTION_LEVEL_TAG = "ConcoctionLevel";
+    public static String CONCOCTION_DURATION_TAG = "ConcoctionDuration";
 
     public ItemConcoction() {
         setCreativeTab(CreativeConcoctions.tabConcoction);
@@ -37,7 +44,7 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
 
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-        if (CreativeConcoctionsAPI.getConcoction(stack) != null)
+        if (getConcoction(stack) != null)
             player.setItemInUse(stack, getMaxItemUseDuration(stack));
 
         return stack;
@@ -50,8 +57,8 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
 
     @Override
     public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
-        if (CreativeConcoctionsAPI.getConcoction(stack) != null) {
-            ConcoctionsHelper.addConcoction(player, CreativeConcoctionsAPI.getConcoction(stack), CreativeConcoctionsAPI.getLevel(stack), CreativeConcoctionsAPI.getDuration(stack));
+        if (getConcoction(stack) != null) {
+            ConcoctionsHelper.addConcoction(player, getConcoction(stack), getLevel(stack), getDuration(stack));
             if (!player.capabilities.isCreativeMode) --stack.stackSize;
             if (stack.stackSize <= 0) return new ItemStack(Items.glass_bottle);
             player.inventory.addItemStackToInventory(new ItemStack(Items.glass_bottle));
@@ -61,8 +68,8 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
 
     @Override
     public String getItemStackDisplayName(ItemStack stack) {
-        if (CreativeConcoctionsAPI.getConcoction(stack) != null)
-            return super.getItemStackDisplayName(stack) + " (" + CreativeConcoctionsAPI.getConcoction(stack).name + ")";
+        if (getConcoction(stack) != null)
+            return super.getItemStackDisplayName(stack) + " (" + getConcoction(stack).getConcotionType().prefix + getConcoction(stack).name + EnumChatFormatting.RESET + ")";
         else
             return super.getItemStackDisplayName(stack);
     }
@@ -73,17 +80,17 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean simulate) {
         if (!GuiScreen.isShiftKeyDown()) return;
 
-        if (CreativeConcoctionsAPI.getConcoction(stack) != null) {
-            list.add(CreativeConcoctionsAPI.getConcoction(stack).getConcotionType().prefix + CreativeConcoctionsAPI.getConcoction(stack).name);
-            list.add(String.format(StatCollector.translateToLocal("gui.text.level"), CreativeConcoctionsAPI.getLevel(stack)));
-            list.add(String.format(StatCollector.translateToLocal("gui.text.duration"), (double) CreativeConcoctionsAPI.getDuration(stack) / 20 + "s"));
+        if (getConcoction(stack) != null) {
+            list.add(getConcoction(stack).getConcotionType().prefix + getConcoction(stack).name);
+            list.add(String.format(StatCollector.translateToLocal("gui.text.level"), getLevel(stack)));
+            list.add(String.format(StatCollector.translateToLocal("gui.text.duration"), (double) getDuration(stack) / 20 + "s"));
         }
     }
 
     @Override
     public List<IngredientProperties> getIngredientProperties(ItemStack stack) {
-        if (CreativeConcoctionsAPI.getConcoction(stack) != null)
-            return ConcoctionRecipes.getIngredientsForConcoction(CreativeConcoctionsAPI.getConcoction(stack));
+        if (getConcoction(stack) != null)
+            return ConcoctionRecipes.getIngredientsForConcoction(getConcoction(stack));
         else
             return null;
     }
@@ -91,6 +98,36 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
     @Override
     public int getIngredientPotency(ItemStack stack) {
         CreativeConcoctionsAPI.checkAndSetCompound(stack);
-        return stack.stackTagCompound.getInteger(CreativeConcoctionsAPI.CONCOCTION_LEVEL_TAG);
+        return stack.stackTagCompound.getInteger(CONCOCTION_LEVEL_TAG);
+    }
+
+    public static Concoction getConcoction(ItemStack stack) {
+        CreativeConcoctionsAPI.checkAndSetCompound(stack);
+        return ConcoctionsRegistry.getConcoctionForId(stack.stackTagCompound.getString(CONCOCTION_ID_TAG));
+    }
+
+    public static int getLevel(ItemStack stack) {
+        CreativeConcoctionsAPI.checkAndSetCompound(stack);
+        return stack.stackTagCompound.getInteger(CONCOCTION_LEVEL_TAG);
+    }
+
+    public static int getDuration(ItemStack stack) {
+        CreativeConcoctionsAPI.checkAndSetCompound(stack);
+        return stack.stackTagCompound.getInteger(CONCOCTION_DURATION_TAG);
+    }
+
+    public static void setConcoction(ItemStack stack, Concoction concoction) {
+        CreativeConcoctionsAPI.checkAndSetCompound(stack);
+        stack.stackTagCompound.setString(CONCOCTION_ID_TAG, ConcoctionsRegistry.getIdForConcoction(concoction));
+    }
+
+    public static void setLevel(ItemStack stack, int level) {
+        CreativeConcoctionsAPI.checkAndSetCompound(stack);
+        stack.stackTagCompound.setInteger(CONCOCTION_LEVEL_TAG, level);
+    }
+
+    public static void setDuration(ItemStack stack, int duration) {
+        CreativeConcoctionsAPI.checkAndSetCompound(stack);
+        stack.stackTagCompound.setInteger(CONCOCTION_DURATION_TAG, duration);
     }
 }
