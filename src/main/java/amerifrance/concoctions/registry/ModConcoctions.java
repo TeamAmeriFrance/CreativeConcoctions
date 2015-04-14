@@ -125,5 +125,10 @@ public class ModConcoctions {
 
     public static void registerConcoctionRecipes() {
         ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.STRENGTH, IngredientProperties.SPEED, IngredientProperties.FLIGHT, IngredientProperties.SLOWING_DOWN, IngredientProperties.PROTECTION), speed);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.STRENGTH, IngredientProperties.DAMAGE, IngredientProperties.EARTH), strength);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.ATTACK, IngredientProperties.DAMAGE, IngredientProperties.EVIL, IngredientProperties.MAGIC, IngredientProperties.AIR, IngredientProperties.DAMAGE), hellEyes);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.SPEED, IngredientProperties.SLOWING_DOWN, IngredientProperties.SLOWING_DOWN, IngredientProperties.GRAVITY), slowness);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.HEALING, IngredientProperties.MAGIC, IngredientProperties.REGENERATION, IngredientProperties.MAGIC), regeneration);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.HEALING, IngredientProperties.MAGIC), heal);
     }
 }

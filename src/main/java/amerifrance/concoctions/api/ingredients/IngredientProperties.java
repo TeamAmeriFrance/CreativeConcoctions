@@ -1,31 +1,40 @@
 package amerifrance.concoctions.api.ingredients;
 
 public enum IngredientProperties {
-    FLIGHT,
-    POISON,
-    DAMAGE,
-    YOUTH,
-    MORPHING,
-    WATER_BREATHING,
-    SWIMMING,
-    INVISIBILITY,
-    CONFUSION,
-    REGENERATION,
-    HEALING,
-    CURATIVE,
+
+    AIR,
+    ATTACK,
     CLEANSING,
-    STRENGTH,
-    SPEED,
-    SLOWING_DOWN,
-    PROTECTION,
-    FIRE,
+    CONFUSION,
+    CURATIVE,
+    DAMAGE,
+    EARTH,
+    ENERGY,
+    EVIL,
     EXPLOSIVE,
+    FIRE,
+    FLIGHT,
     GRAVITY,
+    HEALING,
+    INVISIBILITY,
+    MAGIC,
+    MORPHING,
+    POISON,
+    PROTECTION,
+    REGENERATION,
+    SLOWING_DOWN,
+    SPEED,
+    STRENGTH,
+    SWIMMING,
+    WATER_BREATHING,
+    YOUTH,
+
     //This one is a part of every single recipe
     WATER,
-    //These can never be part of a recipe
+
+    //These can never be part of any recipe
+    CATALYST,
     COOLANT,
     STABILIZER,
-    UNSTABLE,
-    CATALYST
+    UNSTABLE
 }

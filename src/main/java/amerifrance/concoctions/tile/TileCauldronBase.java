@@ -79,7 +79,9 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
 
     @Override
     public boolean checkRecipe() {
-        return ConcoctionRecipes.getConcoctionForIngredients(cauldronContent) != null;
+        if (!cauldronContent.isEmpty())
+            return ConcoctionRecipes.getConcoctionForIngredients(cauldronContent) != null;
+        return false;
     }
 
     @Override
@@ -95,19 +97,19 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
         List<IngredientProperties> propertiesList = new ArrayList<IngredientProperties>(ingredient.getPropertiesList());
 
         if (propertiesList.contains(IngredientProperties.CATALYST)) {
-            ticksLeft -= 5 * ingredient.potency * ingredient.ticksToBoil / 100;
+            ticksLeft -= 5 * stacksize * ingredient.potency * ingredient.ticksToBoil / 100;
             propertiesList.remove(IngredientProperties.CATALYST);
         }
         if (propertiesList.contains(IngredientProperties.UNSTABLE)) {
-            unstability += 5 * ingredient.potency * ingredient.unstability / 100;
+            unstability += 5 * stacksize * ingredient.potency * ingredient.unstability / 100;
             propertiesList.remove(IngredientProperties.UNSTABLE);
         }
         if (propertiesList.contains(IngredientProperties.STABILIZER)) {
-            unstability -= 5 * ingredient.potency * ingredient.unstability / 100;
+            unstability -= 5 * stacksize * ingredient.potency * ingredient.unstability / 100;
             propertiesList.remove(IngredientProperties.STABILIZER);
         }
         if (propertiesList.contains(IngredientProperties.COOLANT)) {
-            heat -= ingredient.potency / 100;
+            heat -= 5 * stacksize * ingredient.potency / 100;
             propertiesList.remove(IngredientProperties.COOLANT);
         }
 
@@ -123,7 +125,7 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
         if (cauldronContent.size() > getIngredientCapacity()) cauldronOverflow();
         if (getUnstability() > getMaxUnstability()) cauldronUnstable();
         if (ticksLeft > 0) ticksLeft--;
-        if (ticksLeft < 0) ticksLeft = 0;
+        setToZero();
 
         if (ticksLeft == 0 && !cauldronContent.isEmpty()) {
             CreativeConcoctions.proxy.cauldronFumes(worldObj, xCoord, yCoord + getLiquidHeightForRender(), zCoord);
@@ -194,6 +196,11 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
 
     public void markForUpdate() {
         worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+    }
+
+    public void setToZero() {
+        if (ticksLeft < 0) ticksLeft = 0;
+        if (heat < 0) heat = 0;
     }
 
     @Override
