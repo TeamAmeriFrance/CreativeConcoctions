@@ -7,6 +7,7 @@ public class ModInformation {
     public static final String CHANNEL = "CreativeConcoctions";
     public static final String COMMONPROXY = "amerifrance.concoctions.proxies.CommonProxy";
     public static final String CLIENTPROXY = "amerifrance.concoctions.proxies.ClientProxy";
+    public static final String GUIFACTORY = "amerifrance.concoctions.client.gui.ConfigGuiFactory";
     public static final String DEPEND = "";
     public static final String VERSION = "@VERSION@";
     public static final String TEXLOC = ID + ":";

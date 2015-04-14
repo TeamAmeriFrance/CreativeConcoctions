@@ -1,12 +1,15 @@
 package amerifrance.concoctions.util;
 
+import amerifrance.concoctions.ConfigHandler;
 import amerifrance.concoctions.CreativeConcoctions;
+import amerifrance.concoctions.ModInformation;
 import amerifrance.concoctions.api.concoctions.ConcoctionsHelper;
 import amerifrance.concoctions.api.concoctions.IConcoctionContext;
 import amerifrance.concoctions.api.ingredients.Ingredient;
 import amerifrance.concoctions.api.ingredients.IngredientProperties;
 import amerifrance.concoctions.api.registry.IngredientsRegistry;
 import amerifrance.concoctions.registry.ModConcoctions;
+import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
@@ -17,6 +20,7 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.StatCollector;
 import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
@@ -84,14 +88,15 @@ public class EventHandler {
     }
 
     @SubscribeEvent
+    @SuppressWarnings("unchecked")
     @SideOnly(Side.CLIENT)
     public void onGuiPostInit(GuiScreenEvent.InitGuiEvent.Post event) {
         if (event.gui instanceof GuiInventory) {
             int xSize = 176;
             int ySize = 166;
-            int guiLeft = (event.gui.width - xSize) / 2;
+            int guiLeft = (event.gui.width + 31) / 2;
             int guiTop = (event.gui.height - ySize) / 2;
-            event.buttonList.add(new GuiButton(191, 3 * xSize / 2, guiTop - 15, 50, 15, "Concoctions"));
+            event.buttonList.add(new GuiButton(191, guiLeft, guiTop - 13, 70, 13, StatCollector.translateToLocal("gui.text.concoctions")));
         }
     }
 
@@ -103,6 +108,14 @@ public class EventHandler {
                 EntityPlayer player = event.gui.mc.thePlayer;
                 player.openGui(CreativeConcoctions.instance, 0, player.worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
             }
+        }
+    }
+
+    @SubscribeEvent
+    public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs) {
+        if (eventArgs.modID.equals(ModInformation.ID)) {
+            ConfigHandler.syncConfig();
+            LogHelper.info("Refreshing configuration file.");
         }
     }
 }

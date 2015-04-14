@@ -63,9 +63,11 @@ concoction.venomous.vigor=Venomous Vigor
 concoction.saiyan.serum=Saiyan Serum
 
 # GUI
+gui.creativeconcoctions.config.title=Creative Concoctions Configuration
 itemGroup.creativeconcoctions.creativeTab=Creative Concoctions
 tooltip.creative.only=Creative Only
 gui.text.concoction=Concoction
+gui.text.concoctions=Concoctions
 gui.text.level=Level: %s
 gui.text.duration=Duration: %s
 gui.text.time.left=Time Left: %s

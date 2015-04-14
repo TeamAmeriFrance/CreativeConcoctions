@@ -21,7 +21,7 @@ import net.minecraftforge.common.MinecraftForge;
 
 import java.io.File;
 
-@Mod(modid = ModInformation.ID, name = ModInformation.NAME, version = ModInformation.VERSION, dependencies = ModInformation.DEPEND)
+@Mod(modid = ModInformation.ID, name = ModInformation.NAME, version = ModInformation.VERSION, dependencies = ModInformation.DEPEND, guiFactory = ModInformation.GUIFACTORY)
 public class CreativeConcoctions {
 
     public static CreativeTabs tabConcoction = new CreativeTabs(ModInformation.ID + ".creativeTab") {
@@ -50,7 +50,8 @@ public class CreativeConcoctions {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         instance = this;
-        configDir = new File(event.getModConfigurationDirectory() + "/" + ModInformation.NAME);
+        configDir = new File(event.getModConfigurationDirectory() + "/" + ModInformation.NAME + ".cfg");
+        ConfigHandler.init(configDir);
 
         ItemsRegistry.registerItems();
         BlocksRegistry.registerBlocks();

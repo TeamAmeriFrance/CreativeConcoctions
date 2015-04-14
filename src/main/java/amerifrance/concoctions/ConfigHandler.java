@@ -8,9 +8,6 @@ public class ConfigHandler {
 
     public static Configuration config;
 
-    // Categories
-    public static String general = "General";
-
     // Settings
     public static boolean enableLogging;
 
@@ -20,7 +17,20 @@ public class ConfigHandler {
     }
 
     public static void syncConfig() {
-        enableLogging = config.get(general, "enableLogging", true).getBoolean();
+        String category;
+
+        category = "General";
+        config.addCustomCategoryComment(category, "Miscellaneous settings.");
+        enableLogging = config.getBoolean("enableLogging", category, true, "Enables additional information in the console.");
+
+        category = "Concoctions";
+        config.addCustomCategoryComment(category, "All settings related to Concoctions");
+
+        category = "Ingredients";
+        config.addCustomCategoryComment(category, "All settings related to Ingredients");
+
+        category = "Heat Sources";
+        config.addCustomCategoryComment(category, "All settings related to Heat Sources");
 
         config.save();
     }
