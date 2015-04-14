@@ -28,12 +28,6 @@ public class ItemCreativeIngredient extends Item implements IPropertiesContainer
     }
 
     @Override
-    public String getItemStackDisplayName(ItemStack stack) {
-        String s = StringUtils.lowerCase(IngredientProperties.values()[stack.getItemDamage()].name());
-        return super.getItemStackDisplayName(stack) + ": " + StringUtils.capitalize(s);
-    }
-
-    @Override
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item item, CreativeTabs par2CreativeTabs, List list) {
         for (int i = 0; i < IngredientProperties.values().length; i++) {
@@ -45,7 +39,10 @@ public class ItemCreativeIngredient extends Item implements IPropertiesContainer
     @SuppressWarnings("unchecked")
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean simulate) {
+        String s = StringUtils.lowerCase(IngredientProperties.values()[stack.getItemDamage()].name());
+
         list.add(EnumChatFormatting.DARK_GRAY + StatCollector.translateToLocal("tooltip.creative.only"));
+        list.add(StringUtils.capitalize(s));
     }
 
     @Override
@@ -61,6 +58,7 @@ public class ItemCreativeIngredient extends Item implements IPropertiesContainer
 
     @Override
     public void setIngredientProperties(ItemStack stack, IngredientProperties... properties) {
+
     }
 
     @Override
@@ -70,5 +68,6 @@ public class ItemCreativeIngredient extends Item implements IPropertiesContainer
 
     @Override
     public void setIngredientPotency(ItemStack stack, int potency) {
+
     }
 }
