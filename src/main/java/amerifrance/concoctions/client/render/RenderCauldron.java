@@ -60,7 +60,7 @@ public class RenderCauldron implements ISimpleBlockRenderingHandler {
         renderer.renderStandardBlock(block, x, y, z);
         Tessellator tessellator = Tessellator.instance;
         tessellator.setBrightness(block.getMixedBrightnessForBlock(renderer.blockAccess, x, y, z));
-        IIcon icon = BlocksRegistry.cauldronTest.getBlockTextureFromSide(2);
+        IIcon icon = BlocksRegistry.cauldronTest.getIcon(2, world.getBlockMetadata(x, y, z));
         float f4 = 0.125F;
         renderer.renderFaceXPos(block, x - 1.0F + f4, y, z, icon);
         renderer.renderFaceXNeg(block, x + 1.0F - f4, y, z, icon);

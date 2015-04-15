@@ -122,19 +122,20 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
     public void updateEntity() {
         super.updateEntity();
 
+        setToZero();
+        handleHeat();
+
+        if (ticksLeft > 0) ticksLeft--;
+        if (worldObj.getTotalWorldTime() % 40 == 0) markForUpdate();
+
         if (getHeat() > getHeatCapacity()) meltCauldron();
         if (cauldronContent.size() > getIngredientCapacity()) cauldronOverflow();
         if (getUnstability() > getMaxUnstability()) cauldronUnstable();
-        if (ticksLeft > 0) ticksLeft--;
-        setToZero();
 
         if (ticksLeft == 0 && !cauldronContent.isEmpty()) {
             if (worldObj.isRemote)
                 CreativeConcoctions.proxy.cauldronFumes(worldObj, xCoord, yCoord + getLiquidHeightForRender(), zCoord);
         }
-
-        if (!worldObj.isRemote) handleHeat();
-        if (worldObj.getTotalWorldTime() % 40 == 0) markForUpdate();
     }
 
     @Override
@@ -143,18 +144,18 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
             Block block = worldObj.getBlock(xCoord, yCoord - 1, zCoord);
             int metadata = worldObj.getBlockMetadata(xCoord, yCoord - 1, zCoord);
             MetaBlock metaBlock = new MetaBlock(block, metadata);
+            TileEntity tile = worldObj.getTileEntity(xCoord, yCoord - 1, zCoord);
 
             if (HeatSourceRegistry.contains(metaBlock)) {
                 HeatSource heatSource = HeatSourceRegistry.getHeatSource(metaBlock);
                 if (worldObj.getTotalWorldTime() % heatSource.ticksToWait == 0 && getHeat() < heatSource.maxHeat) {
                     heat += 0.1;
                 }
-            }
-
-            TileEntity tile = worldObj.getTileEntity(xCoord, yCoord - 1, zCoord);
-            if (tile != null && tile instanceof IHeatController) {
+            } else if (tile != null && tile instanceof IHeatController) {
                 IHeatController heatController = (IHeatController) tile;
                 heatController.handleCauldronHeat(this, worldObj, xCoord, yCoord, zCoord);
+            } else if (worldObj.getTotalWorldTime() % 50 == 0 && getHeat() > 0.3) {
+                heat -= 0.3;
             }
         }
     }

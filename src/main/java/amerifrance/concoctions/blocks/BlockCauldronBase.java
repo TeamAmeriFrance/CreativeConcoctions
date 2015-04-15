@@ -36,8 +36,8 @@ public abstract class BlockCauldronBase extends BlockContainer {
 
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int metadata) {
-        if (side == 1) return topSide;
-        else if (side == 0) return bottomSide;
+        if (side == 0) return bottomSide;
+        else if (side == 1) return topSide;
         else if (side == 7) return itemTopSide;
         else return blockIcon;
     }

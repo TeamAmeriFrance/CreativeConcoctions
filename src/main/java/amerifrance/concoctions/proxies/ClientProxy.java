@@ -45,4 +45,11 @@ public class ClientProxy extends CommonProxy {
         EntityFX particle = new EntitySmokeFX(world, x + 0.5, y, z + 0.5, 0, 0, 0);
         FMLClientHandler.instance().getClient().effectRenderer.addEffect(particle);
     }
+
+    @Override
+    public void poisonousFume(World world, double x, double y, double z) {
+        EntityFX particle = new EntitySmokeFX(world, x + 0.5, y, z + 0.5, 0, 0, 0);
+        particle.setRBGColorF(0, (float) 150 / 255, 0);
+        FMLClientHandler.instance().getClient().effectRenderer.addEffect(particle);
+    }
 }

@@ -23,6 +23,9 @@ public class CommonProxy implements IGuiHandler {
     public void cauldronFumes(World world, double x, double y, double z) {
     }
 
+    public void poisonousFume(World world, double x, double y, double z) {
+    }
+
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
         return null;
