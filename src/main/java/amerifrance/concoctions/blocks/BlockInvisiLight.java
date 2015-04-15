@@ -96,8 +96,8 @@ public class BlockInvisiLight extends BlockContainer {
         @SuppressWarnings("unchecked")
         @Override
         public void updateEntity() {
-            if (worldObj.getTotalWorldTime() % 10 == 0) {
-                List<EntityPlayer> playerList = worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord + 4, yCoord + 4, zCoord + 4));
+            if (worldObj.getTotalWorldTime() % 20 == 0) {
+                List<EntityPlayer> playerList = worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(xCoord - 2, yCoord - 2, zCoord - 2, xCoord + 2, yCoord + 2, zCoord + 2));
                 if (playerList.isEmpty()) {
                     worldObj.setBlockToAir(xCoord, yCoord, zCoord);
                 }
