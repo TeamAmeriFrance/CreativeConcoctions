@@ -1,5 +1,6 @@
 package amerifrance.concoctions.registry;
 
+import amerifrance.concoctions.api.CreativeConcoctionsAPI;
 import amerifrance.concoctions.api.ingredients.Ingredient;
 import amerifrance.concoctions.api.ingredients.IngredientProperties;
 import amerifrance.concoctions.api.ingredients.IngredientType;
@@ -8,9 +9,7 @@ import cpw.mods.fml.common.registry.GameData;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 
 public class ModIngredients {
 
@@ -19,6 +18,8 @@ public class ModIngredients {
     public static void registerIngredients() {
         registerWaters();
         registerArmors();
+        registerSwords();
+        registerTools();
         ir(Items.sugar, new Ingredient(IngredientType.PROCESSING_PRODUCT, 1, 2, 50, IngredientProperties.CATALYST, IngredientProperties.SPEED));
         ir(Items.firework_charge, new Ingredient(IngredientType.PROCESSING_PRODUCT, 8, 4, 200, IngredientProperties.CATALYST, IngredientProperties.SPEED, IngredientProperties.UNSTABLE));
         ir(Items.fireworks, new Ingredient(IngredientType.PROCESSING_PRODUCT, 12, 8, 300, IngredientProperties.CATALYST, IngredientProperties.SPEED, IngredientProperties.UNSTABLE, IngredientProperties.EXPLOSIVE));
@@ -46,6 +47,34 @@ public class ModIngredients {
         ir(Items.golden_horse_armor, goldenHorse);
         Ingredient diamondHorse = new Ingredient(IngredientType.NEUTRAL, 10, Items.diamond_chestplate.getArmorMaterial().getDamageReductionAmount(Items.diamond_chestplate.armorType) * 2, 500, IngredientProperties.PROTECTION, IngredientProperties.COOLANT);
         ir(Items.diamond_horse_armor, diamondHorse);
+    }
+
+    public static void registerSwords() {
+        for (Item item : GameData.getItemRegistry().typeSafeIterable()) {
+            if (item instanceof ItemSword) {
+                ItemSword sword = (ItemSword) item;
+                Ingredient attack = new Ingredient(IngredientType.PROCESSING_PRODUCT, 8, (int) sword.func_150931_i(), 400, IngredientProperties.ATTACK, IngredientProperties.DAMAGE);
+                ir(sword, attack);
+            }
+        }
+    }
+
+    public static void registerTools() {
+        for (Item item : GameData.getItemRegistry().typeSafeIterable()) {
+            if (item instanceof ItemTool) {
+                ItemTool tool = (ItemTool) item;
+                Ingredient harvest = new Ingredient(IngredientType.PROCESSING_PRODUCT, 8, getToolPotency(tool), 400, IngredientProperties.EARTH, IngredientProperties.STRENGTH);
+                ir(tool, harvest);
+            }
+        }
+    }
+
+    static int getToolPotency(ItemTool tool) {
+        ItemStack toolStack = new ItemStack(tool);
+        int shovel = (int) tool.func_150893_a(toolStack, Blocks.dirt);
+        int pickaxe = (int) tool.func_150893_a(toolStack, Blocks.stone);
+        int axe = (int) tool.func_150893_a(toolStack, Blocks.planks);
+        return CreativeConcoctionsAPI.average(shovel, pickaxe, axe);
     }
 
     private static void ir(Object o, Ingredient ingredient) {

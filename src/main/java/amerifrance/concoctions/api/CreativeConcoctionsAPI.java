@@ -18,4 +18,10 @@ public class CreativeConcoctionsAPI {
         if (n == 0) return n + 1;
         else return n;
     }
+
+    public static int average(int... ints) {
+        int sum = 0;
+        for (int i : ints) sum += i;
+        return sum / ints.length;
+    }
 }
