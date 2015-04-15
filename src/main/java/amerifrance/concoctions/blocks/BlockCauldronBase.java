@@ -72,7 +72,7 @@ public abstract class BlockCauldronBase extends BlockContainer {
                 IPropertiesContainer propertiesContainer = (IPropertiesContainer) stack.getItem();
                 List<IngredientProperties> list = propertiesContainer.getIngredientProperties(stack);
                 if (list != null) {
-                    cauldronBase.addIngredient(new Ingredient(IngredientType.NEUTRAL, 0F, propertiesContainer.getIngredientPotency(stack), list.toArray(new IngredientProperties[list.size()]), 200), stacksize);
+                    cauldronBase.addIngredient(new Ingredient(IngredientType.NEUTRAL, 0F, propertiesContainer.getIngredientPotency(stack), 200, list.toArray(new IngredientProperties[list.size()])), stacksize);
                     entityItem.setDead();
                 }
             }

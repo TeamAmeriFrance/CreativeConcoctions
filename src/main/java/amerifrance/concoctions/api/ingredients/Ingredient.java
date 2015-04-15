@@ -15,12 +15,12 @@ public class Ingredient {
     public final int ticksToBoil;
     private final IngredientProperties[] properties;
 
-    public Ingredient(IngredientType ingredientType, float unstability, int potency, IngredientProperties[] properties, int ticksToBoil) {
+    public Ingredient(IngredientType ingredientType, float unstability, int potency, int ticksToBoil, IngredientProperties ... properties) {
         this.ingredientType = ingredientType;
         this.unstability = unstability;
         this.potency = potency;
-        this.properties = properties;
         this.ticksToBoil = ticksToBoil;
+        this.properties = properties;
     }
 
     public static Ingredient readFromNBT(NBTTagCompound tagCompound) {
@@ -39,7 +39,7 @@ public class Ingredient {
             }
         }
 
-        return new Ingredient(type, stability, potency, properties, ticksToBoil);
+        return new Ingredient(type, stability, potency, ticksToBoil, properties);
     }
 
     public void writeToNBT(NBTTagCompound tagCompound) {
