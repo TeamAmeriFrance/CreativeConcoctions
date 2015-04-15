@@ -1,23 +1,27 @@
 package amerifrance.concoctions.registry;
 
+import amerifrance.concoctions.ConfigHandler;
 import amerifrance.concoctions.api.MetaBlock;
 import amerifrance.concoctions.api.cauldron.HeatSource;
 import amerifrance.concoctions.api.registry.HeatSourceRegistry;
-import net.minecraft.init.Blocks;
+import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.Block;
 
 public class ModHeatSources {
 
-    public static MetaBlock redstoneTorch = new MetaBlock(Blocks.redstone_torch);
-    public static MetaBlock torch = new MetaBlock(Blocks.torch);
-    public static MetaBlock fire = new MetaBlock(Blocks.fire);
-    public static MetaBlock flowingLava = new MetaBlock(Blocks.flowing_lava);
-    public static MetaBlock lava = new MetaBlock(Blocks.lava);
-
     public static void registerHeatSources() {
-        HeatSourceRegistry.registerHeatSource(redstoneTorch, new HeatSource(2400, 15));
-        HeatSourceRegistry.registerHeatSource(torch, new HeatSource(1200, 30));
-        HeatSourceRegistry.registerHeatSource(fire, new HeatSource(600, 60));
-        HeatSourceRegistry.registerHeatSource(flowingLava, new HeatSource(300, 120));
-        HeatSourceRegistry.registerHeatSource(lava, new HeatSource(150, 240));
+
+        for (String source : ConfigHandler.customHeatSources) {
+            String[] splitSource = source.split(":");
+
+            String modid = splitSource[0];
+            String blockName = splitSource[1];
+            Block block = GameRegistry.findBlock(modid, blockName);
+            int meta = Integer.parseInt(splitSource[2]);
+            int waitTick = Integer.parseInt(splitSource[3]);
+            int maxHeat = Integer.parseInt(splitSource[4]);
+
+            HeatSourceRegistry.registerHeatSource(new MetaBlock(block, meta), new HeatSource(waitTick, maxHeat));
+        }
     }
 }
