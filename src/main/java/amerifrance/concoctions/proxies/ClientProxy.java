@@ -5,9 +5,7 @@ import amerifrance.concoctions.client.render.RenderCauldron;
 import amerifrance.concoctions.guide.GuideConcoctions;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import net.minecraft.client.particle.EntityFX;
-import net.minecraft.client.particle.EntitySmokeFX;
-import net.minecraft.client.particle.EntitySplashFX;
+import net.minecraft.client.particle.*;
 import net.minecraft.world.World;
 
 public class ClientProxy extends CommonProxy {
@@ -50,6 +48,19 @@ public class ClientProxy extends CommonProxy {
     public void poisonousFume(World world, double x, double y, double z) {
         EntityFX particle = new EntitySmokeFX(world, x + 0.5, y, z + 0.5, 0, 0, 0);
         particle.setRBGColorF(0, (float) 150 / 255, 0);
+        FMLClientHandler.instance().getClient().effectRenderer.addEffect(particle);
+    }
+
+    @Override
+    public void cauldronMelt(World world, double x, double y, double z, int type) {
+        EntityFX particle;
+        if (type == 0) {
+            particle = new EntityExplodeFX(world, x + 0.5, y, z + 0.5, 0, 0, 0);
+            world.playSound(x + 0.5, y + 0.5, z + 0.5, "game.tnt.primed", world.rand.nextFloat() * 0.25F + 0.75F, world.rand.nextFloat() * 1.0F + 0.5F, false);
+        } else {
+            particle = new EntityHugeExplodeFX(world, x + 0.5, y, z + 0.5, 0, 0, 0);
+            world.playSound(x + 0.5, y + 0.5, z + 0.5, "random.explode", world.rand.nextFloat() * 0.25F + 0.75F, world.rand.nextFloat() * 1.0F + 0.5F, false);
+        }
         FMLClientHandler.instance().getClient().effectRenderer.addEffect(particle);
     }
 }

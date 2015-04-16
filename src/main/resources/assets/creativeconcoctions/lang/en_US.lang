@@ -1,4 +1,6 @@
 # Blocks
+tile.creativeconcoctions.cauldrons.0.name=Wooden Cauldron
+tile.creativeconcoctions.cauldrons.1.name=Stone Cauldron
 
 # Items
 item.creativeconcoctions.ingredient.aconite.name=Aconite

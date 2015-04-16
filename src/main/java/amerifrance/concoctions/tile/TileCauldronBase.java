@@ -154,7 +154,7 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
             } else if (tile != null && tile instanceof IHeatController) {
                 IHeatController heatController = (IHeatController) tile;
                 heatController.handleCauldronHeat(this, worldObj, xCoord, yCoord, zCoord);
-            } else if (worldObj.getTotalWorldTime() % 50 == 0 && getHeat() > 0.3) {
+            } else if (worldObj.getTotalWorldTime() % 70 == 0 && getHeat() > 0.3) {
                 heat -= 0.3;
             }
         }

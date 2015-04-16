@@ -2,7 +2,6 @@ package amerifrance.concoctions.client.render;
 
 import amerifrance.concoctions.api.registry.ConcoctionRecipes;
 import amerifrance.concoctions.blocks.BlockCauldronBase;
-import amerifrance.concoctions.registry.BlocksRegistry;
 import amerifrance.concoctions.tile.TileCauldronBase;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import net.minecraft.block.Block;
@@ -19,12 +18,13 @@ public class RenderCauldron implements ISimpleBlockRenderingHandler {
 
     @Override
     public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
+        BlockCauldronBase cauldron = (BlockCauldronBase) block;
         block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
         renderer.setRenderBoundsFromBlock(block);
         Tessellator tessellator = Tessellator.instance;
-        IIcon icon = BlocksRegistry.cauldronTest.getBlockTextureFromSide(2);
-        IIcon top = BlocksRegistry.cauldronTest.getBlockTextureFromSide(7);
-        IIcon bottom = BlocksRegistry.cauldronTest.getBlockTextureFromSide(0);
+        IIcon icon = cauldron.getIcon(2, metadata);
+        IIcon top = cauldron.getIcon(7, metadata);
+        IIcon bottom = cauldron.getIcon(0, metadata);
 
         GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
         tessellator.startDrawingQuads();
@@ -57,17 +57,18 @@ public class RenderCauldron implements ISimpleBlockRenderingHandler {
 
     @Override
     public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
+        BlockCauldronBase cauldron = (BlockCauldronBase) block;
         renderer.renderStandardBlock(block, x, y, z);
         Tessellator tessellator = Tessellator.instance;
         tessellator.setBrightness(block.getMixedBrightnessForBlock(renderer.blockAccess, x, y, z));
-        IIcon icon = BlocksRegistry.cauldronTest.getIcon(2, world.getBlockMetadata(x, y, z));
+        IIcon icon = cauldron.getIcon(2, world.getBlockMetadata(x, y, z));
         float f4 = 0.125F;
         renderer.renderFaceXPos(block, x - 1.0F + f4, y, z, icon);
         renderer.renderFaceXNeg(block, x + 1.0F - f4, y, z, icon);
         renderer.renderFaceZPos(block, x, y, z - 1.0F + f4, icon);
         renderer.renderFaceZNeg(block, x, y, z + 1.0F - f4, icon);
 
-        IIcon inner = BlocksRegistry.cauldronTest.innerSide;
+        IIcon inner = cauldron.getIcon(-1, world.getBlockMetadata(x, y, z));
         renderer.renderFaceYPos(block, x, y - 1.0F + 0.25F, z, inner);
         renderer.renderFaceYNeg(block, x, y + 1.0F - 0.75F, z, inner);
 

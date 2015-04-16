@@ -15,19 +15,21 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 import java.util.List;
 
-public abstract class BlockCauldronBase extends BlockContainer {
+public class BlockCauldronBase extends BlockContainer {
 
     public static int renderID = 1912;
-    public IIcon innerSide;
-    public IIcon topSide;
-    public IIcon bottomSide;
-    public IIcon itemTopSide;
+    public IIcon[] innerSide = new IIcon[16];
+    public IIcon[] topSide = new IIcon[16];
+    public IIcon[] bottomSide = new IIcon[16];
+    public IIcon[] itemTopSide = new IIcon[16];
+    public IIcon[] outSide = new IIcon[16];
 
     public BlockCauldronBase(Material material) {
         super(material);
@@ -36,10 +38,11 @@ public abstract class BlockCauldronBase extends BlockContainer {
 
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int metadata) {
-        if (side == 0) return bottomSide;
-        else if (side == 1) return topSide;
-        else if (side == 7) return itemTopSide;
-        else return blockIcon;
+        if (side == -1) return innerSide[metadata];
+        else if (side == 0) return bottomSide[metadata];
+        else if (side == 1) return topSide[metadata];
+        else if (side == 7) return itemTopSide[metadata];
+        else return outSide[metadata];
     }
 
     @Override
@@ -113,5 +116,10 @@ public abstract class BlockCauldronBase extends BlockContainer {
     @Override
     public int getRenderType() {
         return renderID;
+    }
+
+    @Override
+    public TileEntity createNewTileEntity(World world, int metadata) {
+        return null;
     }
 }

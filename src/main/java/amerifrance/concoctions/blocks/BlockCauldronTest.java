@@ -25,10 +25,10 @@ public class BlockCauldronTest extends BlockCauldronBase {
 
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister ir) {
-        this.innerSide = ir.registerIcon(ModInformation.TEXLOC + getTextureName() + "_" + "inner");
-        this.topSide = ir.registerIcon(ModInformation.TEXLOC + getTextureName() + "_top");
-        this.bottomSide = ir.registerIcon(ModInformation.TEXLOC + getTextureName() + "_" + "bottom");
-        this.blockIcon = ir.registerIcon(ModInformation.TEXLOC + getTextureName() + "_side");
-        this.itemTopSide = ir.registerIcon(ModInformation.TEXLOC + getTextureName() + "_item_top");
+        this.innerSide[0] = ir.registerIcon(ModInformation.TEXLOC + getTextureName() + "_" + "inner");
+        this.topSide[0] = ir.registerIcon(ModInformation.TEXLOC + getTextureName() + "_top");
+        this.bottomSide[0] = ir.registerIcon(ModInformation.TEXLOC + getTextureName() + "_" + "bottom");
+        this.outSide[0] = ir.registerIcon(ModInformation.TEXLOC + getTextureName() + "_side");
+        this.itemTopSide[0] = ir.registerIcon(ModInformation.TEXLOC + getTextureName() + "_item_top");
     }
 }
