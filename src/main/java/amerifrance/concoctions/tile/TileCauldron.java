@@ -67,6 +67,7 @@ public class TileCauldron extends TileCauldronBase {
 
     @Override
     public void invalidRecipe() {
+        //TODO: Change this. Yes, I know, I didn't know what to do :p
         if (!worldObj.isRemote) {
             EntitySkeleton skeleton = new EntitySkeleton(worldObj);
             skeleton.setPosition(xCoord, yCoord + 1, zCoord);

@@ -1,10 +1,10 @@
 package amerifrance.concoctions.guide;
 
-import amerifrance.guideapi.GuideRegistry;
+import amerifrance.guideapi.api.GuideRegistry;
+import amerifrance.guideapi.api.abstraction.CategoryAbstract;
+import amerifrance.guideapi.api.abstraction.EntryAbstract;
+import amerifrance.guideapi.api.base.Book;
 import amerifrance.guideapi.categories.CategoryItemStack;
-import amerifrance.guideapi.objects.Book;
-import amerifrance.guideapi.objects.abstraction.CategoryAbstract;
-import amerifrance.guideapi.objects.abstraction.EntryAbstract;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 

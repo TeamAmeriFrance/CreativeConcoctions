@@ -1,8 +1,8 @@
 package amerifrance.concoctions.guide;
 
 import amerifrance.concoctions.api.concoctions.Concoction;
+import amerifrance.guideapi.api.abstraction.IPage;
 import amerifrance.guideapi.entries.EntryText;
-import amerifrance.guideapi.objects.abstraction.IPage;
 import amerifrance.guideapi.pages.PageIRecipe;
 import amerifrance.guideapi.pages.PageUnlocImage;
 import amerifrance.guideapi.pages.PageUnlocText;
