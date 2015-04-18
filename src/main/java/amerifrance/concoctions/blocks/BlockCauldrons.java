@@ -48,11 +48,17 @@ public class BlockCauldrons extends BlockCauldronBase {
         this.bottomSide[1] = ir.registerIcon(ModInformation.TEXLOC + "stone/" + getTextureName() + "_" + "bottom");
         this.outSide[1] = ir.registerIcon(ModInformation.TEXLOC + "stone/" + getTextureName() + "_side");
         this.itemTopSide[1] = ir.registerIcon(ModInformation.TEXLOC + "stone/" + getTextureName() + "_item_top");
+
+        this.innerSide[2] = ir.registerIcon(ModInformation.TEXLOC + "iron/" + getTextureName() + "_inner");
+        this.topSide[2] = ir.registerIcon(ModInformation.TEXLOC + "iron/" + getTextureName() + "_top");
+        this.bottomSide[2] = ir.registerIcon(ModInformation.TEXLOC + "iron/" + getTextureName() + "_" + "bottom");
+        this.outSide[2] = ir.registerIcon(ModInformation.TEXLOC + "iron/" + getTextureName() + "_side");
+        this.itemTopSide[2] = ir.registerIcon(ModInformation.TEXLOC + "iron/" + getTextureName() + "_item_top");
     }
 
     @Override
     public void getSubBlocks(Item item, CreativeTabs tabs, List list) {
-        for (int i = 0; i < 2; i++) list.add(new ItemStack(item, 1, i));
+        for (int i = 0; i < 3; i++) list.add(new ItemStack(item, 1, i));
     }
 
     @Override
