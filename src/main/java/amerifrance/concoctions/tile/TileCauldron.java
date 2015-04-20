@@ -77,25 +77,31 @@ public class TileCauldron extends TileCauldronBase {
 
     public static class TileCauldronWood extends TileCauldron {
         public TileCauldronWood() {
-            super(8, 20, 12);
+            super(8, 15, 12);
         }
     }
 
     public static class TileCauldronStone extends TileCauldron {
         public TileCauldronStone() {
-            super(16, 60, 24);
+            super(16, 55, 24);
         }
     }
 
     public static class TileCauldronIron extends TileCauldron {
         public TileCauldronIron() {
-            super(32, 240, 48);
+            super(32, 235, 48);
         }
     }
 
     public static class TileCauldronGold extends TileCauldron {
         public TileCauldronGold() {
-            super(48, 120, 64);
+            super(48, 115, 64);
+        }
+    }
+
+    public static class TileCauldronObsidian extends TileCauldron {
+        public TileCauldronObsidian() {
+            super(24, 475, 36);
         }
     }
 }

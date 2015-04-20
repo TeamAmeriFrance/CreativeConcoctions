@@ -3,6 +3,7 @@ tile.creativeconcoctions.cauldrons.0.name=Wooden Cauldron
 tile.creativeconcoctions.cauldrons.1.name=Stone Cauldron
 tile.creativeconcoctions.cauldrons.2.name=Iron Cauldron
 tile.creativeconcoctions.cauldrons.3.name=Gold Cauldron
+tile.creativeconcoctions.cauldrons.4.name=Obsidian Cauldron
 
 # Items
 item.creativeconcoctions.ingredient.aconite.name=Aconite
