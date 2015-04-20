@@ -45,25 +45,21 @@ public class BlockCauldrons extends BlockCauldronBase {
         this.topSide[0] = ir.registerIcon(ModInformation.TEXLOC + "wood/" + getTextureName() + "_top");
         this.bottomSide[0] = ir.registerIcon(ModInformation.TEXLOC + "wood/" + getTextureName() + "_" + "bottom");
         this.outSide[0] = ir.registerIcon(ModInformation.TEXLOC + "wood/" + getTextureName() + "_side");
-        this.itemTopSide[0] = ir.registerIcon(ModInformation.TEXLOC + "wood/" + getTextureName() + "_item_top");
 
         this.innerSide[1] = ir.registerIcon(ModInformation.TEXLOC + "stone/" + getTextureName() + "_inner");
         this.topSide[1] = ir.registerIcon(ModInformation.TEXLOC + "stone/" + getTextureName() + "_top");
         this.bottomSide[1] = ir.registerIcon(ModInformation.TEXLOC + "stone/" + getTextureName() + "_" + "bottom");
         this.outSide[1] = ir.registerIcon(ModInformation.TEXLOC + "stone/" + getTextureName() + "_side");
-        this.itemTopSide[1] = ir.registerIcon(ModInformation.TEXLOC + "stone/" + getTextureName() + "_item_top");
 
         this.innerSide[2] = ir.registerIcon(ModInformation.TEXLOC + "iron/" + getTextureName() + "_inner");
         this.topSide[2] = ir.registerIcon(ModInformation.TEXLOC + "iron/" + getTextureName() + "_top");
         this.bottomSide[2] = ir.registerIcon(ModInformation.TEXLOC + "iron/" + getTextureName() + "_" + "bottom");
         this.outSide[2] = ir.registerIcon(ModInformation.TEXLOC + "iron/" + getTextureName() + "_side");
-        this.itemTopSide[2] = ir.registerIcon(ModInformation.TEXLOC + "iron/" + getTextureName() + "_item_top");
 
         this.innerSide[3] = ir.registerIcon(ModInformation.TEXLOC + "gold/" + getTextureName() + "_inner");
         this.topSide[3] = ir.registerIcon(ModInformation.TEXLOC + "gold/" + getTextureName() + "_top");
         this.bottomSide[3] = ir.registerIcon(ModInformation.TEXLOC + "gold/" + getTextureName() + "_" + "bottom");
         this.outSide[3] = ir.registerIcon(ModInformation.TEXLOC + "gold/" + getTextureName() + "_side");
-        this.itemTopSide[3] = ir.registerIcon(ModInformation.TEXLOC + "gold/" + getTextureName() + "_item_top");
     }
 
     @Override

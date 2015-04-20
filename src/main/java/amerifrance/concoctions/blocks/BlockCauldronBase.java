@@ -28,7 +28,6 @@ public class BlockCauldronBase extends BlockContainer {
     public IIcon[] innerSide = new IIcon[16];
     public IIcon[] topSide = new IIcon[16];
     public IIcon[] bottomSide = new IIcon[16];
-    public IIcon[] itemTopSide = new IIcon[16];
     public IIcon[] outSide = new IIcon[16];
 
     public BlockCauldronBase(Material material) {
@@ -41,7 +40,6 @@ public class BlockCauldronBase extends BlockContainer {
         if (side == -1) return innerSide[metadata];
         else if (side == 0) return bottomSide[metadata];
         else if (side == 1) return topSide[metadata];
-        else if (side == 7) return itemTopSide[metadata];
         else return outSide[metadata];
     }
 
