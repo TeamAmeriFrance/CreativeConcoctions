@@ -62,7 +62,7 @@ public class EventHandler {
     public void onHurt(LivingHurtEvent event) {
         IConcoctionContext resistance = ConcoctionsHelper.getActiveConcoction(event.entityLiving, ModConcoctions.resistance);
         if (resistance != null && !event.source.isFireDamage() && event.source != DamageSource.fall)
-            event.ammount -= 0.5F * resistance.getConcoctionLevel();
+            event.ammount -= 0.2F * resistance.getConcoctionLevel();
     }
 
     @SubscribeEvent
