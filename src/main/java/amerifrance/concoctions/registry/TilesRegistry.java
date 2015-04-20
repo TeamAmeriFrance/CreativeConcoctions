@@ -13,5 +13,6 @@ public class TilesRegistry {
         GameRegistry.registerTileEntity(TileCauldron.TileCauldronWood.class, ModInformation.ID + ":TileCauldronWood");
         GameRegistry.registerTileEntity(TileCauldron.TileCauldronStone.class, ModInformation.ID + ":TileCauldronStone");
         GameRegistry.registerTileEntity(TileCauldron.TileCauldronIron.class, ModInformation.ID + ":TileCauldronIron");
+        GameRegistry.registerTileEntity(TileCauldron.TileCauldronGold.class, ModInformation.ID + ":TileCauldronGold");
     }
 }

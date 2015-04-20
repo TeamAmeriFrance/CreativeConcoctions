@@ -32,6 +32,10 @@ public class BlockCauldrons extends BlockCauldronBase {
                 return new TileCauldron.TileCauldronWood();
             case 1:
                 return new TileCauldron.TileCauldronStone();
+            case 2:
+                return new TileCauldron.TileCauldronIron();
+            case 3:
+                return new TileCauldron.TileCauldronGold();
         }
     }
 
@@ -54,11 +58,17 @@ public class BlockCauldrons extends BlockCauldronBase {
         this.bottomSide[2] = ir.registerIcon(ModInformation.TEXLOC + "iron/" + getTextureName() + "_" + "bottom");
         this.outSide[2] = ir.registerIcon(ModInformation.TEXLOC + "iron/" + getTextureName() + "_side");
         this.itemTopSide[2] = ir.registerIcon(ModInformation.TEXLOC + "iron/" + getTextureName() + "_item_top");
+
+        this.innerSide[3] = ir.registerIcon(ModInformation.TEXLOC + "gold/" + getTextureName() + "_inner");
+        this.topSide[3] = ir.registerIcon(ModInformation.TEXLOC + "gold/" + getTextureName() + "_top");
+        this.bottomSide[3] = ir.registerIcon(ModInformation.TEXLOC + "gold/" + getTextureName() + "_" + "bottom");
+        this.outSide[3] = ir.registerIcon(ModInformation.TEXLOC + "gold/" + getTextureName() + "_side");
+        this.itemTopSide[3] = ir.registerIcon(ModInformation.TEXLOC + "gold/" + getTextureName() + "_item_top");
     }
 
     @Override
     public void getSubBlocks(Item item, CreativeTabs tabs, List list) {
-        for (int i = 0; i < 3; i++) list.add(new ItemStack(item, 1, i));
+        for (int i = 0; i < 4; i++) list.add(new ItemStack(item, 1, i));
     }
 
     @Override

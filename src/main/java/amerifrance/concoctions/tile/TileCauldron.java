@@ -89,7 +89,13 @@ public class TileCauldron extends TileCauldronBase {
 
     public static class TileCauldronIron extends TileCauldron {
         public TileCauldronIron() {
-            super(32, 120, 48);
+            super(32, 240, 48);
+        }
+    }
+
+    public static class TileCauldronGold extends TileCauldron {
+        public TileCauldronGold() {
+            super(48, 120, 64);
         }
     }
 }
