@@ -38,6 +38,8 @@ public class BlockCauldrons extends BlockCauldronBase {
                 return new TileCauldron.TileCauldronGold();
             case 4:
                 return new TileCauldron.TileCauldronObsidian();
+            case 5:
+                return new TileCauldron.TileCauldronPewter();
         }
     }
 
@@ -67,11 +69,16 @@ public class BlockCauldrons extends BlockCauldronBase {
         this.topSide[4] = ir.registerIcon(ModInformation.TEXLOC + "obsidian/" + getTextureName() + "_top");
         this.bottomSide[4] = ir.registerIcon(ModInformation.TEXLOC + "obsidian/" + getTextureName() + "_" + "bottom");
         this.outSide[4] = ir.registerIcon(ModInformation.TEXLOC + "obsidian/" + getTextureName() + "_side");
+
+        this.innerSide[5] = ir.registerIcon(ModInformation.TEXLOC + "pewter/" + getTextureName() + "_inner");
+        this.topSide[5] = ir.registerIcon(ModInformation.TEXLOC + "pewter/" + getTextureName() + "_top");
+        this.bottomSide[5] = ir.registerIcon(ModInformation.TEXLOC + "pewter/" + getTextureName() + "_" + "bottom");
+        this.outSide[5] = ir.registerIcon(ModInformation.TEXLOC + "pewter/" + getTextureName() + "_side");
     }
 
     @Override
     public void getSubBlocks(Item item, CreativeTabs tabs, List list) {
-        for (int i = 0; i < 5; i++) list.add(new ItemStack(item, 1, i));
+        for (int i = 0; i < 6; i++) list.add(new ItemStack(item, 1, i));
     }
 
     @Override
