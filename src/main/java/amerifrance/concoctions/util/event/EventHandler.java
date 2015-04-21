@@ -1,4 +1,4 @@
-package amerifrance.concoctions.util;
+package amerifrance.concoctions.util.event;
 
 import amerifrance.concoctions.ConfigHandler;
 import amerifrance.concoctions.CreativeConcoctions;
@@ -9,6 +9,7 @@ import amerifrance.concoctions.api.ingredients.Ingredient;
 import amerifrance.concoctions.api.ingredients.IngredientProperties;
 import amerifrance.concoctions.api.registry.IngredientsRegistry;
 import amerifrance.concoctions.registry.ModConcoctions;
+import amerifrance.concoctions.util.LogHelper;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;

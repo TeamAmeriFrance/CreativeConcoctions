@@ -3,7 +3,12 @@ package amerifrance.concoctions.api;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
+import java.util.Random;
+
 public class CreativeConcoctionsAPI {
+
+    public static String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+    public static Random random = new Random();
 
     public static NBTTagCompound checkAndSetCompound(ItemStack stack) {
         if (!stack.hasTagCompound()) {
@@ -23,5 +28,14 @@ public class CreativeConcoctionsAPI {
         int sum = 0;
         for (int i : ints) sum += i;
         return sum / ints.length;
+    }
+
+    public static String randomString(int length) {
+        String returnString = "";
+        for (int i = 0; i < length; i++) {
+            int index = random.nextInt(characters.length());
+            returnString += characters.charAt(index);
+        }
+        return returnString;
     }
 }

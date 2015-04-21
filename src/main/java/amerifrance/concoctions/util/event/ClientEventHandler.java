@@ -1,4 +1,4 @@
-package amerifrance.concoctions.util;
+package amerifrance.concoctions.util.event;
 
 import amerifrance.concoctions.ModInformation;
 import amerifrance.concoctions.client.gui.GuiConcoctions;

@@ -3,10 +3,7 @@ package amerifrance.concoctions;
 import amerifrance.concoctions.network.PacketHandler;
 import amerifrance.concoctions.proxies.CommonProxy;
 import amerifrance.concoctions.registry.*;
-import amerifrance.concoctions.util.ClientEventHandler;
-import amerifrance.concoctions.util.ConcoctionsHandler;
-import amerifrance.concoctions.util.EventHandler;
-import cpw.mods.fml.common.FMLCommonHandler;
+import amerifrance.concoctions.util.event.EventHandlers;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -17,7 +14,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.MinecraftForge;
 
 import java.io.File;
 
@@ -68,13 +64,8 @@ public class CreativeConcoctions {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        MinecraftForge.EVENT_BUS.register(new ConcoctionsHandler());
-        FMLCommonHandler.instance().bus().register(new ConcoctionsHandler());
-        MinecraftForge.EVENT_BUS.register(new EventHandler());
-        FMLCommonHandler.instance().bus().register(new EventHandler());
-        FMLCommonHandler.instance().bus().register(new ClientEventHandler());
+        EventHandlers.register();
         NetworkRegistry.INSTANCE.registerGuiHandler(this, proxy);
-
         proxy.registerRenders();
     }
 

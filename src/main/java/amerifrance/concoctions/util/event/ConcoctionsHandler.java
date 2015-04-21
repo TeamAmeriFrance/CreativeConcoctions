@@ -1,4 +1,4 @@
-package amerifrance.concoctions.util;
+package amerifrance.concoctions.util.event;
 
 
 import amerifrance.concoctions.api.concoctions.IConcoctionContext;

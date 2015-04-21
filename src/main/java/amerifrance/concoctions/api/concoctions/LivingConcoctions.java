@@ -14,7 +14,7 @@ import java.util.LinkedList;
 
 public class LivingConcoctions implements IExtendedEntityProperties {
 
-    public static String ID = "activeConcotions";
+    public static String ID = "activeConcoctions";
     public LinkedList<IConcoctionContext> activeConcoctions;
 
     public LivingConcoctions() {

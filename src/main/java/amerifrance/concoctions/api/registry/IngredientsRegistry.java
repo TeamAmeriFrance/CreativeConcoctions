@@ -1,7 +1,7 @@
 package amerifrance.concoctions.api.registry;
 
 import amerifrance.concoctions.api.ingredients.Ingredient;
-import amerifrance.concoctions.util.MapKey;
+import amerifrance.concoctions.api.MapKey;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -53,5 +53,10 @@ public class IngredientsRegistry {
 
     public static ArrayList<Ingredient> getIngredients() {
         return new ArrayList<Ingredient>(registry.values());
+    }
+
+    public static MapKey getItemStack(Ingredient ingredient) {
+        int index = getIngredients().indexOf(ingredient);
+        return getKeys().get(index);
     }
 }
