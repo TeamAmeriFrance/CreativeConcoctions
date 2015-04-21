@@ -5,13 +5,17 @@ import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ConcoctionsRegistry {
     private static BiMap<String, Concoction> registry = HashBiMap.create();
+    public static HashMap<Concoction, Boolean> enabledConcoctions = new HashMap<Concoction, Boolean>();
 
     public static void registerConcoction(Concoction concoction, String id) {
-        if (registry.containsKey(id)) throw new IllegalArgumentException("Duplicate concoction id: " + id);
-        else registry.put(id, concoction);
+        if (enabledConcoctions.get(concoction)) {
+            if (registry.containsKey(id)) throw new IllegalArgumentException("Duplicate concoction id: " + id);
+            else registry.put(id, concoction);
+        }
     }
 
     public static Concoction getConcoctionForId(String id) {

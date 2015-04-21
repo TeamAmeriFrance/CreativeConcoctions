@@ -1,6 +1,5 @@
 package amerifrance.concoctions.registry;
 
-import amerifrance.concoctions.api.concoctions.Concoction;
 import amerifrance.concoctions.api.ingredients.IngredientProperties;
 import amerifrance.concoctions.api.registry.ConcoctionRecipes;
 import amerifrance.concoctions.api.registry.ConcoctionsRegistry;
@@ -16,29 +15,29 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
 public class ModConcoctions {
 
     //Basics
-    public static Concoction speed;
-    public static Concoction strength;
-    public static Concoction hellEyes;
-    public static Concoction slowness;
-    public static Concoction regeneration;
-    public static Concoction heal;
-    public static Concoction damage;
-    public static Concoction fireProtection;
-    public static Concoction jumpBoost;
-    public static Concoction cleanse;
-    public static Concoction fireball;
-    public static Concoction featherFall;
-    public static Concoction resistance;
-    public static Concoction mineSlow;
-    public static Concoction mineFast;
-    public static Concoction swim;
-    public static Concoction poison;
-    public static Concoction hunger;
-    public static Concoction luman;
+    public static ConcoctionSpeed speed;
+    public static ConcoctionStrength strength;
+    public static ConcoctionHellEyes hellEyes;
+    public static ConcoctionSlowness slowness;
+    public static ConcoctionRegeneration regeneration;
+    public static ConcoctionHeal heal;
+    public static ConcoctionDamage damage;
+    public static ConcoctionFireProtection fireProtection;
+    public static ConcoctionJumpBoost jumpBoost;
+    public static ConcoctionCleanse cleanse;
+    public static ConcoctionFireball fireball;
+    public static ConcoctionFeatherFall featherFall;
+    public static ConcoctionResistance resistance;
+    public static ConcoctionMineSlow mineSlow;
+    public static ConcoctionMineFast mineFast;
+    public static ConcoctionSwim swim;
+    public static ConcoctionPoison poison;
+    public static ConcoctionHunger hunger;
+    public static ConcoctionLight lumanLiquor;
 
     //Compounds
-    public static Concoction venomousVigor;
-    public static Concoction saiyanSerum;
+    public static ConcoctionVenomousVigor venomousVigor;
+    public static ConcoctionSaiyanSerum saiyanSerum;
 
     public static void registerBasicConcoctions() {
         speed = new ConcoctionSpeed();
@@ -113,9 +112,9 @@ public class ModConcoctions {
         ConcoctionsRegistry.registerConcoction(hunger, "ConcoctionHunger");
         GuideConcoctionsHelper.addBasicConcoctionEntry(hunger, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
 
-        luman = new ConcoctionLight();
-        ConcoctionsRegistry.registerConcoction(luman, "ConcoctionLumanLiquor");
-        GuideConcoctionsHelper.addBasicConcoctionEntry(luman, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
+        lumanLiquor = new ConcoctionLight();
+        ConcoctionsRegistry.registerConcoction(lumanLiquor, "ConcoctionLumanLiquor");
+        GuideConcoctionsHelper.addBasicConcoctionEntry(lumanLiquor, new ShapelessOreRecipe(new ItemStack(Items.blaze_powder, 3, 0), Items.blaze_rod));
     }
 
     public static void registerCompoundConcoctions() {
