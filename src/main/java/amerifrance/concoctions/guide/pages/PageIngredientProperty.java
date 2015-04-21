@@ -1,4 +1,4 @@
-package amerifrance.concoctions.guide;
+package amerifrance.concoctions.guide.pages;
 
 import amerifrance.concoctions.api.CreativeConcoctionsAPI;
 import amerifrance.concoctions.api.MapKey;

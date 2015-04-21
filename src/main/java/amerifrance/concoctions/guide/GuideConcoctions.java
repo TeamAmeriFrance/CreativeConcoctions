@@ -1,6 +1,7 @@
 package amerifrance.concoctions.guide;
 
 import amerifrance.concoctions.api.ingredients.IngredientProperties;
+import amerifrance.concoctions.guide.pages.PageIngredientProperty;
 import amerifrance.concoctions.registry.ItemsRegistry;
 import amerifrance.guideapi.api.GuideRegistry;
 import amerifrance.guideapi.api.abstraction.CategoryAbstract;
