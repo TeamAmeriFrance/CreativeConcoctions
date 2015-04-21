@@ -33,12 +33,12 @@ public class ConfigHandler {
         category = "Concoctions";
         config.addCustomCategoryComment(category, "All settings related to Concoctions");
 
-        category = "Concoctions.Enable Base Concoctions";
-        config.addCustomCategoryComment(category, "Enable/Disable Base concoctions here");
+        category = "Concoctions.BasicConcoctions";
+        config.addCustomCategoryComment(category, "Enable/Disable basic concoctions here");
         checkConcoctions("amerifrance.concoctions.concoctions.basic", category);
 
-        category = "Concoctions.Enable Compound Concoctions";
-        config.addCustomCategoryComment(category, "Enable/Disable Compound concoctions here");
+        category = "Concoctions.CompoundConcoctions";
+        config.addCustomCategoryComment(category, "Enable/Disable compound concoctions here");
         checkConcoctions("amerifrance.concoctions.concoctions.compound", category);
 
         category = "Ingredients";
@@ -52,23 +52,27 @@ public class ConfigHandler {
     }
 
     public static void checkConcoctions(String packageName, String category) {
-        String name = new String(packageName);
-        if (!name.startsWith("/")) {
+        String name = packageName;
+        if (!name.startsWith("/"))
             name = "/" + name;
-        }
+
         name = name.replace('.', '/');
         URL url = Launcher.class.getResource(name);
         File directory = new File(url.getFile());
+
         if (directory.exists()) {
             String[] files = directory.list();
+
             for (int i = 0; i < files.length; i++) {
                 if (files[i].endsWith(".class")) {
                     String className = files[i].substring(0, files[i].length() - 6);
+
                     try {
                         Object o = Class.forName(packageName + "." + className).newInstance();
-                        if (o instanceof Concoction) {
-                            ConcoctionsRegistry.enabledConcoctions.put((Concoction) o, config.get(category, className, true).getBoolean());
-                        }
+
+                        if (o instanceof Concoction)
+                            ConcoctionsRegistry.enabledConcoctions.put((Concoction) o, config.getBoolean(className, category, true, "Enables the " + className.replace("Concoction", "") + " concoction."));
+
                     } catch (ClassNotFoundException e) {
                         e.printStackTrace();
                     } catch (InstantiationException e) {
