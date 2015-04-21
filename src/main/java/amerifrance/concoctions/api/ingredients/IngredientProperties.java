@@ -1,5 +1,9 @@
 package amerifrance.concoctions.api.ingredients;
 
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.Locale;
+
 public enum IngredientProperties {
 
     AIR,
@@ -38,5 +42,10 @@ public enum IngredientProperties {
     UNSTABLE,
 
     //This one is a part of every single recipe
-    WATER
+    WATER;
+
+    @Override
+    public String toString() {
+        return StringUtils.capitalize(name().toLowerCase(Locale.ENGLISH)).replace("_", " ");
+    }
 }
