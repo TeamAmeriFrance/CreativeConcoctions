@@ -42,11 +42,13 @@ public class TileCauldron extends TileCauldronBase {
         if (worldObj.isRemote)
             CreativeConcoctions.proxy.poisonousFume(worldObj, xCoord, yCoord + getLiquidHeightForRender(), zCoord);
 
-        List<EntityLivingBase> list = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(xCoord - 6, yCoord - 6, zCoord - 6, xCoord + 6, yCoord + 6, zCoord + 6));
-        for (EntityLivingBase livingBase : list) {
-            ConcoctionsHelper.addConcoction(livingBase, ModConcoctions.poison, 2, 150);
+        if (worldObj.getTotalWorldTime() % 60 == 0) {
+            List<EntityLivingBase> list = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(xCoord - 6, yCoord - 6, zCoord - 6, xCoord + 6, yCoord + 6, zCoord + 6));
+            for (EntityLivingBase livingBase : list) {
+                ConcoctionsHelper.addConcoction(livingBase, ModConcoctions.poison, 2, 150);
+            }
+            instability = 5 * instability / 6;
         }
-        instability /= 2;
     }
 
     @Override
@@ -106,6 +108,8 @@ public class TileCauldron extends TileCauldronBase {
     }
 
     public static class TileCauldronPewter extends TileCauldron {
-        public TileCauldronPewter(){super(18, 80, 40);}
+        public TileCauldronPewter() {
+            super(18, 80, 40);
+        }
     }
 }
