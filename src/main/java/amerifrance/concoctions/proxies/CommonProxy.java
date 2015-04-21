@@ -11,9 +11,6 @@ public class CommonProxy implements IGuiHandler {
         return null;
     }
 
-    public void setConcoctionBook() {
-    }
-
     public void registerRenders() {
     }
 

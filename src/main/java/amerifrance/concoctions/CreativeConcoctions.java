@@ -1,5 +1,6 @@
 package amerifrance.concoctions;
 
+import amerifrance.concoctions.guide.GuideConcoctions;
 import amerifrance.concoctions.network.PacketHandler;
 import amerifrance.concoctions.proxies.CommonProxy;
 import amerifrance.concoctions.registry.*;
@@ -58,7 +59,7 @@ public class CreativeConcoctions {
         ModConcoctions.registerConcoctionRecipes();
         ModHeatSources.registerHeatSources();
 
-        proxy.setConcoctionBook();
+        GuideConcoctions.setConcoctionBook();
         PacketHandler.registerPackets();
     }
 
