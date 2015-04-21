@@ -32,21 +32,21 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
 
     private int ingredientCapacity;
     private float heatCapacity;
-    private float maxUnstability;
+    private float maxInstability;
 
     public ArrayList<IngredientProperties> cauldronContent;
-    public float unstability;
+    public float instability;
     public int potency;
     public float heat;
     public int ticksLeft;
 
-    public TileCauldronBase(int ingredientCapacity, float heatCapacity, float maxUnstability) {
+    public TileCauldronBase(int ingredientCapacity, float heatCapacity, float maxInstability) {
         this.ingredientCapacity = ingredientCapacity;
         this.heatCapacity = heatCapacity;
-        this.maxUnstability = maxUnstability;
+        this.maxInstability = maxInstability;
 
         this.cauldronContent = new ArrayList<IngredientProperties>();
-        this.unstability = 0F;
+        this.instability = 0F;
         this.heat = 0F;
         this.potency = 0;
         this.ticksLeft = 0;
@@ -63,8 +63,8 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
     }
 
     @Override
-    public float getMaxUnstability() {
-        return maxUnstability;
+    public float getMaxInstability() {
+        return maxInstability;
     }
 
     @Override
@@ -73,8 +73,8 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
     }
 
     @Override
-    public float getUnstability() {
-        return unstability;
+    public float getInstability() {
+        return instability;
     }
 
     @Override
@@ -92,7 +92,7 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
     @Override
     public void addIngredient(Ingredient ingredient, int stacksize) {
         ticksLeft += ingredient.ticksToBoil * stacksize;
-        unstability += ingredient.unstability * stacksize;
+        instability += ingredient.instability * stacksize;
         potency += ingredient.potency * stacksize;
         List<IngredientProperties> propertiesList = new ArrayList<IngredientProperties>(ingredient.getPropertiesList());
 
@@ -101,11 +101,11 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
             propertiesList.remove(IngredientProperties.CATALYST);
         }
         if (propertiesList.contains(IngredientProperties.UNSTABLE)) {
-            unstability += 5 * stacksize * ingredient.potency * ingredient.unstability / 100;
+            instability += 5 * stacksize * ingredient.potency * ingredient.instability / 100;
             propertiesList.remove(IngredientProperties.UNSTABLE);
         }
         if (propertiesList.contains(IngredientProperties.STABILIZER)) {
-            unstability -= 5 * stacksize * ingredient.potency * ingredient.unstability / 100;
+            instability -= 5 * stacksize * ingredient.potency * ingredient.instability / 100;
             propertiesList.remove(IngredientProperties.STABILIZER);
         }
         if (propertiesList.contains(IngredientProperties.COOLANT)) {
@@ -130,7 +130,7 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
 
         if (getHeat() > getHeatCapacity()) meltCauldron();
         if (cauldronContent.size() > getIngredientCapacity()) cauldronOverflow();
-        if (getUnstability() > getMaxUnstability()) cauldronUnstable();
+        if (getInstability() > getMaxInstability()) cauldronUnstable();
 
         if (ticksLeft == 0 && !cauldronContent.isEmpty()) {
             if (worldObj.isRemote)
@@ -173,7 +173,7 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
             if (checkRecipe()) {
                 Concoction concoction = ConcoctionRecipes.getConcoctionForIngredients(cauldronContent);
                 int level = potency / cauldronContent.size();
-                int duration = (int) (level * getHeat() / CreativeConcoctionsAPI.dividingSafeInt((int) getUnstability())) * 100;
+                int duration = (int) (level * getHeat() / CreativeConcoctionsAPI.dividingSafeInt((int) getInstability())) * 100;
 
                 if (level < 1) level = 1;
                 if (level > concoction.maxLevel) level = concoction.maxLevel;
@@ -183,7 +183,7 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
 
                 cauldronContent.clear();
                 potency = 0;
-                unstability = 0;
+                instability = 0;
 
                 heldItem.stackSize--;
                 player.inventory.addItemStackToInventory(concoctionStack.copy());
@@ -209,14 +209,14 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
     @Override
     public void readFromNBT(NBTTagCompound tagCompound) {
         super.readFromNBT(tagCompound);
-        this.unstability = tagCompound.getFloat("unstability");
+        this.instability = tagCompound.getFloat("instability");
         this.potency = tagCompound.getInteger("potency");
         this.heat = tagCompound.getFloat("heat");
         this.ticksLeft = tagCompound.getInteger("ticksLeft");
 
         heatCapacity = tagCompound.getFloat("heatCapacity");
         ingredientCapacity = tagCompound.getInteger("ingredientCapacity");
-        maxUnstability = tagCompound.getFloat("maxUnstability");
+        maxInstability = tagCompound.getFloat("maxInstability");
 
         NBTTagList tagList = tagCompound.getTagList("ingredients", Constants.NBT.TAG_STRING);
         if (tagList != null) {
@@ -230,14 +230,14 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
     @Override
     public void writeToNBT(NBTTagCompound tagCompound) {
         super.writeToNBT(tagCompound);
-        tagCompound.setFloat("unstability", unstability);
+        tagCompound.setFloat("instability", instability);
         tagCompound.setInteger("potency", potency);
         tagCompound.setFloat("heat", heat);
         tagCompound.setInteger("ticksLeft", ticksLeft);
 
         tagCompound.setFloat("heatCapacity", heatCapacity);
         tagCompound.setInteger("ingredientCapacity", ingredientCapacity);
-        tagCompound.setFloat("maxUnstability", maxUnstability);
+        tagCompound.setFloat("maxInstability", maxInstability);
 
         NBTTagList tagList = new NBTTagList();
         for (IngredientProperties properties : cauldronContent) {

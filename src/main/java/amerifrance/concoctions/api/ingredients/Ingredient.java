@@ -10,14 +10,14 @@ import java.util.List;
 public class Ingredient {
 
     public final IngredientType ingredientType;
-    public final float unstability;
+    public final float instability;
     public final int potency;
     public final int ticksToBoil;
     private final IngredientProperties[] properties;
 
-    public Ingredient(IngredientType ingredientType, float unstability, int potency, int ticksToBoil, IngredientProperties ... properties) {
+    public Ingredient(IngredientType ingredientType, float instability, int potency, int ticksToBoil, IngredientProperties ... properties) {
         this.ingredientType = ingredientType;
-        this.unstability = unstability;
+        this.instability = instability;
         this.potency = potency;
         this.ticksToBoil = ticksToBoil;
         this.properties = properties;
@@ -44,7 +44,7 @@ public class Ingredient {
 
     public void writeToNBT(NBTTagCompound tagCompound) {
         tagCompound.setString("ingredientType", ingredientType.name());
-        tagCompound.setFloat("unstability", unstability);
+        tagCompound.setFloat("instability", instability);
         tagCompound.setInteger("potency", potency);
         tagCompound.setInteger("ticksToBoil", ticksToBoil);
 
@@ -71,7 +71,7 @@ public class Ingredient {
         if (o == null || getClass() != o.getClass()) return false;
         Ingredient that = (Ingredient) o;
         if (potency != that.potency) return false;
-        if (Float.compare(that.unstability, unstability) != 0) return false;
+        if (Float.compare(that.instability, instability) != 0) return false;
         if (ingredientType != that.ingredientType) return false;
         if (!Arrays.equals(properties, that.properties)) return false;
         return true;
@@ -80,7 +80,7 @@ public class Ingredient {
     @Override
     public int hashCode() {
         int result = ingredientType != null ? ingredientType.hashCode() : 0;
-        result = 31 * result + (unstability != +0.0f ? Float.floatToIntBits(unstability) : 0);
+        result = 31 * result + (instability != +0.0f ? Float.floatToIntBits(instability) : 0);
         result = 31 * result + potency;
         result = 31 * result + (properties != null ? Arrays.hashCode(properties) : 0);
         return result;

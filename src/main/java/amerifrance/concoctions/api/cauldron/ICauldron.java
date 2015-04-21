@@ -16,11 +16,11 @@ public interface ICauldron {
 
     public float getHeatCapacity();
 
-    public float getMaxUnstability();
+    public float getMaxInstability();
 
     public float getHeat();
 
-    public float getUnstability();
+    public float getInstability();
 
     public boolean checkRecipe();
 

@@ -83,7 +83,7 @@ public class EventHandler {
                 event.toolTip.add(properties.name());
             }
             event.toolTip.add(String.valueOf(ingredient.potency));
-            event.toolTip.add(String.valueOf(ingredient.unstability));
+            event.toolTip.add(String.valueOf(ingredient.instability));
         }
     }
 

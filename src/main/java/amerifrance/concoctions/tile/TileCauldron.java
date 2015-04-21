@@ -46,7 +46,7 @@ public class TileCauldron extends TileCauldronBase {
         for (EntityLivingBase livingBase : list) {
             ConcoctionsHelper.addConcoction(livingBase, ModConcoctions.poison, 2, 150);
         }
-        unstability /= 2;
+        instability /= 2;
     }
 
     @Override
