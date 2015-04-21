@@ -1,8 +1,10 @@
 package amerifrance.concoctions.api.registry;
 
 import amerifrance.concoctions.api.concoctions.Concoction;
+import amerifrance.concoctions.guide.GuideConcoctionsHelper;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,7 +16,13 @@ public class ConcoctionsRegistry {
     public static void registerConcoction(Concoction concoction, String id) {
         if (enabledConcoctions.get(concoction)) {
             if (registry.containsKey(id)) throw new IllegalArgumentException("Duplicate concoction id: " + id);
-            else registry.put(id, concoction);
+            else {
+                registry.put(id, concoction);
+                if (concoction.getComponents().length == 0)
+                    GuideConcoctionsHelper.addBasicConcoctionEntry(concoction);
+                else
+                    GuideConcoctionsHelper.addCompoundConcoctionEntry(concoction);
+            }
         }
     }
 

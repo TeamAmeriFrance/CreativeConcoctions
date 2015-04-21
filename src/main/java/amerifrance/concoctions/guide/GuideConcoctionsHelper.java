@@ -1,36 +1,33 @@
 package amerifrance.concoctions.guide;
 
 import amerifrance.concoctions.api.concoctions.Concoction;
+import amerifrance.concoctions.guide.pages.PageConcoctionList;
 import amerifrance.guideapi.api.abstraction.IPage;
 import amerifrance.guideapi.entries.EntryText;
-import amerifrance.guideapi.pages.PageIRecipe;
+import amerifrance.guideapi.pages.PageLocText;
 import amerifrance.guideapi.pages.PageUnlocImage;
 import amerifrance.guideapi.pages.PageUnlocText;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GuideConcoctionsHelper {
 
     /**
      * Used for basic concoctions.
      *
-     * @param concoction - {@link amerifrance.concoctions.api.concoctions.Concoction} to add an entry for
-     * @param recipe     - {@link net.minecraft.item.crafting.IRecipe} of the {@link amerifrance.concoctions.api.concoctions.Concoction} to display
+     * @param concoction - {@link Concoction} to add an entry for
      */
-    public static void addBasicConcoctionEntry(Concoction concoction, IRecipe recipe) {
+    public static void addBasicConcoctionEntry(Concoction concoction) {
 
         String unlocPrefix = "guide.creativeconcoctions." + concoction.name.toLowerCase().replace(" ", "") + ".";
         PageUnlocImage mainPage = new PageUnlocImage(unlocPrefix + "info.main", new ResourceLocation("minecraft:textures/items/potion_bottle_empty.png"), true);
         PageUnlocText descriptionPage = new PageUnlocText(unlocPrefix + "info.desc");
 
-        PageIRecipe concoctionRecipe = new PageIRecipe(recipe);
-
         ArrayList<IPage> concoctionPages = new ArrayList<IPage>();
         concoctionPages.add(mainPage);
         concoctionPages.add(descriptionPage);
-        concoctionPages.add(concoctionRecipe);
 
         EntryText concoctionEntry = new EntryText(concoctionPages, unlocPrefix + "entry");
         GuideConcoctions.basicConcoctionEntries.add(concoctionEntry);
@@ -39,28 +36,19 @@ public class GuideConcoctionsHelper {
     /**
      * Used for Compound Concoctions. Adds extra informational pages.
      *
-     * @param concoction - {@link amerifrance.concoctions.api.concoctions.Concoction} to add an entry for
-     * @param recipe     - {@link net.minecraft.item.crafting.IRecipe} of the {@link amerifrance.concoctions.api.concoctions.Concoction} to display
+     * @param concoction - {@link Concoction} to add an entry for
      */
-    public static void addCompoundConcoctionEntry(Concoction concoction, IRecipe recipe) {
+    public static void addCompoundConcoctionEntry(Concoction concoction) {
 
         String unlocPrefix = "guide.creativeconcoctions." + concoction.name.toLowerCase().replace(" ", "") + ".";
         PageUnlocImage mainPage = new PageUnlocImage(unlocPrefix + "info.main", new ResourceLocation("minecraft:textures/items/potion_bottle_empty.png"), true);
         PageUnlocText descriptionPage = new PageUnlocText(unlocPrefix + "info.desc");
-        PageUnlocText[] componentPage = new PageUnlocText[concoction.getComponents().length];
-        for (int i = 0; i < concoction.getComponents().length; i++) { // Need to fix this so it prints all the component concoctions on the same page. Temporary solution: Different pages.
-            componentPage[i] = new PageUnlocText(concoction.getComponents()[i].name);
-        }
-
-        PageIRecipe concoctionRecipe = new PageIRecipe(recipe);
+        PageConcoctionList componentPage = new PageConcoctionList("guide.creativeconcoctions.page.componentlist.title", concoction.getComponents());
 
         ArrayList<IPage> concoctionPages = new ArrayList<IPage>();
         concoctionPages.add(mainPage);
         concoctionPages.add(descriptionPage);
-        for (int i = 0; i < componentPage.length; i++) { // See above comment
-            concoctionPages.add(componentPage[i]);
-        }
-        concoctionPages.add(concoctionRecipe);
+        concoctionPages.add(componentPage);
 
         EntryText concoctionEntry = new EntryText(concoctionPages, unlocPrefix + "entry");
         GuideConcoctions.compoundConcoctionEntries.add(concoctionEntry);
