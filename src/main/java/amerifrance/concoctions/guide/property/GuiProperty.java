@@ -1,10 +1,10 @@
-package amerifrance.concoctions.guide.gui;
+package amerifrance.concoctions.guide.property;
 
 import amerifrance.concoctions.api.MapKey;
 import amerifrance.concoctions.api.ingredients.IngredientProperties;
 import amerifrance.concoctions.api.registry.IngredientsRegistry;
-import amerifrance.concoctions.guide.PropertyWrapper;
-import amerifrance.concoctions.guide.entries.EntryProperty;
+import amerifrance.concoctions.guide.property.PropertyWrapper;
+import amerifrance.concoctions.guide.property.EntryProperty;
 import amerifrance.guideapi.api.abstraction.CategoryAbstract;
 import amerifrance.guideapi.api.base.Book;
 import amerifrance.guideapi.buttons.ButtonBack;
