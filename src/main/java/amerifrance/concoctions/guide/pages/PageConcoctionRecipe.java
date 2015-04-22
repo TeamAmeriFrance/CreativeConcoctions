@@ -35,6 +35,13 @@ public class PageConcoctionRecipe extends PageBase {
 
         List<IngredientProperties> ingredients = ConcoctionRecipes.getIngredientsForConcoction(concoction);
 
+        if (ingredients == null) {
+            fontRenderer.setUnicodeFlag(true);
+            fontRenderer.drawString(EnumChatFormatting.BLACK + StatCollector.translateToLocal("guide.creativeconcoctions.page.recipe.wrong"), guiLeft + 39, guiTop + 22, 3 * guiBase.xSize / 5);
+            fontRenderer.setUnicodeFlag(false);
+            return;
+        }
+
         int drawY = guiTop + 22;
         for (int i = 0; i < ingredients.size(); i++) {
             fontRenderer.setUnicodeFlag(true);
