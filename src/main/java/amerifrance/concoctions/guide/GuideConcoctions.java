@@ -1,15 +1,13 @@
 package amerifrance.concoctions.guide;
 
 import amerifrance.concoctions.api.ingredients.IngredientProperties;
-import amerifrance.concoctions.guide.pages.PageIngredientProperty;
+import amerifrance.concoctions.guide.entries.EntryProperty;
 import amerifrance.concoctions.registry.ItemsRegistry;
 import amerifrance.guideapi.api.GuideRegistry;
 import amerifrance.guideapi.api.abstraction.CategoryAbstract;
 import amerifrance.guideapi.api.abstraction.EntryAbstract;
-import amerifrance.guideapi.api.abstraction.IPage;
 import amerifrance.guideapi.api.base.Book;
 import amerifrance.guideapi.categories.CategoryItemStack;
-import amerifrance.guideapi.entries.EntryText;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
@@ -27,9 +25,7 @@ public class GuideConcoctions {
     public static void setConcoctionBook() {
 
         for (IngredientProperties properties : IngredientProperties.values()) {
-            ArrayList<IPage> list = new ArrayList<IPage>();
-            list.add(new PageIngredientProperty(properties));
-            ingredientKnowledgeEntries.add(new EntryText(list, properties.name()));
+            ingredientKnowledgeEntries.add(new EntryProperty(properties.toString(), properties));
         }
 
         CategoryItemStack introductory = new CategoryItemStack(basicConcoctionEntries, "guide.creativeconcoctions.category.concoctions.intro", new ItemStack(Items.writable_book));
