@@ -16,7 +16,7 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public class ConcoctionsHandler {
+public class ConcoctionHandler {
 
     @SubscribeEvent
     public void onCreateEntity(EntityEvent.EntityConstructing event) {

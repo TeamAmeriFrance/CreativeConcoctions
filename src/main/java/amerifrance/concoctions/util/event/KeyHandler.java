@@ -12,12 +12,12 @@ import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.util.StatCollector;
 import org.lwjgl.input.Keyboard;
 
-public class ClientEventHandler {
+public class KeyHandler {
 
     public static KeyBinding fireball = new KeyBinding(StatCollector.translateToLocal("keybind.fireball"), Keyboard.KEY_F, ModInformation.NAME);
     public static KeyBinding openConcoctionsGui = new KeyBinding(StatCollector.translateToLocal("keybind.open.concoctions.gui"), Keyboard.KEY_C, ModInformation.NAME);
 
-    public ClientEventHandler() {
+    public KeyHandler() {
         ClientRegistry.registerKeyBinding(fireball);
         ClientRegistry.registerKeyBinding(openConcoctionsGui);
     }
