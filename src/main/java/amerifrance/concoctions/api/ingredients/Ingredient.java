@@ -20,7 +20,7 @@ public class Ingredient {
         this.instability = instability;
         this.potency = potency;
         this.ticksToBoil = ticksToBoil;
-        ingredientProperties = ingredientProperties;
+        this.ingredientProperties = ingredientProperties;
     }
 
     public List<IngredientProperty> getPropertiesList() {

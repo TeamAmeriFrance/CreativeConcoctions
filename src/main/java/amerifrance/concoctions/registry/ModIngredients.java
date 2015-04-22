@@ -71,10 +71,11 @@ public class ModIngredients {
 
     static int getToolPotency(ItemTool tool) {
         ItemStack toolStack = new ItemStack(tool);
-        int shovel = (int) tool.func_150893_a(toolStack, Blocks.dirt);
-        int pickaxe = (int) tool.func_150893_a(toolStack, Blocks.stone);
-        int axe = (int) tool.func_150893_a(toolStack, Blocks.planks);
-        return CreativeConcoctionsAPI.average(shovel, pickaxe, axe);
+        if (tool instanceof ItemPickaxe) return (int) tool.func_150893_a(toolStack, Blocks.stone);
+        if (tool instanceof ItemSpade) return (int) tool.func_150893_a(toolStack, Blocks.dirt);
+        if (tool instanceof ItemAxe) return (int) tool.func_150893_a(toolStack, Blocks.planks);
+        else
+            return CreativeConcoctionsAPI.average((int) tool.func_150893_a(toolStack, Blocks.dirt), (int) tool.func_150893_a(toolStack, Blocks.stone), (int) tool.func_150893_a(toolStack, Blocks.planks));
     }
 
     private static void ir(Object o, Ingredient ingredient) {
