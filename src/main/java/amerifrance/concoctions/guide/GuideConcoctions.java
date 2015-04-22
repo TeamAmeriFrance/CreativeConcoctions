@@ -1,6 +1,6 @@
 package amerifrance.concoctions.guide;
 
-import amerifrance.concoctions.api.ingredients.IngredientProperties;
+import amerifrance.concoctions.api.ingredients.IngredientProperty;
 import amerifrance.concoctions.guide.property.EntryProperty;
 import amerifrance.concoctions.registry.ItemsRegistry;
 import amerifrance.guideapi.api.GuideRegistry;
@@ -24,8 +24,8 @@ public class GuideConcoctions {
 
     public static void setConcoctionBook() {
 
-        for (IngredientProperties properties : IngredientProperties.values()) {
-            ingredientKnowledgeEntries.add(new EntryProperty(properties.toString(), properties));
+        for (IngredientProperty ingredientProperty : IngredientProperty.values()) {
+            ingredientKnowledgeEntries.add(new EntryProperty(ingredientProperty.toString(), ingredientProperty));
         }
 
         CategoryItemStack introductory = new CategoryItemStack(basicConcoctionEntries, "guide.creativeconcoctions.category.concoctions.intro", new ItemStack(Items.writable_book));

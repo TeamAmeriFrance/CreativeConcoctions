@@ -4,7 +4,7 @@ import amerifrance.concoctions.CreativeConcoctions;
 import amerifrance.concoctions.ModInformation;
 import amerifrance.concoctions.api.CreativeConcoctionsAPI;
 import amerifrance.concoctions.api.ingredients.IPropertiesContainer;
-import amerifrance.concoctions.api.ingredients.IngredientProperties;
+import amerifrance.concoctions.api.ingredients.IngredientProperty;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagList;
@@ -17,7 +17,7 @@ import java.util.List;
 public class ItemBottledIngredient extends Item implements IPropertiesContainer {
 
     public static String LEVEL_TAG = "IngredientLevel";
-    public static String PROPERTIES_TAG = "IngredientProperties";
+    public static String PROPERTIES_TAG = "IngredientProperty";
 
     public ItemBottledIngredient() {
         setCreativeTab(CreativeConcoctions.tabConcoction);
@@ -28,22 +28,22 @@ public class ItemBottledIngredient extends Item implements IPropertiesContainer 
     }
 
     @Override
-    public List<IngredientProperties> getIngredientProperties(ItemStack stack) {
+    public List<IngredientProperty> getIngredientProperties(ItemStack stack) {
         CreativeConcoctionsAPI.checkAndSetCompound(stack);
-        List<IngredientProperties> list = new ArrayList<IngredientProperties>();
+        List<IngredientProperty> list = new ArrayList<IngredientProperty>();
         NBTTagList tagList = stack.stackTagCompound.getTagList(PROPERTIES_TAG, Constants.NBT.TAG_STRING);
         if (tagList != null) {
             for (int i = 0; i < tagList.tagCount(); i++)
-                list.add(IngredientProperties.valueOf(tagList.getStringTagAt(i)));
+                list.add(IngredientProperty.valueOf(tagList.getStringTagAt(i)));
         }
         return list;
     }
 
     @Override
-    public void setIngredientProperties(ItemStack stack, IngredientProperties... properties) {
+    public void setIngredientProperties(ItemStack stack, IngredientProperty... ingredientProperties) {
         NBTTagList tagList = new NBTTagList();
-        for (IngredientProperties property : properties) {
-            NBTTagString tag = new NBTTagString(property.name());
+        for (IngredientProperty ingredientProperty : ingredientProperties) {
+            NBTTagString tag = new NBTTagString(ingredientProperty.name());
             tagList.appendTag(tag);
         }
         stack.stackTagCompound.setTag(PROPERTIES_TAG, tagList);

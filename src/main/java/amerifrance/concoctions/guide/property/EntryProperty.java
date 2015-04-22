@@ -1,6 +1,6 @@
 package amerifrance.concoctions.guide.property;
 
-import amerifrance.concoctions.api.ingredients.IngredientProperties;
+import amerifrance.concoctions.api.ingredients.IngredientProperty;
 import amerifrance.guideapi.api.abstraction.CategoryAbstract;
 import amerifrance.guideapi.api.abstraction.IPage;
 import amerifrance.guideapi.api.base.Book;
@@ -18,11 +18,11 @@ import net.minecraft.entity.player.EntityPlayer;
 
 public class EntryProperty extends EntryBase {
 
-    public IngredientProperties properties;
+    public IngredientProperty ingredientProperty;
 
-    public EntryProperty(String unlocEntryName, IngredientProperties properties) {
+    public EntryProperty(String unlocEntryName, IngredientProperty ingredientProperty) {
         super(Lists.newArrayList((IPage) new PageBase()), unlocEntryName);
-        this.properties = properties;
+        this.ingredientProperty = ingredientProperty;
     }
 
     @Override

@@ -2,7 +2,7 @@ package amerifrance.concoctions.blocks;
 
 import amerifrance.concoctions.api.ingredients.IPropertiesContainer;
 import amerifrance.concoctions.api.ingredients.Ingredient;
-import amerifrance.concoctions.api.ingredients.IngredientProperties;
+import amerifrance.concoctions.api.ingredients.IngredientProperty;
 import amerifrance.concoctions.api.ingredients.IngredientType;
 import amerifrance.concoctions.api.registry.IngredientsRegistry;
 import amerifrance.concoctions.tile.TileCauldronBase;
@@ -71,9 +71,9 @@ public class BlockCauldronBase extends BlockContainer {
                 }
             } else if (stack.getItem() instanceof IPropertiesContainer && cauldronBase.canCraft()) {
                 IPropertiesContainer propertiesContainer = (IPropertiesContainer) stack.getItem();
-                List<IngredientProperties> list = propertiesContainer.getIngredientProperties(stack);
+                List<IngredientProperty> list = propertiesContainer.getIngredientProperties(stack);
                 if (list != null) {
-                    cauldronBase.addIngredient(new Ingredient(IngredientType.NEUTRAL, 0F, propertiesContainer.getIngredientPotency(stack), 200, list.toArray(new IngredientProperties[list.size()])), stacksize);
+                    cauldronBase.addIngredient(new Ingredient(IngredientType.NEUTRAL, 0F, propertiesContainer.getIngredientPotency(stack), 200, list.toArray(new IngredientProperty[list.size()])), stacksize);
                     entityItem.setDead();
                 }
             }

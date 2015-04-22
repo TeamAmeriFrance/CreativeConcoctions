@@ -1,11 +1,11 @@
 package amerifrance.concoctions.api.ingredients;
 
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraftforge.common.util.Constants;
-
 import java.util.Arrays;
 import java.util.List;
+
+import static java.lang.Float.compare;
+import static java.lang.Float.floatToIntBits;
+import static java.util.Arrays.asList;
 
 public class Ingredient {
 
@@ -13,56 +13,22 @@ public class Ingredient {
     public final float instability;
     public final int potency;
     public final int ticksToBoil;
-    private final IngredientProperties[] properties;
+    private final IngredientProperty[] ingredientProperties;
 
-    public Ingredient(IngredientType ingredientType, float instability, int potency, int ticksToBoil, IngredientProperties ... properties) {
+    public Ingredient(IngredientType ingredientType, float instability, int potency, int ticksToBoil, IngredientProperty... ingredientProperties) {
         this.ingredientType = ingredientType;
         this.instability = instability;
         this.potency = potency;
         this.ticksToBoil = ticksToBoil;
-        this.properties = properties;
+        ingredientProperties = ingredientProperties;
     }
 
-    public static Ingredient readFromNBT(NBTTagCompound tagCompound) {
-        IngredientType type = IngredientType.valueOf(tagCompound.getString("ingredientType"));
-        float stability = tagCompound.getFloat("stability");
-        int potency = tagCompound.getInteger("potency");
-        int ticksToBoil = tagCompound.getInteger("ticksToBoil");
-
-        IngredientProperties[] properties = null;
-        NBTTagList tagList = tagCompound.getTagList("properties", Constants.NBT.TAG_COMPOUND);
-        if (tagList != null) {
-            properties = new IngredientProperties[tagList.tagCount()];
-            for (int i = 0; i < tagList.tagCount(); i++) {
-                NBTTagCompound tag = tagList.getCompoundTagAt(i);
-                properties[i] = IngredientProperties.valueOf(tag.getString("properties"));
-            }
-        }
-
-        return new Ingredient(type, stability, potency, ticksToBoil, properties);
+    public List<IngredientProperty> getPropertiesList() {
+        return asList(ingredientProperties);
     }
 
-    public void writeToNBT(NBTTagCompound tagCompound) {
-        tagCompound.setString("ingredientType", ingredientType.name());
-        tagCompound.setFloat("instability", instability);
-        tagCompound.setInteger("potency", potency);
-        tagCompound.setInteger("ticksToBoil", ticksToBoil);
-
-        NBTTagList tagList = new NBTTagList();
-        for (IngredientProperties property : properties) {
-            NBTTagCompound tag = new NBTTagCompound();
-            tag.setString("property", property.name());
-            tagList.appendTag(tag);
-        }
-        tagCompound.setTag("properties", tagList);
-    }
-
-    public List<IngredientProperties> getPropertiesList() {
-        return Arrays.asList(properties);
-    }
-
-    public IngredientProperties[] getProperties() {
-        return Arrays.copyOf(properties, properties.length);
+    public IngredientProperty[] getProperties() {
+        return Arrays.copyOf(ingredientProperties, ingredientProperties.length);
     }
 
     @Override
@@ -71,18 +37,18 @@ public class Ingredient {
         if (o == null || getClass() != o.getClass()) return false;
         Ingredient that = (Ingredient) o;
         if (potency != that.potency) return false;
-        if (Float.compare(that.instability, instability) != 0) return false;
+        if (compare(that.instability, instability) != 0) return false;
         if (ingredientType != that.ingredientType) return false;
-        if (!Arrays.equals(properties, that.properties)) return false;
+        if (!Arrays.equals(ingredientProperties, ingredientProperties)) return false;
         return true;
     }
 
     @Override
     public int hashCode() {
         int result = ingredientType != null ? ingredientType.hashCode() : 0;
-        result = 31 * result + (instability != +0.0f ? Float.floatToIntBits(instability) : 0);
+        result = 31 * result + (instability != +0.0f ? floatToIntBits(instability) : 0);
         result = 31 * result + potency;
-        result = 31 * result + (properties != null ? Arrays.hashCode(properties) : 0);
+        result = 31 * result + (ingredientProperties != null ? Arrays.hashCode(ingredientProperties) : 0);
         return result;
     }
 }

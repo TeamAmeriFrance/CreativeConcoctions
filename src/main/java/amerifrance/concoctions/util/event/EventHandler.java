@@ -6,7 +6,7 @@ import amerifrance.concoctions.ModInformation;
 import amerifrance.concoctions.api.concoctions.ConcoctionsHelper;
 import amerifrance.concoctions.api.concoctions.IConcoctionContext;
 import amerifrance.concoctions.api.ingredients.Ingredient;
-import amerifrance.concoctions.api.ingredients.IngredientProperties;
+import amerifrance.concoctions.api.ingredients.IngredientProperty;
 import amerifrance.concoctions.api.registry.IngredientsRegistry;
 import amerifrance.concoctions.registry.ModConcoctions;
 import amerifrance.concoctions.util.LogHelper;
@@ -80,8 +80,8 @@ public class EventHandler {
     public void onIngredientTooltip(ItemTooltipEvent event) {
         Ingredient ingredient = IngredientsRegistry.getIngredient(event.itemStack);
         if (ingredient != null && GuiScreen.isShiftKeyDown()) {
-            for (IngredientProperties properties : ingredient.getProperties()) {
-                event.toolTip.add(properties.name());
+            for (IngredientProperty ingredientProperty : ingredient.getProperties()) {
+                event.toolTip.add(ingredientProperty.name());
             }
             event.toolTip.add(String.valueOf(ingredient.potency));
             event.toolTip.add(String.valueOf(ingredient.instability));

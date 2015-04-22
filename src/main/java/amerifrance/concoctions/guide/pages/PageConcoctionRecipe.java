@@ -1,7 +1,7 @@
 package amerifrance.concoctions.guide.pages;
 
 import amerifrance.concoctions.api.concoctions.Concoction;
-import amerifrance.concoctions.api.ingredients.IngredientProperties;
+import amerifrance.concoctions.api.ingredients.IngredientProperty;
 import amerifrance.concoctions.api.registry.ConcoctionRecipes;
 import amerifrance.guideapi.api.abstraction.CategoryAbstract;
 import amerifrance.guideapi.api.abstraction.EntryAbstract;
@@ -33,7 +33,7 @@ public class PageConcoctionRecipe extends PageBase {
 
         fontRenderer.drawString(EnumChatFormatting.BLACK + StatCollector.translateToLocal("guide.creativeconcoctions.page.recipe.title"), guiLeft + 59, guiTop + 12, 3 * guiBase.xSize / 5);
 
-        List<IngredientProperties> ingredients = ConcoctionRecipes.getIngredientsForConcoction(concoction);
+        List<IngredientProperty> ingredients = ConcoctionRecipes.getIngredientsForConcoction(concoction);
 
         if (ingredients == null) {
             fontRenderer.setUnicodeFlag(true);

@@ -2,7 +2,7 @@ package amerifrance.concoctions.guide.property;
 
 import amerifrance.concoctions.api.CreativeConcoctionsAPI;
 import amerifrance.concoctions.api.ingredients.IngredientKnowledge;
-import amerifrance.concoctions.api.ingredients.IngredientProperties;
+import amerifrance.concoctions.api.ingredients.IngredientProperty;
 import amerifrance.guideapi.api.util.GuiHelper;
 import amerifrance.guideapi.gui.GuiBase;
 import amerifrance.guideapi.wrappers.AbstractWrapper;
@@ -20,10 +20,10 @@ public class PropertyWrapper extends AbstractWrapper {
     public FontRenderer renderer;
     public ItemStack stack;
     public String text;
-    public IngredientProperties properties;
+    public IngredientProperty ingredientProperty;
     public boolean hasKnowledge;
 
-    public PropertyWrapper(int wrapperX, int wrapperY, int width, int height, EntityPlayer player, FontRenderer renderer, ItemStack stack, IngredientProperties properties) {
+    public PropertyWrapper(int wrapperX, int wrapperY, int width, int height, EntityPlayer player, FontRenderer renderer, ItemStack stack, IngredientProperty ingredientProperty) {
         this.wrapperX = wrapperX;
         this.wrapperY = wrapperY;
         this.width = width;
@@ -32,8 +32,8 @@ public class PropertyWrapper extends AbstractWrapper {
         this.renderer = renderer;
         this.stack = stack;
         this.text = " " + stack.getDisplayName();
-        this.properties = properties;
-        this.hasKnowledge = IngredientKnowledge.getKnowledge(Minecraft.getMinecraft().thePlayer).get(properties);
+        this.ingredientProperty = ingredientProperty;
+        this.hasKnowledge = IngredientKnowledge.getKnowledge(Minecraft.getMinecraft().thePlayer).get(ingredientProperty);
     }
 
     @Override

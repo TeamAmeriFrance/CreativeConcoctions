@@ -3,7 +3,7 @@ package amerifrance.concoctions.items;
 import amerifrance.concoctions.CreativeConcoctions;
 import amerifrance.concoctions.ModInformation;
 import amerifrance.concoctions.api.ingredients.IPropertiesContainer;
-import amerifrance.concoctions.api.ingredients.IngredientProperties;
+import amerifrance.concoctions.api.ingredients.IngredientProperty;
 import com.google.common.collect.Lists;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -30,7 +30,7 @@ public class ItemCreativeIngredient extends Item implements IPropertiesContainer
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item item, CreativeTabs par2CreativeTabs, List list) {
-        for (int i = 0; i < IngredientProperties.values().length; i++) {
+        for (int i = 0; i < IngredientProperty.values().length; i++) {
             list.add(new ItemStack(this, 1, i));
         }
     }
@@ -39,7 +39,7 @@ public class ItemCreativeIngredient extends Item implements IPropertiesContainer
     @SuppressWarnings("unchecked")
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean simulate) {
-        String s = StringUtils.lowerCase(IngredientProperties.values()[stack.getItemDamage()].name());
+        String s = StringUtils.lowerCase(IngredientProperty.values()[stack.getItemDamage()].name());
 
         list.add(EnumChatFormatting.DARK_GRAY + StatCollector.translateToLocal("tooltip.creative.only"));
         list.add(StringUtils.capitalize(s));
@@ -52,12 +52,12 @@ public class ItemCreativeIngredient extends Item implements IPropertiesContainer
 
 
     @Override
-    public List<IngredientProperties> getIngredientProperties(ItemStack stack) {
-        return Lists.newArrayList(IngredientProperties.values()[stack.getItemDamage()]);
+    public List<IngredientProperty> getIngredientProperties(ItemStack stack) {
+        return Lists.newArrayList(IngredientProperty.values()[stack.getItemDamage()]);
     }
 
     @Override
-    public void setIngredientProperties(ItemStack stack, IngredientProperties... properties) {
+    public void setIngredientProperties(ItemStack stack, IngredientProperty... ingredientProperties) {
 
     }
 

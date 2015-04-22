@@ -8,7 +8,7 @@ import amerifrance.concoctions.api.cauldron.ICauldron;
 import amerifrance.concoctions.api.cauldron.IHeatController;
 import amerifrance.concoctions.api.concoctions.Concoction;
 import amerifrance.concoctions.api.ingredients.Ingredient;
-import amerifrance.concoctions.api.ingredients.IngredientProperties;
+import amerifrance.concoctions.api.ingredients.IngredientProperty;
 import amerifrance.concoctions.api.registry.ConcoctionRecipes;
 import amerifrance.concoctions.api.registry.HeatSourceRegistry;
 import amerifrance.concoctions.registry.ItemsRegistry;
@@ -34,7 +34,7 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
     private float heatCapacity;
     private float maxInstability;
 
-    public ArrayList<IngredientProperties> cauldronContent;
+    public ArrayList<IngredientProperty> cauldronContent;
     public float instability;
     public int potency;
     public float heat;
@@ -45,7 +45,7 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
         this.heatCapacity = heatCapacity;
         this.maxInstability = maxInstability;
 
-        this.cauldronContent = new ArrayList<IngredientProperties>();
+        this.cauldronContent = new ArrayList<IngredientProperty>();
         this.instability = 0F;
         this.heat = 0F;
         this.potency = 0;
@@ -94,23 +94,23 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
         ticksLeft += ingredient.ticksToBoil * stacksize;
         instability += ingredient.instability * stacksize;
         potency += ingredient.potency * stacksize;
-        List<IngredientProperties> propertiesList = new ArrayList<IngredientProperties>(ingredient.getPropertiesList());
+        List<IngredientProperty> propertiesList = new ArrayList<IngredientProperty>(ingredient.getPropertiesList());
 
-        if (propertiesList.contains(IngredientProperties.CATALYST)) {
+        if (propertiesList.contains(IngredientProperty.CATALYST)) {
             ticksLeft -= 5 * stacksize * ingredient.potency * ingredient.ticksToBoil / 100;
-            propertiesList.remove(IngredientProperties.CATALYST);
+            propertiesList.remove(IngredientProperty.CATALYST);
         }
-        if (propertiesList.contains(IngredientProperties.UNSTABLE)) {
+        if (propertiesList.contains(IngredientProperty.UNSTABLE)) {
             instability += 5 * stacksize * ingredient.potency * ingredient.instability / 100;
-            propertiesList.remove(IngredientProperties.UNSTABLE);
+            propertiesList.remove(IngredientProperty.UNSTABLE);
         }
-        if (propertiesList.contains(IngredientProperties.STABILIZER)) {
+        if (propertiesList.contains(IngredientProperty.STABILIZER)) {
             instability -= 5 * stacksize * ingredient.potency * ingredient.instability / 100;
-            propertiesList.remove(IngredientProperties.STABILIZER);
+            propertiesList.remove(IngredientProperty.STABILIZER);
         }
-        if (propertiesList.contains(IngredientProperties.COOLANT)) {
+        if (propertiesList.contains(IngredientProperty.COOLANT)) {
             heat -= 5 * stacksize * ingredient.potency / 100;
-            propertiesList.remove(IngredientProperties.COOLANT);
+            propertiesList.remove(IngredientProperty.COOLANT);
         }
 
         for (int i = 0; i < stacksize; i++) cauldronContent.addAll(propertiesList);
@@ -222,7 +222,7 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
         if (tagList != null) {
             cauldronContent.clear();
             for (int i = 0; i < tagList.tagCount(); i++) {
-                cauldronContent.add(IngredientProperties.valueOf(tagList.getStringTagAt(i)));
+                cauldronContent.add(IngredientProperty.valueOf(tagList.getStringTagAt(i)));
             }
         }
     }
@@ -240,8 +240,8 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
         tagCompound.setFloat("maxInstability", maxInstability);
 
         NBTTagList tagList = new NBTTagList();
-        for (IngredientProperties properties : cauldronContent) {
-            NBTTagString tag = new NBTTagString(properties.name());
+        for (IngredientProperty ingredientProperty : cauldronContent) {
+            NBTTagString tag = new NBTTagString(ingredientProperty.name());
             tagList.appendTag(tag);
         }
         tagCompound.setTag("ingredients", tagList);

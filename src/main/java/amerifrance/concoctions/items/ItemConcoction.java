@@ -6,7 +6,7 @@ import amerifrance.concoctions.api.CreativeConcoctionsAPI;
 import amerifrance.concoctions.api.concoctions.Concoction;
 import amerifrance.concoctions.api.concoctions.ConcoctionsHelper;
 import amerifrance.concoctions.api.ingredients.IPropertiesContainer;
-import amerifrance.concoctions.api.ingredients.IngredientProperties;
+import amerifrance.concoctions.api.ingredients.IngredientProperty;
 import amerifrance.concoctions.api.registry.ConcoctionRecipes;
 import amerifrance.concoctions.api.registry.ConcoctionsRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -88,7 +88,7 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
     }
 
     @Override
-    public List<IngredientProperties> getIngredientProperties(ItemStack stack) {
+    public List<IngredientProperty> getIngredientProperties(ItemStack stack) {
         if (getConcoction(stack) != null)
             return ConcoctionRecipes.getIngredientsForConcoction(getConcoction(stack));
         else
@@ -96,7 +96,7 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
     }
 
     @Override
-    public void setIngredientProperties(ItemStack stack, IngredientProperties... properties) {
+    public void setIngredientProperties(ItemStack stack, IngredientProperty... ingredientProperties) {
     }
 
     @Override

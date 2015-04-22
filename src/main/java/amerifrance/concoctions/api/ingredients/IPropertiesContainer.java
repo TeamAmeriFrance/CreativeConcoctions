@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface IPropertiesContainer {
 
-    public List<IngredientProperties> getIngredientProperties(ItemStack stack);
+    public List<IngredientProperty> getIngredientProperties(ItemStack stack);
 
-    public void setIngredientProperties(ItemStack stack, IngredientProperties... properties);
+    public void setIngredientProperties(ItemStack stack, IngredientProperty... ingredientProperties);
 
     public int getIngredientPotency(ItemStack stack);
 

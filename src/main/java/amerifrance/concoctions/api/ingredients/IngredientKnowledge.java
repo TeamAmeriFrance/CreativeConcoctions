@@ -11,10 +11,10 @@ import java.util.HashMap;
 public class IngredientKnowledge implements IExtendedEntityProperties {
 
     public static String ID = "ingredientKnowledge";
-    public HashMap<IngredientProperties, Boolean> knowledge;
+    public HashMap<IngredientProperty, Boolean> knowledge;
 
     public IngredientKnowledge() {
-        knowledge = new HashMap<IngredientProperties, Boolean>();
+        knowledge = new HashMap<IngredientProperty, Boolean>();
         populateMap();
     }
 
@@ -26,7 +26,7 @@ public class IngredientKnowledge implements IExtendedEntityProperties {
         return (IngredientKnowledge) player.getExtendedProperties(ID);
     }
 
-    public static HashMap<IngredientProperties, Boolean> getKnowledge(EntityPlayer player) {
+    public static HashMap<IngredientProperty, Boolean> getKnowledge(EntityPlayer player) {
         return get(player).getKnowledge();
     }
 
@@ -34,8 +34,8 @@ public class IngredientKnowledge implements IExtendedEntityProperties {
     public void saveNBTData(NBTTagCompound compound) {
         if (!knowledge.isEmpty()) {
             NBTTagCompound tag = new NBTTagCompound();
-            for (IngredientProperties properties : knowledge.keySet()) {
-                tag.setBoolean(properties.name(), knowledge.get(properties));
+            for (IngredientProperty ingredientProperty : knowledge.keySet()) {
+                tag.setBoolean(ingredientProperty.name(), knowledge.get(ingredientProperty));
             }
             compound.setTag(ID, tag);
         }
@@ -46,25 +46,25 @@ public class IngredientKnowledge implements IExtendedEntityProperties {
         NBTTagCompound tag = compound.getCompoundTag(ID);
         if (tag != null) {
             knowledge.clear();
-            for (IngredientProperties properties : IngredientProperties.values()) {
-                knowledge.put(properties, tag.getBoolean(properties.name()));
+            for (IngredientProperty ingredientProperty : IngredientProperty.values()) {
+                knowledge.put(ingredientProperty, tag.getBoolean(ingredientProperty.name()));
             }
         }
     }
 
     @Override
     public void init(Entity entity, World world) {
-        knowledge = new HashMap<IngredientProperties, Boolean>();
+        knowledge = new HashMap<IngredientProperty, Boolean>();
         populateMap();
     }
 
-    public HashMap<IngredientProperties, Boolean> getKnowledge() {
+    public HashMap<IngredientProperty, Boolean> getKnowledge() {
         return knowledge;
     }
 
     public void populateMap() {
-        for (IngredientProperties properties : IngredientProperties.values()) {
-            knowledge.put(properties, false);
+        for (IngredientProperty ingredientProperty : IngredientProperty.values()) {
+            knowledge.put(ingredientProperty, false);
         }
     }
 }

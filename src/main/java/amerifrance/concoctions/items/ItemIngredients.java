@@ -3,7 +3,7 @@ package amerifrance.concoctions.items;
 import amerifrance.concoctions.CreativeConcoctions;
 import amerifrance.concoctions.ModInformation;
 import amerifrance.concoctions.api.ingredients.Ingredient;
-import amerifrance.concoctions.api.ingredients.IngredientProperties;
+import amerifrance.concoctions.api.ingredients.IngredientProperty;
 import amerifrance.concoctions.api.ingredients.IngredientType;
 import amerifrance.concoctions.api.registry.IngredientsRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -64,26 +64,26 @@ public class ItemIngredients extends Item {
 
     public void registerIngredients() {
         //TODO: change the potency, stability and boiling time values
-        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperties.FLIGHT, IngredientProperties.POISON), ingredientStacks[0]);
-        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperties.UNSTABLE, IngredientProperties.INVISIBILITY), ingredientStacks[1]);
-        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperties.CATALYST, IngredientProperties.FLIGHT), ingredientStacks[2]);
-        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperties.DAMAGE, IngredientProperties.SLOWING_DOWN), ingredientStacks[3]);
-        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperties.MORPHING), ingredientStacks[4]);
-        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperties.WATER_BREATHING, IngredientProperties.SWIMMING, IngredientProperties.MORPHING), ingredientStacks[5]);
-        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperties.FIRE), ingredientStacks[6]);
-        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperties.DAMAGE, IngredientProperties.POISON, IngredientProperties.INVISIBILITY, IngredientProperties.UNSTABLE), ingredientStacks[7]);
-        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 2, 1, 100, IngredientProperties.MORPHING), ingredientStacks[8]);
-        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperties.CONFUSION), ingredientStacks[9]);
-        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperties.REGENERATION, IngredientProperties.HEALING, IngredientProperties.UNSTABLE), ingredientStacks[10]);
-        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperties.REGENERATION, IngredientProperties.HEALING, IngredientProperties.CATALYST), ingredientStacks[11]);
-        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperties.CLEANSING), ingredientStacks[12]);
-        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperties.CURATIVE, IngredientProperties.STABILIZER), ingredientStacks[13]);
-        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperties.STRENGTH), ingredientStacks[14]);
-        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 2, 1, 100, IngredientProperties.CONFUSION), ingredientStacks[15]);
-        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 3, 1, 100, IngredientProperties.CONFUSION), ingredientStacks[16]);
-        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperties.SLOWING_DOWN), ingredientStacks[17]);
-        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 2, 1, 100, IngredientProperties.SLOWING_DOWN), ingredientStacks[18]);
-        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 3, 1, 100, IngredientProperties.SLOWING_DOWN), ingredientStacks[19]);
-        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperties.POISON), ingredientStacks[20]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperty.FLIGHT, IngredientProperty.POISON), ingredientStacks[0]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperty.UNSTABLE, IngredientProperty.INVISIBILITY), ingredientStacks[1]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperty.CATALYST, IngredientProperty.FLIGHT), ingredientStacks[2]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperty.DAMAGE, IngredientProperty.SLOWING_DOWN), ingredientStacks[3]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperty.MORPHING), ingredientStacks[4]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperty.WATER_BREATHING, IngredientProperty.SWIMMING, IngredientProperty.MORPHING), ingredientStacks[5]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperty.FIRE), ingredientStacks[6]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperty.DAMAGE, IngredientProperty.POISON, IngredientProperty.INVISIBILITY, IngredientProperty.UNSTABLE), ingredientStacks[7]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 2, 1, 100, IngredientProperty.MORPHING), ingredientStacks[8]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperty.CONFUSION), ingredientStacks[9]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperty.REGENERATION, IngredientProperty.HEALING, IngredientProperty.UNSTABLE), ingredientStacks[10]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperty.REGENERATION, IngredientProperty.HEALING, IngredientProperty.CATALYST), ingredientStacks[11]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperty.CLEANSING), ingredientStacks[12]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperty.CURATIVE, IngredientProperty.STABILIZER), ingredientStacks[13]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperty.STRENGTH), ingredientStacks[14]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 2, 1, 100, IngredientProperty.CONFUSION), ingredientStacks[15]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 3, 1, 100, IngredientProperty.CONFUSION), ingredientStacks[16]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperty.SLOWING_DOWN), ingredientStacks[17]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 2, 1, 100, IngredientProperty.SLOWING_DOWN), ingredientStacks[18]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 3, 1, 100, IngredientProperty.SLOWING_DOWN), ingredientStacks[19]);
+        IngredientsRegistry.registerIngredient(new Ingredient(IngredientType.PLANT, 1, 1, 100, IngredientProperty.POISON), ingredientStacks[20]);
     }
 }

@@ -4,7 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.Locale;
 
-public enum IngredientProperties {
+public enum IngredientProperty {
 
     AIR,
     ATTACK,

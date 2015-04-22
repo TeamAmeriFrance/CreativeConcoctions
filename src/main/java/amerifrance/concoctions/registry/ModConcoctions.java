@@ -1,16 +1,12 @@
 package amerifrance.concoctions.registry;
 
-import amerifrance.concoctions.api.ingredients.IngredientProperties;
+import amerifrance.concoctions.api.ingredients.IngredientProperty;
 import amerifrance.concoctions.api.registry.ConcoctionRecipes;
 import amerifrance.concoctions.api.registry.ConcoctionsRegistry;
 import amerifrance.concoctions.concoctions.basic.*;
 import amerifrance.concoctions.concoctions.compound.ConcoctionSaiyanSerum;
 import amerifrance.concoctions.concoctions.compound.ConcoctionVenomousVigor;
-import amerifrance.concoctions.guide.GuideConcoctionsHelper;
 import com.google.common.collect.Lists;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class ModConcoctions {
 
@@ -107,22 +103,22 @@ public class ModConcoctions {
     }
 
     public static void registerConcoctionRecipes() {
-        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.STRENGTH, IngredientProperties.SPEED, IngredientProperties.FLIGHT, IngredientProperties.SLOWING_DOWN, IngredientProperties.PROTECTION), speed);
-        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.STRENGTH, IngredientProperties.ATTACK, IngredientProperties.DAMAGE, IngredientProperties.EARTH, IngredientProperties.ENERGY), strength);
-        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.ATTACK, IngredientProperties.DAMAGE, IngredientProperties.EVIL, IngredientProperties.MAGIC, IngredientProperties.DEMONIC, IngredientProperties.AIR, IngredientProperties.ATTACK), hellEyes);
-        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.SPEED, IngredientProperties.SLOWING_DOWN, IngredientProperties.SLOWING_DOWN, IngredientProperties.GRAVITY), slowness);
-        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.HEALING, IngredientProperties.MAGIC, IngredientProperties.REGENERATION, IngredientProperties.MAGIC), regeneration);
-        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.HEALING, IngredientProperties.MAGIC), heal);
-        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.ATTACK, IngredientProperties.DAMAGE), damage);
-        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.FIRE, IngredientProperties.ENERGY, IngredientProperties.DAMAGE, IngredientProperties.PROTECTION), fireProtection);
-        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.AIR, IngredientProperties.FLIGHT, IngredientProperties.GRAVITY, IngredientProperties.STRENGTH), jumpBoost);
-        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.FIRE, IngredientProperties.AIR, IngredientProperties.EXPLOSIVE, IngredientProperties.MAGIC, IngredientProperties.ATTACK), fireball);
-        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.AIR, IngredientProperties.FLIGHT, IngredientProperties.GRAVITY, IngredientProperties.SLOWING_DOWN), featherFall);
-        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.PROTECTION, IngredientProperties.MAGIC, IngredientProperties.PROTECTION, IngredientProperties.STRENGTH), resistance);
-        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.SLOWING_DOWN, IngredientProperties.MAGIC, IngredientProperties.POISON), mineSlow);
-        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.SPEED, IngredientProperties.MAGIC, IngredientProperties.STRENGTH, IngredientProperties.ENERGY), mineFast);
-        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.SPEED, IngredientProperties.MAGIC, IngredientProperties.ENERGY, IngredientProperties.MAGIC, IngredientProperties.SWIMMING), swim);
-        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.MAGIC, IngredientProperties.POISON, IngredientProperties.DAMAGE, IngredientProperties.POISON, IngredientProperties.DAMAGE), poison);
-        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperties.NOURISHMENT, IngredientProperties.DAMAGE, IngredientProperties.NOURISHMENT, IngredientProperties.POISON), hunger);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperty.STRENGTH, IngredientProperty.SPEED, IngredientProperty.FLIGHT, IngredientProperty.SLOWING_DOWN, IngredientProperty.PROTECTION), speed);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperty.STRENGTH, IngredientProperty.ATTACK, IngredientProperty.DAMAGE, IngredientProperty.EARTH, IngredientProperty.ENERGY), strength);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperty.ATTACK, IngredientProperty.DAMAGE, IngredientProperty.EVIL, IngredientProperty.MAGIC, IngredientProperty.DEMONIC, IngredientProperty.AIR, IngredientProperty.ATTACK), hellEyes);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperty.SPEED, IngredientProperty.SLOWING_DOWN, IngredientProperty.SLOWING_DOWN, IngredientProperty.GRAVITY), slowness);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperty.HEALING, IngredientProperty.MAGIC, IngredientProperty.REGENERATION, IngredientProperty.MAGIC), regeneration);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperty.HEALING, IngredientProperty.MAGIC), heal);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperty.ATTACK, IngredientProperty.DAMAGE), damage);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperty.FIRE, IngredientProperty.ENERGY, IngredientProperty.DAMAGE, IngredientProperty.PROTECTION), fireProtection);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperty.AIR, IngredientProperty.FLIGHT, IngredientProperty.GRAVITY, IngredientProperty.STRENGTH), jumpBoost);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperty.FIRE, IngredientProperty.AIR, IngredientProperty.EXPLOSIVE, IngredientProperty.MAGIC, IngredientProperty.ATTACK), fireball);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperty.AIR, IngredientProperty.FLIGHT, IngredientProperty.GRAVITY, IngredientProperty.SLOWING_DOWN), featherFall);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperty.PROTECTION, IngredientProperty.MAGIC, IngredientProperty.PROTECTION, IngredientProperty.STRENGTH), resistance);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperty.SLOWING_DOWN, IngredientProperty.MAGIC, IngredientProperty.POISON), mineSlow);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperty.SPEED, IngredientProperty.MAGIC, IngredientProperty.STRENGTH, IngredientProperty.ENERGY), mineFast);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperty.SPEED, IngredientProperty.MAGIC, IngredientProperty.ENERGY, IngredientProperty.MAGIC, IngredientProperty.SWIMMING), swim);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperty.MAGIC, IngredientProperty.POISON, IngredientProperty.DAMAGE, IngredientProperty.POISON, IngredientProperty.DAMAGE), poison);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperty.NOURISHMENT, IngredientProperty.DAMAGE, IngredientProperty.NOURISHMENT, IngredientProperty.POISON), hunger);
     }
 }

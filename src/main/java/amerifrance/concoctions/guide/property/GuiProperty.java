@@ -1,10 +1,8 @@
 package amerifrance.concoctions.guide.property;
 
 import amerifrance.concoctions.api.MapKey;
-import amerifrance.concoctions.api.ingredients.IngredientProperties;
+import amerifrance.concoctions.api.ingredients.IngredientProperty;
 import amerifrance.concoctions.api.registry.IngredientsRegistry;
-import amerifrance.concoctions.guide.property.PropertyWrapper;
-import amerifrance.concoctions.guide.property.EntryProperty;
 import amerifrance.guideapi.api.abstraction.CategoryAbstract;
 import amerifrance.guideapi.api.base.Book;
 import amerifrance.guideapi.buttons.ButtonBack;
@@ -33,7 +31,7 @@ public class GuiProperty extends GuiBase {
     public ButtonBack buttonBack;
     public ButtonNext buttonNext;
     public ButtonPrev buttonPrev;
-    public IngredientProperties properties;
+    public IngredientProperty ingredientProperty;
     private int pageNumber;
 
     public GuiProperty(Book book, CategoryAbstract category, EntryProperty entry, EntityPlayer player, ItemStack bookStack) {
@@ -43,7 +41,7 @@ public class GuiProperty extends GuiBase {
         this.entry = entry;
         this.pageTexture = book.pageTexture;
         this.outlineTexture = book.outlineTexture;
-        this.properties = entry.properties;
+        this.ingredientProperty = entry.ingredientProperty;
         this.propertyWrapperMap = propertyWrapperMap.create();
         this.pageNumber = 0;
     }
@@ -66,8 +64,8 @@ public class GuiProperty extends GuiBase {
         int i = 0;
         int number = 0;
         for (MapKey key : IngredientsRegistry.getKeys()) {
-            if (IngredientsRegistry.getIngredient(key.stack).getPropertiesList().contains(properties)) {
-                propertyWrapperMap.put(number, new PropertyWrapper(eX, eY, 4 * xSize / 6, 10, player, this.fontRendererObj, key.stack, properties));
+            if (IngredientsRegistry.getIngredient(key.stack).getPropertiesList().contains(ingredientProperty)) {
+                propertyWrapperMap.put(number, new PropertyWrapper(eX, eY, 4 * xSize / 6, 10, player, this.fontRendererObj, key.stack, ingredientProperty));
                 eY += 13;
                 i++;
 
