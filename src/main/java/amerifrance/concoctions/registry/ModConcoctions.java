@@ -124,5 +124,6 @@ public class ModConcoctions {
         ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperty.SPEED, IngredientProperty.MAGIC, IngredientProperty.ENERGY, IngredientProperty.MAGIC, IngredientProperty.SWIMMING), swim);
         ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperty.MAGIC, IngredientProperty.POISON, IngredientProperty.DAMAGE, IngredientProperty.POISON, IngredientProperty.DAMAGE), poison);
         ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperty.NOURISHMENT, IngredientProperty.DAMAGE, IngredientProperty.NOURISHMENT, IngredientProperty.POISON), hunger);
+        ConcoctionRecipes.addRecipe(Lists.newArrayList(IngredientProperty.FIRE, IngredientProperty.AIR, IngredientProperty.EARTH, IngredientProperty.MAGIC), knowledge);
     }
 }
