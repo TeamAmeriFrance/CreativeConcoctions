@@ -16,8 +16,10 @@ public class ConcoctionRecipes {
         if (registry.containsKey(properties)) {
             throw new IllegalArgumentException("Duplicate ingredients: " + properties);
         } else {
-            properties.add(0, IngredientProperty.WATER);
-            registry.put(properties, concoction);
+            if (ConcoctionsRegistry.enabledConcoctions.get(concoction)) {
+                properties.add(0, IngredientProperty.WATER);
+                registry.put(properties, concoction);
+            }
         }
     }
 

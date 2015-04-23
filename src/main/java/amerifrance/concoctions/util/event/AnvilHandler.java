@@ -31,7 +31,6 @@ public class AnvilHandler {
 
                     ItemStack output = new ItemStack(ItemsRegistry.knowledgePhial);
                     ItemKnowledgePhial.setProperty(output, ingredientProperty);
-                    ItemKnowledgePhial.setDuration(output, potency / 100);
 
                     event.output = output.copy();
                     event.cost = 30;

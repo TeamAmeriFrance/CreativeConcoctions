@@ -2,6 +2,7 @@ package amerifrance.concoctions.items;
 
 import amerifrance.concoctions.CreativeConcoctions;
 import amerifrance.concoctions.ModInformation;
+import amerifrance.concoctions.api.CreativeConcoctionsAPI;
 import amerifrance.concoctions.api.ingredients.IngredientKnowledge;
 import amerifrance.concoctions.api.ingredients.IngredientProperty;
 import amerifrance.concoctions.api.util.NBTTags;
@@ -28,19 +29,16 @@ public class ItemKnowledgePhial extends Item {
     }
 
     public static IngredientProperty getProperty(ItemStack stack) {
-        return IngredientProperty.valueOf(stack.stackTagCompound.getString(NBTTags.PROPERTY_TAG));
+        CreativeConcoctionsAPI.checkAndSetCompound(stack);
+        if (stack.stackTagCompound.hasKey(NBTTags.PROPERTY_TAG))
+            return IngredientProperty.valueOf(stack.stackTagCompound.getString(NBTTags.PROPERTY_TAG));
+        else
+            return null;
     }
 
     public static void setProperty(ItemStack stack, IngredientProperty ingredientProperty) {
+        CreativeConcoctionsAPI.checkAndSetCompound(stack);
         stack.stackTagCompound.setString(NBTTags.PROPERTY_TAG, ingredientProperty.name());
-    }
-
-    public static int getDuration(ItemStack stack) {
-        return stack.stackTagCompound.getInteger(NBTTags.DURATION_TAG);
-    }
-
-    public static void setDuration(ItemStack stack, int duration) {
-        stack.stackTagCompound.setInteger(NBTTags.DURATION_TAG, duration);
     }
 
     public EnumAction getItemUseAction(ItemStack stack) {
@@ -57,7 +55,7 @@ public class ItemKnowledgePhial extends Item {
 
     @Override
     public int getMaxItemUseDuration(ItemStack stack) {
-        return 64 * getDuration(stack);
+        return 512;
     }
 
     @Override

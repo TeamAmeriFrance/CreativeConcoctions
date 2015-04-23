@@ -106,6 +106,7 @@ death.attack.PutMeDown=%s was put down.
 #Keybind                                                  #
 #=========================================================#
 keybind.fireball=Launch Fireball
+keybind.open.concoctions.gui=Concoctions Gui
 
 #=========================================================#
 # Console                                                 #

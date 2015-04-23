@@ -1,7 +1,5 @@
 package amerifrance.concoctions;
 
-import org.apache.commons.lang3.text.WordUtils;
-
 public class ModInformation {
 
     public static final String NAME = "CreativeConcoctions";
@@ -13,5 +11,4 @@ public class ModInformation {
     public static final String DEPEND = "";
     public static final String VERSION = "@VERSION@";
     public static final String TEXLOC = ID + ":";
-    public static final String INITIALS = WordUtils.initials("Creative Concoctions");
 }

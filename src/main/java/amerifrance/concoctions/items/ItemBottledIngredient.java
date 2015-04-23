@@ -39,6 +39,7 @@ public class ItemBottledIngredient extends Item implements IPropertiesContainer 
 
     @Override
     public void setIngredientProperties(ItemStack stack, IngredientProperty... ingredientProperties) {
+        CreativeConcoctionsAPI.checkAndSetCompound(stack);
         NBTTagList tagList = new NBTTagList();
         for (IngredientProperty ingredientProperty : ingredientProperties) {
             NBTTagString tag = new NBTTagString(ingredientProperty.name());

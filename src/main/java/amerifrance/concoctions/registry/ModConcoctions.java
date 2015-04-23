@@ -30,6 +30,7 @@ public class ModConcoctions {
     public static ConcoctionPoison poison;
     public static ConcoctionHunger hunger;
     public static ConcoctionLight lumanLiquor;
+    public static ConcoctionKnowledge knowledge;
 
     //Compounds
     public static ConcoctionVenomousVigor venomousVigor;
@@ -92,6 +93,9 @@ public class ModConcoctions {
 
         lumanLiquor = new ConcoctionLight();
         ConcoctionsRegistry.registerConcoction(lumanLiquor, "ConcoctionLumanLiquor");
+
+        knowledge = new ConcoctionKnowledge();
+        ConcoctionsRegistry.registerConcoction(knowledge, "ConcoctionsKnowledge");
     }
 
     public static void registerCompoundConcoctions() {
