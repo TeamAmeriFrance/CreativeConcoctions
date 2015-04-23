@@ -13,7 +13,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -39,10 +38,8 @@ public class ItemCreativeIngredient extends Item implements IPropertiesContainer
     @SuppressWarnings("unchecked")
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean simulate) {
-        String s = StringUtils.lowerCase(IngredientProperty.values()[stack.getItemDamage()].name());
-
         list.add(EnumChatFormatting.DARK_GRAY + StatCollector.translateToLocal("tooltip.creative.only"));
-        list.add(StringUtils.capitalize(s));
+        list.add(IngredientProperty.values()[stack.getItemDamage()].getLocalizedString());
     }
 
     @Override
@@ -57,7 +54,7 @@ public class ItemCreativeIngredient extends Item implements IPropertiesContainer
     }
 
     @Override
-    public void setIngredientProperties(ItemStack stack, IngredientProperty... ingredientProperties) {
+    public void setIngredientProperties(ItemStack stack, List<IngredientProperty> ingredientProperties) {
 
     }
 

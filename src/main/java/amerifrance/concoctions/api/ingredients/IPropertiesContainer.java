@@ -8,7 +8,7 @@ public interface IPropertiesContainer {
 
     public List<IngredientProperty> getIngredientProperties(ItemStack stack);
 
-    public void setIngredientProperties(ItemStack stack, IngredientProperty... ingredientProperties);
+    public void setIngredientProperties(ItemStack stack, List<IngredientProperty> ingredientProperties);
 
     public int getIngredientPotency(ItemStack stack);
 

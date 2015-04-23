@@ -4,7 +4,6 @@ import amerifrance.concoctions.CreativeConcoctions;
 import amerifrance.concoctions.api.concoctions.ConcoctionsHelper;
 import amerifrance.concoctions.registry.ModConcoctions;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.AxisAlignedBB;
 
@@ -64,16 +63,6 @@ public class TileCauldron extends TileCauldronBase {
 
             if (worldObj.isRemote)
                 CreativeConcoctions.proxy.cauldronSplash(worldObj, xCoord, yCoord + getLiquidHeightForRender(), zCoord, overflow);
-        }
-    }
-
-    @Override
-    public void invalidRecipe() {
-        //TODO: Change this. Yes, I know, I didn't know what to do :p
-        if (!worldObj.isRemote) {
-            EntitySkeleton skeleton = new EntitySkeleton(worldObj);
-            skeleton.setPosition(xCoord, yCoord + 1, zCoord);
-            worldObj.spawnEntityInWorld(skeleton);
         }
     }
 

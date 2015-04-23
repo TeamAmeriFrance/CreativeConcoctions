@@ -10,8 +10,6 @@ public interface ICauldron {
 
     public void cauldronOverflow();
 
-    public void invalidRecipe();
-
     public int getIngredientCapacity();
 
     public float getHeatCapacity();

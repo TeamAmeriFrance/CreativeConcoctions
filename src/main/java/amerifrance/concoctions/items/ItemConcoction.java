@@ -13,12 +13,14 @@ import amerifrance.concoctions.api.util.NBTTags;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
@@ -26,13 +28,51 @@ import java.util.List;
 
 public class ItemConcoction extends Item implements IPropertiesContainer {
 
+    public IIcon overlayIcon;
+
     public ItemConcoction() {
         setCreativeTab(CreativeConcoctions.tabConcoction);
         setUnlocalizedName(ModInformation.ID + ".concoction");
-        setTextureName("minecraft:potion_bottle_empty");
         setMaxDamage(0);
         setMaxStackSize(1);
         setHasSubtypes(true);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IIconRegister ir) {
+        this.itemIcon = ir.registerIcon("minecraft:potion_bottle_empty");
+        this.overlayIcon = ir.registerIcon("minecraft:potion_overlay");
+    }
+
+    @Override
+    public int getRenderPasses(int metadata) {
+        return requiresMultipleRenderPasses() ? 2 : 1;
+    }
+
+    @SideOnly(Side.CLIENT)
+    public boolean requiresMultipleRenderPasses() {
+        return true;
+    }
+
+    @Override
+    public IIcon getIcon(ItemStack stack, int pass) {
+        if (pass == 0) {
+            return this.itemIcon;
+        } else if (pass == 1) {
+            return this.overlayIcon;
+        }
+        return getIconFromDamageForRenderPass(stack.getItemDamage(), pass);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int getColorFromItemStack(ItemStack stack, int pass) {
+        if (pass == 1 && getConcoction(stack) != null) {
+            return getConcoction(stack).color.getRGB();
+        } else {
+            return super.getColorFromItemStack(stack, pass);
+        }
     }
 
     public static Concoction getConcoction(ItemStack stack) {
@@ -98,7 +138,7 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
     }
 
     @Override
-    public void setIngredientProperties(ItemStack stack, IngredientProperty... ingredientProperties) {
+    public void setIngredientProperties(ItemStack stack, List<IngredientProperty> ingredientProperties) {
     }
 
     @Override

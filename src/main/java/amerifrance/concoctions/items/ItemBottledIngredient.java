@@ -6,10 +6,14 @@ import amerifrance.concoctions.api.CreativeConcoctionsAPI;
 import amerifrance.concoctions.api.ingredients.IPropertiesContainer;
 import amerifrance.concoctions.api.ingredients.IngredientProperty;
 import amerifrance.concoctions.api.util.NBTTags;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
+import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.util.Constants;
 
 import java.util.ArrayList;
@@ -38,7 +42,7 @@ public class ItemBottledIngredient extends Item implements IPropertiesContainer 
     }
 
     @Override
-    public void setIngredientProperties(ItemStack stack, IngredientProperty... ingredientProperties) {
+    public void setIngredientProperties(ItemStack stack, List<IngredientProperty> ingredientProperties) {
         CreativeConcoctionsAPI.checkAndSetCompound(stack);
         NBTTagList tagList = new NBTTagList();
         for (IngredientProperty ingredientProperty : ingredientProperties) {
@@ -58,5 +62,15 @@ public class ItemBottledIngredient extends Item implements IPropertiesContainer 
     public void setIngredientPotency(ItemStack stack, int potency) {
         CreativeConcoctionsAPI.checkAndSetCompound(stack);
         stack.stackTagCompound.setInteger(NBTTags.POTENCY_TAG, potency);
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean simulate) {
+        list.add(String.format(StatCollector.translateToLocal("gui.text.potency"), String.valueOf(getIngredientPotency(stack))));
+        for (IngredientProperty ingredientProperty : getIngredientProperties(stack)) {
+            list.add(ingredientProperty.getLocalizedString());
+        }
     }
 }

@@ -2,7 +2,6 @@ package amerifrance.concoctions.tile;
 
 import amerifrance.concoctions.CreativeConcoctions;
 import amerifrance.concoctions.api.CreativeConcoctionsAPI;
-import amerifrance.concoctions.api.util.MetaBlock;
 import amerifrance.concoctions.api.cauldron.HeatSource;
 import amerifrance.concoctions.api.cauldron.ICauldron;
 import amerifrance.concoctions.api.cauldron.IHeatController;
@@ -11,6 +10,7 @@ import amerifrance.concoctions.api.ingredients.Ingredient;
 import amerifrance.concoctions.api.ingredients.IngredientProperty;
 import amerifrance.concoctions.api.registry.ConcoctionRecipes;
 import amerifrance.concoctions.api.registry.HeatSourceRegistry;
+import amerifrance.concoctions.api.util.MetaBlock;
 import amerifrance.concoctions.registry.ItemsRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -168,8 +168,8 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
 
     public boolean checkAndCraft(EntityPlayer player, ItemStack heldItem) {
         if (heldItem != null && heldItem.getItem() == Items.glass_bottle && heldItem.stackSize > 0 && canCraft()) {
-            ItemStack concoctionStack = new ItemStack(ItemsRegistry.concoctionItem);
             if (checkRecipe()) {
+                ItemStack concoctionStack = new ItemStack(ItemsRegistry.concoctionItem);
                 Concoction concoction = ConcoctionRecipes.getConcoctionForIngredients(cauldronContent);
                 int level = potency / cauldronContent.size();
                 int duration = (int) (level * getHeat() / CreativeConcoctionsAPI.dividingSafeInt((int) getInstability())) * 100;
@@ -189,8 +189,18 @@ public abstract class TileCauldronBase extends TileEntity implements ICauldron {
                 player.inventoryContainer.detectAndSendChanges();
                 return true;
             } else {
-                invalidRecipe();
-                return false;
+                ItemStack bottledIngredientStack = new ItemStack(ItemsRegistry.bottledIngredient);
+                ItemsRegistry.bottledIngredient.setIngredientPotency(bottledIngredientStack, potency);
+                ItemsRegistry.bottledIngredient.setIngredientProperties(bottledIngredientStack, cauldronContent);
+                
+                cauldronContent.clear();
+                potency = 0;
+                instability = 0;
+
+                heldItem.stackSize--;
+                player.inventory.addItemStackToInventory(bottledIngredientStack.copy());
+                player.inventoryContainer.detectAndSendChanges();
+                return true;
             }
         }
         return false;
