@@ -1,6 +1,6 @@
 package amerifrance.concoctions.api.registry;
 
-import amerifrance.concoctions.api.MapKey;
+import amerifrance.concoctions.api.util.MapKey;
 import amerifrance.concoctions.api.ingredients.Ingredient;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;

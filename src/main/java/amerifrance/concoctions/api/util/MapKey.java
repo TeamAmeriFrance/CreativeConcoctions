@@ -1,4 +1,4 @@
-package amerifrance.concoctions.api;
+package amerifrance.concoctions.api.util;
 
 import net.minecraft.item.ItemStack;
 

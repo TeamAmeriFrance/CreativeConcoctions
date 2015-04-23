@@ -1,6 +1,6 @@
 package amerifrance.concoctions.api.registry;
 
-import amerifrance.concoctions.api.MetaBlock;
+import amerifrance.concoctions.api.util.MetaBlock;
 import amerifrance.concoctions.api.cauldron.HeatSource;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;

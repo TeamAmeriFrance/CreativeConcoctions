@@ -1,7 +1,7 @@
 package amerifrance.concoctions.registry;
 
 import amerifrance.concoctions.ConfigHandler;
-import amerifrance.concoctions.api.MetaBlock;
+import amerifrance.concoctions.api.util.MetaBlock;
 import amerifrance.concoctions.api.cauldron.HeatSource;
 import amerifrance.concoctions.api.registry.HeatSourceRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;

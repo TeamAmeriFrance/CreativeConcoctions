@@ -2,7 +2,7 @@ package amerifrance.concoctions.tile;
 
 import amerifrance.concoctions.CreativeConcoctions;
 import amerifrance.concoctions.api.CreativeConcoctionsAPI;
-import amerifrance.concoctions.api.MetaBlock;
+import amerifrance.concoctions.api.util.MetaBlock;
 import amerifrance.concoctions.api.cauldron.HeatSource;
 import amerifrance.concoctions.api.cauldron.ICauldron;
 import amerifrance.concoctions.api.cauldron.IHeatController;

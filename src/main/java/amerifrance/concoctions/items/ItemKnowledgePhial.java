@@ -4,6 +4,7 @@ import amerifrance.concoctions.CreativeConcoctions;
 import amerifrance.concoctions.ModInformation;
 import amerifrance.concoctions.api.ingredients.IngredientKnowledge;
 import amerifrance.concoctions.api.ingredients.IngredientProperty;
+import amerifrance.concoctions.api.util.NBTTags;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,9 +19,6 @@ import java.util.List;
 
 public class ItemKnowledgePhial extends Item {
 
-    public static String PROPERTY_TAG = "IngredientProperty";
-    public static String DURATION_TAG = "Duration";
-
     public ItemKnowledgePhial() {
         setCreativeTab(CreativeConcoctions.tabConcoction);
         setUnlocalizedName(ModInformation.ID + ".knowledge.phial");
@@ -30,19 +28,19 @@ public class ItemKnowledgePhial extends Item {
     }
 
     public static IngredientProperty getProperty(ItemStack stack) {
-        return IngredientProperty.valueOf(stack.stackTagCompound.getString(PROPERTY_TAG));
+        return IngredientProperty.valueOf(stack.stackTagCompound.getString(NBTTags.PROPERTY_TAG));
     }
 
     public static void setProperty(ItemStack stack, IngredientProperty ingredientProperty) {
-        stack.stackTagCompound.setString(PROPERTY_TAG, ingredientProperty.name());
+        stack.stackTagCompound.setString(NBTTags.PROPERTY_TAG, ingredientProperty.name());
     }
 
     public static int getDuration(ItemStack stack) {
-        return stack.stackTagCompound.getInteger(DURATION_TAG);
+        return stack.stackTagCompound.getInteger(NBTTags.DURATION_TAG);
     }
 
     public static void setDuration(ItemStack stack, int duration) {
-        stack.stackTagCompound.setInteger(DURATION_TAG, duration);
+        stack.stackTagCompound.setInteger(NBTTags.DURATION_TAG, duration);
     }
 
     public EnumAction getItemUseAction(ItemStack stack) {

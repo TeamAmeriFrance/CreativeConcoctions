@@ -30,7 +30,6 @@ public class PropertyWrapper extends AbstractWrapper {
     private String text;
     private boolean hasKnowledge;
     private Ingredient ingredient;
-    private int potency;
     private float instability;
     private double timeToBoil;
     private String ingredientType;
@@ -49,7 +48,7 @@ public class PropertyWrapper extends AbstractWrapper {
         this.text = " " + stack.getDisplayName();
         this.hasKnowledge = IngredientKnowledge.getKnowledge(Minecraft.getMinecraft().thePlayer).get(ingredientProperty);
         this.ingredient = IngredientsRegistry.getIngredient(stack);
-        this.potency = this.ingredient.potency;
+        int potency = this.ingredient.potency;
         this.instability = this.ingredient.instability;
         this.timeToBoil = (double) this.ingredient.ticksToBoil / 20;
         this.ingredientType = this.ingredient.ingredientType.getLocalizedString();

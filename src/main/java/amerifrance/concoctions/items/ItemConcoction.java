@@ -9,6 +9,7 @@ import amerifrance.concoctions.api.ingredients.IPropertiesContainer;
 import amerifrance.concoctions.api.ingredients.IngredientProperty;
 import amerifrance.concoctions.api.registry.ConcoctionRecipes;
 import amerifrance.concoctions.api.registry.ConcoctionsRegistry;
+import amerifrance.concoctions.api.util.NBTTags;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.gui.GuiScreen;
@@ -25,10 +26,6 @@ import java.util.List;
 
 public class ItemConcoction extends Item implements IPropertiesContainer {
 
-    public static String CONCOCTION_ID_TAG = "ConcoctionID";
-    public static String CONCOCTION_LEVEL_TAG = "ConcoctionLevel";
-    public static String CONCOCTION_DURATION_TAG = "ConcoctionDuration";
-
     public ItemConcoction() {
         setCreativeTab(CreativeConcoctions.tabConcoction);
         setUnlocalizedName(ModInformation.ID + ".concoction");
@@ -40,7 +37,7 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
 
     public static Concoction getConcoction(ItemStack stack) {
         CreativeConcoctionsAPI.checkAndSetCompound(stack);
-        return ConcoctionsRegistry.getConcoctionForId(stack.stackTagCompound.getString(CONCOCTION_ID_TAG));
+        return ConcoctionsRegistry.getConcoctionForId(stack.stackTagCompound.getString(NBTTags.ID_TAG));
     }
 
     public EnumAction getItemUseAction(ItemStack stack) {
@@ -107,27 +104,27 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
     @Override
     public int getIngredientPotency(ItemStack stack) {
         CreativeConcoctionsAPI.checkAndSetCompound(stack);
-        return stack.stackTagCompound.getInteger(CONCOCTION_LEVEL_TAG);
+        return stack.stackTagCompound.getInteger(NBTTags.LEVEL_TAG);
     }
 
     @Override
     public void setIngredientPotency(ItemStack stack, int potency) {
         CreativeConcoctionsAPI.checkAndSetCompound(stack);
-        stack.stackTagCompound.setInteger(CONCOCTION_LEVEL_TAG, potency);
+        stack.stackTagCompound.setInteger(NBTTags.LEVEL_TAG, potency);
     }
 
     public int getDuration(ItemStack stack) {
         CreativeConcoctionsAPI.checkAndSetCompound(stack);
-        return stack.stackTagCompound.getInteger(CONCOCTION_DURATION_TAG);
+        return stack.stackTagCompound.getInteger(NBTTags.DURATION_TAG);
     }
 
     public void setConcoction(ItemStack stack, Concoction concoction) {
         CreativeConcoctionsAPI.checkAndSetCompound(stack);
-        stack.stackTagCompound.setString(CONCOCTION_ID_TAG, ConcoctionsRegistry.getIdForConcoction(concoction));
+        stack.stackTagCompound.setString(NBTTags.ID_TAG, ConcoctionsRegistry.getIdForConcoction(concoction));
     }
 
     public void setDuration(ItemStack stack, int duration) {
         CreativeConcoctionsAPI.checkAndSetCompound(stack);
-        stack.stackTagCompound.setInteger(CONCOCTION_DURATION_TAG, duration);
+        stack.stackTagCompound.setInteger(NBTTags.DURATION_TAG, duration);
     }
 }
