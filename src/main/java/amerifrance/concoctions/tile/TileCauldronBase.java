@@ -30,15 +30,14 @@ import java.util.List;
 
 public abstract class TileCauldronBase extends TileEntity implements ICauldron {
 
-    private int ingredientCapacity;
-    private float heatCapacity;
-    private float maxInstability;
-
     public ArrayList<IngredientProperty> cauldronContent;
     public float instability;
     public int potency;
     public float heat;
     public int ticksLeft;
+    private int ingredientCapacity;
+    private float heatCapacity;
+    private float maxInstability;
 
     public TileCauldronBase(int ingredientCapacity, float heatCapacity, float maxInstability) {
         this.ingredientCapacity = ingredientCapacity;

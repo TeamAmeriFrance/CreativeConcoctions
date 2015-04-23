@@ -10,7 +10,7 @@ import net.minecraftforge.common.config.ConfigElement;
 import java.util.ArrayList;
 import java.util.List;
 
-import static amerifrance.concoctions.ConfigHandler.*;
+import static amerifrance.concoctions.ConfigHandler.config;
 
 public class ConfigGui extends GuiConfig {
 

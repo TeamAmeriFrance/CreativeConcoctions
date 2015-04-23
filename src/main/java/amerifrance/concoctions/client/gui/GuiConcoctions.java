@@ -1,10 +1,9 @@
 package amerifrance.concoctions.client.gui;
 
-import amerifrance.concoctions.api.CreativeConcoctionsAPI;
 import amerifrance.concoctions.api.concoctions.IConcoctionContext;
+import amerifrance.concoctions.api.concoctions.LivingConcoctions;
 import amerifrance.concoctions.network.PacketHandler;
 import amerifrance.concoctions.network.PacketOpenInventory;
-import amerifrance.concoctions.api.concoctions.LivingConcoctions;
 import amerifrance.guideapi.ModInformation;
 import amerifrance.guideapi.buttons.ButtonBack;
 import amerifrance.guideapi.buttons.ButtonNext;
@@ -14,7 +13,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import org.lwjgl.input.Keyboard;

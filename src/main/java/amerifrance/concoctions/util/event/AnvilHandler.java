@@ -24,7 +24,7 @@ public class AnvilHandler {
         if (left.getItem() instanceof ItemConcoction && ItemConcoction.getConcoction(left) != null && ItemConcoction.getConcoction(left) instanceof ConcoctionKnowledge) {
             if (right.getItem() instanceof ItemBottledIngredient || right.getItem() instanceof ItemCreativeIngredient) {
                 IPropertiesContainer propertiesContainer = (IPropertiesContainer) right.getItem();
-                
+
                 if (propertiesContainer.getIngredientProperties(right).size() == 1) {
                     IngredientProperty ingredientProperty = propertiesContainer.getIngredientProperties(right).get(0);
                     int potency = propertiesContainer.getIngredientPotency(right);

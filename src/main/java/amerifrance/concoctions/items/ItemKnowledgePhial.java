@@ -29,6 +29,22 @@ public class ItemKnowledgePhial extends Item {
         setHasSubtypes(true);
     }
 
+    public static IngredientProperty getProperty(ItemStack stack) {
+        return IngredientProperty.valueOf(stack.stackTagCompound.getString(PROPERTY_TAG));
+    }
+
+    public static void setProperty(ItemStack stack, IngredientProperty ingredientProperty) {
+        stack.stackTagCompound.setString(PROPERTY_TAG, ingredientProperty.name());
+    }
+
+    public static int getDuration(ItemStack stack) {
+        return stack.stackTagCompound.getInteger(DURATION_TAG);
+    }
+
+    public static void setDuration(ItemStack stack, int duration) {
+        stack.stackTagCompound.setInteger(DURATION_TAG, duration);
+    }
+
     public EnumAction getItemUseAction(ItemStack stack) {
         return EnumAction.drink;
     }
@@ -70,21 +86,5 @@ public class ItemKnowledgePhial extends Item {
             String s = StringUtils.lowerCase(getProperty(stack).name());
             list.add(StringUtils.capitalize(s));
         }
-    }
-
-    public static IngredientProperty getProperty(ItemStack stack) {
-        return IngredientProperty.valueOf(stack.stackTagCompound.getString(PROPERTY_TAG));
-    }
-
-    public static void setProperty(ItemStack stack, IngredientProperty ingredientProperty) {
-        stack.stackTagCompound.setString(PROPERTY_TAG, ingredientProperty.name());
-    }
-
-    public static int getDuration(ItemStack stack) {
-        return stack.stackTagCompound.getInteger(DURATION_TAG);
-    }
-
-    public static void setDuration(ItemStack stack, int duration) {
-        stack.stackTagCompound.setInteger(DURATION_TAG, duration);
     }
 }

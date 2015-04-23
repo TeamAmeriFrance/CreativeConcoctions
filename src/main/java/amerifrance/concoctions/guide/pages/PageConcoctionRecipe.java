@@ -21,7 +21,6 @@ public class PageConcoctionRecipe extends PageBase {
     public Concoction concoction;
 
     /**
-     *
      * @param concoction - {@link Concoction} to grab the ingredient list of.
      */
     public PageConcoctionRecipe(Concoction concoction) {

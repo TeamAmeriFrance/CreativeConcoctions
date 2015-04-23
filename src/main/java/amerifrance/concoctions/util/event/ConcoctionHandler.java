@@ -18,6 +18,15 @@ import java.util.LinkedList;
 
 public class ConcoctionHandler {
 
+    public static void syncConcoctions(EntityLivingBase livingBase, EntityPlayerMP player) {
+        LivingConcoctions data = LivingConcoctions.get(livingBase);
+        if (!data.getActiveConcoctions().isEmpty()) {
+            NBTTagCompound tagCompound = new NBTTagCompound();
+            data.saveNBTData(tagCompound);
+            PacketHandler.INSTANCE.sendTo(new PacketConcoctions(livingBase, tagCompound), player);
+        }
+    }
+
     @SubscribeEvent
     public void onCreateEntity(EntityEvent.EntityConstructing event) {
         if (event.entity instanceof EntityLivingBase && LivingConcoctions.get((EntityLivingBase) event.entity) == null) {
@@ -66,14 +75,5 @@ public class ConcoctionHandler {
     @SubscribeEvent
     public void onPlayerSpawn(cpw.mods.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent event) {
         syncConcoctions(event.player, (EntityPlayerMP) event.player);
-    }
-
-    public static void syncConcoctions(EntityLivingBase livingBase, EntityPlayerMP player) {
-        LivingConcoctions data = LivingConcoctions.get(livingBase);
-        if (!data.getActiveConcoctions().isEmpty()) {
-            NBTTagCompound tagCompound = new NBTTagCompound();
-            data.saveNBTData(tagCompound);
-            PacketHandler.INSTANCE.sendTo(new PacketConcoctions(livingBase, tagCompound), player);
-        }
     }
 }

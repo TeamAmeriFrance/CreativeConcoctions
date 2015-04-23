@@ -18,9 +18,8 @@ public class PageConcoctionList extends PageBase {
     public Concoction[] concoctions;
 
     /**
-     *
      * @param unlocPageTitle - Unlocalized title of the page
-     * @param concoctions - List of Concoctions to draw
+     * @param concoctions    - List of Concoctions to draw
      */
     public PageConcoctionList(String unlocPageTitle, Concoction[] concoctions) {
         this.unlocPageTitle = unlocPageTitle;

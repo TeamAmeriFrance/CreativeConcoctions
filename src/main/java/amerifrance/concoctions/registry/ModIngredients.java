@@ -53,7 +53,7 @@ public class ModIngredients {
         for (Item item : GameData.getItemRegistry().typeSafeIterable()) {
             if (item instanceof ItemSword) {
                 ItemSword sword = (ItemSword) item;
-                Ingredient attack = new Ingredient(IngredientType.PROCESSING_PRODUCT, 8, (int) sword.func_150931_i(), 400, IngredientProperty.ATTACK, IngredientProperty.DAMAGE);
+                Ingredient attack = new Ingredient(IngredientType.PROCESSING_PRODUCT, 8, (int) sword.func_150931_i() + 1, 400, IngredientProperty.ATTACK, IngredientProperty.DAMAGE);
                 ir(sword, attack);
             }
         }

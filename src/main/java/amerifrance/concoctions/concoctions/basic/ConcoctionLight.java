@@ -18,7 +18,7 @@ public class ConcoctionLight extends Concoction {
 
     public void updateEffect(EntityLivingBase livingBase, IConcoctionContext ctx) {
         World world = livingBase.worldObj;
-        EntityPlayer player = (EntityPlayer)livingBase;
+        EntityPlayer player = (EntityPlayer) livingBase;
 
         int x = (int) Math.floor(player.posX);
         int y = (int) player.posY + 1;

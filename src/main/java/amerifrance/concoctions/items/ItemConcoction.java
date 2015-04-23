@@ -38,6 +38,11 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
         setHasSubtypes(true);
     }
 
+    public static Concoction getConcoction(ItemStack stack) {
+        CreativeConcoctionsAPI.checkAndSetCompound(stack);
+        return ConcoctionsRegistry.getConcoctionForId(stack.stackTagCompound.getString(CONCOCTION_ID_TAG));
+    }
+
     public EnumAction getItemUseAction(ItemStack stack) {
         return EnumAction.drink;
     }
@@ -110,12 +115,6 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
         CreativeConcoctionsAPI.checkAndSetCompound(stack);
         stack.stackTagCompound.setInteger(CONCOCTION_LEVEL_TAG, potency);
     }
-
-    public static Concoction getConcoction(ItemStack stack) {
-        CreativeConcoctionsAPI.checkAndSetCompound(stack);
-        return ConcoctionsRegistry.getConcoctionForId(stack.stackTagCompound.getString(CONCOCTION_ID_TAG));
-    }
-
 
     public int getDuration(ItemStack stack) {
         CreativeConcoctionsAPI.checkAndSetCompound(stack);

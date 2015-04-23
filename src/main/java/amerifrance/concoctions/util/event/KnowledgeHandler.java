@@ -13,6 +13,15 @@ import net.minecraftforge.event.entity.EntityEvent;
 
 public class KnowledgeHandler {
 
+    public static void syncKnowledge(EntityPlayer player) {
+        LivingConcoctions data = LivingConcoctions.get(player);
+        if (!data.getActiveConcoctions().isEmpty()) {
+            NBTTagCompound tagCompound = new NBTTagCompound();
+            data.saveNBTData(tagCompound);
+            PacketHandler.INSTANCE.sendTo(new PacketKnowledge(player, tagCompound), (EntityPlayerMP) player);
+        }
+    }
+
     @SubscribeEvent
     public void onCreateEntity(EntityEvent.EntityConstructing event) {
         if (event.entity instanceof EntityPlayer && IngredientKnowledge.get((EntityPlayer) event.entity) == null) {
@@ -36,14 +45,5 @@ public class KnowledgeHandler {
         IngredientKnowledge.get(event.original).saveNBTData(tagCompound);
         IngredientKnowledge.get(event.entityPlayer).saveNBTData(tagCompound);
         syncKnowledge(event.entityPlayer);
-    }
-
-    public static void syncKnowledge(EntityPlayer player) {
-        LivingConcoctions data = LivingConcoctions.get(player);
-        if (!data.getActiveConcoctions().isEmpty()) {
-            NBTTagCompound tagCompound = new NBTTagCompound();
-            data.saveNBTData(tagCompound);
-            PacketHandler.INSTANCE.sendTo(new PacketKnowledge(player, tagCompound), (EntityPlayerMP) player);
-        }
     }
 }
