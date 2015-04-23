@@ -44,7 +44,7 @@ public class PageConcoctionRecipe extends PageBase {
         int drawY = guiTop + 22;
         for (int i = 0; i < ingredients.size(); i++) {
             fontRenderer.setUnicodeFlag(true);
-            fontRenderer.drawString(EnumChatFormatting.BLACK + (i + 1 + ". ") + ingredients.get(i).toString(), guiLeft + 39, drawY, 3 * guiBase.xSize / 5);
+            fontRenderer.drawString(EnumChatFormatting.BLACK + (i + 1 + ". ") + ingredients.get(i).getLocalizedString(), guiLeft + 39, drawY, 3 * guiBase.xSize / 5);
             fontRenderer.setUnicodeFlag(false);
 
             drawY = drawY + 10;

@@ -52,7 +52,7 @@ public class PropertyWrapper extends AbstractWrapper {
         this.potency = this.ingredient.potency;
         this.instability = this.ingredient.instability;
         this.timeToBoil = (double) this.ingredient.ticksToBoil / 20;
-        this.ingredientType = this.ingredient.ingredientType.toString();
+        this.ingredientType = this.ingredient.ingredientType.getLocalizedString();
 
         tooltip = new ArrayList<String>();
         tooltip.add(ingredientType);

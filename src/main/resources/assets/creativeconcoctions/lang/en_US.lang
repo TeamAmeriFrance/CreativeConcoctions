@@ -1,4 +1,6 @@
-# Blocks
+#=========================================================#
+# Blocks                                                  #
+#=========================================================#
 tile.creativeconcoctions.cauldrons.0.name=Wooden Cauldron
 tile.creativeconcoctions.cauldrons.1.name=Stone Cauldron
 tile.creativeconcoctions.cauldrons.2.name=Iron Cauldron
@@ -6,7 +8,9 @@ tile.creativeconcoctions.cauldrons.3.name=Gold Cauldron
 tile.creativeconcoctions.cauldrons.4.name=Obsidian Cauldron
 tile.creativeconcoctions.cauldrons.5.name=Pewter Cauldron
 
-# Items
+#=========================================================#
+# Items                                                   #
+#=========================================================#
 item.creativeconcoctions.ingredient.aconite.name=Aconite
 item.creativeconcoctions.ingredient.asphodel.name=Asphodel
 item.creativeconcoctions.ingredient.belladona.name=Belladona
@@ -43,8 +47,13 @@ item.creativeconcoctions.creative.ingredient.name=Bottled Ingredient
 item.creativeconcoctions.bottled.ingredient.name=Bottled Ingredient
 item.creativeconcoctions.knowledge.phial.name=Knowledge Phial
 
-#Concoctions
-#Basics
+#=========================================================#
+#Concoctions                                              #
+#=========================================================#
+
+#===========================#
+#Basics                     #
+#===========================#
 concoction.speed=Fleet Feet
 concoction.strength=Brew of Brawn
 concoction.hell.eyes=Hell Eyes
@@ -66,11 +75,15 @@ concoction.poison=Concoction (p)
 concoction.luman.liquor=Luman Liquor
 concoction.knowledge=Concentrated Intelligence
 
-#Compounds
+#===========================#
+#Compounds                  #
+#===========================#
 concoction.venomous.vigor=Venomous Vigor
 concoction.saiyan.serum=Saiyan Serum
 
-# GUI
+#=========================================================#
+# GUI                                                     #
+#=========================================================#
 gui.creativeconcoctions.config.title=Creative Concoctions Configuration
 itemGroup.creativeconcoctions.creativeTab=Creative Concoctions
 tooltip.creative.only=Creative Only
@@ -83,17 +96,78 @@ gui.text.potency=Potency: %s
 gui.text.instability=Instability: %s
 gui.text.boiling.time=Boiling Time: %s
 
-# Chat
+#=========================================================#
+# Chat                                                    #
+#=========================================================#
 death.attack.HellEyes=%s was stared to death.
 death.attack.PutMeDown=%s was put down.
 
-#Keybind
+#=========================================================#
+#Keybind                                                  #
+#=========================================================#
 keybind.fireball=Launch Fireball
 
-# Console
+#=========================================================#
+# Console                                                 #
+#=========================================================#
 
-# Guide
-# Basic
+#=========================================================#
+# Ingredients                                             #
+#=========================================================#
+
+#===========================#
+# Types                     #
+#===========================#
+ingredient.type.mineral=Mineral
+ingredient.type.mob_drop=Mob drop
+ingredient.type.neutral=Neutral
+ingredient.type.plant=Plant
+ingredient.type.processing_product=Processing product
+
+#===========================#
+# Properties                #
+#===========================#
+ingredient.property.air=Air
+ingredient.property.attack=Attack
+ingredient.property.cleansing=Cleansing
+ingredient.property.confusion=Confusion
+ingredient.property.curative=Curative
+ingredient.property.damage=Damage
+ingredient.property.demonic=Demonic
+ingredient.property.earth=Earth
+ingredient.property.energy=Energy
+ingredient.property.evil=Evil
+ingredient.property.explosive=Explosive
+ingredient.property.fire=Fire
+ingredient.property.flight=Flight
+ingredient.property.gravity=Gravity
+ingredient.property.healing=Healing
+ingredient.property.invisibility=Invisibility
+ingredient.property.magic=Magic
+ingredient.property.morphing=Morphing
+ingredient.property.nourishment=Nourishment
+ingredient.property.poison=Poison
+ingredient.property.protection=Protection
+ingredient.property.regeneration=Regeneration
+ingredient.property.slowing_down=Slowing down
+ingredient.property.speed=Speed
+ingredient.property.strength=Strength
+ingredient.property.swimming=Swimming
+ingredient.property.water_breathing=Water breathing
+ingredient.property.youth=Youth
+ingredient.property.catalyst=Catalyst
+ingredient.property.coolant=Coolant
+ingredient.property.stabilizer=Stabilizer
+ingredient.property.unstable=Unstable
+ingredient.property.water=Water
+
+#=========================================================#
+# Guide                                                   #
+#=========================================================#
+
+#===========================#
+# Basic                     #
+#===========================#
 guide.creativeconcoctions.title=Book of Concoctions
 guide.creativeconcoctions.welcome=All your Creative Concoctions needs in one place.
 guide.creativeconcoctions.category.concoctions.intro=Brewing for Beginners
@@ -181,7 +255,9 @@ guide.creativeconcoctions.lumanliquor.entry=Luman Liquor
 guide.creativeconcoctions.lumanliquor.info.main=Almost like being a human torch.
 guide.creativeconcoctions.lumanliquor.info.desc=Almost like being a human torch.
 
-# Compound
+#===========================#
+# Compound                  #
+#===========================#
 guide.creativeconcoctions.venomousvigor.entry=Venemous Vigor
 guide.creativeconcoctions.venomousvigor.info.main=With great regeneration comes great sickness... Apparently.
 guide.creativeconcoctions.venomousvigor.info.desc=With great regeneration comes great sickness... Apparently.

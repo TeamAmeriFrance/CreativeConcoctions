@@ -25,7 +25,7 @@ public class GuideConcoctions {
     public static void setConcoctionBook() {
 
         for (IngredientProperty ingredientProperty : IngredientProperty.values()) {
-            ingredientKnowledgeEntries.add(new EntryProperty(ingredientProperty.toString(), ingredientProperty));
+            ingredientKnowledgeEntries.add(new EntryProperty(ingredientProperty.getLocalizedString(), ingredientProperty));
         }
 
         CategoryItemStack introductory = new CategoryItemStack(basicConcoctionEntries, "guide.creativeconcoctions.category.concoctions.intro", new ItemStack(Items.writable_book));
