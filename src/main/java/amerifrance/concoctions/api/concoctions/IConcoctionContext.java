@@ -26,4 +26,6 @@ public interface IConcoctionContext {
     int getInitialDuration();
 
     void setLevel(int level);
+
+    void setDuration(int duration);
 }

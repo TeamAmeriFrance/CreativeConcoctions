@@ -99,6 +99,10 @@ public class Concoction {
         return Arrays.copyOf(components, components.length);
     }
 
+    public boolean isConcoctionInstant() {
+        return false;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o)

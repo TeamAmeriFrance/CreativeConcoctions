@@ -20,4 +20,9 @@ public class ConcoctionDamage extends Concoction {
     public void onEffectAdded(EntityLivingBase livingBase, IConcoctionContext ctx) {
         livingBase.attackEntityFrom(putMeDown, 1.0F * ctx.getConcoctionLevel());
     }
+
+    @Override
+    public boolean isConcoctionInstant() {
+        return true;
+    }
 }

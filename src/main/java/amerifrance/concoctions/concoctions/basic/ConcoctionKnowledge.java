@@ -9,4 +9,9 @@ public class ConcoctionKnowledge extends Concoction {
     public ConcoctionKnowledge() {
         super("concoction.knowledge", 100, Color.GRAY);
     }
+
+    @Override
+    public boolean isConcoctionInstant() {
+        return true;
+    }
 }

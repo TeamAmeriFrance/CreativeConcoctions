@@ -21,8 +21,13 @@ public class ConcoctionsHelper {
     }
 
     public static void addConcoction(EntityLivingBase livingBase, IConcoctionContext ctx) {
-        if (LivingConcoctions.get(livingBase) != null) {
-            if (ctx.getConcoctionLevel() > ctx.getConcoction().maxLevel) ctx.setLevel(ctx.getConcoction().maxLevel);
+        if (LivingConcoctions.get(livingBase) != null && ctx != null) {
+            if (ctx.getConcoctionLevel() > ctx.getConcoction().maxLevel)
+                ctx.setLevel(ctx.getConcoction().maxLevel);
+
+            if (ctx.getConcoction().isConcoctionInstant())
+                ctx.setDuration(20);
+
             LivingConcoctions.getActiveConcotions(livingBase).add(ctx);
             ctx.onAdded(livingBase);
         }

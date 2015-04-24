@@ -17,4 +17,9 @@ public class ConcoctionHeal extends Concoction {
     public void onEffectAdded(EntityLivingBase livingBase, IConcoctionContext ctx) {
         livingBase.heal(1.0F * ctx.getConcoctionLevel());
     }
+
+    @Override
+    public boolean isConcoctionInstant() {
+        return true;
+    }
 }

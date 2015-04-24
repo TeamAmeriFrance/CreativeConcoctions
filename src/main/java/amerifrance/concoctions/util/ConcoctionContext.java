@@ -85,6 +85,11 @@ public class ConcoctionContext implements IConcoctionContext {
     }
 
     @Override
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o)
             return true;
