@@ -125,7 +125,8 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
         if (getConcoction(stack) != null) {
             list.add(getConcoction(stack).getConcotionType().prefix + getConcoction(stack).name);
             list.add(String.format(StatCollector.translateToLocal("gui.text.level"), getIngredientPotency(stack)));
-            list.add(String.format(StatCollector.translateToLocal("gui.text.duration"), (double) getDuration(stack) / 20 + "s"));
+            if (!getConcoction(stack).isConcoctionInstant())
+                list.add(String.format(StatCollector.translateToLocal("gui.text.duration"), (double) getDuration(stack) / 20 + "s"));
         }
     }
 
