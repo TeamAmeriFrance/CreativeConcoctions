@@ -5,22 +5,18 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemsRegistry {
 
-    public static ItemCreativeConcoction creativeConcoction;
     public static ItemIngredients ingredients;
-    public static ItemConcoction concoctionItem;
     public static ItemCreativeIngredient creativeIngredient;
     public static ItemBottledIngredient bottledIngredient;
     public static ItemKnowledgePhial knowledgePhial;
+    public static ItemCreativeConcoction creativeConcoction;
+    public static ItemConcoction concoctionItem;
+    public static ItemCreativeConcoctionThrowable creativeConcoctionThrowable;
+    public static ItemConcoctionThrowable concoctionThrowable;
 
     public static void registerItems() {
-        creativeConcoction = new ItemCreativeConcoction();
-        GameRegistry.registerItem(creativeConcoction, "ItemCreativeConcoction");
-
         ingredients = new ItemIngredients();
         GameRegistry.registerItem(ingredients, "ItemIngredients");
-
-        concoctionItem = new ItemConcoction();
-        GameRegistry.registerItem(concoctionItem, "ItemConcoction");
 
         creativeIngredient = new ItemCreativeIngredient();
         GameRegistry.registerItem(creativeIngredient, "ItemCreativeIngredient");
@@ -30,5 +26,17 @@ public class ItemsRegistry {
 
         knowledgePhial = new ItemKnowledgePhial();
         GameRegistry.registerItem(knowledgePhial, "ItemKnowledgePhial");
+
+        creativeConcoction = new ItemCreativeConcoction();
+        GameRegistry.registerItem(creativeConcoction, "ItemCreativeConcoction");
+
+        concoctionItem = new ItemConcoction();
+        GameRegistry.registerItem(concoctionItem, "ItemConcoction");
+
+        creativeConcoctionThrowable = new ItemCreativeConcoctionThrowable();
+        GameRegistry.registerItem(creativeConcoctionThrowable, "ItemCreativeConcoctionThrowable");
+
+        concoctionThrowable = new ItemConcoctionThrowable();
+        GameRegistry.registerItem(concoctionThrowable, "ItemConcoctionThrowable");
     }
 }

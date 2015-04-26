@@ -46,6 +46,8 @@ item.creativeconcoctions.concoction.name=Concoction
 item.creativeconcoctions.creative.ingredient.name=Bottled Ingredient
 item.creativeconcoctions.bottled.ingredient.name=Bottled Ingredient
 item.creativeconcoctions.knowledge.phial.name=Knowledge Phial
+item.creativeconcoctions.concoction.throwable.name=Throwable Concoction
+
 
 #=========================================================#
 #Concoctions                                              #

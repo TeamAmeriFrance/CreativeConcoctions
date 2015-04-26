@@ -2,9 +2,12 @@ package amerifrance.concoctions.proxies;
 
 import amerifrance.concoctions.blocks.BlockCauldronBase;
 import amerifrance.concoctions.client.render.RenderCauldron;
+import amerifrance.concoctions.entities.EntityConcoction;
+import amerifrance.concoctions.registry.ItemsRegistry;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import net.minecraft.client.particle.*;
+import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.world.World;
 
 public class ClientProxy extends CommonProxy {
@@ -17,6 +20,8 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void registerRenders() {
         RenderingRegistry.registerBlockHandler(BlockCauldronBase.renderID, new RenderCauldron());
+
+        RenderingRegistry.registerEntityRenderingHandler(EntityConcoction.class, new RenderSnowball(ItemsRegistry.concoctionThrowable));
     }
 
     @Override

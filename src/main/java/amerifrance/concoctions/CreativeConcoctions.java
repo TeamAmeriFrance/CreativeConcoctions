@@ -53,6 +53,7 @@ public class CreativeConcoctions {
         ItemsRegistry.registerItems();
         BlocksRegistry.registerBlocks();
         TilesRegistry.registerTiles();
+        ModEntities.registerEntities();
         ModConcoctions.registerBasicConcoctions();
         ModConcoctions.registerCompoundConcoctions();
         ModIngredients.registerIngredients();
