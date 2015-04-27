@@ -20,9 +20,11 @@ public class EntityConcoction extends EntityProjectileBase {
     public Concoction concoction;
     public int level;
     public int duration;
+    private float gravity;
 
     public EntityConcoction(World world) {
         super(world);
+        gravity = 0.06F;
     }
 
     public EntityConcoction(World world, Concoction concoction, int level, int duration) {
@@ -30,6 +32,7 @@ public class EntityConcoction extends EntityProjectileBase {
         this.concoction = concoction;
         this.level = level;
         this.duration = duration;
+        gravity = 0.06F;
     }
 
     public EntityConcoction(World world, EntityLivingBase thrower, Concoction concoction, int level, int duration) {
@@ -37,6 +40,7 @@ public class EntityConcoction extends EntityProjectileBase {
         this.concoction = concoction;
         this.level = level;
         this.duration = duration;
+        gravity = 0.06F;
     }
 
     public EntityConcoction(World world, double x, double y, double z, Concoction concoction, int level, int duration) {
@@ -44,6 +48,7 @@ public class EntityConcoction extends EntityProjectileBase {
         this.concoction = concoction;
         this.level = level;
         this.duration = duration;
+        gravity = 0.06F;
     }
 
     public EntityConcoction(World world, EntityLivingBase thrower, EntityLivingBase target, float speed, float accuracy, Concoction concoction, int level, int duration) {
@@ -51,6 +56,7 @@ public class EntityConcoction extends EntityProjectileBase {
         this.concoction = concoction;
         this.level = level;
         this.duration = duration;
+        gravity = 0.06F;
     }
 
     @Override
@@ -96,5 +102,14 @@ public class EntityConcoction extends EntityProjectileBase {
         tag.setInteger("Duration", duration);
 
         tagCompound.setTag("ConcoctionTag", tag);
+    }
+
+    @Override
+    public float getGravityVelocity() {
+        return gravity;
+    }
+
+    public void setGravity(float gravity) {
+        this.gravity = gravity;
     }
 }

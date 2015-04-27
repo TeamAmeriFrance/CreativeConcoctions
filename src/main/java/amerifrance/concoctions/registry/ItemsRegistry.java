@@ -13,10 +13,10 @@ public class ItemsRegistry {
     public static ItemConcoction concoctionItem;
     public static ItemCreativeConcoctionThrowable creativeConcoctionThrowable;
     public static ItemConcoctionThrowable concoctionThrowable;
+    public static ItemConcoctionGun concoctionGun;
 
     public static void registerItems() {
         ingredients = new ItemIngredients();
-        GameRegistry.registerItem(ingredients, "ItemIngredients");
 
         creativeIngredient = new ItemCreativeIngredient();
         GameRegistry.registerItem(creativeIngredient, "ItemCreativeIngredient");
@@ -38,5 +38,9 @@ public class ItemsRegistry {
 
         concoctionThrowable = new ItemConcoctionThrowable();
         GameRegistry.registerItem(concoctionThrowable, "ItemConcoctionThrowable");
+
+        GameRegistry.registerItem(ingredients, "ItemIngredients");
+        concoctionGun = new ItemConcoctionGun();
+        GameRegistry.registerItem(concoctionGun, "ItemConcoctionGun");
     }
 }
