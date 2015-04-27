@@ -7,11 +7,16 @@ import amerifrance.concoctions.api.registry.ConcoctionsRegistry;
 import amerifrance.concoctions.entities.EntityConcoction;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class ItemCreativeConcoctionThrowable extends ItemCreativeConcoction {
 
@@ -46,5 +51,15 @@ public class ItemCreativeConcoctionThrowable extends ItemCreativeConcoction {
     @Override
     public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
         return stack;
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean simulate) {
+        list.add(EnumChatFormatting.DARK_GRAY + StatCollector.translateToLocal("tooltip.creative.only"));
+        if (GuiScreen.isShiftKeyDown()) {
+            list.add("Adds the effect level 2, for 1000 ticks (50 secs)");
+        }
     }
 }
