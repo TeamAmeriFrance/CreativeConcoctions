@@ -28,6 +28,13 @@ public class ConcoctionsHelper {
             if (ctx.getConcoction().isConcoctionInstant())
                 ctx.setDuration(20);
 
+            if (getActiveConcoction(livingBase, ctx.getConcoction()) != null) {
+                IConcoctionContext concoctionContext = getActiveConcoction(livingBase, ctx.getConcoction());
+                ctx.setLevel(Math.max(ctx.getConcoctionLevel(), concoctionContext.getConcoctionLevel()));
+                ctx.setDuration(ctx.getInitialDuration() + concoctionContext.getTicksLeft());
+                LivingConcoctions.getActiveConcotions(livingBase).remove(concoctionContext);
+            }
+
             LivingConcoctions.getActiveConcotions(livingBase).add(ctx);
             ctx.onAdded(livingBase);
         }
