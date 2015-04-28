@@ -11,6 +11,8 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -42,43 +44,70 @@ public class ItemConcoctionBow extends ItemBow {
 
         if (flag || player.inventory.hasItem(ItemsRegistry.coatedArrow)) {
             InventoryHelper.ItemStackAndSlot arrow = InventoryHelper.getItemFromInventory(ItemsRegistry.coatedArrow, player.inventory.mainInventory);
-            ItemStack arrowStack = arrow.stack;
+            if (arrow != null) {
+                ItemStack arrowStack = arrow.stack;
+                float f = (float) j / 20.0F;
+                f = (f * f + f * 2.0F) / 3.0F;
+
+                if ((double) f < 0.1D) return;
+
+                if (f > 1.0F) f = 1.0F;
+
+                EntityCoatedArrow entityCoatedArrow = new EntityCoatedArrow(world, player, f * 2.0F);
+                entityCoatedArrow.concoction = ItemsRegistry.coatedArrow.getConcoction(arrowStack);
+                entityCoatedArrow.level = ItemsRegistry.coatedArrow.getLevel(arrowStack);
+                entityCoatedArrow.duration = ItemsRegistry.coatedArrow.getDuration(arrowStack);
+                ItemStack copyStack = arrowStack.copy();
+                copyStack.stackSize = 1;
+                entityCoatedArrow.stack = copyStack;
+
+                if (f == 1.0F) entityCoatedArrow.setIsCritical(true);
+                int k = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, stack);
+                if (k > 0) entityCoatedArrow.setDamage(entityCoatedArrow.getDamage() + (double) k * 0.5D + 0.5D);
+                int l = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, stack);
+                if (l > 0) entityCoatedArrow.setKnockbackStrength(l);
+                if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, stack) > 0)
+                    entityCoatedArrow.setFire(100);
+
+                stack.damageItem(1, player);
+                world.playSoundAtEntity(player, "random.bow", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+
+                if (flag) {
+                    entityCoatedArrow.canBePickedUp = 2;
+                } else {
+                    arrowStack.stackSize--;
+                    if (arrowStack.stackSize <= 0) arrowStack = null;
+                    player.inventory.mainInventory[arrow.slot] = arrowStack;
+                    player.inventoryContainer.detectAndSendChanges();
+                }
+
+                if (!world.isRemote) world.spawnEntityInWorld(entityCoatedArrow);
+                return;
+            }
+        }
+
+        if (flag || player.inventory.hasItem(Items.arrow)) {
             float f = (float) j / 20.0F;
             f = (f * f + f * 2.0F) / 3.0F;
-
             if ((double) f < 0.1D) return;
-
             if (f > 1.0F) f = 1.0F;
 
-            EntityCoatedArrow entityCoatedArrow = new EntityCoatedArrow(world, player, f * 2.0F);
-            entityCoatedArrow.concoction = ItemsRegistry.coatedArrow.getConcoction(arrowStack);
-            entityCoatedArrow.level = ItemsRegistry.coatedArrow.getLevel(arrowStack);
-            entityCoatedArrow.duration = ItemsRegistry.coatedArrow.getDuration(arrowStack);
-            ItemStack copyStack = arrowStack.copy();
-            copyStack.stackSize = 1;
-            entityCoatedArrow.stack = copyStack;
+            EntityArrow entityarrow = new EntityArrow(world, player, f * 2.0F);
 
-            if (f == 1.0F) entityCoatedArrow.setIsCritical(true);
+            if (f == 1.0F) entityarrow.setIsCritical(true);
             int k = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, stack);
-            if (k > 0) entityCoatedArrow.setDamage(entityCoatedArrow.getDamage() + (double) k * 0.5D + 0.5D);
+            if (k > 0) entityarrow.setDamage(entityarrow.getDamage() + (double) k * 0.5D + 0.5D);
             int l = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, stack);
-            if (l > 0) entityCoatedArrow.setKnockbackStrength(l);
-            if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, stack) > 0)
-                entityCoatedArrow.setFire(100);
-
+            if (l > 0) entityarrow.setKnockbackStrength(l);
+            if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, stack) > 0) entityarrow.setFire(100);
             stack.damageItem(1, player);
             world.playSoundAtEntity(player, "random.bow", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
 
-            if (flag) {
-                entityCoatedArrow.canBePickedUp = 2;
-            } else {
-                arrowStack.stackSize--;
-                if (arrowStack.stackSize <= 0) arrowStack = null;
-                player.inventory.mainInventory[arrow.slot] = arrowStack;
-                player.inventoryContainer.detectAndSendChanges();
-            }
+            if (flag) entityarrow.canBePickedUp = 2;
+            else player.inventory.consumeInventoryItem(Items.arrow);
 
-            if (!world.isRemote) world.spawnEntityInWorld(entityCoatedArrow);
+            if (!world.isRemote) world.spawnEntityInWorld(entityarrow);
+            return;
         }
     }
 

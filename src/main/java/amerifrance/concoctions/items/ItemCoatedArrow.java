@@ -15,16 +15,18 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 
 import java.util.List;
 
 public class ItemCoatedArrow extends Item {
 
+    public IIcon head;
+
     public ItemCoatedArrow() {
         setCreativeTab(CreativeConcoctions.tabConcoction);
         setUnlocalizedName(ModInformation.ID + ".coated.arrow");
-        setTextureName("minecraft:arrow");
         setMaxDamage(0);
         setHasSubtypes(true);
     }
@@ -32,7 +34,38 @@ public class ItemCoatedArrow extends Item {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister ir) {
-        this.itemIcon = ir.registerIcon("minecraft:arrow");
+        this.itemIcon = ir.registerIcon(ModInformation.TEXLOC + "coated_arrow_body");
+        this.head = ir.registerIcon(ModInformation.TEXLOC + "coated_arrow_head");
+    }
+
+    @Override
+    public int getRenderPasses(int metadata) {
+        return requiresMultipleRenderPasses() ? 2 : 1;
+    }
+
+    @SideOnly(Side.CLIENT)
+    public boolean requiresMultipleRenderPasses() {
+        return true;
+    }
+
+    @Override
+    public IIcon getIcon(ItemStack stack, int pass) {
+        if (pass == 0) {
+            return this.itemIcon;
+        } else if (pass == 1) {
+            return this.head;
+        }
+        return getIconFromDamageForRenderPass(stack.getItemDamage(), pass);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int getColorFromItemStack(ItemStack stack, int pass) {
+        if (pass == 1 && getConcoction(stack) != null) {
+            return getConcoction(stack).color.getRGB();
+        } else {
+            return super.getColorFromItemStack(stack, pass);
+        }
     }
 
     @Override
