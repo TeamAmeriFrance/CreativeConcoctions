@@ -6,8 +6,10 @@ import amerifrance.concoctions.api.CreativeConcoctionsAPI;
 import amerifrance.concoctions.api.ingredients.IPropertiesContainer;
 import amerifrance.concoctions.api.ingredients.IngredientProperty;
 import amerifrance.concoctions.api.util.NBTTags;
+import com.google.common.collect.Lists;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -27,6 +29,16 @@ public class ItemBottledIngredient extends Item implements IPropertiesContainer 
         setTextureName(ModInformation.TEXLOC + "ingredient_bottled");
         setMaxDamage(0);
         setHasSubtypes(true);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void getSubItems(Item item, CreativeTabs par2CreativeTabs, List list) {
+        for (IngredientProperty ingredientProperty : IngredientProperty.values()) {
+            ItemStack stack = new ItemStack(this);
+            setIngredientProperties(stack, Lists.newArrayList(ingredientProperty));
+            setIngredientPotency(stack, 8);
+        }
     }
 
     @Override

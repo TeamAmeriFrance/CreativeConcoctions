@@ -48,6 +48,8 @@ item.creativeconcoctions.bottled.ingredient.name=Bottled Ingredient
 item.creativeconcoctions.knowledge.phial.name=Knowledge Phial
 item.creativeconcoctions.concoction.throwable.name=Throwable Concoction
 item.creativeconcoctions.concoction.gun.name=Concoction Gun
+item.creativeconcoctions.concoction.bow.name=Reinforced Bow
+item.creativeconcoctions.coated.arrow.name=Coated Arrow
 
 #=========================================================#
 #Concoctions                                              #

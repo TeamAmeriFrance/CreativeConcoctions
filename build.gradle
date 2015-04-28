@@ -77,6 +77,12 @@ jar {
     )
 }
 
+jar {
+    manifest {
+        attributes 'FMLAT': 'CreativeConcoctions_at.cfg'
+    }
+}
+
 // add a source jar
 task sourceJar(type: Jar) {
     from sourceSets.main.allSource

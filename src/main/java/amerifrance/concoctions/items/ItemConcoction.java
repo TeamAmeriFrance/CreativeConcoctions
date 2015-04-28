@@ -14,6 +14,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
@@ -127,6 +128,21 @@ public class ItemConcoction extends Item implements IPropertiesContainer {
             list.add(String.format(StatCollector.translateToLocal("gui.text.level"), getIngredientPotency(stack)));
             if (!getConcoction(stack).isConcoctionInstant())
                 list.add(String.format(StatCollector.translateToLocal("gui.text.duration"), (double) getDuration(stack) / 20 + "s"));
+        }
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void getSubItems(Item item, CreativeTabs par2CreativeTabs, List list) {
+        if (!ConcoctionsRegistry.isMapEmtpy()) {
+            for (Concoction concoction : ConcoctionsRegistry.getConcoctions()) {
+                ItemStack stack = new ItemStack(this);
+                CreativeConcoctionsAPI.checkAndSetCompound(stack);
+                setConcoction(stack, concoction);
+                setIngredientPotency(stack, 2);
+                setDuration(stack, 1000);
+                list.add(stack);
+            }
         }
     }
 

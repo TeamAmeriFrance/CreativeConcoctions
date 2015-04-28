@@ -3,7 +3,7 @@ package amerifrance.concoctions.blocks;
 import amerifrance.concoctions.ModInformation;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
@@ -97,8 +97,8 @@ public class BlockInvisiLight extends BlockContainer {
         @Override
         public void updateEntity() {
             if (worldObj.getTotalWorldTime() % 20 == 0) {
-                List<EntityPlayer> playerList = worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(xCoord - 2, yCoord - 2, zCoord - 2, xCoord + 2, yCoord + 2, zCoord + 2));
-                if (playerList.isEmpty()) {
+                List<EntityLivingBase> entityLivingBaseList = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(xCoord - 2, yCoord - 2, zCoord - 2, xCoord + 2, yCoord + 2, zCoord + 2));
+                if (entityLivingBaseList.isEmpty()) {
                     worldObj.setBlockToAir(xCoord, yCoord, zCoord);
                 }
             }
