@@ -4,6 +4,7 @@ import amerifrance.concoctions.api.ingredients.IngredientProperty;
 import amerifrance.concoctions.api.registry.ConcoctionRecipes;
 import amerifrance.concoctions.api.registry.ConcoctionsRegistry;
 import amerifrance.concoctions.concoctions.basic.*;
+import amerifrance.concoctions.concoctions.compound.ConcoctionHealthBoost;
 import amerifrance.concoctions.concoctions.compound.ConcoctionSaiyanSerum;
 import amerifrance.concoctions.concoctions.compound.ConcoctionVenomousVigor;
 import com.google.common.collect.Lists;
@@ -35,6 +36,7 @@ public class ModConcoctions {
     //Compounds
     public static ConcoctionVenomousVigor venomousVigor;
     public static ConcoctionSaiyanSerum saiyanSerum;
+    public static ConcoctionHealthBoost healthBoost;
 
     public static void registerBasicConcoctions() {
         speed = new ConcoctionSpeed();
@@ -104,6 +106,9 @@ public class ModConcoctions {
 
         saiyanSerum = new ConcoctionSaiyanSerum();
         ConcoctionsRegistry.registerConcoction(saiyanSerum, "ConcoctionSaiyanSerum");
+
+        healthBoost = new ConcoctionHealthBoost();
+        ConcoctionsRegistry.registerConcoction(healthBoost, "ConcoctionHealthBoost");
     }
 
     public static void registerConcoctionRecipes() {
