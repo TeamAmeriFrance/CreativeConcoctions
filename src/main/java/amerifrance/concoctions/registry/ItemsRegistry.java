@@ -2,8 +2,12 @@ package amerifrance.concoctions.registry;
 
 import amerifrance.concoctions.items.*;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.item.Item;
+import net.minecraftforge.common.util.EnumHelper;
 
 public class ItemsRegistry {
+
+    public static Item.ToolMaterial COATED_MATERIAL = EnumHelper.addToolMaterial("CC_COATED", 3, 1024, 10.0F, 2.5F, 4);
 
     public static ItemIngredients ingredients;
     public static ItemBottledIngredient bottledIngredient;
@@ -13,6 +17,7 @@ public class ItemsRegistry {
     public static ItemConcoctionGun concoctionGun;
     public static ItemConcoctionBow concoctionBow;
     public static ItemCoatedArrow coatedArrow;
+    public static ItemCoatedSword coatedSword;
 
     public static void registerItems() {
         ingredients = new ItemIngredients();
@@ -38,5 +43,8 @@ public class ItemsRegistry {
 
         coatedArrow = new ItemCoatedArrow();
         GameRegistry.registerItem(coatedArrow, "ItemCoatedArrow");
+
+        coatedSword = new ItemCoatedSword();
+        GameRegistry.registerItem(coatedSword, "ItemCoatedSword");
     }
 }
