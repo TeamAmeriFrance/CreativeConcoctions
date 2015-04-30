@@ -5,7 +5,6 @@ import amerifrance.concoctions.api.ingredients.IngredientProperty;
 import amerifrance.concoctions.concoctions.basic.ConcoctionKnowledge;
 import amerifrance.concoctions.items.ItemBottledIngredient;
 import amerifrance.concoctions.items.ItemConcoction;
-import amerifrance.concoctions.items.ItemCreativeIngredient;
 import amerifrance.concoctions.items.ItemKnowledgePhial;
 import amerifrance.concoctions.registry.ItemsRegistry;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -22,12 +21,11 @@ public class AnvilHandler {
         if (left == null || right == null) return;
 
         if (left.getItem() instanceof ItemConcoction && ItemConcoction.getConcoction(left) != null && ItemConcoction.getConcoction(left) instanceof ConcoctionKnowledge) {
-            if (right.getItem() instanceof ItemBottledIngredient || right.getItem() instanceof ItemCreativeIngredient) {
+            if (right.getItem() instanceof ItemBottledIngredient) {
                 IPropertiesContainer propertiesContainer = (IPropertiesContainer) right.getItem();
 
                 if (propertiesContainer.getIngredientProperties(right).size() == 1) {
                     IngredientProperty ingredientProperty = propertiesContainer.getIngredientProperties(right).get(0);
-                    int potency = propertiesContainer.getIngredientPotency(right);
 
                     ItemStack output = new ItemStack(ItemsRegistry.knowledgePhial);
                     ItemKnowledgePhial.setProperty(output, ingredientProperty);
