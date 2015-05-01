@@ -4,7 +4,7 @@ import amerifrance.concoctions.guide.GuideConcoctions;
 import amerifrance.concoctions.network.PacketHandler;
 import amerifrance.concoctions.proxies.CommonProxy;
 import amerifrance.concoctions.registry.*;
-import amerifrance.concoctions.util.event.EventHandlers;
+import amerifrance.concoctions.util.EventHandlers;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;

@@ -1,5 +1,6 @@
-package amerifrance.concoctions.util.event;
+package amerifrance.concoctions.util;
 
+import amerifrance.concoctions.util.event.*;
 import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -25,5 +26,8 @@ public class EventHandlers {
 
         MinecraftForge.EVENT_BUS.register(new KnowledgeHandler());
         FMLCommonHandler.instance().bus().register(new KnowledgeHandler());
+
+        MinecraftForge.EVENT_BUS.register(new CoatedSwordsHandler());
+        FMLCommonHandler.instance().bus().register(new CoatedSwordsHandler());
     }
 }

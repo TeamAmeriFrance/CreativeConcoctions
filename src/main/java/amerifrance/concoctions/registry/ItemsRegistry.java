@@ -17,7 +17,6 @@ public class ItemsRegistry {
     public static ItemConcoctionGun concoctionGun;
     public static ItemConcoctionBow concoctionBow;
     public static ItemCoatedArrow coatedArrow;
-    public static ItemCoatedSword coatedSword;
 
     public static void registerItems() {
         ingredients = new ItemIngredients();
@@ -43,8 +42,5 @@ public class ItemsRegistry {
 
         coatedArrow = new ItemCoatedArrow();
         GameRegistry.registerItem(coatedArrow, "ItemCoatedArrow");
-
-        coatedSword = new ItemCoatedSword();
-        GameRegistry.registerItem(coatedSword, "ItemCoatedSword");
     }
 }

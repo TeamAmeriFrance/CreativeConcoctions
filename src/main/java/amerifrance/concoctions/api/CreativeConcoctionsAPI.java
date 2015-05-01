@@ -1,5 +1,8 @@
 package amerifrance.concoctions.api;
 
+import amerifrance.concoctions.api.concoctions.Concoction;
+import amerifrance.concoctions.api.registry.ConcoctionsRegistry;
+import amerifrance.concoctions.api.util.NBTTags;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
@@ -37,5 +40,35 @@ public class CreativeConcoctionsAPI {
             returnString += characters.charAt(index);
         }
         return returnString;
+    }
+
+    public static Concoction getConcoction(ItemStack stack) {
+        CreativeConcoctionsAPI.checkAndSetCompound(stack);
+        return ConcoctionsRegistry.getConcoctionForId(stack.stackTagCompound.getString(NBTTags.ID_TAG));
+    }
+
+    public static int getDuration(ItemStack stack) {
+        CreativeConcoctionsAPI.checkAndSetCompound(stack);
+        return stack.stackTagCompound.getInteger(NBTTags.DURATION_TAG);
+    }
+
+    public static int getLevel(ItemStack stack) {
+        CreativeConcoctionsAPI.checkAndSetCompound(stack);
+        return stack.stackTagCompound.getInteger(NBTTags.LEVEL_TAG);
+    }
+
+    public static void setConcoction(ItemStack stack, Concoction concoction) {
+        CreativeConcoctionsAPI.checkAndSetCompound(stack);
+        stack.stackTagCompound.setString(NBTTags.ID_TAG, ConcoctionsRegistry.getIdForConcoction(concoction));
+    }
+
+    public static void setDuration(ItemStack stack, int duration) {
+        CreativeConcoctionsAPI.checkAndSetCompound(stack);
+        stack.stackTagCompound.setInteger(NBTTags.DURATION_TAG, duration);
+    }
+
+    public static void setLevel(ItemStack stack, int level) {
+        CreativeConcoctionsAPI.checkAndSetCompound(stack);
+        stack.stackTagCompound.setInteger(NBTTags.LEVEL_TAG, level);
     }
 }
