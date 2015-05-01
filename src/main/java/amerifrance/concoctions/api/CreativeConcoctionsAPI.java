@@ -43,32 +43,42 @@ public class CreativeConcoctionsAPI {
     }
 
     public static Concoction getConcoction(ItemStack stack) {
-        CreativeConcoctionsAPI.checkAndSetCompound(stack);
+        checkAndSetCompound(stack);
         return ConcoctionsRegistry.getConcoctionForId(stack.stackTagCompound.getString(NBTTags.ID_TAG));
     }
 
     public static int getDuration(ItemStack stack) {
-        CreativeConcoctionsAPI.checkAndSetCompound(stack);
+        checkAndSetCompound(stack);
         return stack.stackTagCompound.getInteger(NBTTags.DURATION_TAG);
     }
 
     public static int getLevel(ItemStack stack) {
-        CreativeConcoctionsAPI.checkAndSetCompound(stack);
+        checkAndSetCompound(stack);
         return stack.stackTagCompound.getInteger(NBTTags.LEVEL_TAG);
     }
 
+    public static int getUsesLeft(ItemStack stack) {
+        checkAndSetCompound(stack);
+        return stack.stackTagCompound.getInteger(NBTTags.USES_LEFT_TAG);
+    }
+
     public static void setConcoction(ItemStack stack, Concoction concoction) {
-        CreativeConcoctionsAPI.checkAndSetCompound(stack);
+        checkAndSetCompound(stack);
         stack.stackTagCompound.setString(NBTTags.ID_TAG, ConcoctionsRegistry.getIdForConcoction(concoction));
     }
 
     public static void setDuration(ItemStack stack, int duration) {
-        CreativeConcoctionsAPI.checkAndSetCompound(stack);
+        checkAndSetCompound(stack);
         stack.stackTagCompound.setInteger(NBTTags.DURATION_TAG, duration);
     }
 
     public static void setLevel(ItemStack stack, int level) {
-        CreativeConcoctionsAPI.checkAndSetCompound(stack);
+        checkAndSetCompound(stack);
         stack.stackTagCompound.setInteger(NBTTags.LEVEL_TAG, level);
+    }
+
+    public static void setUsesLeft(ItemStack stack, int usesLeft) {
+        checkAndSetCompound(stack);
+        stack.stackTagCompound.setInteger(NBTTags.USES_LEFT_TAG, usesLeft);
     }
 }

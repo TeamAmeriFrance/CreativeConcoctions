@@ -103,6 +103,7 @@ gui.text.instability=Instability: %s
 gui.text.boiling.time=Boiling Time: %s
 gui.text.concoction.gun.1=Shoots concoctions from inventory
 gui.text.concoction.gun.2=at a higher velocity that by hand
+gui.text.uses.left=Uses left: %s
 
 #=========================================================#
 # Chat                                                    #

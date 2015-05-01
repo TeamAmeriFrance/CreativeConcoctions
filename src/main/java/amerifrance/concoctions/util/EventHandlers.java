@@ -27,7 +27,7 @@ public class EventHandlers {
         MinecraftForge.EVENT_BUS.register(new KnowledgeHandler());
         FMLCommonHandler.instance().bus().register(new KnowledgeHandler());
 
-        MinecraftForge.EVENT_BUS.register(new CoatedSwordsHandler());
-        FMLCommonHandler.instance().bus().register(new CoatedSwordsHandler());
+        MinecraftForge.EVENT_BUS.register(new CoatedItemsHandler());
+        FMLCommonHandler.instance().bus().register(new CoatedItemsHandler());
     }
 }

@@ -11,4 +11,6 @@ public class NBTTags {
 
     public static String PROPERTY_TAG = "CC_Property_Tag";
     public static String PROPERTIES_TAG = "CC_Properties_Tag";
+
+    public static String USES_LEFT_TAG = "CC_Uses_Left";
 }
