@@ -7,8 +7,10 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.event.entity.player.PlayerDropsEvent;
 
 import java.util.Random;
 
@@ -56,6 +58,20 @@ public class LivingDropsHandler {
             if (random.nextInt(4) == 0) {
                 event.drops.add(CreativeConcoctionsAPI.createEntityItem(zombie.worldObj, zombie.posX, zombie.posY, zombie.posZ, new ItemStack(ItemsRegistry.ingredients, 1, 27)));
             }
+        }
+    }
+
+    @SubscribeEvent
+    public void onPlayerDrop(PlayerDropsEvent event) {
+        EntityPlayer player = event.entityPlayer;
+        if (random.nextInt(5) == 0) {
+            event.drops.add(CreativeConcoctionsAPI.createEntityItem(player.worldObj, player.posX, player.posY, player.posZ, new ItemStack(ItemsRegistry.ingredients, 1, 23)));
+        }
+        if (random.nextInt(4) == 0) {
+            event.drops.add(CreativeConcoctionsAPI.createEntityItem(player.worldObj, player.posX, player.posY, player.posZ, new ItemStack(ItemsRegistry.ingredients, 1, 22)));
+        }
+        if (random.nextInt(3) == 0) {
+            event.drops.add(CreativeConcoctionsAPI.createEntityItem(player.worldObj, player.posX, player.posY, player.posZ, new ItemStack(ItemsRegistry.ingredients, 1, 21)));
         }
     }
 }
