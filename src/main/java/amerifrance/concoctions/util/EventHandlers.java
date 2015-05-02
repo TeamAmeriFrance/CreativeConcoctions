@@ -29,5 +29,8 @@ public class EventHandlers {
 
         MinecraftForge.EVENT_BUS.register(new CoatedItemsHandler());
         FMLCommonHandler.instance().bus().register(new CoatedItemsHandler());
+
+        MinecraftForge.EVENT_BUS.register(new LivingDropsHandler());
+        FMLCommonHandler.instance().bus().register(new LivingDropsHandler());
     }
 }

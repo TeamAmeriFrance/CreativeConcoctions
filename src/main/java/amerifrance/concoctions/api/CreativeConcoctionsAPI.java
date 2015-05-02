@@ -3,8 +3,10 @@ package amerifrance.concoctions.api;
 import amerifrance.concoctions.api.concoctions.Concoction;
 import amerifrance.concoctions.api.registry.ConcoctionsRegistry;
 import amerifrance.concoctions.api.util.NBTTags;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.world.World;
 
 import java.util.Random;
 
@@ -40,6 +42,22 @@ public class CreativeConcoctionsAPI {
             returnString += characters.charAt(index);
         }
         return returnString;
+    }
+
+    public static EntityItem createEntityItem(World world, double x, double y, double z, ItemStack stack) {
+        if (!world.isRemote) {
+            float f = 0.7F;
+            float d0 = world.rand.nextFloat() * f + (1.0F - f) * 0.5F;
+            float d1 = world.rand.nextFloat() * f + (1.0F - f) * 0.5F;
+            float d2 = world.rand.nextFloat() * f + (1.0F - f) * 0.5F;
+            EntityItem entityitem = new EntityItem(world, x + d0, y + d1, z + d2, stack);
+            entityitem.delayBeforeCanPickup = 1;
+            if (stack.hasTagCompound()) {
+                entityitem.getEntityItem().setTagCompound((NBTTagCompound) stack.getTagCompound().copy());
+            }
+            return entityitem;
+        }
+        return null;
     }
 
     public static Concoction getConcoction(ItemStack stack) {
