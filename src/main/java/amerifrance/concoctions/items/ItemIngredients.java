@@ -13,6 +13,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraftforge.common.MinecraftForge;
 
 import java.util.List;
 
@@ -32,7 +33,10 @@ public class ItemIngredients extends Item {
         setUnlocalizedName(ModInformation.ID + ".ingredient");
         setHasSubtypes(true);
         setTextureName("ingredient");
+
         registerIngredients();
+        MinecraftForge.addGrassSeed(new ItemStack(this, 1, 12), 11);
+        MinecraftForge.addGrassSeed(new ItemStack(this, 1, 14), 15);
     }
 
     @Override

@@ -60,6 +60,7 @@ public class CreativeConcoctions {
         ModConcoctions.registerConcoctionRecipes();
         ModHeatSources.registerHeatSources();
         ModCoatedItems.registerCoatedItems();
+        RecipesRegistry.registerRecipes();
 
         GuideConcoctions.setConcoctionBook();
         PacketHandler.registerPackets();
