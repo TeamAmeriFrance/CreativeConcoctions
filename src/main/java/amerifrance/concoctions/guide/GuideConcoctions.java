@@ -1,5 +1,6 @@
 package amerifrance.concoctions.guide;
 
+import amerifrance.concoctions.ModInformation;
 import amerifrance.concoctions.api.ingredients.IngredientProperty;
 import amerifrance.concoctions.guide.property.EntryProperty;
 import amerifrance.concoctions.registry.ItemsRegistry;
@@ -7,6 +8,7 @@ import amerifrance.guideapi.api.GuideRegistry;
 import amerifrance.guideapi.api.abstraction.CategoryAbstract;
 import amerifrance.guideapi.api.abstraction.EntryAbstract;
 import amerifrance.guideapi.api.base.Book;
+import amerifrance.guideapi.api.util.BookBuilder;
 import amerifrance.guideapi.categories.CategoryItemStack;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -24,9 +26,8 @@ public class GuideConcoctions {
 
     public static void setConcoctionBook() {
 
-        for (IngredientProperty ingredientProperty : IngredientProperty.values()) {
+        for (IngredientProperty ingredientProperty : IngredientProperty.values())
             ingredientKnowledgeEntries.add(new EntryProperty(ingredientProperty.getLocalizedString(), ingredientProperty));
-        }
 
         CategoryItemStack introductory = new CategoryItemStack(basicConcoctionEntries, "guide.creativeconcoctions.category.concoctions.intro", new ItemStack(Items.writable_book));
         CategoryItemStack basicConcoctions = new CategoryItemStack(basicConcoctionEntries, "guide.creativeconcoctions.category.concoctions.basic", new ItemStack(Items.glass_bottle));
@@ -39,7 +40,14 @@ public class GuideConcoctions {
         categories.add(compoundConcoctions);
         categories.add(ingredientKnowledge);
 
-        concoctionBook = new Book(categories, "guide.creativeconcoctions.title", "guide.creativeconcoctions.welcome", "guide.creativeconcoctions.title", new Color(216, 0, 197));
+        BookBuilder builder = new BookBuilder();
+        builder.setUnlocBookTitle("guide.creativeconcoctions.title");
+        builder.setUnlocWelcomeMessage("guide.creativeconcoctions.welcome");
+        builder.setUnlocDisplayName("guide.creativeconcoctions.title");
+        builder.setAuthor(ModInformation.NAME);
+        builder.setCategories(categories);
+        builder.setBookColor(new Color(216, 0, 197));
+        concoctionBook = builder.build();
         GuideRegistry.registerBook(concoctionBook);
     }
 }
